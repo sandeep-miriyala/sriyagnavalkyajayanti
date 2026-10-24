@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "శ్రీ యాజ్ఞవల్క్య మహర్షి",
-  "short_name": "శ్రీ యాజ్ఞవల్క్య",
+  "name": "Sri Yagnavalkya Jayanti",
+  "short_name": "Yagnavalkya",
   "description": "శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం – 95వ జయంతి 19-11-2026",
   "lang": "te",
   "dir": "ltr",
@@ -18,7 +18,8 @@
     { "src": "android-chrome-maskable-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "జయంతి వివరాలు", "url": "/index.html#main" },
-    { "name": "మీ ప్రవర", "url": "/index.html#PravarGenerator" }
+    { "name": "Invitation", "url": "/index.html#home" },
+    { "name": "Pravara", "url": "/index.html#PravarGenerator" },
+    { "name": "Calendar", "url": "/index.html#paintings" }
   ]
 }
