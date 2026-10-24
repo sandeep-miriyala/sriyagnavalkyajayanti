@@ -1,5 +1,5 @@
 // Change this version whenever the site is updated.
-const CACHE_NAME = 'yagnavalkya-v20-2026';
+const CACHE_NAME = 'yagnavalkya-v21-2026';
 
 // Small core files needed to open the app offline.
 // (Big video/audio/PDF files are cached only after someone opens them.)
@@ -9,16 +9,13 @@ const CORE = [
   '/manifest.json',
   '/style.css',
   '/fonts/telugu-fonts.css',
+  '/icons.js',
   '/app.js',
   '/paintings.js',
   '/vendor/jszip.min.js',
   '/pwa.js',
   '/vendor/fuse.basic.min.js',
   '/vendor/html2canvas.min.js',
-  '/vendor/fa/css/all.min.css',
-  '/vendor/fa/webfonts/fa-solid-900.woff2',
-  '/vendor/fa/webfonts/fa-regular-400.woff2',
-  '/vendor/fa/webfonts/fa-brands-400.woff2',
   '/quiz.js',
   '/gotra.js',
   '/192.png',
@@ -33,8 +30,7 @@ const CORE = [
   '/fonts/noto-serif-telugu-telugu-400-normal.woff2',
   '/fonts/noto-serif-telugu-telugu-700-normal.woff2',
   '/fonts/noto-serif-telugu-latin-400-normal.woff2',
-  '/fonts/noto-serif-telugu-latin-700-normal.woff2',
-  '/fonts/material-icons.woff2'
+  '/fonts/noto-serif-telugu-latin-700-normal.woff2'
 ];
 
 self.addEventListener('install', (event) => {

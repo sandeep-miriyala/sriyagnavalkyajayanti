@@ -28,15 +28,13 @@
 @font-face { font-family: 'Noto Serif Telugu'; font-weight: 700 900; font-display: swap;
   src: url('fonts/noto-serif-telugu-latin-700-normal.woff2') format('woff2');
   unicode-range: U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD; }
-@font-face { font-family: 'Material Icons'; font-weight: 400; font-display: block;
-  src: url('fonts/material-icons.woff2') format('woff2'); }
 
-.material-icons {
-  font-family: 'Material Icons'; font-weight: normal; font-style: normal;
-  font-size: 1.4em; line-height: 1; letter-spacing: normal; text-transform: none;
-  display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr;
-  -webkit-font-smoothing: antialiased; vertical-align: middle; font-feature-settings: 'liga';
+.yi {
+  /* yuktai icons (icons.js): SVG in the text colour, sized by font-size like the old icon font */
+  font-size: 1.4em; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; flex: none;
 }
+.yi svg { display: block; width: 1em; height: 1em; pointer-events: none; } /* clicks land on the span, which stays when the icon is redrawn */
 
 /* ---------- Colour tokens ---------- */
 :root {
@@ -158,7 +156,7 @@ select:focus-visible, summary:focus-visible {
 .btn-soft { background: var(--btn-soft); color: var(--btn-soft-fg); border-color: var(--btn-soft-border); }
 .btn-soft:hover { background: var(--surface-3); }
 .btn-block { width: 100%; }
-.btn .fa-whatsapp { font-size: 1.4em; }
+.btn .yi-whatsapp { font-size: 1.4em; }
 .btn:disabled { opacity: .55; cursor: not-allowed; }
 
 /* ---------- Header ---------- */
@@ -183,7 +181,7 @@ select:focus-visible, summary:focus-visible {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   cursor: pointer; border: 2px solid transparent;
 }
-.hdr-btn .material-icons { font-size: 1.45rem; }
+.hdr-btn .yi { font-size: 1.45rem; }
 #menuBtn { background: var(--btn); color: var(--btn-fg); }
 #installBtn { background: var(--btn-green); color: var(--btn-green-fg); }
 
@@ -220,7 +218,7 @@ select:focus-visible, summary:focus-visible {
   color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.05rem; background: var(--surface);
 }
 .menu-list a:hover, .menu-list a:focus { background: var(--surface-3); }
-.menu-list .material-icons { color: var(--heading); font-size: 1.6rem; }
+.menu-list .yi { color: var(--heading); font-size: 1.6rem; }
 .menu-close { margin-top: 12px; }
 #menuPanel .settings { border-radius: 16px; }
 
@@ -242,7 +240,7 @@ select:focus-visible, summary:focus-visible {
   border-radius: 12px; border: 2px solid var(--btn-soft-border); background: var(--btn-soft); color: var(--btn-soft-fg);
   cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 2px; padding: 4px 10px;
 }
-.tool-btn .material-icons { font-size: 1.3rem; }
+.tool-btn .yi { font-size: 1.3rem; }
 .tool-btn:hover:not(:disabled) { background: var(--surface-3); }
 .tool-btn:disabled { opacity: .45; cursor: not-allowed; }
 
@@ -263,7 +261,7 @@ main { display: block; padding: 0 12px; }
   text-align: center; border-bottom: 3px solid var(--border);
   display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
 }
-.card-title .material-icons { color: var(--accent); }
+.card-title .yi { color: var(--accent); }
 .sub-title {
   margin: 18px 0 10px; padding-left: 12px; border-left: 5px solid var(--teal);
   font-size: clamp(1.15rem, 4vw, 1.35rem); color: var(--teal); font-weight: 700;
@@ -291,7 +289,7 @@ main { display: block; padding: 0 12px; }
 .hero-date small { display: block; font-size: .75em; color: #4a148c; }
 .hero-facts { list-style: none; padding: 12px 0 0; margin: 10px auto 0; border-top: 1px solid rgba(255,255,255,.35); max-width: 520px; text-align: left; }
 .hero-facts li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; font-size: 1.05rem; line-height: 1.6; color: #ffffff; }
-.hero-facts .material-icons { color: #ffe0b2; margin-top: 2px; }
+.hero-facts .yi { color: #ffe0b2; margin-top: 2px; }
 .countdown {
   margin: 12px auto 14px; display: flex; width: fit-content; align-items: center; gap: 8px;
   background: rgba(0,0,0,.28); border: 2px solid rgba(255,255,255,.5); border-radius: 30px;
@@ -302,7 +300,7 @@ main { display: block; padding: 0 12px; }
 .hero-actions .btn:hover { background: #f3e5f5; }
 .hero-actions .btn.help-wide { grid-column: 1 / -1; color: #6d1f00; }
 .hero-actions .btn.wa { grid-column: 1 / -1; color: #14532d; font-size: 1.1rem; min-height: 60px; }
-.hero-actions .btn.wa .fa-whatsapp { color: #128c4b; }
+.hero-actions .btn.wa .yi-whatsapp { color: #128c4b; }
 .share-status { min-height: 1.6em; margin: 8px 0 0; font-weight: 700; color: #ffffff; }
 
 /* ---------- About ---------- */
@@ -480,8 +478,8 @@ footer.site-footer { text-align: center; padding: 18px 10px 26px; color: var(--t
   background: none; border: 0; color: var(--text); text-decoration: none; cursor: pointer;
   font-size: .72rem; font-weight: 700; line-height: 1.2;
 }
-.bottom-nav .material-icons { font-size: 1.55rem; color: var(--heading); }
-.bottom-nav .help .material-icons { background: var(--btn-accent); color: var(--btn-accent-fg); border-radius: 50%; padding: 6px; font-size: 1.3rem; }
+.bottom-nav .yi { font-size: 1.55rem; color: var(--heading); }
+.bottom-nav .help .yi { background: var(--btn-accent); color: var(--btn-accent-fg); border-radius: 50%; padding: 6px; font-size: 1.3rem; }
 .bottom-nav a:hover, .bottom-nav button:hover { background: var(--surface-3); }
 
 #toTop {
@@ -521,7 +519,7 @@ dialog::backdrop { background: rgba(0,0,0,.6); }
     border-radius: 30px; border: 3px solid var(--surface); cursor: pointer; font-family: inherit;
     background: var(--btn-accent); color: var(--btn-accent-fg); box-shadow: 0 8px 20px rgba(0,0,0,.3);
   }
-  #botFab .material-icons { font-size: 1.7rem; }
+  #botFab .yi { font-size: 1.7rem; }
   #botFab .fab-text { display: flex; flex-direction: column; line-height: 1.2; text-align: left; }
   #botFab b { font-size: .8rem; }
   #botFab small { font-size: .68rem; font-weight: 700; }
@@ -617,7 +615,7 @@ dialog::backdrop { background: rgba(0,0,0,.6); }
 .tech-repo { text-align: center; margin: 0 0 16px; }
 .tech-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
 .tech-grid li { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: start; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; padding: 12px; }
-.tech-grid li .material-icons { grid-row: span 2; color: var(--heading); font-size: 1.8rem; }
+.tech-grid li .yi { grid-row: span 2; color: var(--heading); font-size: 1.8rem; }
 .tech-grid b { color: var(--text); }
 .tech-grid li > span:last-child { color: var(--text-2); font-size: .9rem; line-height: 1.7; }
 
@@ -627,7 +625,7 @@ dialog::backdrop { background: rgba(0,0,0,.6); }
 .desk-nav a.active, .desk-nav a[aria-current="page"] { color: var(--heading); border-bottom-color: var(--btn); background: var(--surface-3); }
 .menu-list a[aria-current="page"] { background: var(--surface-3); box-shadow: inset 6px 0 0 var(--btn); }
 .bottom-nav a[aria-current="page"] { background: var(--surface-3); box-shadow: inset 0 4px 0 var(--btn); }
-.bottom-nav a[aria-current="page"] .material-icons { color: var(--heading); }
+.bottom-nav a[aria-current="page"] .yi { color: var(--heading); }
 html.spa main > section { scroll-margin-top: 90px; }
 .page-in > section:not([hidden]) { animation: pageIn .25s ease-out; }
 @keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -648,7 +646,7 @@ html.spa main > section { scroll-margin-top: 90px; }
   background: rgba(46, 10, 92, .88); color: #ffffff; display: inline-flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 12px rgba(0,0,0,.35);
 }
-.slide-arrow .material-icons { font-size: 2.2rem; }
+.slide-arrow .yi { font-size: 2.2rem; }
 .slide-arrow.prev { left: 8px; }
 .slide-arrow.next { right: 8px; }
 .slide-arrow:hover { background: #2e0a5c; }

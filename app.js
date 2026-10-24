@@ -106,7 +106,7 @@
     }
     const m = document.querySelector('.menu-list a[href="#about"]');
     if (m && !document.querySelector('.menu-list a[href="#Quiz"]')) {
-      const li = document.createElement('li'); li.innerHTML = '<a href="#Quiz"><span class="material-icons" aria-hidden="true">quiz</span>క్విజ్</a>'; m.parentElement.after(li);
+      const li = document.createElement('li'); li.innerHTML = '<a href="#Quiz"><span class="yi" data-icon="help" aria-hidden="true"></span>క్విజ్</a>'; m.parentElement.after(li);
     }
   }
 
@@ -116,7 +116,7 @@
     const open = (yes) => {
       panel.hidden = !yes;
       btn.setAttribute('aria-expanded', String(yes));
-      icon.textContent = yes ? 'close' : 'menu';
+      icon.setAttribute('data-icon', yes ? 'close' : 'menu');
       if (yes) { const first = $('a', panel); if (first) first.focus(); }
     };
     btn.addEventListener('click', () => open(panel.hidden));
@@ -152,7 +152,7 @@
 
   function setupBottomBar() {
     const a = document.querySelector('.bottom-nav a[href="#deepam"]');
-    if (a) { a.setAttribute('href', '#paintings'); a.innerHTML = '<span class="material-icons" aria-hidden="true">calendar_month</span>క్యాలెండర్'; }
+    if (a) { a.setAttribute('href', '#paintings'); a.innerHTML = '<span class="yi" data-icon="calendar" aria-hidden="true"></span>క్యాలెండర్'; }
   }
 
   /* 🔊 / 🎤 bar shown at the top of EVERY page */
@@ -171,7 +171,7 @@
   ];
   let botAskExternal = null;
   function readablePageText() {
-    const skip = 'button, .btn, nav, .material-icons, .sr-only, [aria-hidden="true"], audio, video, select, input, script, style, .month-grid, .slide-hint, .page-back, .share-status, [lang="en"], .voice-bar, .slide-count-badge, #quizApp .options-list, .bot-chips, [hidden]';
+    const skip = 'button, .btn, nav, .yi, .sr-only, [aria-hidden="true"], audio, video, select, input, script, style, .month-grid, .slide-hint, .page-back, .share-status, [lang="en"], .voice-bar, .slide-count-badge, #quizApp .options-list, .bot-chips, [hidden]';
     const picked = [];
     $$('main > section:not([hidden])').forEach(sec => {
       sec.querySelectorAll('h2, h3, p, li, .bhava, .date-line, .hero-date').forEach(el => {
@@ -186,8 +186,8 @@
     const main = $('#content'); if (!main) return;
     const bar = document.createElement('div');
     bar.className = 'voice-bar'; bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'వినండి, మాట్లాడండి');
-    bar.innerHTML = `<button type="button" class="btn btn-soft vb-listen"><span class="material-icons" aria-hidden="true">volume_up</span> ఈ పేజీ వినండి</button>
-      <button type="button" class="btn btn-accent vb-speak" hidden><span class="material-icons" aria-hidden="true">mic</span> మాట్లాడి అడగండి</button>
+    bar.innerHTML = `<button type="button" class="btn btn-soft vb-listen"><span class="yi" data-icon="speaker" aria-hidden="true"></span> ఈ పేజీ వినండి</button>
+      <button type="button" class="btn btn-accent vb-speak" hidden><span class="yi" data-icon="mic" aria-hidden="true"></span> మాట్లాడి అడగండి</button>
       <p class="vb-status" aria-live="polite"></p>`;
     main.prepend(bar);
     const listen = $('.vb-listen', bar), speakBtn = $('.vb-speak', bar), status = $('.vb-status', bar);
@@ -202,7 +202,7 @@
       speech.stop();
       rec = new SR(); rec.lang = 'te-IN'; rec.interimResults = false; rec.maxAlternatives = 3;
       speakBtn.classList.add('listening');
-      speakBtn.innerHTML = '<span class="material-icons" aria-hidden="true">hearing</span> వింటున్నాను… మాట్లాడండి';
+      speakBtn.innerHTML = '<span class="yi" data-icon="mic" aria-hidden="true"></span> వింటున్నాను… మాట్లాడండి';
       status.textContent = 'ఉదా: "పుస్తకాలు", "క్యాలెండర్", "జయంతి ఎప్పుడు?"';
       rec.onresult = ev => {
         const alts = [...ev.results[0]].map(r => r.transcript.trim());
@@ -219,7 +219,7 @@
       };
       rec.onend = () => {
         speakBtn.classList.remove('listening'); rec = null;
-        speakBtn.innerHTML = '<span class="material-icons" aria-hidden="true">mic</span> మాట్లాడి అడగండి';
+        speakBtn.innerHTML = '<span class="yi" data-icon="mic" aria-hidden="true"></span> మాట్లాడి అడగండి';
       };
       try { rec.start(); } catch (e) { rec = null; speakBtn.classList.remove('listening'); }
     });
@@ -236,7 +236,7 @@
       if (!last) return;
       const bar = document.createElement('div');
       bar.className = 'page-back';
-      bar.innerHTML = '<a class="btn btn-soft" href="#home"><span class="material-icons" aria-hidden="true">home</span> ముఖ్య పేజీకి వెళ్ళండి</a>';
+      bar.innerHTML = '<a class="btn btn-soft" href="#home"><span class="yi" data-icon="home" aria-hidden="true"></span> ముఖ్య పేజీకి వెళ్ళండి</a>';
       last.after(bar);
       p.back = bar;
     });
@@ -326,7 +326,7 @@
     const applyTheme = (t) => {
       root.setAttribute('data-theme', t);
       const dark = t === 'dark';
-      $$('.js-theme-icon').forEach(i => { i.textContent = dark ? 'light_mode' : 'dark_mode'; });
+      $$('.js-theme-icon').forEach(i => { i.setAttribute('data-icon', dark ? 'sun' : 'moon'); });
       $$('.js-theme-text').forEach(i => { i.textContent = dark ? 'పగలు' : 'రాత్రి'; });
       if (meta) meta.setAttribute('content', dark ? '#15111b' : '#4a148c');
     };
@@ -487,7 +487,7 @@
       if (btn) {
         this.speaking = btn;
         btn.dataset.label = btn.dataset.label || btn.innerHTML;
-        btn.innerHTML = '<span class="material-icons" aria-hidden="true">stop_circle</span> ఆపు';
+        btn.innerHTML = '<span class="yi" data-icon="stop" aria-hidden="true"></span> ఆపు';
         btn.setAttribute('aria-pressed', 'true');
         btn.addEventListener('speech-end', () => { btn.innerHTML = btn.dataset.label; btn.setAttribute('aria-pressed', 'false'); }, { once: true });
       }
@@ -514,8 +514,8 @@
     let d = document.getElementById('teVoiceDialog');
     if (!d) {
       d = document.createElement('dialog'); d.id = 'teVoiceDialog'; d.setAttribute('aria-labelledby', 'teVoiceTitle');
-      d.innerHTML = `<div class="dlg-head"><span class="material-icons" aria-hidden="true">record_voice_over</span><h2 id="teVoiceTitle">తెలుగు గొంతు కావాలి</h2>
-        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="material-icons" aria-hidden="true">close</span></button></div>
+      d.innerHTML = `<div class="dlg-head"><span class="yi" data-icon="speaker" aria-hidden="true"></span><h2 id="teVoiceTitle">తెలుగు గొంతు కావాలి</h2>
+        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="yi" data-icon="close" aria-hidden="true"></span></button></div>
         <div class="dlg-body"><p>మీ ఫోన్‌లో తెలుగులో చదివే గొంతు లేదు. ఇంగ్లీష్ గొంతుతో తెలుగు సరిగా రాదు, అందుకే చదవలేదు.</p>
         <p><b>ఒక్కసారి ఇలా చేయండి (ఆండ్రాయిడ్):</b></p>
         <ol><li>ఫోన్ <b>సెట్టింగ్స్</b> తెరవండి.</li><li><b>భాష</b> లేదా <b>సిస్టమ్ → భాషలు & ఇన్‌పుట్</b> నొక్కండి.</li>
@@ -544,7 +544,7 @@
       const f = `Image ${i}.jpg`;
       html += `<figure>
         <img src="${f}" alt="ఉత్సవ చిత్రం ${i}" loading="lazy" />
-        <a href="${f}" download="yagnavalkya_photo_${String(i).padStart(2, '0')}.jpg" class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – చిత్రం ${i}</span></a>
+        <a href="${f}" download="yagnavalkya_photo_${String(i).padStart(2, '0')}.jpg" class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – చిత్రం ${i}</span></a>
       </figure>`;
     }
     g.innerHTML = html;
@@ -598,8 +598,8 @@
     const cap0 = $('#slideCaption'); frame.before(cap0);        // caption above the picture
     const prev = $('#slidePrev'), next = $('#slideNext');
     prev.className = 'slide-arrow prev'; next.className = 'slide-arrow next';
-    prev.innerHTML = '<span class="material-icons" aria-hidden="true">chevron_left</span>';
-    next.innerHTML = '<span class="material-icons" aria-hidden="true">chevron_right</span>';
+    prev.innerHTML = '<span class="yi" data-icon="left" aria-hidden="true"></span>';
+    next.innerHTML = '<span class="yi" data-icon="right" aria-hidden="true"></span>';
     prev.setAttribute('aria-label', 'ముందు నెల'); next.setAttribute('aria-label', 'తరువాతి నెల');
     frame.append(prev, next);
     const cnt0 = $('#slideCount'); cnt0.className = 'slide-count-badge'; frame.append(cnt0);
@@ -620,8 +620,8 @@
     const restartBar = () => { bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run'); };
     const setPlayLabel = (on) => {
       play.innerHTML = on
-        ? '<span class="material-icons" aria-hidden="true">pause_circle</span> స్లైడ్ షో ఆపు'
-        : '<span class="material-icons" aria-hidden="true">play_circle</span> స్లైడ్ షో (తనంతట అదే చూపిస్తుంది)';
+        ? '<span class="yi" data-icon="pause" aria-hidden="true"></span> స్లైడ్ షో ఆపు'
+        : '<span class="yi" data-icon="play" aria-hidden="true"></span> స్లైడ్ షో (తనంతట అదే చూపిస్తుంది)';
       play.setAttribute('aria-pressed', String(on));
     };
     function stopShow() { if (timer) clearInterval(timer); timer = null; bar.hidden = true; bar.classList.remove('run'); setPlayLabel(false); }
@@ -856,12 +856,12 @@
       a.textContent = text;
       const acts = document.createElement('div'); acts.className = 'msg-actions';
       const sp = document.createElement('button'); sp.type = 'button';
-      sp.innerHTML = '<span class="material-icons" aria-hidden="true">volume_up</span> వినండి';
+      sp.innerHTML = '<span class="yi" data-icon="speaker" aria-hidden="true"></span> వినండి';
       sp.addEventListener('click', () => speech.say(text, sp));
       acts.appendChild(sp);
       if (intent && intent.action) {
         const go = document.createElement('button'); go.type = 'button';
-        go.innerHTML = '<span class="material-icons" aria-hidden="true">arrow_forward</span> ' + intent.action[0];
+        go.innerHTML = '<span class="yi" data-icon="arrowRight" aria-hidden="true"></span> ' + intent.action[0];
         go.addEventListener('click', () => goTo(intent.action[1]));
         acts.appendChild(go);
       }

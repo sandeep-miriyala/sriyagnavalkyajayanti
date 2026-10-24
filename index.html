@@ -21,8 +21,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="192.png">
     <link rel="apple-touch-icon" href="192.png">
     <link rel="preload" href="fonts/noto-sans-telugu-telugu-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/material-icons.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="vendor/fa/css/all.min.css">
     <link rel="stylesheet" href="fonts/telugu-fonts.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,13 +31,13 @@
 <header class="site-header">
     <div class="header-row">
         <button id="menuBtn" class="hdr-btn" type="button" aria-expanded="false" aria-controls="menuPanel">
-            <span class="material-icons" aria-hidden="true" id="menuIcon">menu</span>
+            <span class="yi" data-icon="menu" aria-hidden="true" id="menuIcon"></span>
             <span>మెనూ</span>
         </button>
         <h1 class="site-title">శ్రీ యాజ్ఞవల్క్య మహర్షి<small>95వ జయంతి · పిఠాపురం</small></h1>
         <nav class="desk-nav" aria-label="ముఖ్య మెనూ"><ul><li><a href="#home">ఆహ్వానం</a></li><li><a href="#program-details">కార్యక్రమం</a></li><li><a href="#upadesam">ఉపదేశం</a></li><li><a href="#about">చరిత్ర</a></li><li><a href="#PravarGenerator">ప్రవర</a></li><li><a href="#deepam">దీపం</a></li><li><a href="#invitations">పుస్తకాలు</a></li><li><a href="#paintings">శ్రీ చంద్రుపట్ల బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery">ఫోటోలు</a></li><li><a href="#related">మరిన్ని సైట్లు</a></li></ul></nav>
         <button id="installBtn" class="hdr-btn" type="button">
-            <span class="material-icons" aria-hidden="true">install_mobile</span>
+            <span class="yi" data-icon="install" aria-hidden="true"></span>
             <span>యాప్</span>
             <span class="sr-only">ఇన్‌స్టాల్ చేయండి</span>
         </button>
@@ -47,14 +45,14 @@
 
     <nav id="menuPanel" aria-label="మెనూ" hidden>
         <div class="menu-inner">
-            <ul class="menu-list"><li><a href="#home"><span class="material-icons" aria-hidden="true">celebration</span>ఆహ్వానం</a></li><li><a href="#program-details"><span class="material-icons" aria-hidden="true">event_note</span>కార్యక్రమం</a></li><li><a href="#upadesam"><span class="material-icons" aria-hidden="true">self_improvement</span>ఉపదేశం</a></li><li><a href="#about"><span class="material-icons" aria-hidden="true">auto_stories</span>చరిత్ర</a></li><li><a href="#PravarGenerator"><span class="material-icons" aria-hidden="true">person</span>ప్రవర</a></li><li><a href="#deepam"><span class="material-icons" aria-hidden="true">local_fire_department</span>దీపం</a></li><li><a href="#invitations"><span class="material-icons" aria-hidden="true">menu_book</span>పుస్తకాలు</a></li><li><a href="#paintings"><span class="material-icons" aria-hidden="true">palette</span>బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>ఫోటోలు</a></li><li><a href="#related"><span class="material-icons" aria-hidden="true">language</span>మరిన్ని సైట్లు</a></li></ul>
+            <ul class="menu-list"><li><a href="#home"><span class="yi" data-icon="spark" aria-hidden="true"></span>ఆహ్వానం</a></li><li><a href="#program-details"><span class="yi" data-icon="calendar" aria-hidden="true"></span>కార్యక్రమం</a></li><li><a href="#upadesam"><span class="yi" data-icon="meditate" aria-hidden="true"></span>ఉపదేశం</a></li><li><a href="#about"><span class="yi" data-icon="book" aria-hidden="true"></span>చరిత్ర</a></li><li><a href="#PravarGenerator"><span class="yi" data-icon="person" aria-hidden="true"></span>ప్రవర</a></li><li><a href="#deepam"><span class="yi" data-icon="lamp" aria-hidden="true"></span>దీపం</a></li><li><a href="#invitations"><span class="yi" data-icon="book" aria-hidden="true"></span>పుస్తకాలు</a></li><li><a href="#paintings"><span class="yi" data-icon="palette" aria-hidden="true"></span>బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery"><span class="yi" data-icon="image" aria-hidden="true"></span>ఫోటోలు</a></li><li><a href="#related"><span class="yi" data-icon="globe" aria-hidden="true"></span>మరిన్ని సైట్లు</a></li></ul>
             <div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
         <div class="set-item">
             <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
             <div class="size-ctl">
-                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="material-icons" aria-hidden="true">remove</span><span aria-hidden="true">అ</span></button>
+                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="yi" data-icon="minus" aria-hidden="true"></span><span aria-hidden="true">అ</span></button>
                 <span class="size-dots js-size-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="material-icons" aria-hidden="true">add</span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
+                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="yi" data-icon="plus" aria-hidden="true"></span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
             </div>
         </div>
         <div class="set-item">
@@ -63,11 +61,11 @@
         </div>
         <div class="set-item">
             <span class="set-label" aria-hidden="true">రంగులు</span>
-            <button type="button" class="tool-btn js-theme"><span class="material-icons js-theme-icon" aria-hidden="true">dark_mode</span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
+            <button type="button" class="tool-btn js-theme"><span class="yi js-theme-icon" data-icon="moon" aria-hidden="true"></span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
         </div>
     </div>
             <button id="menuClose" type="button" class="btn btn-soft btn-block menu-close">
-                <span class="material-icons" aria-hidden="true">close</span> మెనూ మూసివేయి
+                <span class="yi" data-icon="close" aria-hidden="true"></span> మెనూ మూసివేయి
             </button>
         </div>
     </nav>
@@ -77,9 +75,9 @@
         <div class="set-item">
             <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
             <div class="size-ctl">
-                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="material-icons" aria-hidden="true">remove</span><span aria-hidden="true">అ</span></button>
+                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="yi" data-icon="minus" aria-hidden="true"></span><span aria-hidden="true">అ</span></button>
                 <span class="size-dots js-size-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="material-icons" aria-hidden="true">add</span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
+                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="yi" data-icon="plus" aria-hidden="true"></span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
             </div>
         </div>
         <div class="set-item">
@@ -88,7 +86,7 @@
         </div>
         <div class="set-item">
             <span class="set-label" aria-hidden="true">రంగులు</span>
-            <button type="button" class="tool-btn js-theme"><span class="material-icons js-theme-icon" aria-hidden="true">dark_mode</span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
+            <button type="button" class="tool-btn js-theme"><span class="yi js-theme-icon" data-icon="moon" aria-hidden="true"></span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
         </div>
     </div>
 </aside>
@@ -104,39 +102,39 @@
     <p class="countdown" id="countdown" aria-live="polite"></p>
     <div class="hero-actions">
         <button type="button" class="btn wa" data-share-pdf>
-            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ఆహ్వాన పత్రిక వాట్సాప్‌లో పంపండి
+            <span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> ఆహ్వాన పత్రిక వాట్సాప్‌లో పంపండి
         </button>
         <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener">
-            <span class="material-icons" aria-hidden="true">directions</span> దారి చూపించు
+            <span class="yi" data-icon="map" aria-hidden="true"></span> దారి చూపించు
         </a>
         <button type="button" class="btn" data-speak="#heroSpeech">
-            <span class="material-icons" aria-hidden="true">volume_up</span> చదివి వినిపించు
+            <span class="yi" data-icon="speaker" aria-hidden="true"></span> చదివి వినిపించు
         </button>
         <a class="btn" href="invitation-2026.pdf" target="_blank" rel="noopener">
-            <span class="material-icons" aria-hidden="true">picture_as_pdf</span> పత్రిక చూడండి
+            <span class="yi" data-icon="file" aria-hidden="true"></span> పత్రిక చూడండి
         </a>
         <button type="button" class="btn" id="calendarBtn">
-            <span class="material-icons" aria-hidden="true">event_available</span> క్యాలెండర్‌లో గుర్తు
+            <span class="yi" data-icon="calendar" aria-hidden="true"></span> క్యాలెండర్‌లో గుర్తు
         </button>
         <button type="button" class="btn help-wide js-bot-open">
-            <span class="material-icons" aria-hidden="true">support_agent</span> 24×7 సహాయ మిత్రను అడగండి
+            <span class="yi" data-icon="chat" aria-hidden="true"></span> 24×7 సహాయ మిత్రను అడగండి
         </button>
     </div>
     <p class="share-status" data-share-status aria-live="polite"></p>
     <ul class="hero-facts">
-        <li><span class="material-icons" aria-hidden="true">schedule</span><span>ఉదయం 9 గంటల నుండి</span></li>
-        <li><span class="material-icons" aria-hidden="true">temple_hindu</span><span>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం</span></li>
-        <li><span class="material-icons" aria-hidden="true">redeem</span><span>ప్రతి కుటుంబానికి శ్రీ సూర్యకవచం, తామ్ర డాలరు కానుక</span></li>
+        <li><span class="yi" data-icon="clock" aria-hidden="true"></span><span>ఉదయం 9 గంటల నుండి</span></li>
+        <li><span class="yi" data-icon="temple" aria-hidden="true"></span><span>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం</span></li>
+        <li><span class="yi" data-icon="gift" aria-hidden="true"></span><span>ప్రతి కుటుంబానికి శ్రీ సూర్యకవచం, తామ్ర డాలరు కానుక</span></li>
     </ul>
     <p id="heroSpeech" hidden>శ్రీ యాజ్ఞవల్క్య మహర్షి తొంభై ఐదవ జయంతి. నవంబర్ పందొమ్మిది, రెండు వేల ఇరవై ఆరు, గురువారం. ఉదయం తొమ్మిది గంటల నుండి. పిఠాపురం, శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన. అందరూ ఆహ్వానితులే.</p>
 </section>
 
 <!-- ================= About ================= -->
 <section id="about" class="card" tabindex="-1" aria-labelledby="aboutTitle">
-    <h2 class="card-title" id="aboutTitle"><span class="material-icons" aria-hidden="true">auto_stories</span> శ్రీ యాజ్ఞవల్క్య మహర్షి</h2>
+    <h2 class="card-title" id="aboutTitle"><span class="yi" data-icon="book" aria-hidden="true"></span> శ్రీ యాజ్ఞవల్క్య మహర్షి</h2>
 
     <div class="audio-row">
-        <span class="material-icons" aria-hidden="true">headphones</span> ధ్వని వివరణ – వినండి
+        <span class="yi" data-icon="headphones" aria-hidden="true"></span> ధ్వని వివరణ – వినండి
         <audio id="ttdaudio" controls preload="none" aria-label="మహర్షి గురించి ధ్వని వివరణ">
             <source src="llm telugu.mp4" type="audio/mp4" />
         </audio>
@@ -199,7 +197,7 @@
 
 <!-- ================= Pravara ================= -->
 <section id="PravarGenerator" class="card" tabindex="-1" aria-labelledby="pravar-title">
-    <h2 class="card-title" id="pravar-title"><span class="material-icons" aria-hidden="true">person</span> శుక్ల యజుర్వేద ప్రవర వివరాలు పొందండి</h2>
+    <h2 class="card-title" id="pravar-title"><span class="yi" data-icon="person" aria-hidden="true"></span> శుక్ల యజుర్వేద ప్రవర వివరాలు పొందండి</h2>
     <div id="welcomeText" aria-live="polite"></div>
     <div id="errorMessages" role="alert"></div>
 
@@ -238,7 +236,7 @@
         <button type="button" id="downloadBtn" class="btn btn-soft"><span aria-hidden="true">⬇️</span> ఫైల్ డౌన్‌లోడ్</button>
         <button type="button" id="playAudioBtn" class="btn btn-soft"><span aria-hidden="true">🔊</span> వినండి</button>
         <button type="button" id="stopAudioBtn" class="btn btn-soft" style="display:none"><span aria-hidden="true">⏹️</span> ఆపు</button>
-        <button type="button" id="whatsappShareBtn" class="btn btn-green"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్‌లో పంపండి</button>
+        <button type="button" id="whatsappShareBtn" class="btn btn-green"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్‌లో పంపండి</button>
     </div>
 
     <div class="reset-row">
@@ -269,19 +267,19 @@
         శ్రీ మానిత్యాది బిరుదాంకితులు పరవాది భయంకరభట్ట వెంకట నరశింహాచార్యులు వారిచే శ్రీ వెంకటేశ్వరస్వామి వారి దేవాలయంలో ప్రతిష్టించబడిన <b>శ్రీ యాజ్ఞవల్క్య మహర్షి</b> వారి <b>95వ</b> జయంతి పీఠికాపురమునందు శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము వారిచే జరుపబడును.
     </div>
     <div class="speak-row">
-        <button type="button" class="btn btn-soft" data-speak="#invDetails"><span class="material-icons" aria-hidden="true">volume_up</span> ఈ వివరాలు వినండి</button>
+        <button type="button" class="btn btn-soft" data-speak="#invDetails"><span class="yi" data-icon="speaker" aria-hidden="true"></span> ఈ వివరాలు వినండి</button>
     </div>
 
     <h3 class="sub-title">జయంతి జరుగు ప్రదేశము:</h3>
     <div class="place-box">
         <p>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం,<br>టి.టి.డి. కళ్యాణం మండపం ప్రక్కన,<br>పిఠాపురం- 533 450 ,ఆంధ్రప్రదేశ్.</p>
-        <a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true">directions</span> దారి చూపించు (మ్యాప్)</a>
+        <a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener"><span class="yi" data-icon="map" aria-hidden="true"></span> దారి చూపించు (మ్యాప్)</a>
     </div>
 </section>
 
 <!-- ================= Programme ================= -->
 <section id="program-details" class="card warm" tabindex="-1" aria-labelledby="progTitle">
-    <h2 class="card-title" id="progTitle"><span class="material-icons" aria-hidden="true">event_note</span> కార్యక్రమ వివరాలు</h2>
+    <h2 class="card-title" id="progTitle"><span class="yi" data-icon="calendar" aria-hidden="true"></span> కార్యక్రమ వివరాలు</h2>
     <p class="prog-date">ది.19-11-2026 తేది గురువారం ఉదయం 9 గంటల నుండి</p>
     <ul class="prog-list">
         <li class="prog-item">
@@ -294,21 +292,21 @@
         </li>
     </ul>
     <div class="note-box teal">
-        <h3><span class="material-icons" aria-hidden="true">card_giftcard</span> ప్రతి కుటుంబానికి కానుకలు:</h3>
+        <h3><span class="yi" data-icon="gift" aria-hidden="true"></span> ప్రతి కుటుంబానికి కానుకలు:</h3>
         <p style="font-weight:400">ఈ సంవత్సరం జయంతికి వచ్చిన ప్రతీ కుటుంబానికి కానుకగా <b class="hl">శ్రీ సూర్యకవచం</b> మరియు <b class="hl">శ్రీ యాజ్ఞవల్క్య మహర్షి వారి తామ్ర డాలరు</b> ఇవ్వబడును.</p>
     </div>
     <div class="note-box">
-        <h3><span class="material-icons" aria-hidden="true">next_plan</span> వచ్చే సంవత్సరం జయంతి తేదీ:</h3>
+        <h3><span class="yi" data-icon="calendar" aria-hidden="true"></span> వచ్చే సంవత్సరం జయంతి తేదీ:</h3>
         <p>ది.08-11-2027 సోమవారం నాడు నిర్వహించబడును.</p>
     </div>
 </section>
 
 <!-- ================= Upadesam – poem from pages 11–12 of the 2026 invitation ================= -->
 <section id="upadesam" class="card" tabindex="-1" aria-labelledby="upTitle">
-    <h2 class="card-title" id="upTitle"><span class="material-icons" aria-hidden="true">self_improvement</span> యాజ్ఞవల్క్యుడు – ప్రపంచం ప్రయత్నపూర్వకంగా తెలుసుకోవాల్సిన మహర్షి</h2>
+    <h2 class="card-title" id="upTitle"><span class="yi" data-icon="meditate" aria-hidden="true"></span> యాజ్ఞవల్క్యుడు – ప్రపంచం ప్రయత్నపూర్వకంగా తెలుసుకోవాల్సిన మహర్షి</h2>
     <p class="lead">(2026 ఆహ్వాన పత్రిక నుండి)</p>
     <div class="speak-row">
-        <button type="button" class="btn btn-soft" data-speak="#upText"><span class="material-icons" aria-hidden="true">volume_up</span> ఈ ఉపదేశం వినండి</button>
+        <button type="button" class="btn btn-soft" data-speak="#upText"><span class="yi" data-icon="speaker" aria-hidden="true"></span> ఈ ఉపదేశం వినండి</button>
     </div>
     <div class="poem" id="upText">
         <p>అయితే యాజ్ఞవల్క్యుడు మంత్రాలను కేవలం కంఠస్థం చేయలేదు. వాటిని దర్శించాడు. ఆయన గురించి ప్రధానంగా "బృహదారణ్యక ఉపనిషత్"లో వివరించబడింది. అక్కడ ఆయన ఉపదేశాలు మాత్రమే చేయలేదు; రాజులతో, పండితులతో, ఋషులతో, తన సొంత భార్యతో కూడా తాత్త్విక చర్చలు చేశాడు.</p>
@@ -335,32 +333,32 @@
 
 <!-- ================= Books ================= -->
 <section id="invitations" class="card warm" tabindex="-1" aria-labelledby="booksTitle">
-    <h2 class="card-title" id="booksTitle"><span class="material-icons" aria-hidden="true">menu_book</span> పుస్తకాలు</h2>
+    <h2 class="card-title" id="booksTitle"><span class="yi" data-icon="book" aria-hidden="true"></span> పుస్తకాలు</h2>
     <p class="lead">ప్రతి పుస్తకాన్ని <b>వాట్సాప్</b>లో పంపవచ్చు లేదా <b>డౌన్‌లోడ్</b> చేసుకోవచ్చు.</p>
     <ul class="book-list">
         <li class="book-item">
             <span class="book-info"><span class="book-title">ఆహ్వానం</span><span class="book-desc">జయంతి ఆహ్వానం (2026)</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – ఆహ్వానం</span></button><a href="invitation-2026.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – ఆహ్వానం</span></a></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – ఆహ్వానం</span></button><a href="invitation-2026.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – ఆహ్వానం</span></a></span>
         </li>
         <li class="book-item">
             <span class="book-info"><span class="book-title">బ్రహ్మ విద్య</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/బ్రహ్మ విద్య.pdf" data-share-title="బ్రహ్మ విద్య"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – బ్రహ్మ విద్య</span></button><a href="Docs/బ్రహ్మ విద్య.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – బ్రహ్మ విద్య</span></a></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/బ్రహ్మ విద్య.pdf" data-share-title="బ్రహ్మ విద్య"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – బ్రహ్మ విద్య</span></button><a href="Docs/బ్రహ్మ విద్య.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – బ్రహ్మ విద్య</span></a></span>
         </li>
         <li class="book-item">
             <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య చరిత్రము</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య చరిత్రము"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></a></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య చరిత్రము"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></a></span>
         </li>
         <li class="book-item">
             <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/మహర్షి.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య</span></button><a href="Docs/మహర్షి.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య</span></a></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/మహర్షి.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య</span></button><a href="Docs/మహర్షి.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య</span></a></span>
         </li>
         <li class="book-item">
             <span class="book-info"><span class="book-title">శుక్ల యజుర్వేద సంధ్యావందనం</span><span class="book-desc">శుక్ల యజుర్వేద సంధ్యావందనం</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" data-share-title="సంధ్యావందనం"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – సంధ్యావందనం</span></button><a href="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – సంధ్యావందనం</span></a></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" data-share-title="సంధ్యావందనం"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – సంధ్యావందనం</span></button><a href="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – సంధ్యావందనం</span></a></span>
         </li>
         <li class="book-item">
             <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య శతకము</span><span class="book-desc">రచన చింతా రామకృష్ణారావు గారు రచించారు.</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య శతకము"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య శతకము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య శతకము</span></a></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య శతకము"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య శతకము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య శతకము</span></a></span>
         </li>
     </ul>
     <p class="share-status" data-share-status aria-live="polite" style="color:var(--text)"></p>
@@ -369,7 +367,7 @@
 
 <!-- ================= Bapiraju paintings – 12 month calendar ================= -->
 <section id="paintings" class="card" tabindex="-1" aria-labelledby="paintTitle">
-    <h2 class="card-title" id="paintTitle"><span class="material-icons" aria-hidden="true">palette</span> శ్రీ చంద్రుపట్ల బాపిరాజు గారి చిత్రాలు – 12 నెలల క్యాలెండర్</h2>
+    <h2 class="card-title" id="paintTitle"><span class="yi" data-icon="palette" aria-hidden="true"></span> శ్రీ చంద్రుపట్ల బాపిరాజు గారి చిత్రాలు – 12 నెలల క్యాలెండర్</h2>
     <p class="lead">చిత్రకారులు: <b id="paintArtist">శ్రీ చంద్రుపట్ల బాపిరాజు గారు</b></p>
 
     <div class="slider" id="slider" aria-roledescription="చిత్రాల ప్రదర్శన">
@@ -382,9 +380,9 @@
         </div>
         <p class="slide-caption" id="slideCaption" aria-live="polite"></p>
         <div class="slide-nav">
-            <button type="button" class="btn btn-soft" id="slidePrev"><span class="material-icons" aria-hidden="true">arrow_back</span> ముందు నెల</button>
+            <button type="button" class="btn btn-soft" id="slidePrev"><span class="yi" data-icon="arrowLeft" aria-hidden="true"></span> ముందు నెల</button>
             <span class="slide-count" id="slideCount" aria-hidden="true"></span>
-            <button type="button" class="btn btn-soft" id="slideNext">తరువాతి నెల <span class="material-icons" aria-hidden="true">arrow_forward</span></button>
+            <button type="button" class="btn btn-soft" id="slideNext">తరువాతి నెల <span class="yi" data-icon="arrowRight" aria-hidden="true"></span></button>
         </div>
     </div>
 
@@ -392,9 +390,9 @@
     <div class="month-grid" id="monthGrid" role="group" aria-label="నెలలు"></div>
 
     <div class="paint-actions">
-        <a class="btn btn-accent" id="paintDownload" href="#" download><span class="material-icons" aria-hidden="true">file_download</span> ఈ చిత్రం డౌన్‌లోడ్</a>
-        <button type="button" class="btn btn-green" id="paintShare"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ఈ చిత్రం వాట్సాప్‌లో పంపండి</button>
-        <button type="button" class="btn btn-primary" id="paintAll"><span class="material-icons" aria-hidden="true">download_for_offline</span> అన్ని చిత్రాలు ఒకేసారి డౌన్‌లోడ్</button>
+        <a class="btn btn-accent" id="paintDownload" href="#" download><span class="yi" data-icon="download" aria-hidden="true"></span> ఈ చిత్రం డౌన్‌లోడ్</a>
+        <button type="button" class="btn btn-green" id="paintShare"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> ఈ చిత్రం వాట్సాప్‌లో పంపండి</button>
+        <button type="button" class="btn btn-primary" id="paintAll"><span class="yi" data-icon="download" aria-hidden="true"></span> అన్ని చిత్రాలు ఒకేసారి డౌన్‌లోడ్</button>
     </div>
     <p class="share-status" id="paintStatus" aria-live="polite" style="color:var(--text)"></p>
 </section>
@@ -414,10 +412,10 @@
 
 <!-- ================= Media ================= -->
 <section id="gallery" class="card warm" tabindex="-1" aria-labelledby="mediaTitle">
-    <h2 class="card-title" id="mediaTitle"><span class="material-icons" aria-hidden="true">collections</span> వీడియో & చిత్రాలు</h2>
+    <h2 class="card-title" id="mediaTitle"><span class="yi" data-icon="image" aria-hidden="true"></span> వీడియో & చిత్రాలు</h2>
     <p class="lead">మన పవిత్ర ఉత్సవాల దివ్య క్షణాలు మరియు జ్ఞాపకాలను ఈ గ్యాలరీలో వీక్షించండి.</p>
     <div class="audio-row">
-        <span class="material-icons" aria-hidden="true">audiotrack</span> సుప్రభాత స్తోత్రం:
+        <span class="yi" data-icon="music" aria-hidden="true"></span> సుప్రభాత స్తోత్రం:
         <audio id="suprabhataudio" controls preload="none" aria-label="సుప్రభాత స్తోత్రం">
             <source src="శ్రీ యాజ్ఞవల్క్యు సుప్రభాత స్తోత్రం.mp3" type="audio/mpeg">
         </audio>
@@ -432,29 +430,29 @@
 
 <!-- ================= Members ================= -->
 <section id="Members" class="card warm" tabindex="-1" aria-labelledby="memTitle">
-    <h2 class="card-title" id="memTitle"><i class="fas fa-users" aria-hidden="true"></i> సంఘ కార్యవర్గం</h2>
+    <h2 class="card-title" id="memTitle"><span class="yi yi-users" data-icon="users" aria-hidden="true"></span> సంఘ కార్యవర్గం</h2>
     <div class="member-grid">
-        <div class="member"><h3><i class="fas fa-user-tie" aria-hidden="true"></i> అధ్యక్షులు:</h3><p>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</p></div>
-        <div class="member"><h3><i class="fas fa-handshake" aria-hidden="true"></i> ఉపాధ్యక్షులు:</h3><p>నేలకంటి లక్ష్మీపతి</p><p>మిరియాల రామశాస్త్రి</p></div>
-        <div class="member"><h3><i class="fas fa-pen-fancy" aria-hidden="true"></i> సెక్రటరీ:</h3><p>మిరియాల నారాయణ మురళీ మోహన్</p></div>
-        <div class="member"><h3><i class="fas fa-users-cog" aria-hidden="true"></i> జాయింట్ సెక్రటరీ:</h3><p>మిరియాల రామకృష్ణ</p></div>
-        <div class="member"><h3><i class="fas fa-money-check-alt" aria-hidden="true"></i> ట్రెజరర్:</h3><p>మల్లెమడుగుల వెంకటలక్ష్మీ నరసింహారావు</p></div>
+        <div class="member"><h3><span class="yi yi-user-tie" data-icon="person" aria-hidden="true"></span> అధ్యక్షులు:</h3><p>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</p></div>
+        <div class="member"><h3><span class="yi yi-handshake" data-icon="users" aria-hidden="true"></span> ఉపాధ్యక్షులు:</h3><p>నేలకంటి లక్ష్మీపతి</p><p>మిరియాల రామశాస్త్రి</p></div>
+        <div class="member"><h3><span class="yi yi-pen-fancy" data-icon="pen" aria-hidden="true"></span> సెక్రటరీ:</h3><p>మిరియాల నారాయణ మురళీ మోహన్</p></div>
+        <div class="member"><h3><span class="yi yi-users-cog" data-icon="users" aria-hidden="true"></span> జాయింట్ సెక్రటరీ:</h3><p>మిరియాల రామకృష్ణ</p></div>
+        <div class="member"><h3><span class="yi yi-money-check-alt" data-icon="wallet" aria-hidden="true"></span> ట్రెజరర్:</h3><p>మల్లెమడుగుల వెంకటలక్ష్మీ నరసింహారావు</p></div>
     </div>
     <div class="address">
-        <h3><i class="fas fa-map-marked-alt" aria-hidden="true"></i> సంప్రదించవలసిన చిరునామా:</h3>
+        <h3><span class="yi yi-map-marked-alt" data-icon="pin" aria-hidden="true"></span> సంప్రదించవలసిన చిరునామా:</h3>
         <p><b>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</b></p>
         <p>5-1-66, సీతయ్యగారి తోట, సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.</p>
     </div>
     <div class="note-box teal" style="margin-top:16px">
-        <h3><span class="material-icons" aria-hidden="true">info</span> గమనిక:</h3>
+        <h3><span class="yi" data-icon="info" aria-hidden="true"></span> గమనిక:</h3>
         <p style="font-weight:400">ఈ పత్రికను మీ బంధువులకు, శ్రేయోభిలాషులకు చూపించి సంఘ అభివృద్ధికి సహకరించవలసినదిగా కోరుచున్నాము. మీ సలహాలు, సూచనలు సంఘంవారికి ఆఖరి పేజీలో అధ్యక్షుల వారి అడ్రసుకు పంపవలసినదిగా కోరడమైనది.</p>
     </div>
-    <p class="next-year"><span class="material-icons" aria-hidden="true">next_plan</span> వచ్చే సంవత్సరం జయంతి: ది.08-11-2027 సోమవారం</p>
+    <p class="next-year"><span class="yi" data-icon="calendar" aria-hidden="true"></span> వచ్చే సంవత్సరం జయంతి: ది.08-11-2027 సోమవారం</p>
 </section>
 
 <!-- ================= Related websites ================= -->
 <section id="related" class="card" tabindex="-1" aria-labelledby="relTitle">
-    <h2 class="card-title" id="relTitle"><span class="material-icons" aria-hidden="true">language</span> మరిన్ని సంబంధిత వెబ్‌సైట్లు</h2>
+    <h2 class="card-title" id="relTitle"><span class="yi" data-icon="globe" aria-hidden="true"></span> మరిన్ని సంబంధిత వెబ్‌సైట్లు</h2>
     <p class="lead">శుక్ల యజుర్వేదం, సంధ్యావందనం గురించి మరింత నేర్చుకోండి.</p>
     <ul class="related-list">
         <li class="related-item">
@@ -462,7 +460,7 @@
             <div class="related-body">
                 <h3>వాజసనేయీ సంధ్యావందనం నేర్చుకోండి</h3>
                 <p>శుక్ల యజుర్వేద వాజసనేయ సంప్రదాయంలో సంధ్యావందనం – తెలుగులో దశల వారీగా, ఆడియోతో వినవచ్చు. స్తోత్రాలు, రోజువారీ పంచాంగం, సంధ్యా సమయ గుర్తులు, పండుగల క్యాలెండర్ కూడా ఉన్నాయి. ఇంటర్నెట్ లేకున్నా పనిచేస్తుంది.</p>
-                <a class="btn btn-accent" href="https://vajasaneyasandhya.vercel.app/" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true">open_in_new</span> వెబ్‌సైట్ తెరవండి<span class="sr-only"> – వాజసనేయీ సంధ్యావందనం (కొత్త ట్యాబ్‌లో)</span></a>
+                <a class="btn btn-accent" href="https://vajasaneyasandhya.vercel.app/" target="_blank" rel="noopener"><span class="yi" data-icon="external" aria-hidden="true"></span> వెబ్‌సైట్ తెరవండి<span class="sr-only"> – వాజసనేయీ సంధ్యావందనం (కొత్త ట్యాబ్‌లో)</span></a>
             </div>
         </li>
         <!-- మరో వెబ్‌సైట్ జోడించాలంటే పై <li> … </li> ను కాపీ చేసి పేరు, వివరణ, లింక్ మార్చండి -->
@@ -476,25 +474,25 @@
 <!-- ================= Bottom navigation (always visible) ================= -->
 <nav class="bottom-nav" aria-label="త్వరిత మెనూ">
     <ul>
-        <li><a href="#home"><span class="material-icons" aria-hidden="true">home</span>ఆహ్వానం</a></li>
-        <li><a href="#PravarGenerator"><span class="material-icons" aria-hidden="true">person</span>ప్రవర</a></li>
-        <li><a href="#deepam"><span class="material-icons" aria-hidden="true">local_fire_department</span>దీపం</a></li>
-        <li><a href="#invitations"><span class="material-icons" aria-hidden="true">menu_book</span>పుస్తకాలు</a></li>
-        <li><button type="button" class="help js-bot-open" aria-haspopup="dialog"><span class="material-icons" aria-hidden="true">support_agent</span>సహాయం</button></li>
+        <li><a href="#home"><span class="yi" data-icon="home" aria-hidden="true"></span>ఆహ్వానం</a></li>
+        <li><a href="#PravarGenerator"><span class="yi" data-icon="person" aria-hidden="true"></span>ప్రవర</a></li>
+        <li><a href="#deepam"><span class="yi" data-icon="lamp" aria-hidden="true"></span>దీపం</a></li>
+        <li><a href="#invitations"><span class="yi" data-icon="book" aria-hidden="true"></span>పుస్తకాలు</a></li>
+        <li><button type="button" class="help js-bot-open" aria-haspopup="dialog"><span class="yi" data-icon="chat" aria-hidden="true"></span>సహాయం</button></li>
     </ul>
 </nav>
 <button type="button" id="botFab" class="js-bot-open" aria-haspopup="dialog">
-    <span class="material-icons" aria-hidden="true">support_agent</span>
+    <span class="yi" data-icon="chat" aria-hidden="true"></span>
     <span class="fab-text"><b>24×7 సహాయ మిత్ర</b><small>ఏదైనా అడగండి</small></span>
 </button>
-<button id="toTop" type="button" aria-label="పైకి వెళ్ళండి"><span class="material-icons" aria-hidden="true">keyboard_arrow_up</span></button>
+<button id="toTop" type="button" aria-label="పైకి వెళ్ళండి"><span class="yi" data-icon="arrowUp" aria-hidden="true"></span></button>
 
 <!-- ================= Install help ================= -->
 <dialog id="installDialog" aria-labelledby="installTitle">
     <div class="dlg-head">
-        <span class="material-icons" aria-hidden="true">install_mobile</span>
+        <span class="yi" data-icon="install" aria-hidden="true"></span>
         <h2 id="installTitle">యాప్‌గా ఇన్‌స్టాల్ చేయడం</h2>
-        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="material-icons" aria-hidden="true">close</span></button>
+        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="yi" data-icon="close" aria-hidden="true"></span></button>
     </div>
     <div class="dlg-body">
         <div id="installAndroid" hidden>
@@ -508,7 +506,7 @@
         <div id="installIos" hidden>
             <p><b>ఐఫోన్ (సఫారి):</b></p>
             <ol>
-                <li>క్రింద ఉన్న <b>షేర్ గుర్తు</b> <span class="material-icons" aria-hidden="true">ios_share</span> నొక్కండి.</li>
+                <li>క్రింద ఉన్న <b>షేర్ గుర్తు</b> <span class="yi" data-icon="share" aria-hidden="true"></span> నొక్కండి.</li>
                 <li><b>"హోమ్ స్క్రీన్‌కు జోడించు"</b> నొక్కండి.</li>
                 <li>పైన <b>"జోడించు"</b> నొక్కండి.</li>
             </ol>
@@ -516,7 +514,7 @@
         <div id="installDesktop" hidden>
             <p><b>కంప్యూటర్:</b></p>
             <ol>
-                <li>చిరునామా పట్టీ కుడివైపు ఉన్న <b>ఇన్‌స్టాల్ గుర్తు</b> <span class="material-icons" aria-hidden="true">install_desktop</span> నొక్కండి.</li>
+                <li>చిరునామా పట్టీ కుడివైపు ఉన్న <b>ఇన్‌స్టాల్ గుర్తు</b> <span class="yi" data-icon="install" aria-hidden="true"></span> నొక్కండి.</li>
                 <li><b>"ఇన్‌స్టాల్"</b> నొక్కండి.</li>
             </ol>
         </div>
@@ -534,7 +532,7 @@
                 <h2 id="botTitle">సహాయ మిత్ర</h2>
                 <small>24×7 · ఉచితం</small>
             </div>
-            <button type="button" class="bot-close" id="botClose"><span class="material-icons" aria-hidden="true">close</span> మూసివేయి</button>
+            <button type="button" class="bot-close" id="botClose"><span class="yi" data-icon="close" aria-hidden="true"></span> మూసివేయి</button>
         </div>
         <div class="bot-body" id="botBody">
             <div id="botLog" aria-live="polite" aria-label="కొత్త సమాధానం"></div>
@@ -546,12 +544,13 @@
         <form class="bot-input" id="botForm" autocomplete="off">
             <label for="botText" class="sr-only">లేదా మీ ప్రశ్న టైప్ చేయండి</label>
             <input type="text" id="botText" placeholder="లేదా ప్రశ్న టైప్ చేయండి…" enterkeyhint="send" />
-            <button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><span class="material-icons" aria-hidden="true">mic</span></button>
-            <button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><span class="material-icons" aria-hidden="true">send</span></button>
+            <button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><span class="yi" data-icon="mic" aria-hidden="true"></span></button>
+            <button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><span class="yi" data-icon="send" aria-hidden="true"></span></button>
         </form>
     </div>
 </dialog>
 
+<script src="icons.js" defer></script>
 <script src="vendor/fuse.basic.min.js" defer></script>
 <script src="vendor/html2canvas.min.js" defer></script>
 <script src="vendor/jszip.min.js" defer></script>

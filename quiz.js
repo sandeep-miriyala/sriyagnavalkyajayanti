@@ -336,11 +336,11 @@ function showNameInputScreen() {
         <p class="section-description">క్విజ్‌లో పాల్గొనడానికి ముందు, దయచేసి మీ పేరును నమోదు చేయండి. మీ సర్టిఫికెట్ పై ఈ పేరు ముద్రించబడుతుంది.</p>
         
         <div class="input-group">
-            <label for="quizNameInput"><i class="fas fa-user-edit" aria-hidden="true"></i> మీ పేరు:</label>
+            <label for="quizNameInput"><span class="yi yi-user-edit" data-icon="person" aria-hidden="true"></span> మీ పేరు:</label>
             <input type="text" id="quizNameInput" autocomplete="name" placeholder="ఉదా: సందీప్ మిరియాల" maxlength="30">
         </div>
 
-        <button class="action-btn" onclick="initializeQuiz()">క్విజ్ ప్రారంభించండి <i class="fas fa-arrow-right"></i></button>
+        <button class="action-btn" onclick="initializeQuiz()">క్విజ్ ప్రారంభించండి <span class="yi yi-arrow-right" data-icon="arrowRight" aria-hidden="true"></span></button>
     `;
    // document.getElementById('quizNameInput').focus();
 }
@@ -366,8 +366,8 @@ function createQuizUI() {
         <p class="section-description">మీరు శ్రీ యాజ్ఞవల్క్య మహర్షి గురించి ${TOTAL_QUESTIONS_TO_DISPLAY} యాదృచ్ఛిక ప్రశ్నలకు సమాధానం ఇవ్వాలి.</p>
         <div id="questionArea"></div>
         <div class="quiz-navigation">
-            <button id="prevBtn" class="action-btn" onclick="previousQuestion()" disabled><i class="fas fa-arrow-left"></i> మునుపటి</button>
-            <button id="nextBtn" class="action-btn" onclick="nextQuestion()"><i class="fas fa-arrow-right"></i> తరువాత</button>
+            <button id="prevBtn" class="action-btn" onclick="previousQuestion()" disabled><span class="yi yi-arrow-left" data-icon="arrowLeft" aria-hidden="true"></span> మునుపటి</button>
+            <button id="nextBtn" class="action-btn" onclick="nextQuestion()"><span class="yi yi-arrow-right" data-icon="arrowRight" aria-hidden="true"></span> తరువాత</button>
         </div>
     `;
     displayQuestion();
@@ -407,9 +407,9 @@ function displayQuestion() {
         nextBtn.disabled = qData.selected === null;
 
         if (currentQuestionIndex === TOTAL_QUESTIONS_TO_DISPLAY - 1) {
-            nextBtn.innerHTML = 'సమర్పించండి <i class="fas fa-check"></i>';
+            nextBtn.innerHTML = 'సమర్పించండి <span class="yi yi-check" data-icon="check" aria-hidden="true"></span>';
         } else {
-            nextBtn.innerHTML = '<i class="fas fa-arrow-right"></i> తరువాత';
+            nextBtn.innerHTML = '<span class="yi yi-arrow-right" data-icon="arrowRight" aria-hidden="true"></span> తరువాత';
         }
 
     } else {
@@ -479,8 +479,8 @@ function showResults(currentScore) {
     const timeStr = now.toLocaleTimeString('te-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     
     const statusIcon = isPassed 
-        ? '<i class="fas fa-trophy" style="font-size: 3.5rem; color: #FFD700; margin-bottom: 5px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);"></i>' 
-        : '<i class="fas fa-lightbulb" style="font-size: 3.5rem; color: var(--info-color); margin-bottom: 5px; text-shadow: 0 0 10px rgba(23, 162, 184, 0.5);"></i>';
+        ? '<span class="yi yi-trophy" data-icon="trophy" aria-hidden="true" style="font-size: 3.5rem; color: #FFD700; margin-bottom: 5px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);"></span>' 
+        : '<span class="yi yi-lightbulb" data-icon="bulb" aria-hidden="true" style="font-size: 3.5rem; color: var(--info-color); margin-bottom: 5px; text-shadow: 0 0 10px rgba(23, 162, 184, 0.5);"></span>';
     
     const achievementText = isPassed 
         ? `<p style="font-size: 1.0rem; color: var(--success-color); font-weight: 500;">మీరు శ్రీ యాజ్ఞవల్క్య మహర్షిపై అత్యుత్తమ జ్ఞానాన్ని ప్రదర్శించారు. ధన్యవాదాలు!</p>` 
@@ -492,8 +492,8 @@ function showResults(currentScore) {
         <h5 class="certificate-title">శ్రీయాజ్ఞవల్క్య జ్ఞానధృవపత్రం</h5>
 
         <div class="date-time-row">
-            <div style="text-align: left;"><i class="far fa-calendar-alt"></i> తేదీ: ${dateStr}</div>
-            <div style="text-align: right;"><i class="far fa-clock"></i> సమయం: ${timeStr}</div>
+            <div style="text-align: left;"><span class="yi yi-calendar-alt" data-icon="calendar" aria-hidden="true"></span> తేదీ: ${dateStr}</div>
+            <div style="text-align: right;"><span class="yi yi-clock" data-icon="clock" aria-hidden="true"></span> సమయం: ${timeStr}</div>
         </div>
         <p class="user-name-display">${userName}</p>  
         <p style="font-weight: 300; font-size: 1.1rem; color: #333;">ఈ క్విజ్‌లో పాల్గొని, ఈ స్థాయిని సాధించినందుకు <b>ధన్యవాదాలు</b>:</p>
@@ -505,7 +505,7 @@ function showResults(currentScore) {
             <span class="status-text" style="color: ${statusColor};">${resultStatus}</span>
         </p>
         <footer>
-           <i class="fas fa-signature" style="color:#aaa;"></i> ఈ పత్రం జ్ఞానాభివృద్ధి కృషికి గుర్తింపుగా ఇవ్వబడింది.
+           <span class="yi yi-signature" data-icon="pen" aria-hidden="true" style="color:#aaa;"></span> ఈ పత్రం జ్ఞానాభివృద్ధి కృషికి గుర్తింపుగా ఇవ్వబడింది.
             <br> ఓం పూర్ణమద:పూర్ణమిద:! పూర్ణాత్ పూర్ణాముదచ్యతే పూర్ణాస్యపూర్ణమాదాయ! పూర్ణమేవావశిష్యతే||
         </footer>
     `;
@@ -514,7 +514,7 @@ function showResults(currentScore) {
     actionButtons.className = 'certificate-buttons';
     const downloadBtn = document.createElement('button');
     downloadBtn.className = 'action-btn download'; 
-    downloadBtn.innerHTML = '<i class="fas fa-file-download"></i> సర్టిఫికెట్ డౌన్‌లోడ్ ';
+    downloadBtn.innerHTML = '<span class="yi yi-file-download" data-icon="download" aria-hidden="true"></span> సర్టిఫికెట్ డౌన్‌లోడ్ ';
     if (typeof html2canvas !== 'undefined') {
         downloadBtn.onclick = () => downloadCertificate(certContainer);
     } else {
@@ -524,7 +524,7 @@ function showResults(currentScore) {
 
     const retryBtn = document.createElement('button');
     retryBtn.className = 'action-btn retry'; 
-    retryBtn.innerHTML = '<i class="fas fa-undo-alt"></i> మళ్లీ ప్రయత్నించండి';
+    retryBtn.innerHTML = '<span class="yi yi-undo-alt" data-icon="undo" aria-hidden="true"></span> మళ్లీ ప్రయత్నించండి';
     retryBtn.onclick = startQuiz; 
     actionButtons.appendChild(retryBtn);
     appRoot.appendChild(actionButtons);
