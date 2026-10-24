@@ -873,7 +873,7 @@
       if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
       if (!started) {
         started = true;
-        addCard(null, null, `నమస్కారం 🙏 నేను మీ సహాయ మిత్రను.\n95వ జయంతి: 19-11-2026 గురువారం, ఉదయం 9 గంటలకు.\n${countdownText()}`);
+        addCard(null, null, `నమస్కారం ! నేను మీ సహాయ మిత్రను.\n95వ జయంతి: 19-11-2026 గురువారం, ఉదయం 9 గంటలకు.\n${countdownText()}`);
       }
       body.scrollTop = 0;
       setTimeout(() => { $('#botClose').focus(); }, 60);
