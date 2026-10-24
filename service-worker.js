@@ -1,5 +1,5 @@
 // Change this version whenever the site is updated.
-const CACHE_NAME = 'yagnavalkya-v17-2026';
+const CACHE_NAME = 'yagnavalkya-v20-2026';
 
 // Small core files needed to open the app offline.
 // (Big video/audio/PDF files are cached only after someone opens them.)

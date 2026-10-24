@@ -46,6 +46,58 @@
     'అధ్యక్షులు: *శ్రీ మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు గారు*\n\n' +
     '– శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం';
 
+  /* ======================================================================
+     Visitor counting – GOOGLE ANALYTICS 4
+     Paste your Measurement ID below (looks like 'G-ABC123XYZ9').
+     Leave it as '' to switch counting off. Not counted while testing on localhost.
+     ====================================================================== */
+  const GA_MEASUREMENT_ID = 'G-TC6NJVGDK2';
+  const isLocalHost = /^(localhost|127\.0\.0\.1|\[::1\]|192\.168\.)/.test(location.hostname);
+  const analyticsOn = /^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID) && !isLocalHost;
+  function track(path, title, isEvent) {
+    if (!analyticsOn || typeof window.gtag !== 'function') return;
+    if (isEvent) {
+      window.gtag('event', path.replace(/[^A-Za-z0-9_]/g, '_'), { event_label: title });
+    } else {
+      window.gtag('event', 'page_view', { page_title: title, page_location: location.origin + path, page_path: path });
+    }
+  }
+  function setupAnalytics() {
+    if (!analyticsOn) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: false });   // pages are counted by the router
+    const sc = document.createElement('script');
+    sc.async = true;
+    sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(sc);
+    // Important actions (counted as events)
+    document.addEventListener('click', (e) => {
+      const el = e.target.closest('button, a'); if (!el) return;
+      const pick = [
+        ['.hero .btn.wa, [data-share-pdf=""]', 'invite-whatsapp', 'ఆహ్వానం వాట్సాప్'],
+        ['[data-share-pdf]:not([data-share-pdf=""])', 'book-whatsapp', 'పుస్తకం వాట్సాప్'],
+        ['#invitations a[download]', 'book-download', 'పుస్తకం డౌన్‌లోడ్'],
+        ['a[href*="invitation-2026.pdf"]:not([download])', 'invite-view', 'పత్రిక చూశారు'],
+        ['a[href*="google.com/maps"]', 'map-open', 'దారి (మ్యాప్)'],
+        ['#calendarBtn', 'calendar-reminder', 'క్యాలెండర్ గుర్తు'],
+        ['#paintShare', 'painting-whatsapp', 'చిత్రం వాట్సాప్'],
+        ['#paintDownload', 'painting-download', 'చిత్రం డౌన్‌లోడ్'],
+        ['#paintAll', 'painting-download-all', 'అన్ని చిత్రాలు'],
+        ['.slide-play', 'slideshow', 'స్లైడ్ షో'],
+        ['#lightBtn', 'deepam-lit', 'దీపం వెలిగించారు'],
+        ['.vb-listen, [data-speak]', 'read-aloud', 'చదివి వినిపించు'],
+        ['.vb-speak, #botMic', 'voice-ask', 'మాట్లాడి అడిగారు'],
+        ['.js-bot-open', 'helper-open', 'సహాయ మిత్ర'],
+        ['#installBtn', 'install-click', 'యాప్ ఇన్‌స్టాల్'],
+        ['#generateBtn', 'pravara', 'ప్రవర చూశారు'],
+        ['a[href*="vajasaneyasandhya"]', 'related-sandhya', 'సంధ్యావందనం సైట్']
+      ].find(([sel]) => el.matches(sel));
+      if (pick) track(pick[1], pick[2], true);
+    }, true);
+  }
+
   /* ---------------- Menu ---------------- */
   function addQuizToMenus() {
     const d = document.querySelector('.desk-nav a[href="#about"]');
@@ -205,6 +257,7 @@
         const sw = $('.settings-wrap'); if (sw) sw.hidden = page.id !== 'home';   // settings stay in the menu on other pages
         current = page.id;
         document.title = page.id === 'home' ? SITE_TITLE : `${page.title} · ${SITE_TITLE}`;
+        track(page.id === 'home' ? '/' : '/#' + page.id, page.title);
         // highlight this page in every menu
         $$('.desk-nav a, .menu-list a, .bottom-nav a').forEach(a => {
           const on = (pageOf(a.getAttribute('href').slice(1)) || {}).id === page.id;
@@ -873,7 +926,7 @@
       if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
       if (!started) {
         started = true;
-        addCard(null, null, `నమస్కారం ! నేను మీ సహాయ మిత్రను.\n95వ జయంతి: 19-11-2026 గురువారం, ఉదయం 9 గంటలకు.\n${countdownText()}`);
+        addCard(null, null, `నమస్కారం 🙏 నేను మీ సహాయ మిత్రను.\n95వ జయంతి: 19-11-2026 గురువారం, ఉదయం 9 గంటలకు.\n${countdownText()}`);
       }
       body.scrollTop = 0;
       setTimeout(() => { $('#botClose').focus(); }, 60);
@@ -888,7 +941,7 @@
 
   /* ---------------- Start ---------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    setupMenu(); setupComfort(); setupToTop(); setupBottomBar(); setupVoiceBar(); setupRouter();
+    setupAnalytics(); setupMenu(); setupComfort(); setupToTop(); setupBottomBar(); setupVoiceBar(); setupRouter();
     setupCountdown(); setupCalendar(); setupShare(); setupSpeak();
     setupGallery(); setupPaintings(); setupDeepam(); setupBot();
     const y = $('#currentYear'); if (y) y.textContent = String(new Date().getFullYear());
