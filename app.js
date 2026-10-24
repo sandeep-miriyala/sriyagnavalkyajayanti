@@ -19,15 +19,32 @@
     endISO: '2026-11-19T13:00:00+05:30',
     next: 'ది.08-11-2027 సోమవారం',
     pdfUrl: 'invitation-2026.pdf',
-    pdfName: 'శ్రీ_యాజ్ఞవల్క్య_95వ_జయంతి_ఆహ్వానం_2026.pdf',
+    pdfName: 'invitation_2026.pdf',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram',
     place: 'శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం - 533 450'
   };
+  const SITE_URL = 'https://sriyagnavalkyajayanti.netlify.app/';
+  // WhatsApp: *text* shows in bold
+  // Wording taken from the printed 2026 invitation (page 1 + కార్యక్రమ వివరములు). WhatsApp: *text* = bold
   const SHARE_TEXT =
-    '🙏 శ్రీ యాజ్ఞవల్క్య మహర్షి 95వ జయంతి ఆహ్వానం 🙏\n' +
-    '📅 19-11-2026 గురువారం, ఉదయం 9 గంటల నుండి\n' +
-    '📍 ' + EVENT.place + '\n' +
-    'శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం';
+    '*శ్రీ మైత్రేయీ కాత్యాయనీ సమేత శ్రీ యాజ్ఞవల్క్య ఋషి సార్వభౌమ జయంత్యుత్సవము*\n\n' +
+    'ఓం పూర్ణమద: పూర్ణమిద: ! పూర్ణాత్ పూర్ణ ముదచ్యతే\n' +
+    'పూర్ణస్య పూర్ణమాదాయ ! పూర్ణ మే వావశిష్యతే\n\n' +
+    'అయ్యా/అమ్మా,\n\n' +
+    'స్వస్తిశ్రీ చాంద్రమాన శ్రీ పరాభవ నామ సం॥ర కార్తీక శుద్ధ దశమీ *గురువారం అనగా ది. 19-11-2026* తేదీన ' +
+    'శ్రీ మానిత్యాది బిరుదాంకితులు పరవాది భయంకరభట్ల వెంకట నరశింహాచార్యులు వారిచే శ్రీ వేంకటేశ్వరస్వామి వారి దేవాలయంలో ' +
+    'ప్రతిష్టించబడిన *శ్రీ యాజ్ఞవల్క్య మహర్షి వారి 95వ జయంతి* పీఠికాపురమునందు శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము వారిచే జరుపబడును.\n\n' +
+    '*జయంతి జరుగు ప్రదేశము:* శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణం మండపం ప్రక్కన, పిఠాపురం\n\n' +
+    '*కార్యక్రమ వివరములు*\n' +
+    '*ది. 19-11-2026 తేది గురువారం ఉదయం 9 గంటల నుండి*\n' +
+    'స్వర్గీయ శ్రీమాన్ పెరియాల హనుమంతా చార్యులువారి కుమారులు శ్రీ రామకృష్ణమాచార్యులువారిచే స్వామివారికి సహస్రనామార్చన, తదుపరి ప్రసాద వినియోగం జరుగును.\n\n' +
+    'కార్తీక శుద్ధ దశమి గురువారం యాజ్ఞవల్క్య జయంతి సందర్భముగా కాకినాడ వా॥లు *శ్రీ కూచి శ్రీహరిమన్నారు* గారు ' +
+    '"మాయా స్వరూప నిరూపణము - మాయను దాటు మార్గము - బ్రహ్మ, కర్మ యోగ నిరూపణ" అను అంశంపై ప్రసంగించెదరు.\n\n' +
+    '*దేవాలయానికి దారి (గూగుల్ మ్యాప్):*\n' + EVENT.mapUrl + '\n\n' +
+    '*మరిన్ని వివరాలకు:*\n' + SITE_URL + '\n\n' +
+    '*సంఘ కార్యవర్గం*\n' +
+      'అధ్యక్షులు: *శ్రీ మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు గారు*\n' +
+    '– శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం';
 
   /* ---------------- Menu ---------------- */
   function addQuizToMenus() {
@@ -312,7 +329,7 @@
         'END:VEVENT', 'END:VCALENDAR'
       ].join('\r\n');
       const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
-      const a = Object.assign(document.createElement('a'), { href: url, download: 'యాజ్ఞవల్క్య_జయంతి_2026.ics' });
+      const a = Object.assign(document.createElement('a'), { href: url, download: 'yagnavalkya_jayanti_2026.ics' });
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 4000);
     });
@@ -331,8 +348,11 @@
   async function sharePdf(statusEl, url, title) {
     url = url || EVENT.pdfUrl;
     const isInvite = url === EVENT.pdfUrl;
-    const name = isInvite ? EVENT.pdfName : (title || 'పుస్తకం').replace(/\s+/g, '_') + '.pdf';
-    const text = isInvite ? SHARE_TEXT : `📖 ${title}\nశ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం`;
+    const bookNo = BOOK_FILES.indexOf(url) + 1;
+    const name = isInvite ? EVENT.pdfName : `yagnavalkya_book_${bookNo > 0 ? bookNo : 1}.pdf`;   // English file names only
+    const text = isInvite ? SHARE_TEXT
+      : `*${title}*\n\nశ్రీ యాజ్ఞవల్క్య మహర్షి గురించి చక్కని పుస్తకం, మీకోసం పంపుతున్నాను.\n\n` +
+        `మహర్షి *95వ జయంతి – 19-11-2026 గురువారం*, పిఠాపురం.\n\n*మరిన్ని పుస్తకాలు, జయంతి వివరాలకు:*\n${SITE_URL}`;
     const say = (t) => { $$('[data-share-status]').forEach(el => { el.textContent = ''; }); if (statusEl) statusEl.textContent = t; };
     const link = new URL(encodeURI(url), location.href).href;
     try {
@@ -352,7 +372,21 @@
     say('');
     window.open('https://wa.me/?text=' + encodeURIComponent(text + '\n\n📄 ' + link), '_blank', 'noopener');
   }
+  // Books in page order → English download/share names (yagnavalkya_book_1.pdf …)
+  const BOOK_FILES = [];
+  function setupBookNames() {
+    $$('#invitations .book-item a[download]').forEach(a => {
+      const href = decodeURI(a.getAttribute('href') || '');
+      if (href.includes('invitation')) { a.setAttribute('download', EVENT.pdfName); return; }
+      BOOK_FILES.push(href);
+      a.setAttribute('download', `yagnavalkya_book_${BOOK_FILES.length}.pdf`);
+    });
+    $$('#invitations [data-share-pdf]').forEach(b => {   // keep share keys in the same (decoded) form
+      const v = b.getAttribute('data-share-pdf'); if (v) b.setAttribute('data-share-pdf', decodeURI(v));
+    });
+  }
   function setupShare() {
+    setupBookNames();
     $$('[data-share-pdf]').forEach(b => b.addEventListener('click', () => {
       const scope = b.closest('section');
       sharePdf(scope ? $('[data-share-status]', scope) : null, b.getAttribute('data-share-pdf') || '', b.getAttribute('data-share-title') || '');
@@ -459,7 +493,7 @@
       const f = `Image ${i}.jpg`;
       html += `<figure>
         <img src="${f}" alt="ఉత్సవ చిత్రం ${i}" loading="lazy" />
-        <a href="${f}" download="యాజ్ఞవల్క్య_${i}.jpg" class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – చిత్రం ${i}</span></a>
+        <a href="${f}" download="yagnavalkya_photo_${String(i).padStart(2, '0')}.jpg" class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – చిత్రం ${i}</span></a>
       </figure>`;
     }
     g.innerHTML = html;
@@ -598,7 +632,7 @@
         img.src = encodeURI(m.file);
         img.alt = `${label(m)} – ${cfg.artist} చిత్రం`;
         dl.href = encodeURI(m.file);
-        dl.setAttribute('download', `బాపిరాజు_చిత్రం_${String(m.n).padStart(2, '0')}_${m.name}.jpg`);
+        dl.setAttribute('download', `bapiraju_painting_${String(m.n).padStart(2, '0')}.jpg`);
         dl.classList.remove('is-disabled'); dl.removeAttribute('aria-disabled');
         $('#paintShare').disabled = false;
       } else {
@@ -626,12 +660,12 @@
 
     $('#paintShare').addEventListener('click', async () => {
       const m = months[idx]; if (!m.ok) return;
-      const text = `🎨 ${label(m)}\nచిత్రకారులు: ${cfg.artist}\nశ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం`;
+      const text = `*${label(m)}*\nచిత్రకారులు: *${cfg.artist}*\n\nబాపిరాజు గారి 12 నెలల క్యాలెండర్ చిత్రాలన్నీ ఇక్కడ చూడవచ్చు, డౌన్‌లోడ్ చేసుకోవచ్చు:\n${SITE_URL}#paintings\n\nశ్రీ యాజ్ఞవల్క్య మహర్షి *95వ జయంతి – 19-11-2026 గురువారం*, పిఠాపురం`;
       try {
         if (navigator.canShare && navigator.share) {
           status.textContent = '⏳ చిత్రం సిద్ధం చేస్తున్నాం…';
           const blob = await (await fetch(encodeURI(m.file))).blob();
-          const file = new File([blob], `బాపిరాజు_చిత్రం_${m.n}.jpg`, { type: 'image/jpeg' });
+          const file = new File([blob], `bapiraju_painting_${String(m.n).padStart(2, '0')}.jpg`, { type: 'image/jpeg' });
           if (navigator.canShare({ files: [file] })) {
             await navigator.share({ files: [file], text });
             status.textContent = '✅ పంపే జాబితాలో "వాట్సాప్" ఎంచుకోండి.';
@@ -653,17 +687,17 @@
           for (let k = 0; k < list.length; k++) {
             status.textContent = `⏳ చిత్రాలు సిద్ధం చేస్తున్నాం… ${k + 1} / ${list.length}`;
             const blob = await (await fetch(encodeURI(list[k].file))).blob();
-            zip.file(`${String(list[k].n).padStart(2, '0')}_${list[k].name}.jpg`, blob);
+            zip.file(`bapiraju_painting_${String(list[k].n).padStart(2, '0')}.jpg`, blob);
           }
           const out = await zip.generateAsync({ type: 'blob' });
           const url = URL.createObjectURL(out);
-          const a = Object.assign(document.createElement('a'), { href: url, download: 'బాపిరాజు_గారి_చిత్రాలు_12_నెలలు.zip' });
+          const a = Object.assign(document.createElement('a'), { href: url, download: 'bapiraju_paintings_12_months.zip' });
           document.body.appendChild(a); a.click(); a.remove();
           setTimeout(() => URL.revokeObjectURL(url), 5000);
           status.textContent = `✅ ${list.length} చిత్రాలు ఒకే ఫైల్‌గా డౌన్‌లోడ్ అయ్యాయి. ఫోన్‌లో "డౌన్‌లోడ్స్"లో చూడండి.`;
         } else {
           for (const m of list) {
-            const a = Object.assign(document.createElement('a'), { href: encodeURI(m.file), download: `బాపిరాజు_చిత్రం_${m.n}.jpg` });
+            const a = Object.assign(document.createElement('a'), { href: encodeURI(m.file), download: `bapiraju_painting_${String(m.n).padStart(2, '0')}.jpg` });
             document.body.appendChild(a); a.click(); a.remove();
             await new Promise(r => setTimeout(r, 600));
           }
