@@ -18,7 +18,7 @@
     startISO: '2026-11-19T09:00:00+05:30',
     endISO: '2026-11-19T13:00:00+05:30',
     next: 'ది.08-11-2027 సోమవారం',
-    pdfUrl: 'శ్రీ యాజ్ఞవల్క్య జయంతుత్సవ సంఘం, పిఠాపురం.pdf',
+    pdfUrl: 'invitation-2026.pdf',
     pdfName: 'శ్రీ_యాజ్ఞవల్క్య_95వ_జయంతి_ఆహ్వానం_2026.pdf',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram',
     place: 'శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం - 533 450'
@@ -48,13 +48,91 @@
   }
 
   /* Move keyboard focus to the section after any in-page link (helps screen readers) */
-  function setupSectionFocus() {
+  /* ======================================================================
+     Single-page navigation: each menu item shows only its own "page".
+     No reload, no long scrolling. Browser back button works (uses #hash).
+     If JavaScript is off, the whole page simply shows as one long page.
+     ====================================================================== */
+  const PAGES = [
+    { id: 'home',            parts: ['home', 'main', 'Members'], title: 'ఆహ్వానం' },
+    { id: 'program-details', parts: ['program-details'],         title: 'కార్యక్రమం' },
+    { id: 'upadesam',        parts: ['upadesam'],                title: 'మహర్షి ఉపదేశం' },
+    { id: 'about',           parts: ['about', 'Quiz'],           title: 'మహర్షి చరిత్ర' },
+    { id: 'PravarGenerator', parts: ['PravarGenerator'],         title: 'మీ ప్రవర' },
+    { id: 'deepam',          parts: ['deepam'],                  title: 'దీపం' },
+    { id: 'invitations',     parts: ['invitations'],             title: 'పుస్తకాలు' },
+    { id: 'paintings',       parts: ['paintings'],               title: 'బాపిరాజు గారి చిత్రాలు' },
+    { id: 'gallery',         parts: ['gallery'],                 title: 'ఫోటోలు & వీడియో' },
+    { id: 'related',         parts: ['related'],                 title: 'మరిన్ని సైట్లు' },
+    { id: 'tech',            parts: ['tech'],                    title: 'సాంకేతికత' }
+  ];
+  const SITE_TITLE = document.title;
+  function pageOf(id) { return PAGES.find(p => p.parts.includes(id)) || null; }
+
+  function setupBottomBar() {
+    const a = document.querySelector('.bottom-nav a[href="#deepam"]');
+    if (a) { a.setAttribute('href', '#paintings'); a.innerHTML = '<span class="material-icons" aria-hidden="true">calendar_month</span>క్యాలెండర్'; }
+  }
+
+  function setupRouter() {
+    const all = PAGES.flatMap(p => p.parts).map(id => document.getElementById(id)).filter(Boolean);
+    if (!all.length) return;
+    document.documentElement.classList.add('spa');
+
+    // "back to main page" button at the end of every page except the main one
+    PAGES.filter(p => p.id !== 'home').forEach(p => {
+      const last = document.getElementById(p.parts[p.parts.length - 1]);
+      if (!last) return;
+      const bar = document.createElement('div');
+      bar.className = 'page-back';
+      bar.innerHTML = '<a class="btn btn-soft" href="#home"><span class="material-icons" aria-hidden="true">home</span> ముఖ్య పేజీకి వెళ్ళండి</a>';
+      last.after(bar);
+      p.back = bar;
+    });
+
+    let current = null;
+    function render(fromClick) {
+      const raw = decodeURIComponent((location.hash || '').slice(1));
+      const page = pageOf(raw) || PAGES[0];
+      const target = document.getElementById(raw) || document.getElementById(page.parts[0]);
+      const changed = current !== page.id;
+      if (changed) {
+        // stop sound/video on the page we are leaving
+        $$('audio, video').forEach(m => { try { if (!m.paused) m.pause(); } catch (e) {} });
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        all.forEach(el => { el.hidden = !page.parts.includes(el.id); });
+        PAGES.forEach(p => { if (p.back) p.back.hidden = p.id !== page.id; });
+        const sw = $('.settings-wrap'); if (sw) sw.hidden = page.id !== 'home';   // settings stay in the menu on other pages
+        current = page.id;
+        document.title = page.id === 'home' ? SITE_TITLE : `${page.title} · ${SITE_TITLE}`;
+        // highlight this page in every menu
+        $$('.desk-nav a, .menu-list a, .bottom-nav a').forEach(a => {
+          const on = (pageOf(a.getAttribute('href').slice(1)) || {}).id === page.id;
+          a.classList.toggle('active', on);
+          if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+        });
+        const main = $('#content');
+        if (main) { main.classList.remove('page-in'); void main.offsetWidth; main.classList.add('page-in'); }
+      }
+      // first part of a page → top of screen; inner part (e.g. quiz) → scroll to it
+      if (target.id === page.parts[0]) window.scrollTo({ top: 0, behavior: 'auto' });
+      else target.scrollIntoView({ behavior: changed ? 'auto' : 'smooth', block: 'start' });
+      if (fromClick || changed) setTimeout(() => target.focus({ preventScroll: true }), 30);
+    }
+
     document.addEventListener('click', e => {
       const a = e.target.closest('a[href^="#"]');
       if (!a) return;
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) setTimeout(() => t.focus({ preventScroll: true }), 400);
+      const id = a.getAttribute('href').slice(1);
+      if (!id) { e.preventDefault(); return; }                 // ignore bare "#"
+      if (!pageOf(id) && !document.getElementById(id)) return;
+      e.preventDefault();
+      if (location.hash === '#' + id) render(true);              // same page tapped again
+      else history.pushState(null, '', '#' + id), render(true);
     });
+    window.addEventListener('popstate', () => render(false));   // phone/browser back button
+    window.addEventListener('hashchange', () => render(false));
+    render(false);
   }
 
   /* ---------------- Text size · font · theme (two control sets kept in sync) ---------------- */
@@ -107,28 +185,12 @@
     }));
   }
 
-  /* Highlight the current section in the desktop menu */
-  function setupActiveNav() {
-    const links = $$('.desk-nav a');
-    if (!('IntersectionObserver' in window) || !links.length) return;
-    const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting && map.has(e.target.id)) {
-          links.forEach(a => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
-          const a = map.get(e.target.id); a.classList.add('active'); a.setAttribute('aria-current', 'true');
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    map.forEach((a, id) => { const t = document.getElementById(id); if (t) io.observe(t); });
-  }
-
   /* ---------------- Back to top ---------------- */
   function setupToTop() {
     const b = $('#toTop');
     const check = () => b.classList.toggle('show', window.scrollY > 600);
     window.addEventListener('scroll', check, { passive: true });
-    b.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); $('#home').focus({ preventScroll: true }); });
+    b.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); const first = $('main > section:not([hidden])'); if (first) first.focus({ preventScroll: true }); });
     check();
   }
 
@@ -299,6 +361,24 @@
     const img = $('#slideImg'), soon = $('#slideSoon'), cap = $('#slideCaption'), count = $('#slideCount');
     const grid = $('#monthGrid'), dl = $('#paintDownload'), status = $('#paintStatus');
     $('#paintArtist').textContent = cfg.artist;
+
+    // Layout for easy use: month buttons FIRST, then caption + picture with arrows ON the picture.
+    const slider = $('#slider'), frame = $('#slideFrame');
+    const pickTitle = grid.previousElementSibling;           // "నెల ఎంచుకోండి" heading
+    if (pickTitle) { pickTitle.textContent = '1️⃣ నెల ఎంచుకోండి'; slider.before(pickTitle); }
+    slider.before(grid);
+    const cap0 = $('#slideCaption'); frame.before(cap0);        // caption above the picture
+    const prev = $('#slidePrev'), next = $('#slideNext');
+    prev.className = 'slide-arrow prev'; next.className = 'slide-arrow next';
+    prev.innerHTML = '<span class="material-icons" aria-hidden="true">chevron_left</span>';
+    next.innerHTML = '<span class="material-icons" aria-hidden="true">chevron_right</span>';
+    prev.setAttribute('aria-label', 'ముందు నెల'); next.setAttribute('aria-label', 'తరువాతి నెల');
+    frame.append(prev, next);
+    const cnt0 = $('#slideCount'); cnt0.className = 'slide-count-badge'; frame.append(cnt0);
+    const navRow = slider.querySelector('.slide-nav'); if (navRow) navRow.remove();
+    const hint = document.createElement('p'); hint.className = 'slide-hint';
+    hint.textContent = '👆 చిత్రాన్ని ఎడమ / కుడికి జరపండి లేదా ◀ ▶ నొక్కండి. పెద్దగా చూడాలంటే చిత్రంపై నొక్కండి.';
+    frame.after(hint);
     let idx = 0;
     const label = m => `${m.n}వ నెల · ${m.name}` + (m.title ? ` – ${m.title}` : '');
 
@@ -306,7 +386,11 @@
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'month-btn';
       b.innerHTML = `<b>${m.n}</b><span>${m.name}</span>` + (m.title ? `<span class="sr-only"> – ${m.title}</span>` : '');
-      b.addEventListener('click', () => show(i));
+      b.addEventListener('click', () => {
+        show(i);
+        const top = $('#slideCaption').getBoundingClientRect().top + window.scrollY - (($('.site-header') || {}).offsetHeight || 0) - 8;
+        window.scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
       grid.appendChild(b);
     });
 
@@ -421,8 +505,8 @@
      ====================================================================== */
   function goTo(sel) {
     const d = $('#botDialog'); if (d.open) d.close();
-    const t = $(sel);
-    if (t) { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(() => t.focus({ preventScroll: true }), 500); }
+    if (location.hash === sel) window.dispatchEvent(new HashChangeEvent('hashchange'));
+    else location.hash = sel;
   }
 
   const INTENTS = [
@@ -594,7 +678,7 @@
 
   /* ---------------- Start ---------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    setupMenu(); setupSectionFocus(); setupComfort(); setupActiveNav(); setupToTop();
+    setupMenu(); setupComfort(); setupToTop(); setupBottomBar(); setupRouter();
     setupCountdown(); setupCalendar(); setupShare(); setupSpeak();
     setupGallery(); setupPaintings(); setupDeepam(); setupBot();
     const y = $('#currentYear'); if (y) y.textContent = String(new Date().getFullYear());

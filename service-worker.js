@@ -1,5 +1,5 @@
 // Change this version whenever the site is updated.
-const CACHE_NAME = 'yagnavalkya-v6-2026';
+const CACHE_NAME = 'yagnavalkya-v9-2026';
 
 // Small core files needed to open the app offline.
 // (Big video/audio/PDF files are cached only after someone opens them.)
@@ -78,19 +78,16 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Other files: use the saved copy if present, and refresh it in the background.
+  // Other files: network first (so new pictures/files show at once), saved copy only when offline.
   event.respondWith(
-    caches.match(req).then((cached) => {
-      const network = fetch(req)
-        .then((res) => {
-          if (res.ok && res.status === 200) {
-            const copy = res.clone();
-            caches.open(CACHE_NAME).then((c) => c.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => cached);
-      return cached || network;
-    })
+    fetch(req)
+      .then((res) => {
+        if (res.ok && res.status === 200) {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+        }
+        return res;
+      })
+      .catch(() => caches.match(req))
   );
 });

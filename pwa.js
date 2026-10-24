@@ -62,7 +62,12 @@
   });
 
   // Service worker: offline support + automatic updates.
-  if ('serviceWorker' in navigator) {
+  const isLocal = /^(localhost|127\.0\.0\.1|\[::1\]|192\.168\.)/.test(location.hostname);
+  if ('serviceWorker' in navigator && isLocal) {
+    // Testing on your own computer: remove any saved offline copy so every change shows immediately.
+    navigator.serviceWorker.getRegistrations().then((rs) => rs.forEach((r) => r.unregister())).catch(() => {});
+    if (window.caches) caches.keys().then((ks) => ks.forEach((k) => caches.delete(k))).catch(() => {});
+  } else if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js', { updateViaCache: 'none' })
         .then((reg) => { reg.update().catch(() => {}); })

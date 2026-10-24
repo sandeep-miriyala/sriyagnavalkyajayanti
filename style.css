@@ -620,3 +620,39 @@ dialog::backdrop { background: rgba(0,0,0,.6); }
 .tech-grid li .material-icons { grid-row: span 2; color: var(--heading); font-size: 1.8rem; }
 .tech-grid b { color: var(--text); }
 .tech-grid li > span:last-child { color: var(--text-2); font-size: .9rem; line-height: 1.7; }
+
+/* ---------- Single-page navigation ---------- */
+.page-back { max-width: 860px; margin: 8px auto 24px; text-align: center; }
+.page-back .btn { min-width: 260px; }
+.desk-nav a.active, .desk-nav a[aria-current="page"] { color: var(--heading); border-bottom-color: var(--btn); background: var(--surface-3); }
+.menu-list a[aria-current="page"] { background: var(--surface-3); box-shadow: inset 6px 0 0 var(--btn); }
+.bottom-nav a[aria-current="page"] { background: var(--surface-3); box-shadow: inset 0 4px 0 var(--btn); }
+.bottom-nav a[aria-current="page"] .material-icons { color: var(--heading); }
+html.spa main > section { scroll-margin-top: 90px; }
+.page-in > section:not([hidden]) { animation: pageIn .25s ease-out; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .page-in > section { animation: none; } }
+
+/* ---------- Calendar page: months on top, picture fits the screen ---------- */
+#paintings .month-grid { grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 14px; }
+#paintings .month-btn { min-height: 58px; padding: 2px; }
+#paintings .month-btn b { font-size: 1.2rem; }
+#paintings .month-btn span { font-size: .62rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+#paintings .slide-caption { margin: 4px 0 8px; font-size: 1.15rem; scroll-margin-top: 90px; }
+#paintings .slide-frame { aspect-ratio: auto; height: min(100vw - 28px, calc(100dvh - 250px), 640px); min-height: 260px; }
+.slide-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 56px; height: 56px; border-radius: 50%; border: 3px solid #ffffff; cursor: pointer;
+  background: rgba(46, 10, 92, .88); color: #ffffff; display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.35);
+}
+.slide-arrow .material-icons { font-size: 2.2rem; }
+.slide-arrow.prev { left: 8px; }
+.slide-arrow.next { right: 8px; }
+.slide-arrow:hover { background: #2e0a5c; }
+.slide-count-badge {
+  position: absolute; top: 8px; right: 8px; z-index: 2; background: rgba(46, 10, 92, .9); color: #ffffff;
+  font-weight: 700; font-size: .85rem; padding: 2px 12px; border-radius: 20px;
+}
+.slide-hint { text-align: center; font-size: .85rem; color: var(--text-2); margin: 8px 0 0; }
+@media (min-width: 900px) { #paintings .month-grid { grid-template-columns: repeat(12, 1fr); } }
