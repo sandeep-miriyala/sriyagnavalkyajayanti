@@ -93,8 +93,7 @@
     { id: 'invitations',     parts: ['invitations'],             title: 'పుస్తకాలు' },
     { id: 'paintings',       parts: ['paintings'],               title: 'బాపిరాజు గారి చిత్రాలు' },
     { id: 'gallery',         parts: ['gallery'],                 title: 'ఫోటోలు & వీడియో' },
-    { id: 'related',         parts: ['related'],                 title: 'మరిన్ని సైట్లు' },
-    { id: 'tech',            parts: ['tech'],                    title: 'సాంకేతికత' }
+    { id: 'related',         parts: ['related'],                 title: 'మరిన్ని సైట్లు' }
   ];
   const SITE_TITLE = document.title;
   function pageOf(id) { return PAGES.find(p => p.parts.includes(id)) || null; }
@@ -116,8 +115,7 @@
     ['invitations', ['పుస్తక', 'బుక్']],
     ['paintings', ['క్యాలెండర్', 'బాపిరాజు', 'చిత్రాలు', 'పెయింటింగ్', 'నెల']],
     ['gallery', ['ఫోటో', 'వీడియో', 'సుప్రభాత']],
-    ['related', ['సైట్', 'సంధ్యావందన', 'వాజసనేయ']],
-    ['tech', ['సాంకేతిక', 'గిట్']]
+    ['related', ['సైట్', 'సంధ్యావందన', 'వాజసనేయ']]
   ];
   let botAskExternal = null;
   function readablePageText() {
