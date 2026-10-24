@@ -37,7 +37,8 @@
             <span>మెనూ</span>
         </button>
         <h1 class="site-title">శ్రీ యాజ్ఞవల్క్య మహర్షి<small>95వ జయంతి · పిఠాపురం</small></h1>
-        <nav class="desk-nav" aria-label="ముఖ్య మెనూ"><ul><li><a href="#home">ఆహ్వానం</a></li><li><a href="#program-details">కార్యక్రమం</a></li><li><a href="#upadesam">ఉపదేశం</a></li><li><a href="#about">మహర్షి చరిత్ర</a></li><li><a href="#PravarGenerator">మీ ప్రవర</a></li><li><a href="#deepam">దీపం</a></li><li><a href="#invitations">పుస్తకాలు</a></li><li><a href="#gallery">ఫోటోలు</a></li></ul></nav>
+        <nav class="desk-nav" aria-label="ముఖ్య మెనూ"><ul><li><a href="#home">ఆహ్వానం</a></li><li><a href="#program-details">కార్యక్రమం</a></li><li><a href="#upadesam">ఉపదేశం</a></li><li><a href="#about">చరిత్ర</a></li><li><a href="#PravarGenerator">ప్రవర</a></li><li><a href="#deepam">దీపం</a></li><li><a href="#invitations">పుస్తకాలు</a></li><li><a href="#paintings">శ్రీ చంద్రుపట్ల బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery">ఫోటోలు</a></li><li><a href="#related">మరిన్ని సైట్లు</a></li><li>
+            <a href="#tech">సాంకేతికత</a></li></ul></nav>
         <button id="installBtn" class="hdr-btn" type="button">
             <span class="material-icons" aria-hidden="true">install_mobile</span>
             <span>యాప్</span>
@@ -47,7 +48,7 @@
 
     <nav id="menuPanel" aria-label="మెనూ" hidden>
         <div class="menu-inner">
-            <ul class="menu-list"><li><a href="#home"><span class="material-icons" aria-hidden="true">celebration</span>ఆహ్వానం</a></li><li><a href="#program-details"><span class="material-icons" aria-hidden="true">event_note</span>కార్యక్రమం</a></li><li><a href="#upadesam"><span class="material-icons" aria-hidden="true">self_improvement</span>ఉపదేశం</a></li><li><a href="#about"><span class="material-icons" aria-hidden="true">auto_stories</span>మహర్షి చరిత్ర</a></li><li><a href="#PravarGenerator"><span class="material-icons" aria-hidden="true">person</span>మీ ప్రవర</a></li><li><a href="#deepam"><span class="material-icons" aria-hidden="true">local_fire_department</span>దీపం</a></li><li><a href="#invitations"><span class="material-icons" aria-hidden="true">menu_book</span>పుస్తకాలు</a></li><li><a href="#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>ఫోటోలు</a></li></ul>
+            <ul class="menu-list"><li><a href="#home"><span class="material-icons" aria-hidden="true">celebration</span>ఆహ్వానం</a></li><li><a href="#program-details"><span class="material-icons" aria-hidden="true">event_note</span>కార్యక్రమం</a></li><li><a href="#upadesam"><span class="material-icons" aria-hidden="true">self_improvement</span>ఉపదేశం</a></li><li><a href="#about"><span class="material-icons" aria-hidden="true">auto_stories</span>చరిత్ర</a></li><li><a href="#PravarGenerator"><span class="material-icons" aria-hidden="true">person</span>ప్రవర</a></li><li><a href="#deepam"><span class="material-icons" aria-hidden="true">local_fire_department</span>దీపం</a></li><li><a href="#invitations"><span class="material-icons" aria-hidden="true">menu_book</span>పుస్తకాలు</a></li><li><a href="#paintings"><span class="material-icons" aria-hidden="true">palette</span>బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>ఫోటోలు</a></li><li><a href="#related"><span class="material-icons" aria-hidden="true">language</span>మరిన్ని సైట్లు</a></li><li><a href="#tech"><span class="material-icons" aria-hidden="true">code</span>సాంకేతికత</a></li></ul>
             <div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
         <div class="set-item">
             <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
@@ -367,6 +368,38 @@
     <p class="thanks">శ్రీ కూచి శ్రీహరిమన్నారు గారు అందించిన విలువైన సమాచారానికి ధన్యవాదాలు</p>
 </section>
 
+<!-- ================= Bapiraju paintings – 12 month calendar ================= -->
+<section id="paintings" class="card" tabindex="-1" aria-labelledby="paintTitle">
+    <h2 class="card-title" id="paintTitle"><span class="material-icons" aria-hidden="true">palette</span> శ్రీ చంద్రుపట్ల బాపిరాజు గారి చిత్రాలు – 12 నెలల క్యాలెండర్</h2>
+    <p class="lead">చిత్రకారులు: <b id="paintArtist">శ్రీ చంద్రుపట్ల బాపిరాజు గారు</b></p>
+
+    <div class="slider" id="slider" aria-roledescription="చిత్రాల ప్రదర్శన">
+        <div class="slide-frame" id="slideFrame">
+            <img id="slideImg" alt="" hidden />
+            <div class="slide-soon" id="slideSoon" hidden>
+                <span aria-hidden="true">🎨</span>
+                <p>ఈ నెల చిత్రం త్వరలో వస్తుంది</p>
+            </div>
+        </div>
+        <p class="slide-caption" id="slideCaption" aria-live="polite"></p>
+        <div class="slide-nav">
+            <button type="button" class="btn btn-soft" id="slidePrev"><span class="material-icons" aria-hidden="true">arrow_back</span> ముందు నెల</button>
+            <span class="slide-count" id="slideCount" aria-hidden="true"></span>
+            <button type="button" class="btn btn-soft" id="slideNext">తరువాతి నెల <span class="material-icons" aria-hidden="true">arrow_forward</span></button>
+        </div>
+    </div>
+
+    <h3 class="sub-title">నెల ఎంచుకోండి</h3>
+    <div class="month-grid" id="monthGrid" role="group" aria-label="నెలలు"></div>
+
+    <div class="paint-actions">
+        <a class="btn btn-accent" id="paintDownload" href="#" download><span class="material-icons" aria-hidden="true">file_download</span> ఈ చిత్రం డౌన్‌లోడ్</a>
+        <button type="button" class="btn btn-green" id="paintShare"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ఈ చిత్రం వాట్సాప్‌లో పంపండి</button>
+        <button type="button" class="btn btn-primary" id="paintAll"><span class="material-icons" aria-hidden="true">download_for_offline</span> అన్ని చిత్రాలు ఒకేసారి డౌన్‌లోడ్</button>
+    </div>
+    <p class="share-status" id="paintStatus" aria-live="polite" style="color:var(--text)"></p>
+</section>
+
 <!-- ================= Virtual Deepam ================= -->
 <section id="deepam" class="card" tabindex="-1" aria-labelledby="deepamTitle">
     <h2 class="card-title" id="deepamTitle">🪔 వర్చువల్ దీపం వెలిగించు 🪔</h2>
@@ -420,6 +453,45 @@
     <p class="next-year"><span class="material-icons" aria-hidden="true">next_plan</span> వచ్చే సంవత్సరం జయంతి: ది.08-11-2027 సోమవారం</p>
 </section>
 
+<!-- ================= Related websites ================= -->
+<section id="related" class="card" tabindex="-1" aria-labelledby="relTitle">
+    <h2 class="card-title" id="relTitle"><span class="material-icons" aria-hidden="true">language</span> మరిన్ని సంబంధిత వెబ్‌సైట్లు</h2>
+    <p class="lead">శుక్ల యజుర్వేదం, సంధ్యావందనం గురించి మరింత నేర్చుకోండి.</p>
+    <ul class="related-list">
+        <li class="related-item">
+            <span class="related-icon" aria-hidden="true">🕉️</span>
+            <div class="related-body">
+                <h3>వాజసనేయీ సంధ్యావందనం నేర్చుకోండి</h3>
+                <p>శుక్ల యజుర్వేద వాజసనేయ సంప్రదాయంలో సంధ్యావందనం – తెలుగులో దశల వారీగా, ఆడియోతో వినవచ్చు. స్తోత్రాలు, రోజువారీ పంచాంగం, సంధ్యా సమయ గుర్తులు, పండుగల క్యాలెండర్ కూడా ఉన్నాయి. ఇంటర్నెట్ లేకున్నా పనిచేస్తుంది.</p>
+                <a class="btn btn-accent" href="https://vajasaneyasandhya.vercel.app/" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true">open_in_new</span> వెబ్‌సైట్ తెరవండి<span class="sr-only"> – వాజసనేయీ సంధ్యావందనం (కొత్త ట్యాబ్‌లో)</span></a>
+            </div>
+        </li>
+        <!-- మరో వెబ్‌సైట్ జోడించాలంటే పై <li> … </li> ను కాపీ చేసి పేరు, వివరణ, లింక్ మార్చండి -->
+    </ul>
+</section>
+
+<!-- ================= Technology used ================= -->
+<section id="tech" class="card" tabindex="-1" aria-labelledby="techTitle">
+    <h2 class="card-title" id="techTitle"><span class="material-icons" aria-hidden="true">code</span> సాంకేతికత – ఈ వెబ్‌సైట్ ఎలా తయారైంది</h2>
+    <p class="lead">ఈ వెబ్‌సైట్ పూర్తిగా ఉచిత, ఓపెన్-సోర్స్ సాంకేతికతతో తయారైంది. సోర్స్ కోడ్ అందరూ చూడవచ్చు.</p>
+    <p class="tech-repo">
+        <a class="btn btn-primary" href="https://github.com/sandeepmiriyala03/sriyagnavalkyajayanti" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> గిట్‌హబ్‌లో సోర్స్ కోడ్ చూడండి<span class="sr-only"> (కొత్త ట్యాబ్‌లో)</span></a>
+    </p>
+    <ul class="tech-grid">
+        <li><span class="material-icons" aria-hidden="true">html</span><b>వెబ్ పేజీ</b><span><span lang="en">HTML5, CSS, JavaScript</span> – ఎలాంటి భారీ ఫ్రేమ్‌వర్క్ లేకుండా, వేగంగా తెరుచుకుంటుంది</span></li>
+        <li><span class="material-icons" aria-hidden="true">install_mobile</span><b>యాప్‌లా ఇన్‌స్టాల్</b><span><span lang="en">PWA, Service Worker</span> – ఫోన్‌లో యాప్‌లా, ఇంటర్నెట్ లేకున్నా పనిచేస్తుంది</span></li>
+        <li><span class="material-icons" aria-hidden="true">cloud_upload</span><b>ప్రచురణ</b><span><span lang="en">GitHub, Netlify</span> – కోడ్ భద్రపరచడం, ఉచితంగా వెబ్‌సైట్ ప్రచురణ</span></li>
+        <li><span class="material-icons" aria-hidden="true">accessibility_new</span><b>అందరికీ సులభం</b><span><span lang="en">WCAG 2.2 AA</span> ప్రమాణాల రంగులు, పెద్ద అక్షరాలు, పెద్ద బటన్లు; <span lang="en">axe-core, Playwright</span> తో పరీక్షించబడింది</span></li>
+        <li><span class="material-icons" aria-hidden="true">font_download</span><b>తెలుగు అక్షరాలు</b><span>23 ఉచిత తెలుగు ఫాంట్లు (<span lang="en">Fontsource / Google Fonts, SIL OFL</span>)</span></li>
+        <li><span class="material-icons" aria-hidden="true">record_voice_over</span><b>మాట – వినికిడి</b><span><span lang="en">Web Speech API</span> – తెలుగులో చదివి వినిపించడం, మాట్లాడి అడగడం</span></li>
+        <li><span class="material-icons" aria-hidden="true">support_agent</span><b>సహాయ మిత్ర</b><span><span lang="en">Fuse.js</span> – తప్పు అక్షరాలు ఉన్నా సరైన సమాధానం</span></li>
+        <li><span class="material-icons" aria-hidden="true">share</span><b>వాట్సాప్ షేర్</b><span><span lang="en">Web Share API</span> – పత్రిక, పుస్తకాలు, చిత్రాలు నేరుగా పంపడం</span></li>
+        <li><span class="material-icons" aria-hidden="true">folder_zip</span><b>అన్ని చిత్రాలు ఒకేసారి</b><span><span lang="en">JSZip</span> – 12 నెలల చిత్రాలు ఒకే ఫైల్‌గా</span></li>
+        <li><span class="material-icons" aria-hidden="true">workspace_premium</span><b>క్విజ్ సర్టిఫికెట్</b><span><span lang="en">html2canvas</span> – సర్టిఫికెట్ చిత్రంగా డౌన్‌లోడ్</span></li>
+        <li><span class="material-icons" aria-hidden="true">interests</span><b>గుర్తులు</b><span><span lang="en">Material Icons, Font Awesome Free</span></span></li>
+    </ul>
+</section>
+
 </main>
 
 <footer class="site-footer">© <span id="currentYear">2026</span>: భక్తితో సందీప్ మిరియాల</footer>
@@ -438,13 +510,6 @@
     <span class="material-icons" aria-hidden="true">support_agent</span>
     <span class="fab-text"><b>24×7 సహాయ మిత్ర</b><small>ఏదైనా అడగండి</small></span>
 </button>
-<div id="botTip" role="status" hidden>
-    <p>🙏 నమస్కారం! జయంతి తేదీ, దారి, ప్రవర – ఏదైనా అడగండి.</p>
-    <div class="tip-actions">
-        <button type="button" class="btn btn-accent js-bot-open">సహాయ మిత్ర తెరవండి</button>
-        <button type="button" class="btn btn-soft" id="botTipClose">వద్దు</button>
-    </div>
-</div>
 <button id="toTop" type="button" aria-label="పైకి వెళ్ళండి"><span class="material-icons" aria-hidden="true">keyboard_arrow_up</span></button>
 
 <!-- ================= Install help ================= -->
@@ -488,28 +553,32 @@
     <div class="bot-wrap">
         <div class="bot-head">
             <div class="bot-avatar" aria-hidden="true">🙏</div>
-            <div>
+            <div class="bot-titles">
                 <h2 id="botTitle">సహాయ మిత్ర</h2>
-                <small>24 గంటలూ అందుబాటులో · కొత్త సమాధానం పైన</small>
+                <small>24×7 · ఉచితం</small>
             </div>
-            <button type="button" class="dlg-x" id="botClose" aria-label="సహాయ మిత్ర మూసివేయండి"><span class="material-icons" aria-hidden="true">close</span></button>
+            <button type="button" class="bot-close" id="botClose"><span class="material-icons" aria-hidden="true">close</span> మూసివేయి</button>
         </div>
-        <div class="bot-ask">
-            <form class="bot-input" id="botForm" autocomplete="off">
-                <label for="botText" class="sr-only">మీ ప్రశ్న</label>
-                <input type="text" id="botText" placeholder="ప్రశ్న టైప్ చేయండి…" enterkeyhint="send" />
-                <button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><span class="material-icons" aria-hidden="true">mic</span></button>
-                <button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><span class="material-icons" aria-hidden="true">send</span></button>
-            </form>
-            <p class="bot-hint" id="botHint">క్రింది బటన్ నొక్కండి, లేదా ప్రశ్న టైప్ చేయండి.</p>
+        <div class="bot-body" id="botBody">
+            <div id="botLog" aria-live="polite" aria-label="కొత్త సమాధానం"></div>
+            <h3 class="bot-ask-title" id="botAskTitle">ఏమి తెలుసుకోవాలి? ఒకటి నొక్కండి 👇</h3>
+            <div class="bot-chips" id="botChips" role="group" aria-labelledby="botAskTitle"></div>
+            <h3 class="bot-ask-title" id="botOldTitle" hidden>ముందటి సమాధానాలు</h3>
+            <div id="botOld" aria-labelledby="botOldTitle"></div>
         </div>
-        <div class="bot-chips" id="botChips" role="group" aria-label="త్వరిత ప్రశ్నలు"></div>
-        <div id="botLog" role="log" aria-live="polite" aria-label="సమాధానాలు – కొత్తది పైన"></div>
+        <form class="bot-input" id="botForm" autocomplete="off">
+            <label for="botText" class="sr-only">లేదా మీ ప్రశ్న టైప్ చేయండి</label>
+            <input type="text" id="botText" placeholder="లేదా ప్రశ్న టైప్ చేయండి…" enterkeyhint="send" />
+            <button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><span class="material-icons" aria-hidden="true">mic</span></button>
+            <button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><span class="material-icons" aria-hidden="true">send</span></button>
+        </form>
     </div>
 </dialog>
 
 <script src="vendor/fuse.basic.min.js" defer></script>
 <script src="vendor/html2canvas.min.js" defer></script>
+<script src="vendor/jszip.min.js" defer></script>
+<script src="paintings.js" defer></script>
 <script src="app.js" defer></script>
 <script src="pwa.js" defer></script>
 <script src="quiz.js" defer></script>

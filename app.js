@@ -291,6 +291,130 @@
     });
   }
 
+  /* ---------------- Bapiraju paintings slideshow (12 months) ---------------- */
+  function setupPaintings() {
+    const cfg = window.PAINTINGS;
+    if (!cfg || !$('#slider')) return;
+    const months = cfg.months.map(m => ({ ...m, file: `paintings/month-${String(m.n).padStart(2, '0')}.jpg`, ok: null }));
+    const img = $('#slideImg'), soon = $('#slideSoon'), cap = $('#slideCaption'), count = $('#slideCount');
+    const grid = $('#monthGrid'), dl = $('#paintDownload'), status = $('#paintStatus');
+    $('#paintArtist').textContent = cfg.artist;
+    let idx = 0;
+    const label = m => `${m.n}వ నెల · ${m.name}` + (m.title ? ` – ${m.title}` : '');
+
+    months.forEach((m, i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'month-btn';
+      b.innerHTML = `<b>${m.n}</b><span>${m.name}</span>` + (m.title ? `<span class="sr-only"> – ${m.title}</span>` : '');
+      b.addEventListener('click', () => show(i));
+      grid.appendChild(b);
+    });
+
+    // check which months have a picture (first available month is shown first)
+    const checks = months.map(m => new Promise(res => {
+      const t = new Image();
+      t.onload = () => { m.ok = true; res(); };
+      t.onerror = () => { m.ok = false; res(); };
+      t.src = encodeURI(m.file);
+    }));
+    Promise.all(checks).then(() => {
+      $$('.month-btn', grid).forEach((b, i) => b.classList.toggle('empty', !months[i].ok));
+      const first = months.findIndex(m => m.ok);
+      show(first >= 0 ? first : 0);
+      const n = months.filter(m => m.ok).length;
+      $('#paintAll').disabled = n === 0;
+      $('#paintAll').lastChild.textContent = ` అన్ని చిత్రాలు ఒకేసారి డౌన్‌లోడ్ (${n})`;
+    });
+
+    function show(i) {
+      idx = (i + months.length) % months.length;
+      const m = months[idx];
+      cap.textContent = label(m);
+      count.textContent = `${idx + 1} / ${months.length}`;
+      $$('.month-btn', grid).forEach((b, k) => b.setAttribute('aria-pressed', String(k === idx)));
+      if (m.ok) {
+        img.hidden = false; soon.hidden = true;
+        img.src = encodeURI(m.file);
+        img.alt = `${label(m)} – ${cfg.artist} చిత్రం`;
+        dl.href = encodeURI(m.file);
+        dl.setAttribute('download', `బాపిరాజు_చిత్రం_${String(m.n).padStart(2, '0')}_${m.name}.jpg`);
+        dl.classList.remove('is-disabled'); dl.removeAttribute('aria-disabled');
+        $('#paintShare').disabled = false;
+      } else {
+        img.hidden = true; soon.hidden = false;
+        dl.removeAttribute('href'); dl.classList.add('is-disabled'); dl.setAttribute('aria-disabled', 'true');
+        $('#paintShare').disabled = true;
+      }
+      status.textContent = '';
+    }
+    $('#slidePrev').addEventListener('click', () => show(idx - 1));
+    $('#slideNext').addEventListener('click', () => show(idx + 1));
+    $('#slider').addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { show(idx - 1); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { show(idx + 1); e.preventDefault(); }
+    });
+    // swipe on phones
+    let x0 = null;
+    $('#slideFrame').addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    $('#slideFrame').addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
+    });
+    img.addEventListener('click', () => { if (months[idx].ok) window.open(encodeURI(months[idx].file), '_blank', 'noopener'); });
+
+    $('#paintShare').addEventListener('click', async () => {
+      const m = months[idx]; if (!m.ok) return;
+      const text = `🎨 ${label(m)}\nచిత్రకారులు: ${cfg.artist}\nశ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం`;
+      try {
+        if (navigator.canShare && navigator.share) {
+          status.textContent = '⏳ చిత్రం సిద్ధం చేస్తున్నాం…';
+          const blob = await (await fetch(encodeURI(m.file))).blob();
+          const file = new File([blob], `బాపిరాజు_చిత్రం_${m.n}.jpg`, { type: 'image/jpeg' });
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file], text });
+            status.textContent = '✅ పంపే జాబితాలో "వాట్సాప్" ఎంచుకోండి.';
+            return;
+          }
+        }
+      } catch (err) { if (err && err.name === 'AbortError') { status.textContent = ''; return; } }
+      status.textContent = '';
+      window.open('https://wa.me/?text=' + encodeURIComponent(text + '\n\n' + new URL(encodeURI(m.file), location.href).href), '_blank', 'noopener');
+    });
+
+    $('#paintAll').addEventListener('click', async () => {
+      const list = months.filter(m => m.ok);
+      if (!list.length) return;
+      const btn = $('#paintAll'); btn.disabled = true;
+      try {
+        if (typeof window.JSZip === 'function') {
+          const zip = new window.JSZip();
+          for (let k = 0; k < list.length; k++) {
+            status.textContent = `⏳ చిత్రాలు సిద్ధం చేస్తున్నాం… ${k + 1} / ${list.length}`;
+            const blob = await (await fetch(encodeURI(list[k].file))).blob();
+            zip.file(`${String(list[k].n).padStart(2, '0')}_${list[k].name}.jpg`, blob);
+          }
+          const out = await zip.generateAsync({ type: 'blob' });
+          const url = URL.createObjectURL(out);
+          const a = Object.assign(document.createElement('a'), { href: url, download: 'బాపిరాజు_గారి_చిత్రాలు_12_నెలలు.zip' });
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 5000);
+          status.textContent = `✅ ${list.length} చిత్రాలు ఒకే ఫైల్‌గా డౌన్‌లోడ్ అయ్యాయి. ఫోన్‌లో "డౌన్‌లోడ్స్"లో చూడండి.`;
+        } else {
+          for (const m of list) {
+            const a = Object.assign(document.createElement('a'), { href: encodeURI(m.file), download: `బాపిరాజు_చిత్రం_${m.n}.jpg` });
+            document.body.appendChild(a); a.click(); a.remove();
+            await new Promise(r => setTimeout(r, 600));
+          }
+          status.textContent = '✅ చిత్రాలు డౌన్‌లోడ్ అయ్యాయి.';
+        }
+      } catch (e) {
+        status.textContent = 'క్షమించండి, డౌన్‌లోడ్ కాలేదు. ఇంటర్నెట్ చూసి మళ్ళీ ప్రయత్నించండి.';
+      }
+      btn.disabled = false;
+    });
+  }
+
   /* ======================================================================
      24×7 సహాయ మిత్ర — answers from the 2026 invitation only.
      Newest question+answer is shown at the TOP (last in, first out).
@@ -334,6 +458,10 @@
       run: () => { const b = document.querySelector('.settings-wrap .js-font-up'); if (b && !b.disabled) b.click(); } },
     { chip: '❓ క్విజ్', keys: ['క్విజ్', 'ప్రశ్నలు', 'పరీక్ష', 'సర్టిఫికెట్', 'quiz'],
       reply: () => 'మహర్షి గురించి 5 సులభమైన ప్రశ్నలు. పూర్తి చేస్తే సర్టిఫికెట్ వస్తుంది.', action: ['క్విజ్‌కు వెళ్ళు', '#Quiz'] },
+    { chip: '🎨 బాపిరాజు చిత్రాలు', keys: ['చిత్రాలు', 'చిత్రం', 'బాపిరాజు', 'క్యాలెండర్', 'పోస్టర్', 'నెల', 'painting', 'calendar'],
+      reply: () => 'శ్రీ చంద్రుపట్ల బాపిరాజు గారి 12 నెలల చిత్రాలు. ఒక్కొక్కటి చూడవచ్చు, డౌన్‌లోడ్ చేయవచ్చు, అన్నీ ఒకేసారి కూడా డౌన్‌లోడ్ చేయవచ్చు.', action: ['చిత్రాలు చూడండి', '#paintings'] },
+    { chip: '🕉️ సంధ్యావందనం నేర్చుకోండి', keys: ['సంధ్యావందనం', 'సంధ్య', 'వాజసనేయ', 'నేర్చుకో', 'sandhya'],
+      reply: () => 'వాజసనేయీ సంధ్యావందనం తెలుగులో దశల వారీగా, ఆడియోతో నేర్చుకోవచ్చు.', link: ['🕉️ వాజసనేయీ సంధ్యావందనం వెబ్‌సైట్', 'https://vajasaneyasandhya.vercel.app/'] },
     { chip: '🏠 సంఘం చిరునామా', keys: ['చిరునామా', 'సంప్రదించ', 'అధ్యక్ష', 'సంఘం', 'కార్యవర్గ', 'contact'],
       reply: () => '🏠 మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు గారు (అధ్యక్షులు)\n5-1-66, సీతయ్యగారి తోట, సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.', action: ['కార్యవర్గం చూడండి', '#Members'] }
   ];
@@ -364,13 +492,14 @@
   }
 
   function setupBot() {
-    const dlg = $('#botDialog'), log = $('#botLog'), chips = $('#botChips'), form = $('#botForm'), input = $('#botText'), hint = $('#botHint');
+    const dlg = $('#botDialog'), log = $('#botLog'), chips = $('#botChips'), form = $('#botForm'), input = $('#botText'), body = $('#botBody');
     let started = false;
 
     const timeNow = () => new Date().toLocaleTimeString('te-IN', { hour: 'numeric', minute: '2-digit' });
 
     function addCard(question, intent, fallbackText) {
-      $$('.qa.newest', log).forEach(c => c.classList.remove('newest'));
+      // newest answer stays at the top; earlier answers move below the buttons (newest first)
+      $$('.qa', log).forEach(c => { c.classList.remove('newest'); $('#botOld').prepend(c); $('#botOldTitle').hidden = false; });
       const card = document.createElement('article');
       card.className = 'qa newest';
       if (question) {
@@ -399,7 +528,8 @@
       card.appendChild(a);
       const t = document.createElement('span'); t.className = 'msg-time'; t.textContent = timeNow(); card.appendChild(t);
       log.prepend(card);                 // LIFO: newest on top
-      log.scrollTop = 0;
+      body.scrollTop = 0;
+      if (question) $('#botAskTitle').textContent = 'ఇంకా ఏమి తెలుసుకోవాలి? ఒకటి నొక్కండి 👇';
       if (intent && intent.run) setTimeout(intent.run, 400);
     }
 
@@ -409,14 +539,18 @@
       const it = intentFromChip || findIntent(t);
       if (it) { addCard(t, it); return; }
       if (/నమస్|నమస్కారం|హలో|హాయ్|hi|hello|namaste/i.test(t)) {
-        addCard(t, null, 'నమస్కారం 🙏 పైన ఉన్న బటన్లలో మీకు కావలసినది నొక్కండి.');
+        addCard(t, null, 'నమస్కారం 🙏 క్రింద ఉన్న బటన్లలో మీకు కావలసినది నొక్కండి.');
         return;
       }
-      addCard(t, null, 'క్షమించండి, ఆ ప్రశ్నకు సమాధానం నా దగ్గర లేదు.\nపైన ఉన్న బటన్లలో ఒకటి నొక్కండి. ఉదా: "జయంతి ఎప్పుడు?", "ఎక్కడ? దారి".');
+      addCard(t, null, 'క్షమించండి, ఆ ప్రశ్నకు సమాధానం నా దగ్గర లేదు.\nక్రింద ఉన్న బటన్లలో ఒకటి నొక్కండి. ఉదా: "జయంతి ఎప్పుడు?", "ఎక్కడ? దారి".');
     }
 
     INTENTS.forEach(it => {
-      const b = document.createElement('button'); b.type = 'button'; b.textContent = it.chip;
+      const b = document.createElement('button'); b.type = 'button';
+      const m = it.chip.match(/^(\S+)\s+(.*)$/);
+      b.innerHTML = '<span class="chip-ico" aria-hidden="true"></span><span class="chip-txt"></span>';
+      b.querySelector('.chip-ico').textContent = m ? m[1] : '•';
+      b.querySelector('.chip-txt').textContent = m ? m[2] : it.chip;
       b.addEventListener('click', () => ask(it.chip, it));
       chips.appendChild(b);
     });
@@ -428,7 +562,7 @@
     const mic = $('#botMic');
     if (SR) {
       mic.hidden = false;
-      hint.textContent = 'బటన్ నొక్కండి, టైప్ చేయండి, లేదా 🎤 నొక్కి మాట్లాడండి.';
+      const hint = { set textContent(v) { input.placeholder = v.startsWith('🎤') ? v : 'లేదా ప్రశ్న టైప్ చేయండి…'; }, get textContent() { return input.placeholder; } };
       let rec = null;
       mic.addEventListener('click', () => {
         if (rec) { rec.stop(); return; }
@@ -445,28 +579,24 @@
       if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
       if (!started) {
         started = true;
-        addCard(null, null, `నమస్కారం 🙏 నేను మీ సహాయ మిత్రను.\nశ్రీ యాజ్ఞవల్క్య మహర్షి 95వ జయంతి: 19-11-2026 గురువారం, ఉదయం 9 గంటల నుండి.\n${countdownText()}\n\nపైన ఉన్న బటన్ నొక్కండి. కొత్త సమాధానం ఎప్పుడూ పైనే కనిపిస్తుంది.`);
+        addCard(null, null, `నమస్కారం 🙏 నేను మీ సహాయ మిత్రను.\n95వ జయంతి: 19-11-2026 గురువారం, ఉదయం 9 గంటలకు.\n${countdownText()}`);
       }
-      setTimeout(() => { const first = $('button', chips); if (first) first.focus(); }, 60);
+      body.scrollTop = 0;
+      setTimeout(() => { $('#botClose').focus(); }, 60);
     };
     const closeBot = () => { speech.stop(); if (dlg.open) dlg.close(); };
     let opener = null;
-    $$('.js-bot-open').forEach(b => b.addEventListener('click', () => { opener = b; hideTip(); openBot(); }));
+    $$('.js-bot-open').forEach(b => b.addEventListener('click', () => { opener = b; openBot(); }));
     $('#botClose').addEventListener('click', closeBot);
     dlg.addEventListener('close', () => { speech.stop(); if (opener) opener.focus(); });
 
-    // One-time friendly tip pointing at the helper button
-    const tip = $('#botTip');
-    function hideTip() { if (tip && !tip.hidden) { tip.hidden = true; store.set('botTipSeen', '1'); } }
-    $('#botTipClose').addEventListener('click', () => { hideTip(); $('#botFab').focus(); });
-    if (!store.get('botTipSeen')) setTimeout(() => { if (!dlg.open) tip.hidden = false; }, 3500);
   }
 
   /* ---------------- Start ---------------- */
   document.addEventListener('DOMContentLoaded', () => {
     setupMenu(); setupSectionFocus(); setupComfort(); setupActiveNav(); setupToTop();
     setupCountdown(); setupCalendar(); setupShare(); setupSpeak();
-    setupGallery(); setupDeepam(); setupBot();
+    setupGallery(); setupPaintings(); setupDeepam(); setupBot();
     const y = $('#currentYear'); if (y) y.textContent = String(new Date().getFullYear());
   });
 })();

@@ -1,5 +1,5 @@
 // Change this version whenever the site is updated.
-const CACHE_NAME = 'yagnavalkya-v5-2026';
+const CACHE_NAME = 'yagnavalkya-v6-2026';
 
 // Small core files needed to open the app offline.
 // (Big video/audio/PDF files are cached only after someone opens them.)
@@ -10,6 +10,8 @@ const CORE = [
   '/style.css',
   '/fonts/telugu-fonts.css',
   '/app.js',
+  '/paintings.js',
+  '/vendor/jszip.min.js',
   '/pwa.js',
   '/vendor/fuse.basic.min.js',
   '/vendor/html2canvas.min.js',
