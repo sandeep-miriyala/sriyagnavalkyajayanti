@@ -11,7 +11,7 @@ window.PAINTINGS = {
   artist: 'శ్రీ చంద్రుపట్ల బాపిరాజు గారు',
   months: [
     { n: 1,  name: 'జనవరి',     title: '' },
-    { n: 2,  name: 'ఫిబ్రవరి',   title: 'ఉద్దాలక ఆరుణి శిష్యుడు' },
+    { n: 2,  name: 'ఫిబ్రవరి',   title: '' },
     { n: 3,  name: 'మార్చి',     title: '' },
     { n: 4,  name: 'ఏప్రిల్',    title: '' },
     { n: 5,  name: 'మే',        title: '' },

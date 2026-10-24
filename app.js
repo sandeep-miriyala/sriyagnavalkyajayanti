@@ -379,6 +379,40 @@
     const hint = document.createElement('p'); hint.className = 'slide-hint';
     hint.textContent = '👆 చిత్రాన్ని ఎడమ / కుడికి జరపండి లేదా ◀ ▶ నొక్కండి. పెద్దగా చూడాలంటే చిత్రంపై నొక్కండి.';
     frame.after(hint);
+
+    // ▶ Slideshow: shows the next painting every 5 seconds until paused
+    const SLIDE_MS = 5000;
+    const play = document.createElement('button');
+    play.type = 'button'; play.className = 'btn btn-primary slide-play';
+    play.setAttribute('aria-pressed', 'false');
+    const bar = document.createElement('div'); bar.className = 'slide-progress'; bar.setAttribute('aria-hidden', 'true');
+    bar.innerHTML = '<i></i>'; bar.style.setProperty('--slide-ms', SLIDE_MS + 'ms'); bar.hidden = true;
+    hint.after(play, bar);
+    let timer = null;
+    const restartBar = () => { bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run'); };
+    const setPlayLabel = (on) => {
+      play.innerHTML = on
+        ? '<span class="material-icons" aria-hidden="true">pause_circle</span> స్లైడ్ షో ఆపు'
+        : '<span class="material-icons" aria-hidden="true">play_circle</span> స్లైడ్ షో (తనంతట అదే చూపిస్తుంది)';
+      play.setAttribute('aria-pressed', String(on));
+    };
+    function stopShow() { if (timer) clearInterval(timer); timer = null; bar.hidden = true; bar.classList.remove('run'); setPlayLabel(false); }
+    function startShow() {
+      if (!months.some(m => m.ok)) return;
+      setPlayLabel(true); bar.hidden = false; restartBar();
+      const top = $('#slideCaption').getBoundingClientRect().top + window.scrollY - (($('.site-header') || {}).offsetHeight || 0) - 8;
+      window.scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      timer = setInterval(() => {
+        if ($('#paintings').hidden) { stopShow(); return; }   // left the calendar page
+        let k = idx;
+        do { k = (k + 1) % months.length; } while (!months[k].ok && k !== idx);   // skip months without a picture
+        show(k); restartBar();
+      }, SLIDE_MS);
+    }
+    setPlayLabel(false);
+    play.addEventListener('click', () => (timer ? stopShow() : startShow()));
+    window.addEventListener('hashchange', () => { if (timer && !location.hash.startsWith('#paintings')) stopShow(); });
+    window.addEventListener('popstate', () => { if (timer && !location.hash.startsWith('#paintings')) stopShow(); });
     let idx = 0;
     const label = m => `${m.n}వ నెల · ${m.name}` + (m.title ? ` – ${m.title}` : '');
 
@@ -431,8 +465,8 @@
       }
       status.textContent = '';
     }
-    $('#slidePrev').addEventListener('click', () => show(idx - 1));
-    $('#slideNext').addEventListener('click', () => show(idx + 1));
+    $('#slidePrev').addEventListener('click', () => { show(idx - 1); if (timer) restartBar(); });
+    $('#slideNext').addEventListener('click', () => { show(idx + 1); if (timer) restartBar(); });
     $('#slider').addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') { show(idx - 1); e.preventDefault(); }
       if (e.key === 'ArrowRight') { show(idx + 1); e.preventDefault(); }
