@@ -336,17 +336,17 @@ function showNameInputScreen() {
         <p class="section-description">క్విజ్‌లో పాల్గొనడానికి ముందు, దయచేసి మీ పేరును నమోదు చేయండి. మీ సర్టిఫికెట్ పై ఈ పేరు ముద్రించబడుతుంది.</p>
         
         <div class="input-group">
-            <label for="nameInput"><i class="fas fa-user-edit"></i> మీ పేరు:</label>
-            <input type="text" id="nameInput" placeholder="ఉదా: సందీప్ మిరియాల" maxlength="30">
+            <label for="quizNameInput"><i class="fas fa-user-edit" aria-hidden="true"></i> మీ పేరు:</label>
+            <input type="text" id="quizNameInput" autocomplete="name" placeholder="ఉదా: సందీప్ మిరియాల" maxlength="30">
         </div>
 
         <button class="action-btn" onclick="initializeQuiz()">క్విజ్ ప్రారంభించండి <i class="fas fa-arrow-right"></i></button>
     `;
-   // document.getElementById('nameInput').focus();
+   // document.getElementById('quizNameInput').focus();
 }
 
 function initializeQuiz() {
-    const nameInput = document.getElementById('nameInput');
+    const nameInput = document.getElementById('quizNameInput');
     const enteredName = nameInput ? nameInput.value.trim() : "";
 
     userName = enteredName || "యాజ్ఞవల్క్య భక్తుడు";
@@ -496,13 +496,13 @@ function showResults(currentScore) {
             <div style="text-align: right;"><i class="far fa-clock"></i> సమయం: ${timeStr}</div>
         </div>
         <p class="user-name-display">${userName}</p>  
-        <p style="font-weight: 300; font-size: 1.1rem; color: #333;">ఈ క్విజ్‌లో పాల్గొని, ఈ స్థాయిని సాధించినందుకు **ధన్యవాదాలు**:</p>
+        <p style="font-weight: 300; font-size: 1.1rem; color: #333;">ఈ క్విజ్‌లో పాల్గొని, ఈ స్థాయిని సాధించినందుకు <b>ధన్యవాదాలు</b>:</p>
 
         <p style="font-size: 1.2rem; font-weight: 700; color: var(--primary-color);">స్థాయి: <b>${resultText}</b></p>
         ${statusIcon}  ${achievementText}
         <p class="score-status-line">
             మీరు సాధించిన స్కోర్: <span class="score-value" style="color: ${statusColor};">${currentScore} / ${TOTAL_QUESTIONS_TO_DISPLAY}</span> 
-            <span class="status-text" style="color: ${statusColor};">**${resultStatus}**</span>
+            <span class="status-text" style="color: ${statusColor};">${resultStatus}</span>
         </p>
         <footer>
            <i class="fas fa-signature" style="color:#aaa;"></i> ఈ పత్రం జ్ఞానాభివృద్ధి కృషికి గుర్తింపుగా ఇవ్వబడింది.
@@ -518,7 +518,7 @@ function showResults(currentScore) {
     if (typeof html2canvas !== 'undefined') {
         downloadBtn.onclick = () => downloadCertificate(certContainer);
     } else {
-        downloadBtn.onclick = () => alert("సర్టిఫికెట్ డౌన్‌లోడ్ చేయడానికి 'html2canvas' లైబ్రరీ అవసరం. దయచేసి దానిని మీ HTML లో చేర్చండి.");
+        downloadBtn.onclick = () => alert("క్షమించండి, సర్టిఫికెట్ డౌన్‌లోడ్ ఇప్పుడు పని చేయడం లేదు. కొద్దిసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.");
     }
     actionButtons.appendChild(downloadBtn);
 

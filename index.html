@@ -1,2685 +1,518 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="te" data-theme="light">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <title>శ్రీ యాజ్ఞవల్క్య </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;700&family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
-  <link rel="manifest" href="manifest.json" />
-    <link rel="icon" type="image/png" sizes="32x32" href="Image 2.jpg">
-    <meta name="theme-color" content="#6a1b9a">
-    <style>
-  /* --- CSS Reset and Base Styles --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-/* --- CSS Reset and Base Styles --- */
-*, *::before, *::after { box-sizing: border-box; }
-
-:root {
-    --color-primary: #6a1b9a;
-    --color-secondary: #e1bee7;
-    --color-background-light: #f3e5f5;
-    --color-text: #4a148c;
-    --color-content-bg: #fff7e5;
-    --color-main-text: #4b3b29;
-}
-
-/* Body */
-body {
-    font-family: 'Noto Sans Telugu', sans-serif;
-    background: #f9f4ed;
-    margin: 0;
-    padding: 0;
-    color: var(--color-text);
-    line-height: 1.6;
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
-
-/* --- Header and Navigation Container --- */
-#full-menu-container {
-    background: linear-gradient(90deg, var(--color-background-light), var(--color-secondary));
-    position: sticky;
-    top: 0;
-    z-index: 1200;
-    box-shadow: 0 4px 10px rgba(74, 20, 140, 0.25);
-    padding: 10px 20px;
-}
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    gap: 10px;
-}
-.site-title {
-    font-family: 'Noto Sans Telugu'', serif;
-    font-weight: 900;
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
-    margin: 0;
-    color: var(--color-text);
-    line-height: 1.1;
-    flex-grow: 1;
-    min-width: 0;
-    white-space: normal;
-    user-select: none;
-}
-
-/* Hamburger */
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    width: 35px;
-    height: 30px;
-    gap: 6px;
-    background: transparent;
-    border: none;
-    z-index: 2002;
-}
-.hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-primary);
-    border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
-}
-.hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-/* Navigation Menu */
-#nav-menu {
-    display: none;
-    max-width: 900px;
-    margin: 15px auto 0;
-    padding: 0;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    background-color: transparent;
-    box-shadow: none;
-    transition: transform 0.3s, opacity 0.3s;
-    z-index: 1200;
-}
-.nav-link {
-    text-decoration: none;
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    padding: 10px 15px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: var(--color-secondary);
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    font-family: 'Noto Serif Telugu', serif;
-    white-space: nowrap;
-    flex-grow: 0;
-    margin: 5px;
-    box-shadow: 0 0 6px rgba(106, 27, 154, 0.15);
-}
-.nav-link:hover, .nav-link:focus, .nav-link.active {
-    background-color: #d5c4e7;
-    color: var(--color-text);
-    outline: none;
-    box-shadow: 0 0 14px rgba(106, 27, 154, 0.5);
-}
-.nav-icon {
-    font-size: 1.5rem;
-    color: #8e24aa;
-}
-
-/* --- Desktop Menu --- */
-@media (min-width: 781px) {
-    .site-title { text-align: center; }
-    .hamburger { display: none; }
-    #nav-menu {
-        display: flex !important;
-        flex-direction: row;
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 0;
-        z-index: auto;
-        margin: 15px auto 0;
-    }
-}
-
-/* --- Mobile Menu: Fullscreen Overlay --- */
-@media (max-width: 780px) {
-    .header-content {
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-    }
-    .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .hamburger {
-        display: flex !important;
-        position: relative;
-        margin-left: 10px;
-        z-index: 2002;
-    }
-    #nav-menu {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(255,255,255,0.98);
-        padding: 80px 0 20px 0;
-        box-shadow: none;
-        border-radius: 0;
-        z-index: 3000;
-        opacity: 0;
-        pointer-events: none;
-        align-items: center;
-        justify-content: flex-start;
-        overflow-y: auto;
-        transition: opacity 0.3s;
-    }
-    #nav-menu.active {
-        display: flex !important;
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .nav-link {
-        width: 90vw;
-        max-width: 400px;
-        margin: 10px auto;
-        font-size: 1.2rem;
-        justify-content: flex-start;
-        background: #ede7f6;
-        box-shadow: 0 0 8px rgba(106,27,154,0.08);
-    }
-}
-
-/* --- Extra Small Screens --- */
-@media (max-width: 480px) {
-    #full-menu-container { padding: 8px 10px; }
-    .nav-link {
-        width: 96vw;
-        margin: 8px auto;
-        font-size: 1rem;
-    }
-    main { padding: 0 8px; }
-    section { padding: 10px 0; }
-    .nav-btn, #installBtn {
-        right: 10px;
-        padding: 10px 14px;
-        font-size: 1.2rem;
-    }
-}
-
-/* --- Main Content, Gallery, Utility Buttons, etc. --- */
-/* (Keep your existing styles for .main-section, .gallery, .nav-btn, etc. as they are, no duplicates needed) */
-
-/* --- PWA Install Button (FAB style) --- */
-#installBtn {
-  position: relative;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 4px 14px 4px 20px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
-  border-radius: 4px;
-  user-select: none;
-  background-repeat: no-repeat;
-  background-position: 12px center;
-  background-size: 14px 14px;
-  cursor: pointer;
-  z-index: 10;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-#installBtn .material-icons { font-size: 1.3rem; }
-#installBtn:hover, #installBtn:focus {
-  background-color: #388e3c;
-  outline: none;
-  box-shadow: 0 0 12px rgba(56, 142, 60, 0.9);
-}
-
-/* --- All your other content styles remain unchanged below this line --- */
-/* --- Stotram Section Styling --- */
-
-.stotra-section {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #f7f9f9; /* Light Gray Background */
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 600px) {
-    .stotra-section {
-        padding: 15px;
-        margin: 20px auto;
-    }
-}
-
-.stotra-heading-container {
-    text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 3px solid #ffcc80; /* Orange Accent */
-    padding-bottom: 15px;
-}
-
-.stotra-heading {
-    font-size: clamp(2rem, 6vw, 2.8rem); /* Fluid Heading Size */
-    margin: 0;
-    color: #8e24aa; /* Dark Purple */
-    font-family: 'Noto Serif Telugu', serif;
-    line-height: 1.2;
-}
-
-.stotra-content-wrapper {
-    background: linear-gradient(135deg, var(--color-background-light), var(--color-secondary));
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #ce93d8;
-}
-@media (max-width: 600px) {
-    .stotra-content-wrapper {
-        padding: 15px;
-    }
-}
-
-.stotra-text-container {
-    font-family: 'Noto Serif Telugu', serif;
-    font-size: clamp(1.1rem, 3.5vw, 1.4rem); /* Fluid Font Size for Text */
-    font-weight: 700;
-    color: #2e004e;
-    line-height: 2.2;
-    text-align: center;
-}
-
-.stotra-verse {
-    margin: 10px 0;
-    padding: 10px 15px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
-
-/* Specific Style for the Phala-sruti (Result verse) */
-.stotra-phala {
-    margin: 20px 0 5px 0;
-    padding: 12px 15px;
-    background: #ffe0b2; /* Light Orange Background */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    color: #795548;
-    border-left: 5px solid #ff9800;
-}
-
-/* Specific Style for the Conclusion/Mantra */
-.stotra-conclusion {
-    margin: 5px 0 0 0;
-    padding: 10px 15px;
-    background: #c8e6c9; /* Light Green Background */
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-    color: #1b5e20;
-    font-size: clamp(1rem, 3vw, 1.3rem);
-}
-
-/* --- Bhava (Meaning/Commentary) Styling --- */
-
-.stotra-bhava-wrapper {
-    background: #fff8e1; /* Light Yellow Background */
-    padding: 30px;
-    border-radius: 12px;
-    border: 2px solid #ffab40;
-    margin-top: 30px;
-    box-shadow: 0 4px 15px rgba(255, 171, 64, 0.2);
-}
-@media (max-width: 600px) {
-    .stotra-bhava-wrapper {
-        padding: 15px;
-        margin-top: 20px;
-    }
-}
-
-.stotra-bhava-text {
-    font-size: clamp(1.1rem, 3.8vw, 1.35rem); /* Fluid Font Size for Bhava */
-    color: #5d4037;
-    line-height: 2.0;
-    margin: 0;
-    padding: 18px;
-    background: #fff5e9;
-    border-left: 8px solid #ff9800;
-    border-radius: 8px;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-.bhava-title {
-    font-weight: 900;
-    color: #5d4037;
-    display: block;
-    margin-bottom: 10px;
-    font-size: clamp(1.2rem, 4vw, 1.45rem);
-    border-bottom: 2px dashed #ffab40;
-    padding-bottom: 5px;
-}
-/* Highlight color for bolded words in the meaning */
-.bhava-highlight {
-    color: #795548;
-}
-
-/* --- Main Section (Invitation/Welcome) Styling --- */
-
-.main-section {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 30px; /* Increased base padding */
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    /* Ensure styles from the global `section` are inherited/overridden as needed */
-    scroll-margin-top: 80px; 
-}
-@media (max-width: 600px) {
-    .main-section {
-        padding: 15px;
-    }
-}
-
-.title-block {
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.2;
-    padding: 15px 0;
-}
-.auspicious-text {
-    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-    color: #9c4a00;
-    font-weight: 700;
-    margin: 0.25em 0;
-    letter-spacing: 0.05rem; /* reduced spacing */
-    font-family: 'Noto Serif Telugu', serif;
-    text-align: center;
-    line-height: 1.3;
-    white-space: nowrap;      /* Prevent line breaks */
-    overflow-x: auto;         /* Enable horizontal scroll if needed */
-    padding: 0 1rem;
-    display: block;
-}
-
-
-.main-heading {
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
-    margin: 10px 0 5px;
-    color: #9c5c00; /* Medium Brown/Orange */
-    font-family: 'Noto Serif Telugu', serif;
-    font-weight: 800;
-}
-
-.reg-number {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: #5d4037;
-    margin-top: 5px;
-    font-weight: 500;
-}
-
-/* --- Logo/Image Block Styling --- */
-.logo-block {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 10px 0;
-}
-
-.image-flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(15px, 5vw, 40px);
-}
-
-.om-logo {
-    width: clamp(30px, 6vw, 48px);
-    height: auto;
-}
-
-.yagnavalkya-image {
-    width: clamp(80px, 20vw, 150px);
-    height: auto;
-    border: 3px solid #b36b00;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 15px rgba(179, 107, 0, 0.5);
-}
-
-.mantra-text {
-    font-size: clamp(1.3rem, 4vw, 1.6rem);
-    font-weight: 700;
-    color: #9c5c00;
-    margin-top: 20px;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-/* --- Secondary Heading/Event Name --- */
-.event-title {
-    text-align: center;
-    color: #b36b00;
-    font-size: clamp(1.4rem, 5vw, 2.2rem);
-    border-bottom: 2px solid #f57c00;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-    font-family: 'Noto Serif Telugu', serif;
-    padding-left: 10px; padding-right: 10px;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-/* --- Quotation Block --- */
-.quote-block {
-    font-style: italic;
-    font-weight: 600;
-    color: #5c4827;
-    border: 2px dashed #faaf40;
-    padding: 25px;
-    border-radius: 12px;
-    background: #fff8e6;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    line-height: 1.8;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-/* --- Section Headers (Green Accent) --- */
-.details-header {
-    color: #00796b; /* Dark Green */
-    font-size: clamp(1.3rem, 4vw, 1.8rem);
-    border-left: 5px solid #00796b;
-    padding-left: 15px;
-    margin-bottom: 20px;
-    font-family: 'Noto Serif Telugu', serif;
-    font-weight: 700;
-}
-.place-header {
-    color: #b36b00; /* Orange/Brown Accent */
-    font-size: clamp(1.3rem, 4vw, 1.8rem);
-    border-left: 5px solid #b36b00;
-    padding-left: 15px;
-    margin-bottom: 20px;
-    font-family: 'Noto Serif Telugu', serif;
-    font-weight: 700;
-}
-.header-icon {
-    font-size: 1.6rem;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-/* --- Date/Invitation Details Block (Greenish/Teal Background) --- */
-.invitation-details-block {
-    background: #e0f2ff; /* Lighter Blue/Green to contrast with Orange theme */
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid #b2dfdb;
-    margin-bottom: 30px;
-}
-
-.invitation-text {
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    font-weight: 400;
-    color: #263238;
-    line-height: 1.8;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-.dear-recipient {
-    font-weight: 500;
-    margin-bottom: 15px;
-    margin-top: 0;
-    font-size: 1.3rem;
-}
-
-.date-highlight {
-    font-weight: 700;
-    display: block;
-    color: #004d40; /* Darker Green for high contrast */
-    margin-bottom: 10px;
-    font-size: 1.35rem;
-}
-
-.date-text-bold {
-    color: #9c5c00;
-    font-weight: 900;
-}
-
-/* --- Location Block (Yellow Background) --- */
-.location-block {
-    background: #ffecb3;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.location-text {
-    font-weight: 900;
-    font-size: clamp(1.4rem, 4.5vw, 1.8rem);
-    color: #f57c00;
-    margin: 0;
-    line-height: 1.6;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-/* --- Program Details Section Styling --- */
-
-.program-section {
-    background: #fff7e5; /* Light Beige/Orange background */
-    padding: 30px 20px 40px;
-    margin: 20px auto 45px;
-    max-width: 800px;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(230, 175, 45, 0.25);
-    scroll-margin-top: 110px;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-.program-header {
-    font-family: 'Noto Serif Telugu', serif;
-    margin-top: 0;
-    margin-bottom: 25px;
-    color: #9c5c00; /* Dark Brown/Orange */
-    font-weight: 900;
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
-    letter-spacing: 0.05rem;
-    text-align: center;
-    border-bottom: 3px solid #ffcc80;
-    padding-bottom: 10px;
-}
-
-.program-icon {
-    font-size: 1.8em;
-    vertical-align: sub;
-    margin-right: 8px;
-}
-
-.program-date {
-    font-weight: 700;
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
-    color: #b36b00;
-    border-bottom: 2px solid #faaf40;
-    padding-bottom: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    line-height: 1.4;
-}
-
-/* List Item Styles */
-.program-list {
-    list-style: none;
-    padding: 0;
-}
-
-.program-item {
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.program-item-text {
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    margin: 0;
-    line-height: 1.7;
-}
-
-.program-item-title {
-    font-weight: 900;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Style for Archanai (Orange Theme) */
-.archanai-item {
-    background: #fdf6e4;
-    border-left: 5px solid #f57c00; /* Darker Orange Bar */
-}
-.archanai-item .program-item-title {
-    color: #b36b00; /* Dark Brown/Orange */
-}
-.archanai-item .program-item-text {
-    color: #5c4827; /* Main Content Text */
-}
-
-/* Style for Prasnagam (Teal Theme) */
-.prasangam-item {
-    background: #e0f2f1; /* Light Aqua/Teal */
-    border-left: 5px solid #00796b; /* Dark Teal Bar */
-}
-.prasangam-item .program-item-title {
-    color: #00796b; /* Dark Teal */
-}
-.prasangam-item .program-item-text {
-    color: #004d40; /* Darker Green Text */
-}
-.prasangam-item .text-highlight {
-    color: #9c5c00; /* Orange highlight for topic */
-}
-
-/* --- Gifts/Souvenir Block (Blue/Teal) --- */
-.gift-block {
-    background: #e0f7fa;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px dashed #00796b;
-    margin-top: 35px;
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-}
-
-.gift-header {
-    font-weight: 700;
-    color: #004d40;
-    margin: 0 0 10px 0;
-    font-size: 1.4rem;
-}
-
-.gift-details-text {
-    color: #5c4827;
-    margin: 0;
-    line-height: 1.6;
-}
-
-.gift-highlight {
-    color: #9c5c00;
-    font-weight: 700;
-}
-
-/* --- Next Year Date Block (Orange/Yellow) --- */
-.next-year-block {
-    background: #fff3e0;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px dashed #f57c00;
-    margin-top: 20px;
-    text-align: center;
-    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
-}
-
-.next-year-header {
-    font-weight: 700;
-    color: #b36b00;
-    margin: 0;
-    font-size: 1.4rem;
-}
-
-.next-year-date {
-    color: #5c4827;
-    margin: 5px 0 0;
-    font-weight: 500;
-}/* --- Invitation Download Section Styling --- */
-
-.invitation-section {
-    background: #fff7e5;
-    padding: 30px 25px 40px;
-    margin: 20px auto 45px;
-    max-width: 800px;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(230, 175, 45, 0.25);
-    scroll-margin-top: 110px;
-    font-family: 'Noto Serif Telugu', serif;
-}
-@media (max-width: 600px) {
-    .invitation-section {
-        padding: 20px 15px 30px;
-    }
-}
-
-.invitation-header {
-    font-family: 'Noto Serif Telugu', serif;
-    margin-top: 0;
-    margin-bottom: 25px;
-    color: #9c5c00; /* Dark Brown/Orange */
-    font-weight: 900;
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
-    letter-spacing: 0.05rem;
-    text-align: center;
-    border-bottom: 3px solid #f57c00; /* Dark Orange Border */
-    padding-bottom: 10px;
-}
-
-.invitation-icon {
-    font-size: 1.8em;
-    vertical-align: sub;
-    margin-right: 8px;
-}
-
-.invitation-description {
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    color: #5c4827;
-    line-height: 1.8;
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 0 10px;
-}
-
-/* Download Button Styling - Responsive */
-.download-btn {
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ff9800; /* Bright Orange */
-    color: white;
-    border-radius: 50px;
-    font-size: clamp(0.9rem, 3vw, 1.1rem);
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.download-btn:hover,
-.download-btn:focus {
-    background-color: #f57c00; /* Darker Orange on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 152, 0, 0.6);
-    outline: none;
-}
-
-.download-icon {
-    margin-right: 8px;
-    font-size: clamp(1.2rem, 4vw, 1.4rem);
-}
-
-/* Mobile Optimization */
-@media (max-width: 768px) {
-    .download-btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-    
-    .download-icon {
-        margin-right: 6px;
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .download-btn {
-        padding: 6px 12px;
-        font-size: 0.85rem;
-    }
-    
-    .download-icon {
-        margin-right: 5px;
-        font-size: 1.1rem;
-    }
-}
-
-
-/* --- Gallery and Media Section Styling --- */
-
-.media-section {
-    background: #fff7e5;
-    padding: 30px 20px 40px;
-    margin: 20px auto 45px;
-    max-width: 800px;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(230, 175, 45, 0.25);
-    scroll-margin-top: 110px;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-.media-header {
-    font-family: 'Noto Serif Telugu', serif;
-    margin-top: 0;
-    margin-bottom: 25px;
-    color: #9c5c00;
-    font-weight: 900;
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
-    letter-spacing: 0.05rem;
-    text-align: center;
-    border-bottom: 3px solid #f57c00;
-    padding-bottom: 10px;
-}
-
-.media-header-icon {
-    font-size: 1.8em;
-    vertical-align: sub;
-    margin-right: 8px;
-}
-
-.media-description {
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    color: #5c4827;
-    line-height: 1.8;
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 0 10px;
-}
-
-/* --- Sub-Headers for Video/Images --- */
-.media-subheader {
-    color: #9c5c00;
-    font-size: clamp(1.3rem, 4vw, 1.8rem);
-    border-bottom: 1px dashed #faaf40;
-    padding-bottom: 5px;
-    margin-top: 30px;
-    font-weight: 700;
-}
-
-.subheader-icon {
-    font-size: 1.6rem;
-    vertical-align: middle;
-    margin-right: 5px;
-    color: #b36b00;
-}
-
-/* --- Video Container (16:9 Aspect Ratio) --- */
-.video-responsive {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    /* Inherits from the global #video-container if present, but this is a solid fallback */
-}
-.video-responsive iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* --- Image Gallery Grid --- */
-.image-gallery {
-    display: grid;
-    /* Responsive grid: min 150px wide, max 1fr */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 15px;
-    margin-top: 20px;
-    padding: 5px 0;
-}
-
-.gallery-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.gallery-image:hover,
-.gallery-image:focus {
-    transform: scale(1.05); /* Zoom effect */
-    box-shadow: 0 6px 15px rgba(179, 107, 0, 0.5); /* Stronger shadow */
-    outline: none; /* Remove default focus outline */
-}/* --- Members/Contact Section Styling --- */
-
-.members-section {
-    background: #fff7e5;
-    padding: 30px 20px 40px;
-    margin: 20px auto 45px;
-    max-width: 800px;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(230, 175, 45, 0.25);
-    scroll-margin-top: 110px;
-    font-family: 'Noto Serif Telugu', serif;
-}
-
-.committee-header {
-    color: #9c5c00;
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
-    margin-bottom: 25px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 3px solid #ffcc80;
-    padding-bottom: 10px;
-    font-weight: 900;
-}
-
-.committee-header-icon {
-    margin-right: 10px;
-    color: #f57c00;
-    font-size: 1.2em;
-}
-
-/* Committee Grid */
-.committee-grid {
-    display: grid;
-    /* Responsive Grid: 2 columns on desktop, 1 on narrow screens */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 35px;
-    padding: 0 10px;
-}
-
-.member-card {
-    background: #fff8e6;
-    border: 1px solid #ffcc80;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.member-title {
-    font-weight: 900;
-    color: #b36b00;
-    margin: 0 0 5px 0;
-    font-size: 1.2rem;
-    border-bottom: 1px dashed #ffb74d;
-    padding-bottom: 5px;
-    display: flex;
-    align-items: center;
-}
-
-.member-icon {
-    color: #f57c00;
-    margin-right: 8px;
-}
-
-.member-name {
-    margin: 0;
-    color: #5c4827;
-    font-size: 1.15rem;
-    font-weight: 500;
-}
-
-/* Contact Details */
-
-.contact-hr {
-    border: 0;
-    height: 1px;
-    background-color: #ffcc80;
-    margin: 30px 0;
-}
-
-.contact-subheader {
-    color: #9c5c00;
-    font-size: clamp(1.2rem, 3.5vw, 1.4rem);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-}
-
-.contact-subheader-icon {
-    margin-right: 10px;
-    color: #f57c00;
-    font-size: 1.2em;
-}
-
-.contact-info-block {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #ffcc80;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.person-name {
-    font-weight: 900;
-    margin-bottom: 10px;
-    color: #5c4827;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-}
-
-.address-icon {
-    color: #b36b00;
-    margin-right: 5px;
-}
-
-.address-details {
-    line-height: 1.8;
-    padding-left: 25px;
-    color: #5c4827;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.phone-wrapper {
-    text-align: center;
-    background: #e8f5e9; /* Light Green for phone number emphasis */
-    padding: 10px;
-    border-radius: 5px;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.phone-number {
-    font-weight: 900;
-    color: #2e7d32;
-    margin: 0;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* --- Fixed Navigation Buttons --- */
-
-.nav-btn {
-    position: fixed;
-    /* Use 'bottom' and 'right' to position them in the corner */
-    bottom: 20px;
-    right: 20px;
-    
-    /* Appearance */
-    background-color: #ff9800; /* Bright Orange */
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
-    z-index: 1000; /* Ensure button is above all other content */
-    
-    /* Center the icon */
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-}
-
-.nav-btn:hover {
-    background-color: #f57c00; /* Darker Orange on hover */
-    transform: scale(1.05);
-}
-
-.nav-btn:active {
-    transform: scale(0.95);
-}
-
-/* Positioning the Go To Bottom button slightly higher/lower */
-#back-to-top {
-    /* Initially hidden by JS until user scrolls */
-    display: none; 
-}
-
-#go-to-bottom {
-    /* Positioned just above the back-to-top button */
-    bottom: 80px; 
-    right: 20px; 
-}
-
-/* Optional: Adjust for smaller screens if needed */
-@media (max-width: 600px) {
-    .nav-btn {
-        width: 45px;
-        height: 45px;
-    }
-    #go-to-bottom {
-        bottom: 70px;
-    }
-}/* --- Gallery Grid (Remains the same) --- */
-.image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-    padding: 5px 0;
-}
-
-/* --- New: Item Wrapper (holds image + button) --- */
-.gallery-item-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* --- Gallery Image (Update hover/focus to apply to image only) --- */
-.gallery-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default; /* Change cursor back to default since it's not the primary download target */
-}
-
-.gallery-image:hover,
-.gallery-image:focus {
-    transform: scale(1.03); /* Slight scale on image when hovered */
-    box-shadow: 0 6px 15px rgba(179, 107, 0, 0.5); 
-    outline: none;
-}
-
-/* --- New: Download Button Styling --- */
-.image-download-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background-color: #ff9800; /* Bright Orange */
-    color: white;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.2s, transform 0.2s;
-    width: 90%; /* Make the button a consistent width */
-    max-width: 150px;
-}
-
-.image-download-btn:hover {
-    background-color: #f57c00;
-    transform: translateY(-1px);
-}
-
-.download-icon-sm {
-    margin-right: 5px;
-    font-size: 1.1rem;
-}
-/* =======================================================
-   1. MAIN SECTION CONTAINER STYLES
-   ======================================================= */
-.maharshi-profile-section {
-    max-width: 900px; /* డెస్క్‌టాప్‌లో మధ్యలో */
-    margin: 20px auto;
-    padding: 15px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    line-height: 1.6;
-    color: #444444; /* ముదురు బూడిద టెక్స్ట్ */
-    font-family: 'Nandamuri', 'Telugu MN', sans-serif; /* తెలుగు ఫాంట్ */
-}
-
-/* =======================================================
-   2. TYPOGRAPHY AND HEADINGS
-   ======================================================= */
-
-.section-title {
-    font-size: 1.8em;
-    text-align: center;
-    color: #6A1B9A; /* ముదురు పర్పుల్ */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #FFC107; /* పసుపు అండర్‌లైన్ */
-    font-weight: 700;
-}
-
-.content-heading {
-    font-size: 1.4em;
-    color: #00796B; /* టీల్ రంగు */
-    margin-top: 25px;
-    margin-bottom: 15px;
-    padding-left: 15px;
-    border-left: 4px solid #00796B; /* హైలైట్ బార్ */
-    font-weight: 600;
-}
-
-/* Common text and paragraph style */
-.content-block p {
-    font-size: 1em;
-    line-height: 1.65;
-    text-align: justify;
-    margin-bottom: 10px;
-}
-
-/* ********** ముఖ్య పదాలకు సాధారణ బోల్డ్ శైలి (రెడ్ కలర్ లేదు) ********** */
-.content-block p strong, .content-block p b {
-    color: #333333; /* ముదురు నలుపు/బూడిద */
-    font-weight: 700;
-}
-
-
-/* =======================================================
-   3. CONTENT BLOCKS AND LISTS
-   ======================================================= */
-
-.content-block {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    border: 1px solid #eeeeee;
-}
-
-/* List styles */
-.vedic-studies-list, 
-.key-works-list, 
-.temple-locations-list, 
-.sandhya-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.vedic-studies-list li, 
-.key-works-list li, 
-.temple-locations-list li,
-.sandhya-list li {
-    padding: 5px 0;
-    padding-left: 20px;
-    position: relative;
-    border-bottom: 1px dotted #e0e0e0;
-}
-
-/* List Icons (use Unicode for simplicity) */
-.vedic-studies-list li::before { content: "📚"; color: #00796B; position: absolute; left: 0; }
-.key-works-list li::before { content: "📜"; color: #6A1B9A; position: absolute; left: 0; }
-.temple-locations-list li::before { content: "🚩"; color: #FFC107; position: absolute; left: 0; }
-.sandhya-list li::before { content: "🌅"; color: #F57C00; position: absolute; left: 0; }
-
-
-/* =======================================================
-   4. STOTRA AND SANSKRIT TEXT
-   ======================================================= */
-
-.stotra-text, .stotra-phala, .stotra-praise-verse {
-    font-style: italic;
-    text-align: center;
-    background-color: #f7f7f7;
-    border-left: 5px solid #6A1B9A; /* పర్పుల్ బార్డర్ */
-    padding: 10px;
-    margin: 10px 0;
-    color: #333333;
-}
-
-.stotra-phala {
-    border-left: 5px solid #FFC107; /* ఫలశృతికి పసుపు బార్డర్ */
-}
-
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-    .maharshi-profile-section {
-        padding: 10px;
-        margin: 10px auto;
-    }
-    .section-title {
-        font-size: 1.6em;
-    }
-    .content-heading {
-        font-size: 1.2em;
-    }
-} 
-
-#installBtn {
-  position: relative; /* inside header */
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 4px 14px 4px 20px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
-  border-radius: 4px;
-  user-select: none;
-  background-repeat: no-repeat;
-  background-position: 12px center;
-  background-size: 14px 14px;
-  cursor: pointer;
-  z-index: 10;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-#installBtn .material-icons {
-  font-size: 1.3rem;
-}
-
-#installBtn:hover,
-#installBtn:focus {
-  background-color: #388e3c;
-  outline: none;
-  box-shadow: 0 0 12px rgba(56, 142, 60, 0.9);
-}
-.marquee-container {
-  width: 40%;
-  margin: 10px auto 20px;
-  background-color: #f7f3f2;
-  color: #6a1b9a;
-  border-radius: 8px;
-  overflow: hidden;
-  font-family: 'Noto Sans Telugu', sans-serif;
-  font-size: 1.1rem;
-  padding: 8px 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Responsive adjustments */
-@media (max-width: 800px) {
-  .marquee-container {
-    width: 70%;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .marquee-container {
-    width: 90%;
-    font-size: 0.9rem;
-    padding: 6px 8px;
-  }
-}
-.media-subheader {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Noto Sans Telugu', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #4A148C; /* Deep purple for good contrast */
-  background-color: #EDE7F6; /* Light lavender background */
-  padding: 12px 16px;
-  border-radius: 8px;
-  max-width: 400px;
-  box-shadow: 0 2px 6px rgba(74, 20, 140, 0.3);
-}
-
-.subheader-icon {
-  font-size: 24px;
-  color: #7B1FA2; /* Slightly lighter purple for icon */
-}
-
-#audio {
-  margin-left: auto;
-}
-
-audio#ttdaudio {
-  outline: none;
-  width: 180px;
-  border-radius: 6px;
-  box-shadow: 0 0 5px rgba(74, 20, 140, 0.2);
-}
-
-#llm  {
-  font-family: 'Noto Sans Telugu', sans-serif;
-  color: #555555;
-  font-size: 1rem;
-  margin-top: 6px;
-  margin-left: 36px; /* aligns text nicely under the heading and icon */
-}
-/* క్విజ్ సెక్షన్ కంటైనర్ స్టైల్ */
-.quiz-section {
-    padding: 20px;
-    background-color: #f8f9fa; /* లేత బూడిద నేపథ్యం */
-    border-bottom: 3px solid #6A1B9A; /* దిగువన రంగుల బోర్డర్ */
-    border-radius: 8px 8px 0 0; 
-    margin-bottom: 20px;
-}
-
-
-/* ఐకాన్ స్టైల్స్ */
-.quiz-icon {
-    /* మీరు ఇచ్చిన రంగు మరియు మార్జిన్ ఇక్కడ సెట్ చేయబడ్డాయి */
-    font-size: 32px; 
-    /* color: #6A1B9A; ఈ రంగు ఇప్పటికే HTML లో ఉంది, కానీ ఇక్కడ పెట్టి ఓవర్‌రైడ్ చేయవచ్చు */
-}
-
-/* Error and Welcome Messages */
-#errorMessages {
-    color: #D32F2F;
-    background-color: #FFEBEE;
-    border: 1px solid #EF9A9A;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    white-space: pre-wrap; /* Preserve newlines from showError */
-    display: none; /* Controlled by JS */
-}
-
-#welcomeText {
-    color: #388E3C;
-    background-color: #E8F5E9;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    font-weight: 500;
-    display: none; /* Controlled by JS */
-}
-
-/* Buttons */
-.button-group {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Allows buttons to wrap on small screens */
-}
-
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-}
-/* --- Base Button Styles (Content-Sized by Default) --- */
-.action-btn {
-    /* Base styling for all buttons: removed width: 100% */
-    padding: 12px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    user-select: none;
-}
-
-.action-btn:active {
-    transform: scale(0.99);
-}
-
-/* --- Utility Class: Apply this to buttons that must stretch (Generate & Reset) --- */
-.full-width-btn {
-    width: 100%;
-}
-
-/* --- Primary Button: Generate (#generateBtn) --- */
-/* Add the .full-width-btn class to the generate button in your HTML */
-#generateBtn {
-    background-color: #6A1B9A;
-    color: white;
-}
-
-#generateBtn:hover {
-    background-color: #4A148C;
-}
-
-/* --- Tertiary Button: Reset (Use the tertiary-btn class and .full-width-btn class in HTML) --- */
-.tertiary-btn {
-    background-color: #E0E0E0;
-    color: #424242;
-    border: 1px solid #BDBDBD;
-}
-
-.tertiary-btn:hover {
-    background-color: #BDBDBD;
-    color: #212121;
-}
-
-.reset-group {
-    margin-top: 30px;
-    border-top: 1px dashed #DDD;
-    padding-top: 20px;
-}
-
-/* --- Secondary Action Buttons Row (#actionButtons) --- */
-
-#actionButtons {
-    justify-content: center;
-    margin-top: 15px;
-    display: none; /* Controlled by JS */
-    gap: 10px;
-    flex-wrap: wrap; /* Allows buttons to wrap naturally */
-}
-
-#actionButtons button {
-    /* These buttons are content-sized by default (no width: 100%) */
-    background-color: #00897B;
-    color: white;
-    /* Flex-grow: 0 ensures they only take up the necessary content width */
-    flex-grow: 0;
-}
-
-#actionButtons button:hover {
-    background-color: #00695C;
-}
-
-#playAudioBtn, #stopAudioBtn {
-    background-color: #4DB6AC;
-}
-
-#playAudioBtn:hover, #stopAudioBtn:hover {
-    background-color: #26A69A;
-}
-
-#stopAudioBtn {
-    display: none;
-}
-
-/* --- Final Message Area (No Change) --- */
-#finalMessage {
-    background-color: #FFFDE7;
-    border: 1px dashed #FFD700;
-    padding: 20px;
-    margin-top: 25px;
-    border-radius: 8px;
-    white-space: pre-wrap;
-    font-family: 'Garamond', serif;
-    font-size: 1.1rem;
-    color: #1A237E;
-    display: none;
-    min-height: 100px;
-}
-
-/* =======================================
-   RESPONSIVENESS: MOBILE-SPECIFIC STYLES
-   ======================================= */
-@media (max-width: 600px) {
-    /* On smaller screens, force the content-sized secondary action buttons 
-       to stretch and fill the width for easy tapping. */
-    #actionButtons button {
-        width: 100%;
-        /* You can set a min-height here if needed, but padding should suffice */
-    }
-
-    /* To prevent the reset button from having huge margins on mobile if the 
-       reset-group is too wide, we adjust the container padding if necessary.
-       (Assuming your main .container handles its own responsiveness) */
-}
-.table-like {
-    display: table;
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  .table-row {
-    display: table-row;
-  }
-  .table-cell {
-    display: table-cell;
-    border: 1px solid #ccc;
-    padding: 8px;
-    vertical-align: middle;
-  }
-  .table-header {
-    font-weight: bold;
-    background-color: #f2f2f2;
-  }
-
-  /* ---------------- Deepam Section Styles ---------------- */
-.deepam-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin-top: 1rem;
-}
-
-.maharshi-wrapper {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#maharshiImage {
-  width: 160px;            /* adjust as needed */
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(255, 153, 0, 0.6), 0 0 50px rgba(255, 204, 0, 0.4);
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-}
-
-#maharshiImage:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(255, 204, 0, 0.8), 0 0 70px rgba(255, 255, 0, 0.4);
-}
-
-/* Make Deepams appear on either side of image */
-.deepam-pair {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-@media (max-width: 600px) {
-  #maharshiImage {
-    width: 120px;
-  }
-  .deepam-pair {
-    gap: 30px;
-  }
-}
-
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>శ్రీ యాజ్ఞవల్క్య మహర్షి 95వ జయంతి</title>
+    <meta name="description" content="శ్రీ యాజ్ఞవల్క్య మహర్షి 95వ జయంతి – 19-11-2026 గురువారం, పిఠాపురం">
+    <meta name="theme-color" content="#4a148c">
+    <script>
+      /* Apply saved theme and text size before the page draws (no flash) */
+      (function () {
+        var d = document.documentElement, t = null, s = null;
+        try { t = localStorage.getItem('theme'); s = localStorage.getItem('textSize'); } catch (e) {}
+        if (!t) t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        d.setAttribute('data-theme', t);
+        if (s !== null && /^[0-4]$/.test(s)) d.setAttribute('data-text', s); else d.setAttribute('data-text', '1');
+        try { var f = localStorage.getItem('font'); if (f) { d.style.setProperty('--font-body', "'" + f + "', 'Noto Sans Telugu', sans-serif"); d.style.setProperty('--font-head', "'" + f + "', 'Noto Serif Telugu', serif"); } } catch (e) {}
+      })();
+    </script>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="192.png">
+    <link rel="apple-touch-icon" href="192.png">
+    <link rel="preload" href="fonts/noto-sans-telugu-telugu-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/material-icons.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="vendor/fa/css/all.min.css">
+    <link rel="stylesheet" href="fonts/telugu-fonts.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="full-menu-container" class="combined-header">     
-    <header class="site-header">
-        <div class="header-content">
-            <h1 class="site-title">శ్రీ యాజ్ఞవల్క్య మహర్షి</h1>
+<a class="skip-link" href="#home">ఆహ్వానానికి నేరుగా వెళ్ళండి</a>
 
-            <div class="header-actions">
-        <button id="installBtn" 
-                    title="యాప్ ఇన్‌స్టాల్ సమాచారం" 
-                    aria-label="యాప్ ఇన్‌స్టాల్ సమాచారం" 
-                    tabindex="0">
-                <span class="material-icons">download</span>
+<!-- ================= Header: menu (left) · title · install (right) ================= -->
+<header class="site-header">
+    <div class="header-row">
+        <button id="menuBtn" class="hdr-btn" type="button" aria-expanded="false" aria-controls="menuPanel">
+            <span class="material-icons" aria-hidden="true" id="menuIcon">menu</span>
+            <span>మెనూ</span>
+        </button>
+        <h1 class="site-title">శ్రీ యాజ్ఞవల్క్య మహర్షి<small>95వ జయంతి · పిఠాపురం</small></h1>
+        <nav class="desk-nav" aria-label="ముఖ్య మెనూ"><ul><li><a href="#home">ఆహ్వానం</a></li><li><a href="#program-details">కార్యక్రమం</a></li><li><a href="#upadesam">ఉపదేశం</a></li><li><a href="#about">మహర్షి చరిత్ర</a></li><li><a href="#PravarGenerator">మీ ప్రవర</a></li><li><a href="#deepam">దీపం</a></li><li><a href="#invitations">పుస్తకాలు</a></li><li><a href="#gallery">ఫోటోలు</a></li></ul></nav>
+        <button id="installBtn" class="hdr-btn" type="button">
+            <span class="material-icons" aria-hidden="true">install_mobile</span>
+            <span>యాప్</span>
+            <span class="sr-only">ఇన్‌స్టాల్ చేయండి</span>
+        </button>
+    </div>
+
+    <nav id="menuPanel" aria-label="మెనూ" hidden>
+        <div class="menu-inner">
+            <ul class="menu-list"><li><a href="#home"><span class="material-icons" aria-hidden="true">celebration</span>ఆహ్వానం</a></li><li><a href="#program-details"><span class="material-icons" aria-hidden="true">event_note</span>కార్యక్రమం</a></li><li><a href="#upadesam"><span class="material-icons" aria-hidden="true">self_improvement</span>ఉపదేశం</a></li><li><a href="#about"><span class="material-icons" aria-hidden="true">auto_stories</span>మహర్షి చరిత్ర</a></li><li><a href="#PravarGenerator"><span class="material-icons" aria-hidden="true">person</span>మీ ప్రవర</a></li><li><a href="#deepam"><span class="material-icons" aria-hidden="true">local_fire_department</span>దీపం</a></li><li><a href="#invitations"><span class="material-icons" aria-hidden="true">menu_book</span>పుస్తకాలు</a></li><li><a href="#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>ఫోటోలు</a></li></ul>
+            <div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
+        <div class="set-item">
+            <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
+            <div class="size-ctl">
+                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="material-icons" aria-hidden="true">remove</span><span aria-hidden="true">అ</span></button>
+                <span class="size-dots js-size-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="material-icons" aria-hidden="true">add</span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
+            </div>
+        </div>
+        <div class="set-item">
+            <label class="set-label" for="fontSelectMenu">అక్షర శైలి</label>
+            <select class="font-select js-font-select" id="fontSelectMenu"><option value="">నోటో (సాధారణ)</option><option value="Mandali">మండలి</option><option value="Ramabhadra">రామభద్ర</option><option value="NTR">ఎన్టీఆర్</option><option value="Hind Guntur">హింద్ గుంటూరు</option><option value="Anek Telugu">అనేక్</option><option value="Baloo Tammudu 2">బాలూ తమ్ముడు</option><option value="Tiro Telugu">టిరో</option><option value="Gurajada">గురజాడ</option><option value="Suranna">సూరన్న</option><option value="Mallanna">మల్లన్న</option><option value="Tenali Ramakrishna">తెనాలి రామకృష్ణ</option><option value="Timmana">తిమ్మన</option><option value="Ramaraja">రామరాజ</option><option value="Peddana">పెద్దన</option><option value="Gidugu">గిడుగు</option><option value="Dhurjati">ధూర్జటి</option><option value="Suravaram">సురవరం</option><option value="Ponnala">పొన్నాల</option><option value="Sree Krushnadevaraya">శ్రీకృష్ణదేవరాయ</option><option value="Lakki Reddy">లక్కిరెడ్డి</option><option value="Sirivennela">సిరివెన్నెల</option><option value="Ravi Prakash">రవి ప్రకాష్</option><option value="Akaya Telivigala">అకాయ తెలివిగల</option></select>
+        </div>
+        <div class="set-item">
+            <span class="set-label" aria-hidden="true">రంగులు</span>
+            <button type="button" class="tool-btn js-theme"><span class="material-icons js-theme-icon" aria-hidden="true">dark_mode</span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
+        </div>
+    </div>
+            <button id="menuClose" type="button" class="btn btn-soft btn-block menu-close">
+                <span class="material-icons" aria-hidden="true">close</span> మెనూ మూసివేయి
             </button>
-              
-            <div class="hamburger" id="hamburger" aria-label="నావిగేషన్ మెనూ టోగుల్" aria-expanded="false" tabindex="0" role="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
-        </div>
-    </header>
-    </div>
-    <nav id="nav-menu" aria-label="ముఖ్య నావిగేషన్">
-        <a href="#about" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px; color: #8e24aa;">
-                workspace_premium
-            </span>
-            శ్రీ యాజ్ఞవల్క్య 
-        </a>
-                <a href="#Quiz" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px;">   
-                quiz 
-            </span>
-            క్విజ్
-        </a>
-
-           <a href="#PravarGenerator" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px;">
-                event
-            </span>
-          మీ ప్రవర 
-        </a>
-                <a href="#main" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px;">
-                home
-            </span>
-             వివరాలు 
-        </a>
-     
-        <a href="#invitations" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px;">
-                file_download
-            </span>
-            పుస్తకాలు డౌన్లోడ్
-        </a>
-        <a href="#gallery" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px;">
-                photo_library
-            </span>
-          మీడియా
-        </a> 
-        <a href="#Members" class="nav-link">
-            <span class="material-icons nav-icon" style="margin-right: 8px;">
-                group
-            </span>
-            కార్యవర్గం
-        </a> 
     </nav>
-</div>
-
-<main>
-<section id="about" tabindex="0" class="main-section maharshi-profile-section">
-
-    <div class="about-heading-container">
-        <h2 class="section-title">
-            <span class="material-icons about-icon" style="margin-right: 8px; color: #6A1B9A;">
-                info
-            </span>
-            శ్రీ యాజ్ఞవల్క్య మహర్షి
-        </h2>
-    </div>
-<div class="audio-feature-card">
-    <div class="audio-metadata">
-        <h6 class="media-subheader">
-            <span class="material-icons subheader-icon">audiotrack</span> ధ్వని AI
-            <audio id="ttdaudio" controls>
-            <source src="llm telugu.mp4" type="audio/mpeg" />
-            </audio>
-        </h6>
-    
-    </div>
-</div>
-    <div class="about-content-wrapper content-block-container">
-        <div class="content-block intro-stotra-block">
-            <h3 class="content-heading stotra-heading">వేద ప్రవర్తకుడు & స్తుతి శ్లోకాలు</h3>
-            <p>
-                యాజ్ఞవల్క్య మహర్షి శుక్ల యజుర్వేదానికి ప్రవర్తకుడు మరియు పురాతన వేద భారతంలో ఒక ప్రసిద్ధ మహర్షి. ఆయన్ను కీర్తిస్తూ ఉన్న శ్లోకాలు:
-            </p>
-            <div class="stotra-verses">
-                <p class="stotra-text sanskrit">
-                    శ్లో॥ వందేహం మంగళాత్మానం భాస్వంతం వేద విగ్రహమ్ । యాజ్ఞవల్క్యం మునిశ్రేష్ఠం జిష్ణుం హరిహరప్రభుమ్ ॥
-                </p>
-                <p class="stotra-text sanskrit">
-                    జితంద్రియం జితక్రోధం సదా ధ్యానపరాయణమ్ । ఆనందనిలయం వందే యోగానంద మునీశ్వరమ్ ॥
-                </p>
-                <p class="stotra-phala sanskrit">
-                    ఏవం ద్వాదశ నామాని త్రికాలం యః పఠేన్నరః ।  యోగీశ్వర ప్రసాదేన విద్యావాన్ ధనవాన్ భవేత్ ॥
-                </p>
-                 <p class="stotra-conclusion">
-                    ఓం శ్రీ యాజ్ఞవల్క్య గురుభ్యో నమః | కణ్వకాత్యాయనాది మహర్షిభ్యో నమః |
-                 </p>           
-            <p class="stotra-bhava-text">
-                <span class="bhava-title">భావం :</span>    
-                యాజ్ఞవల్క్య మహర్షికి నేను నమస్కరిస్తున్నాను. ఆయన <b class="bhava-highlight">మంగళకరుడు</b>, <b class="bhava-highlight">ప్రకాశవంతమైనవాడు</b>, <b class="bhava-highlight">వేదాల స్వరూపుడు</b>, మునులలో <b class="bhava-highlight">శ్రేష్ఠుడు</b>, <b class="bhava-highlight">విజయాన్ని పొందినవాడు</b> మరియు <b class="bhava-highlight">హరిహరులకు ప్రభువు</b>. ఆయన <b class="bhava-highlight">ఇంద్రియాలను</b>, <b class="bhava-highlight">కోపాన్ని జయించినవాడు</b>, ఎల్లప్పుడూ <b class="bhava-highlight">ధ్యానంలో ఉండేవాడు</b>, మరియు <b class="bhava-highlight">ఆనందానికి నిలయమైనవాడు</b> (యోగనంద మునీశ్వరుడు). 
-                <br><br>
-                ఈ స్తోత్రంలో ఉన్న <b class="bhava-highlight">పన్నెండు నామాలను</b> రోజుకు <b class="bhava-highlight">మూడుసార్లు</b> (త్రిసంధ్యా) పఠించినవారు, ఆ యోగీశ్వరుని అనుగ్రహం వలన తప్పకుండా <b class="bhava-highlight">విద్యావంతులు</b> మరియు <b class="bhava-highlight">ధనవంతులు</b> అవుతారు.
-            </p>
-                <p class="stotra-praise-verse">
-                    ఈయనను అనేక పురాణాలలో, ఉపనిషత్తులలోనూ, భారతంలోనూ స్తుతించారు.
-                    <br>
-                    శ్లో॥ హరివంశేభాగవతే పురాణోపనిషత్యు చ భారతేశాస్త్రవృత్తాయ యాజ్ఞవల్క్యయ మంగళమ్
-                </p>
+</header>
+<aside class="settings-wrap" aria-label="అక్షరాలు మరియు రంగులు">
+    <div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
+        <div class="set-item">
+            <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
+            <div class="size-ctl">
+                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="material-icons" aria-hidden="true">remove</span><span aria-hidden="true">అ</span></button>
+                <span class="size-dots js-size-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="material-icons" aria-hidden="true">add</span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
             </div>
         </div>
-        
-        <div class="content-block life-history-block">
-            <h3 class="content-heading">జననం, విద్య మరియు శుక్ల యజుర్వేద ప్రాప్తి</h3>
-            <p>
-                అది కురు పాంచాల దేశము. అందు గంగ ప్రవహించెడిది.ఆ నదీ తీరమున చమత్కార పురమను నగరం ఉండెడిది.ఆ నగరంన ఒక బ్రాహ్మణుడు ఉండేవాడు. యజ్ఞవల్కుడను సార్థక నామధేయుడు. అతని భార్య సునంద. ఆ దంపతులకు ధనుర్లగ్నమున ఒక కుమారుడు జన్మించాడు. అతడే యాజ్ఞవల్క్యుడు. తన కుమారునకు అయిదవ ఏట అక్షరాభ్యాసమూ, ఎనిమిదవ ఏట ఉపనయనము చేశాడు.
-            </p>
-            <p>
-                ప్రాతఃస్మరణీయులైన ఋషిపరంపరలో యాజ్ఞవల్క్య మహర్షి ఒకరు.ఇతను భాష్కలుని వద్ద ఋగ్వేదము, జైమిని వద్ద సామవేదము, అరుణి దగ్గర అధర్వణవేదమును అభ్యసించాడు. వైశంపాయనుని వద్ద యజుర్వేదాధ్యయనము కూడా చేసాక విద్యాహంకారము కలిగి గురుశాపానికి గురై తాను నేర్చుకున్న వేదజ్ఞానమంతా రుధిర రూపములో గక్కి శాపాన్ని బాపుకున్నారు. అతను గక్కిన పదార్థాన్ని తిత్తిరిపక్షులు తిని, అవి తిరిగి పలుకగా ఉపనిషత్తులయ్యాయి. అవే తైత్తిరీయోపనిషత్తులుగా ప్రసిద్ధికెక్కాయి. ఆతరువాత యాజ్ఞవల్క్యుడు సూర్యభగవానుని ఆరాధించి, శుక్ల యజుర్వేదాన్ని నేర్చుకొని గురువుకన్నా గొప్పవాడయ్యాడు. సరస్వతీదేవిని ఉపాసించి సమస్త విద్యలు సాధించాడు.
-            </p>
-            <p>
-                తరువాత కాత్యాయిని అనే ఆమెను వివాహము చేసుకున్నాదు.గార్గి శిష్యురాలైన మైత్రేయి యాజ్ఞవల్కుని తప్ప మరొకర్ని వివాహము చేసుకోనని శపథముచేసి, కాత్యాయిని స్నేహము సంపాదించి ఆమె సమ్మతితో యాజ్ఞవల్క్యుని రెండవ భార్య అయినది.
-            </p>
+        <div class="set-item">
+            <label class="set-label" for="fontSelectTop">అక్షర శైలి</label>
+            <select class="font-select js-font-select" id="fontSelectTop"><option value="">నోటో (సాధారణ)</option><option value="Mandali">మండలి</option><option value="Ramabhadra">రామభద్ర</option><option value="NTR">ఎన్టీఆర్</option><option value="Hind Guntur">హింద్ గుంటూరు</option><option value="Anek Telugu">అనేక్</option><option value="Baloo Tammudu 2">బాలూ తమ్ముడు</option><option value="Tiro Telugu">టిరో</option><option value="Gurajada">గురజాడ</option><option value="Suranna">సూరన్న</option><option value="Mallanna">మల్లన్న</option><option value="Tenali Ramakrishna">తెనాలి రామకృష్ణ</option><option value="Timmana">తిమ్మన</option><option value="Ramaraja">రామరాజ</option><option value="Peddana">పెద్దన</option><option value="Gidugu">గిడుగు</option><option value="Dhurjati">ధూర్జటి</option><option value="Suravaram">సురవరం</option><option value="Ponnala">పొన్నాల</option><option value="Sree Krushnadevaraya">శ్రీకృష్ణదేవరాయ</option><option value="Lakki Reddy">లక్కిరెడ్డి</option><option value="Sirivennela">సిరివెన్నెల</option><option value="Ravi Prakash">రవి ప్రకాష్</option><option value="Akaya Telivigala">అకాయ తెలివిగల</option></select>
         </div>
+        <div class="set-item">
+            <span class="set-label" aria-hidden="true">రంగులు</span>
+            <button type="button" class="tool-btn js-theme"><span class="material-icons js-theme-icon" aria-hidden="true">dark_mode</span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
+        </div>
+    </div>
+</aside>
 
-        <div class="content-block key-works-block">
-            <h3 class="content-heading">ముఖ్యమైన రచనలు</h3>
-            <ul class="key-works-list">
-                <li>యాజ్ఞవల్క్య స్మృతి: ఇది న్యాయశాస్త్రానికి సంబంధించిన ఒక ముఖ్యమైన గ్రంథం.</li>
-                <li>శతపథ బ్రాహ్మణం: శుక్ల యజుర్వేదానికి సంబంధించిన బ్రాహ్మణ గ్రంథం.</li>
-                <li>బృహదారణ్యకోపనిషత్తు: ప్రముఖ ఉపనిషత్తులలో ఒకటి.</li>
-                <li>గాయత్రీ కవచం: గాయత్రీ మంత్రం గురించి ఈయన రచించారు.</li>
-            </ul>
-        </div>
-        
-        <div class="content-block sandhya-block">
-            <h3 class="content-heading">సంధ్యావందనంలో ప్రస్తావన</h3>
-            <p>శుక్ల యజుర్వేదాన్ని అనుసరించే వారికి త్రికాల సంధ్యావందనంలో యాజ్ఞవల్క్య మహర్షి పేరు ప్రస్తావన ఉంది:</p>
-            <ul class="sandhya-list">
-                <li>
-                    ఉదయం: ఉపనిషద్యాజ్ఞవల్క్య ఋషిః అని సూర్య మంత్రంలో పఠిస్తారు.
-                    <p class="stotra-phala sanskrit">శ్లో॥ సూర్యశ్చేతి మంత్రస్య,ఉపనిషద్యాజ్ఞవల్క్య ఋషిః, సూర్యో దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</p>
-                </li>
-                <li>
-                    సాయంకాలం: యాజ్ఞవల్క్య ఉపనిషదృషిః అని అగ్ని మంత్రంలో పఠిస్తారు.
-                    <p class="stotra-phala sanskrit">శ్లో॥ అగ్నిశ్చేతి మంత్రస్య, యాజ్ఞవల్క్య ఉపనిషదృషిః, అగ్నిర్దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</p>
-                </li>
-            </ul>
-        </div>
+<main id="content">
 
-        <div class="content-block temples-block">
-            <h3 class="content-heading">ఆంధ్రప్రదేశ్‌లోని ఆలయాలు</h3>
-            <p>ఆంధ్రప్రదేశ్‌లోని పిఠాపురం, విశాఖపట్నం, గుంటూరు, కాకినాడ వంటి అనేక ప్రాంతాలలో యాజ్ఞవల్క్య మహర్షి ఆలయాలు ఉన్నాయి. ఈయన శిష్యులలో కణ్వ మహర్షి మొదటివారు. కణ్వ మహర్షి రచించిన కణ్వ స్మృతి ధర్మశాస్త్ర గ్రంథంగా ఇప్పటికీ ఉపయోగంలో ఉంది.</p>
+<!-- ================= Hero: the most important facts first ================= -->
+<section id="home" class="hero" tabindex="-1" aria-labelledby="heroTitle">
+    <p class="hero-om" aria-hidden="true">🪔</p>
+    <p class="hero-kicker">శ్రీరస్తు · శుభమస్తు · అవిఘ్నమస్తు</p>
+    <h2 id="heroTitle">శ్రీ యాజ్ఞవల్క్య మహర్షి<br>95వ జయంతి</h2>
+    <p class="hero-date">19 నవంబర్ 2026<br>గురువారం<small>కార్తీక శుద్ధ దశమి</small></p>
+    <p class="countdown" id="countdown" aria-live="polite"></p>
+    <div class="hero-actions">
+        <button type="button" class="btn wa" data-share-pdf>
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ఆహ్వాన పత్రిక వాట్సాప్‌లో పంపండి
+        </button>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener">
+            <span class="material-icons" aria-hidden="true">directions</span> దారి చూపించు
+        </a>
+        <button type="button" class="btn" data-speak="#heroSpeech">
+            <span class="material-icons" aria-hidden="true">volume_up</span> చదివి వినిపించు
+        </button>
+        <a class="btn" href="శ్రీ యాజ్ఞవల్క్య జయంతుత్సవ సంఘం, పిఠాపురం.pdf" target="_blank" rel="noopener">
+            <span class="material-icons" aria-hidden="true">picture_as_pdf</span> పత్రిక చూడండి
+        </a>
+        <button type="button" class="btn" id="calendarBtn">
+            <span class="material-icons" aria-hidden="true">event_available</span> క్యాలెండర్‌లో గుర్తు
+        </button>
+        <button type="button" class="btn help-wide js-bot-open">
+            <span class="material-icons" aria-hidden="true">support_agent</span> 24×7 సహాయ మిత్రను అడగండి
+        </button>
+    </div>
+    <p class="share-status" data-share-status aria-live="polite"></p>
+    <ul class="hero-facts">
+        <li><span class="material-icons" aria-hidden="true">schedule</span><span>ఉదయం 9 గంటల నుండి</span></li>
+        <li><span class="material-icons" aria-hidden="true">temple_hindu</span><span>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం</span></li>
+        <li><span class="material-icons" aria-hidden="true">redeem</span><span>ప్రతి కుటుంబానికి శ్రీ సూర్యకవచం, తామ్ర డాలరు కానుక</span></li>
+    </ul>
+    <p id="heroSpeech" hidden>శ్రీ యాజ్ఞవల్క్య మహర్షి తొంభై ఐదవ జయంతి. నవంబర్ పందొమ్మిది, రెండు వేల ఇరవై ఆరు, గురువారం. ఉదయం తొమ్మిది గంటల నుండి. పిఠాపురం, శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన. అందరూ ఆహ్వానితులే.</p>
+</section>
+
+<!-- ================= About ================= -->
+<section id="about" class="card" tabindex="-1" aria-labelledby="aboutTitle">
+    <h2 class="card-title" id="aboutTitle"><span class="material-icons" aria-hidden="true">auto_stories</span> శ్రీ యాజ్ఞవల్క్య మహర్షి</h2>
+
+    <div class="audio-row">
+        <span class="material-icons" aria-hidden="true">headphones</span> ధ్వని వివరణ – వినండి
+        <audio id="ttdaudio" controls preload="none" aria-label="మహర్షి గురించి ధ్వని వివరణ">
+            <source src="llm telugu.mp4" type="audio/mp4" />
+        </audio>
+    </div>
+
+    <div class="block">
+        <h3 class="sub-title">వేద ప్రవర్తకుడు & స్తుతి శ్లోకాలు</h3>
+        <p>యాజ్ఞవల్క్య మహర్షి శుక్ల యజుర్వేదానికి ప్రవర్తకుడు మరియు పురాతన వేద భారతంలో ఒక ప్రసిద్ధ మహర్షి. ఆయన్ను కీర్తిస్తూ ఉన్న శ్లోకాలు:</p>
+        <p class="verse">శ్లో॥ వందేహం మంగళాత్మానం భాస్వంతం వేద విగ్రహమ్ । యాజ్ఞవల్క్యం మునిశ్రేష్ఠం జిష్ణుం హరిహరప్రభుమ్ ॥</p>
+        <p class="verse">జితంద్రియం జితక్రోధం సదా ధ్యానపరాయణమ్ । ఆనందనిలయం వందే యోగానంద మునీశ్వరమ్ ॥</p>
+        <p class="verse saffron">ఏవం ద్వాదశ నామాని త్రికాలం యః పఠేన్నరః ।  యోగీశ్వర ప్రసాదేన విద్యావాన్ ధనవాన్ భవేత్ ॥</p>
+        <p class="verse ok">ఓం శ్రీ యాజ్ఞవల్క్య గురుభ్యో నమః | కణ్వకాత్యాయనాది మహర్షిభ్యో నమః |</p>
+        <div class="bhava">
+            <span class="bhava-title">భావం :</span>
+            యాజ్ఞవల్క్య మహర్షికి నేను నమస్కరిస్తున్నాను. ఆయన <b class="hl">మంగళకరుడు</b>, <b class="hl">ప్రకాశవంతమైనవాడు</b>, <b class="hl">వేదాల స్వరూపుడు</b>, మునులలో <b class="hl">శ్రేష్ఠుడు</b>, <b class="hl">విజయాన్ని పొందినవాడు</b> మరియు <b class="hl">హరిహరులకు ప్రభువు</b>. ఆయన <b class="hl">ఇంద్రియాలను</b>, <b class="hl">కోపాన్ని జయించినవాడు</b>, ఎల్లప్పుడూ <b class="hl">ధ్యానంలో ఉండేవాడు</b>, మరియు <b class="hl">ఆనందానికి నిలయమైనవాడు</b> (యోగనంద మునీశ్వరుడు).
+            <br><br>
+            ఈ స్తోత్రంలో ఉన్న <b class="hl">పన్నెండు నామాలను</b> రోజుకు <b class="hl">మూడుసార్లు</b> (త్రిసంధ్యా) పఠించినవారు, ఆ యోగీశ్వరుని అనుగ్రహం వలన తప్పకుండా <b class="hl">విద్యావంతులు</b> మరియు <b class="hl">ధనవంతులు</b> అవుతారు.
         </div>
+        <p class="verse">ఈయనను అనేక పురాణాలలో, ఉపనిషత్తులలోనూ, భారతంలోనూ స్తుతించారు.<br>శ్లో॥ హరివంశేభాగవతే పురాణోపనిషత్యు చ భారతేశాస్త్రవృత్తాయ యాజ్ఞవల్క్యయ మంగళమ్</p>
+    </div>
+
+    <div class="block">
+        <h3 class="sub-title">జననం, విద్య మరియు శుక్ల యజుర్వేద ప్రాప్తి</h3>
+        <p>అది కురు పాంచాల దేశము. అందు గంగ ప్రవహించెడిది.ఆ నదీ తీరమున చమత్కార పురమను నగరం ఉండెడిది.ఆ నగరంన ఒక బ్రాహ్మణుడు ఉండేవాడు. యజ్ఞవల్కుడను సార్థక నామధేయుడు. అతని భార్య సునంద. ఆ దంపతులకు ధనుర్లగ్నమున ఒక కుమారుడు జన్మించాడు. అతడే యాజ్ఞవల్క్యుడు. తన కుమారునకు అయిదవ ఏట అక్షరాభ్యాసమూ, ఎనిమిదవ ఏట ఉపనయనము చేశాడు.</p>
+        <p>ప్రాతఃస్మరణీయులైన ఋషిపరంపరలో యాజ్ఞవల్క్య మహర్షి ఒకరు.ఇతను భాష్కలుని వద్ద ఋగ్వేదము, జైమిని వద్ద సామవేదము, అరుణి దగ్గర అధర్వణవేదమును అభ్యసించాడు. వైశంపాయనుని వద్ద యజుర్వేదాధ్యయనము కూడా చేసాక విద్యాహంకారము కలిగి గురుశాపానికి గురై తాను నేర్చుకున్న వేదజ్ఞానమంతా రుధిర రూపములో గక్కి శాపాన్ని బాపుకున్నారు. అతను గక్కిన పదార్థాన్ని తిత్తిరిపక్షులు తిని, అవి తిరిగి పలుకగా ఉపనిషత్తులయ్యాయి. అవే తైత్తిరీయోపనిషత్తులుగా ప్రసిద్ధికెక్కాయి. ఆతరువాత యాజ్ఞవల్క్యుడు సూర్యభగవానుని ఆరాధించి, శుక్ల యజుర్వేదాన్ని నేర్చుకొని గురువుకన్నా గొప్పవాడయ్యాడు. సరస్వతీదేవిని ఉపాసించి సమస్త విద్యలు సాధించాడు.</p>
+        <p>తరువాత కాత్యాయిని అనే ఆమెను వివాహము చేసుకున్నాదు.గార్గి శిష్యురాలైన మైత్రేయి యాజ్ఞవల్కుని తప్ప మరొకర్ని వివాహము చేసుకోనని శపథముచేసి, కాత్యాయిని స్నేహము సంపాదించి ఆమె సమ్మతితో యాజ్ఞవల్క్యుని రెండవ భార్య అయినది.</p>
+    </div>
+
+    <div class="block">
+        <h3 class="sub-title">ముఖ్యమైన రచనలు</h3>
+        <ul class="plain-list works">
+            <li>యాజ్ఞవల్క్య స్మృతి: ఇది న్యాయశాస్త్రానికి సంబంధించిన ఒక ముఖ్యమైన గ్రంథం.</li>
+            <li>శతపథ బ్రాహ్మణం: శుక్ల యజుర్వేదానికి సంబంధించిన బ్రాహ్మణ గ్రంథం.</li>
+            <li>బృహదారణ్యకోపనిషత్తు: ప్రముఖ ఉపనిషత్తులలో ఒకటి.</li>
+            <li>గాయత్రీ కవచం: గాయత్రీ మంత్రం గురించి ఈయన రచించారు.</li>
+        </ul>
+    </div>
+
+    <div class="block">
+        <h3 class="sub-title">సంధ్యావందనంలో ప్రస్తావన</h3>
+        <p>శుక్ల యజుర్వేదాన్ని అనుసరించే వారికి త్రికాల సంధ్యావందనంలో యాజ్ఞవల్క్య మహర్షి పేరు ప్రస్తావన ఉంది:</p>
+        <ul class="plain-list sandhya">
+            <li>ఉదయం: ఉపనిషద్యాజ్ఞవల్క్య ఋషిః అని సూర్య మంత్రంలో పఠిస్తారు.
+                <p class="verse saffron">శ్లో॥ సూర్యశ్చేతి మంత్రస్య,ఉపనిషద్యాజ్ఞవల్క్య ఋషిః, సూర్యో దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</p></li>
+            <li>సాయంకాలం: యాజ్ఞవల్క్య ఉపనిషదృషిః అని అగ్ని మంత్రంలో పఠిస్తారు.
+                <p class="verse saffron">శ్లో॥ అగ్నిశ్చేతి మంత్రస్య, యాజ్ఞవల్క్య ఉపనిషదృషిః, అగ్నిర్దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</p></li>
+        </ul>
+    </div>
+
+    <div class="block">
+        <h3 class="sub-title">ఆంధ్రప్రదేశ్‌లోని ఆలయాలు</h3>
+        <p>ఆంధ్రప్రదేశ్‌లోని పిఠాపురం, విశాఖపట్నం, గుంటూరు, కాకినాడ వంటి అనేక ప్రాంతాలలో యాజ్ఞవల్క్య మహర్షి ఆలయాలు ఉన్నాయి. ఈయన శిష్యులలో కణ్వ మహర్షి మొదటివారు. కణ్వ మహర్షి రచించిన కణ్వ స్మృతి ధర్మశాస్త్ర గ్రంథంగా ఇప్పటికీ ఉపయోగంలో ఉంది.</p>
     </div>
 </section>
 
-<section id="Quiz" tabindex="0" class="main-section quiz-section">     
-       <div id="quizApp">
-        </div>
+<!-- ================= Quiz ================= -->
+<section id="Quiz" class="card" tabindex="-1" aria-label="క్విజ్">
+    <div id="quizApp"></div>
 </section>
-<section id="PravarGenerator" tabindex="-1" class="main-section pravar-section" aria-labelledby="app-title">
-    <div id="pravar-app-root">
-        <div class="container" role="main"> 	
-            <div id="welcomeText" class="welcome-text" style="display:none" aria-live="polite"></div>
-            <div id="errorMessages" class="error-box" role="alert" aria-live="assertive"></div> 
-            <div>
-                <h5 style="color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-bottom: 15px;">
-                    శుక్ల యజుర్వేద ప్రవర వివరాలు పొందండి
-                </h5>
-                
-                <p style="background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
-                    <strong style="color: #856404;">ముఖ్య గమనిక:</strong> మీ గోత్రం మరియు పేరు వివరాలు మా వద్ద **సేవ్ చేయబడవు**. మీ ప్రవర వివరాలను సులభంగా అందించడమే మా ఏకైక లక్ష్యం.
-                </p>
-                
-                <p style="font-size: 1.05em; margin-bottom: 10px;">
-                    ప్రవర వివరాలను వీక్షించడానికి, ఈ సులభమైన 3 దశలను అనుసరించండి:
-                </p>
 
-                <ol style="padding-left: 20px;">
-                    <li style="margin-bottom: 8px;">మీ <strong style="color: #007bff;">పూర్తి పేరు</strong> మరియు <strong style="color: #007bff;">గోత్రం</strong> ఎంచుకోండి/నమోదు చేయండి.</li>
-                    
-                    <li style="margin-bottom: 8px;">
-                        <strong style="color: #dc3545;">"ప్రవర వివరాలు చూపించు"</strong> బటన్‌ను క్లిక్ చేయండి.
-                    </li>
-                    
-                    <li style="margin-bottom: 8px;">
-                        వివరాలు వెంటనే ప్రదర్శించబడతాయి. మీరు వాటిని <strong style="color: #28a745;">TXT ఫైల్‌గా డౌన్‌లోడ్</strong>, <strong style="color: #28a745;">ఆడియో</strong>గా వినడం లేదా <strong style="color: #28a745;">WhatsApp</strong> ద్వారా పంచుకోవచ్చు.
-                    </li>
-                </ol>
-            </div>
-            <div class="input-group">
-                <label for="nameInput">మీ పూర్తి పేరు <span class="required-star" aria-hidden="true">*</span></label> 
-                <input
-                    type="text"
-                    id="nameInput"
-                    name="userName"
-                    placeholder="మీ పేరు (ఉదా: బాపిరాజు)"
-                    maxlength="50"
-                    required
-                    autocomplete="name"
-                    aria-describedby="name-hint"
-                />
-                <small id="name-hint" class="input-hint">కనీసం 3 అక్షరాలు ఉండాలి.</small>
-            </div>
-            
-            <div class="input-group">
-                <label for="gotraSelect">గొత్రం <span class="required-star" aria-hidden="true">*</span></label> 
-                <select id="gotraSelect" name="gotra" required>
-                    <option value="">-- గొత్రం ఎంచుకోండి --</option>
-                </select>
-            </div>
+<!-- ================= Pravara ================= -->
+<section id="PravarGenerator" class="card" tabindex="-1" aria-labelledby="pravar-title">
+    <h2 class="card-title" id="pravar-title"><span class="material-icons" aria-hidden="true">person</span> శుక్ల యజుర్వేద ప్రవర వివరాలు పొందండి</h2>
+    <div id="welcomeText" aria-live="polite"></div>
+    <div id="errorMessages" role="alert"></div>
 
-            <div class="input-group">
-                <label for="ganaInput">గణము (ఆటోమేటిక్) <span class="required-star" aria-hidden="true">*</span></label> 
-                <input
-                    type="text"
-                    id="ganaInput"
-                    name="gana"
-                    value=""
-                    readonly
-                    placeholder="గోత్రం ఎంచుకున్న తర్వాత కనిపిస్తుంది"
-                    aria-readonly="true"
-                />
-            </div>
+    <p class="privacy-note"><strong>ముఖ్య గమనిక:</strong> మీ గోత్రం మరియు పేరు వివరాలు మా వద్ద <strong>సేవ్ చేయబడవు</strong>. మీ ప్రవర వివరాలను సులభంగా అందించడమే మా ఏకైక లక్ష్యం.</p>
+    <p>ప్రవర వివరాలను వీక్షించడానికి, ఈ సులభమైన 3 దశలను అనుసరించండి:</p>
+    <ol class="pravar-steps">
+        <li>మీ <strong>పూర్తి పేరు</strong> మరియు <strong>గోత్రం</strong> ఎంచుకోండి/నమోదు చేయండి.</li>
+        <li><strong>"ప్రవర వివరాలు చూపించు"</strong> బటన్‌ను నొక్కండి.</li>
+        <li>వివరాలు వెంటనే ప్రదర్శించబడతాయి. మీరు వాటిని <strong>ఫైల్‌గా డౌన్‌లోడ్</strong>, <strong>ఆడియో</strong>గా వినడం లేదా <strong>వాట్సాప్</strong> ద్వారా పంచుకోవచ్చు.</li>
+    </ol>
 
-            <div class="main-action-group">
-                <button id="generateBtn" type="button" class="action-btn primary-btn full-width-btn" title="మీరు నమోదు చేసిన వివరాలతో ప్రవరను రూపొందించండి">
-                    <span class="spinner" style="display:none;"></span> ప్రవర వివరాలు చూపించు
-                </button>
-            </div>
-            
-            <div class="result-area">
-                <p class="result-label" id="result-label" style="display:none;">మీ ప్రవర </p>
-                <pre id="finalMessage" class="message-box" tabindex="0" style="display:none" aria-live="polite" aria-labelledby="result-label"></pre>
-            </div>
+    <div class="field">
+        <label for="nameInput">మీ పూర్తి పేరు <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="nameInput" name="userName" placeholder="మీ పేరు (ఉదా: బాపిరాజు)" maxlength="50" required autocomplete="name" aria-describedby="name-hint" />
+        <small id="name-hint">కనీసం 3 అక్షరాలు ఉండాలి.</small>
+    </div>
+    <div class="field">
+        <label for="gotraSelect">గోత్రం <span class="req" aria-hidden="true">*</span></label>
+        <select id="gotraSelect" name="gotra" required>
+            <option value="">-- గోత్రం ఎంచుకోండి --</option>
+        </select>
+    </div>
+    <div class="field">
+        <label for="ganaInput">గణము (తనంతట అదే వస్తుంది)</label>
+        <input type="text" id="ganaInput" name="gana" value="" readonly placeholder="గోత్రం ఎంచుకున్న తర్వాత కనిపిస్తుంది" />
+    </div>
 
-            <div id="actionButtons" class="buttons-row" style="display:none">
-            
-                <button type="button" id="downloadBtn" class="secondary-btn icon-btn download-btn" title="ప్రవరను TXT ఫైల్‌గా డౌన్‌లోడ్ చేయండి">
-                    <span aria-hidden="true">⬇️</span> TXT డౌన్లోడ్
-                </button>
-                <button type="button" id="playAudioBtn" class="secondary-btn icon-btn audio-play-btn" title="ప్రవరను వినండి">
-                    <span aria-hidden="true">🔊</span> ఆడియో ప్లే
-                </button>
-                <button type="button" id="stopAudioBtn" class="secondary-btn icon-btn audio-stop-btn" title="ఆడియో ప్లేబ్యాక్ ఆపండి" style="display:none">
-                    <span aria-hidden="true">⏹️</span> ఆడియో ఆపు
-                </button>
-                <button type="button" id="whatsappShareBtn" class="secondary-btn icon-btn share-btn" title="WhatsApp ద్వారా పంచుకోండి">
-                    <span aria-hidden="true">📲</span> WhatsAppలో పంచుకోండి
-                </button>
-            </div>
-            
-            <div class="reset-group">
-                <button id="resetBtn" type="button" class="action-btn tertiary-btn full-width-btn" title="ఫారం వివరాలను మరియు సేవ్ చేసిన డేటాను తొలగించండి">
-                    <span aria-hidden="true">🗑️</span> డాటా తొలగించు
-                </button>
-            </div>
+    <button id="generateBtn" type="button" class="btn btn-primary btn-block">
+        <span class="spinner" style="display:none;"></span> ప్రవర వివరాలు చూపించు
+    </button>
 
-        </div>
+    <p class="sr-only" id="result-label">మీ ప్రవర</p>
+    <pre id="finalMessage" tabindex="0" style="display:none" aria-live="polite" aria-labelledby="result-label"></pre>
+
+    <div id="actionButtons" style="display:none">
+        <button type="button" id="downloadBtn" class="btn btn-soft"><span aria-hidden="true">⬇️</span> ఫైల్ డౌన్‌లోడ్</button>
+        <button type="button" id="playAudioBtn" class="btn btn-soft"><span aria-hidden="true">🔊</span> వినండి</button>
+        <button type="button" id="stopAudioBtn" class="btn btn-soft" style="display:none"><span aria-hidden="true">⏹️</span> ఆపు</button>
+        <button type="button" id="whatsappShareBtn" class="btn btn-green"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్‌లో పంపండి</button>
+    </div>
+
+    <div class="reset-row">
+        <button id="resetBtn" type="button" class="btn btn-soft btn-block"><span aria-hidden="true">🗑️</span> వివరాలు తొలగించు</button>
     </div>
 </section>
 
-  </div>
-<section id="main" tabindex="0" class="main-section">
-
-    <div class="title-block">
-        <p class="auspicious-text">
-            శ్రీరస్తు   శుభమస్తు   అవిఘ్నమస్తు
-        </p>
-        <h2 class="main-heading">
-            శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము పిఠాపురం
-        </h2>
-        <p class="reg-number">
-            తూ.గో॥జిల్లా(ఆం.ప్ర.) (రి.నెం.3/57)
-        </p>
-    </div>
-    <div class="logo-block">
-        <div class="image-flex-container">
-            <img src="32px-Om_symbol.svg.png" alt="ఓం లోగో" class="om-logo" />
-            <img src="Image 9.jpg" alt="శ్రీ యాజ్ఞవల్క్య ఋషి చిత్రం" class="yagnavalkya-image" />
-            <img src="32px-Om_symbol.svg.png" alt="ఓం లోగో" class="om-logo" />
+<!-- ================= Invitation (from 2026 PDF) ================= -->
+<section id="main" class="card warm" tabindex="-1" aria-labelledby="invTitle">
+    <div class="inv-top">
+        <p class="blessing">శ్రీరస్తు శుభమస్తు అవిఘ్నమస్తు</p>
+        <h2 class="inv-org" id="invTitle">శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము పిఠాపురం</h2>
+        <p class="inv-reg">తూ.గో॥జిల్లా(ఆం.ప్ర.) (రి.నెం.3/57)</p>
+        <div class="inv-images">
+            <img src="32px-Om_symbol.svg.png" alt="" class="om-logo" />
+            <img src="Image 9.jpg" alt="శ్రీ యాజ్ఞవల్క్య ఋషి చిత్రం" class="maharshi-round" />
+            <img src="32px-Om_symbol.svg.png" alt="" class="om-logo" />
         </div>
-        <p class="mantra-text">
-            ఓం కణ్వ గురువేనమ:
-        </p>
+        <p class="mantra">ఓం కణ్వ గురువేనమ:</p>
     </div>
-    <h3 class="event-title">
-        శ్రీ మైత్రేయీ కాత్యాయనీ సమేత శ్రీ యాజ్ఞవల్క్య ఋషి సార్వభౌమ జయంత్యుత్సవము
-    </h3>
-    <div class="quote-block">
-        ఓం పూర్ణమద: పూర్ణమిద:! పూర్ణాత్ పూర్ణా ముదచ్యతే<br>
-        పూర్ణాస్యపూర్ణమాదాయ ! పూర్ణ మే వావశిష్యతే
+    <h3 class="event-name">శ్రీ మైత్రేయీ కాత్యాయనీ సమేత శ్రీ యాజ్ఞవల్క్య ఋషి సార్వభౌమ జయంత్యుత్సవము</h3>
+    <p class="quote">ఓం పూర్ణమద: పూర్ణమిద:! పూర్ణాత్ పూర్ణా ముదచ్యతే<br>పూర్ణాస్యపూర్ణమాదాయ ! పూర్ణ మే వావశిష్యతే</p>
+
+    <h3 class="sub-title">జయంతి ఉత్సవ వివరాలు:</h3>
+    <div class="info-box" id="invDetails">
+        <p style="margin:0 0 10px;font-weight:700">అయ్యా/అమ్మా,____________</p>
+        <span class="date-line">స్వస్తిశ్రీ చాంద్రమాన శ్రీ పరాభవ నామ సం॥ర కార్తీక శుద్ధ దశమీ గురువారం అనగా <b>ది.19-11-2026</b></span>
+        శ్రీ మానిత్యాది బిరుదాంకితులు పరవాది భయంకరభట్ట వెంకట నరశింహాచార్యులు వారిచే శ్రీ వెంకటేశ్వరస్వామి వారి దేవాలయంలో ప్రతిష్టించబడిన <b>శ్రీ యాజ్ఞవల్క్య మహర్షి</b> వారి <b>95వ</b> జయంతి పీఠికాపురమునందు శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము వారిచే జరుపబడును.
     </div>
-    <h3 class="details-header">
-        <span class="material-icons header-icon">info</span> జయంతి ఉత్సవ వివరాలు:
-    </h3>
-
-    <div class="invitation-details-block">
-        <p class="invitation-text">
-            <p class="dear-recipient">అయ్యా/అమ్మా,____________</p>
-
-            <span class="date-highlight">
-                స్వస్తిశ్రీ చాంద్రమాన శ్రీ విశ్వావసు నామ సం॥ర కార్తీక శుద్ధ దశమీ శుక్రవారం అనగా <b class="date-text-bold">ది.31-10-2025</b>
-            </span>
-            శ్రీ మానిత్యాది బిరుదాంకితులు పరవాది భయంకరభట్ట వెంకట నరశింహాచార్యులు వారిచే శ్రీ వెంకటేశ్వరస్వామి వారి దేవాలయంలో ప్రతిష్టించబడిన
-            <b class="date-text-bold">శ్రీ యాజ్ఞవల్క్య మహర్షి </b>వారి <b class="date-text-bold">94వ</b> జయంతి పీఠికాపురమునందు  శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము వారిచే జరుపబడును.
-        </p>
+    <div class="speak-row">
+        <button type="button" class="btn btn-soft" data-speak="#invDetails"><span class="material-icons" aria-hidden="true">volume_up</span> ఈ వివరాలు వినండి</button>
     </div>
 
-    <h3 class="place-header">
-        <span class="material-icons header-icon">place</span> జయంతి జరుగు ప్రదేశము:
-    </h3>
-    <div class="location-block">
-        <p class="location-text">
-            శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం,<br> టి.టి.డి. కళ్యాణం మండపం ప్రక్కన,<br> పిఠాపురం- 533 450 ,ఆంధ్రప్రదేశ్.
-        </p>
+    <h3 class="sub-title">జయంతి జరుగు ప్రదేశము:</h3>
+    <div class="place-box">
+        <p>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం,<br>టి.టి.డి. కళ్యాణం మండపం ప్రక్కన,<br>పిఠాపురం- 533 450 ,ఆంధ్రప్రదేశ్.</p>
+        <a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener"><span class="material-icons" aria-hidden="true">directions</span> దారి చూపించు (మ్యాప్)</a>
     </div>
 </section>
-<section id="program-details" tabindex="0" class="program-section">
-    
-    <h2 class="program-header">
-        <span class="material-icons program-icon">event_note</span> కార్యక్రమ వివరాలు :
-    </h2>
-    
-    <p class="program-date">
-        ది.31-10-2025 తేది శుక్రవారం ఉదయం 9 గంటల నుండి
-    </p>
 
-    <ul class="program-list">
-        
-        <li class="program-item archanai-item">
-            <p class="program-item-text">
-                <span class="program-item-title">సహస్రనామార్చన:</span> 
-                స్వర్గీయ శ్రీమాన్ పెరియాల హనుమంతా చార్యులువారి కుమారులు శ్రీ రామకృష్ణమాచార్యులువారిచే స్వామివారికి సహస్రనామార్చన. తదుపరి ప్రసాద వినియోగం జరుగును.
-            </p>
+<!-- ================= Programme ================= -->
+<section id="program-details" class="card warm" tabindex="-1" aria-labelledby="progTitle">
+    <h2 class="card-title" id="progTitle"><span class="material-icons" aria-hidden="true">event_note</span> కార్యక్రమ వివరాలు</h2>
+    <p class="prog-date">ది.19-11-2026 తేది గురువారం ఉదయం 9 గంటల నుండి</p>
+    <ul class="prog-list">
+        <li class="prog-item">
+            <h3>సహస్రనామార్చన</h3>
+            <p>స్వర్గీయ శ్రీమాన్ పెరియాల హనుమంతా చార్యులువారి కుమారులు శ్రీ రామకృష్ణమాచార్యులువారిచే స్వామివారికి సహస్రనామార్చన. తదుపరి ప్రసాద వినియోగం జరుగును.</p>
         </li>
-        <li class="program-item prasangam-item">
-            <p class="program-item-text">
-                <span class="program-item-title">ముఖ్య ప్రసంగం:</span> 
-                కార్తీక శుద్ధ దశమి శుక్రవారం శ్రీ యాజ్ఞవల్క్య జయంతి సందర్భంగా కాకినాడ వా॥లు శ్రీ కూచి శ్రీహరిమన్నారు గారు <b class="text-highlight">ఈశావాస్య మిదం సర్వమ్</b> అను అంశంపై ప్రసంగించెదరు.
-            </p>
+        <li class="prog-item teal">
+            <h3>ముఖ్య ప్రసంగం</h3>
+            <p>కార్తీక శుద్ధ దశమి గురువారం శ్రీ యాజ్ఞవల్క్య జయంతి సందర్భంగా కాకినాడ వా॥లు శ్రీ కూచి శ్రీహరిమన్నారు గారు <b class="hl">"మాయా స్వరూప నిరూపణము - మాయను దాటు మార్గము - బ్రహ్మ, కర్మ యోగ నిరూపణ"</b> అను అంశంపై ప్రసంగించెదరు.</p>
         </li>
     </ul>
-    
-    <div class="gift-block">
-        <p class="gift-header">
-            <span class="material-icons program-icon">card_giftcard</span> ప్రతి కుటుంబానికి కానుకలు:
-        </p>
-        <p class="gift-details-text">
-            ఈ సంవత్సరం జయంతికి వచ్చిన ప్రతీ కుటుంబానికి కానుకగా 
-            <b class="gift-highlight">శ్రీ సూర్యకవచం</b> మరియు
-            <b class="gift-highlight">శ్రీ యాజ్ఞవల్క్య మహర్షి వారి తామ్ర డాలరు</b> ఇవ్వబడును.
-        </p>
+    <div class="note-box teal">
+        <h3><span class="material-icons" aria-hidden="true">card_giftcard</span> ప్రతి కుటుంబానికి కానుకలు:</h3>
+        <p style="font-weight:400">ఈ సంవత్సరం జయంతికి వచ్చిన ప్రతీ కుటుంబానికి కానుకగా <b class="hl">శ్రీ సూర్యకవచం</b> మరియు <b class="hl">శ్రీ యాజ్ఞవల్క్య మహర్షి వారి తామ్ర డాలరు</b> ఇవ్వబడును.</p>
     </div>
-    <div class="next-year-block">
-        <p class="next-year-header">
-            <span class="material-icons program-icon">next_plan</span> వచ్చే సంవత్సరం జయంతి తేదీ:
-        </p>
-        <p class="next-year-date">
-            ది.19-11-2026 గురువారం నాడు నిర్వహించబడును.
-        </p>
+    <div class="note-box">
+        <h3><span class="material-icons" aria-hidden="true">next_plan</span> వచ్చే సంవత్సరం జయంతి తేదీ:</h3>
+        <p>ది.08-11-2027 సోమవారం నాడు నిర్వహించబడును.</p>
     </div>
 </section>
 
-<section id="invitations" tabindex="0" class="invitation-section">  
-    <h4 class="invitation-header">
-        <span class="material-icons">file_download</span>పుస్తకాలు 
-    </h4>
-    
-    <div class="table-like">
-        <div class="table-row table-header">
-         
-            <div class="table-cell">శీర్షిక</div>
-            <div class="table-cell">వివరణ</div>
-            <div class="table-cell">డౌన్‌లోడ్</div>
-        </div>
-
-        <div class="table-row">
-         
-            <div class="table-cell">ఆహ్వానం</div>
-            <div class="table-cell">జయంతి ఆహ్వానం</div>
-            <div class="table-cell">
-                <a href="/Docs/శ్రీ యాజ్ఞవల్క్య జయంతుత్సవ సంఘం, పిఠాపురం.pdf" download class="download-btn">
-                    <span class="material-icons">file_download</span>  
-                </a>
-            </div>
-        </div>
-
-        <div class="table-row">
-         
-            <div class="table-cell">బ్రహ్మ విద్య</div>
-            <div class="table-cell">శ్రీహరిమన్నారు గారి వివరణ</div>
-            <div class="table-cell">
-                <a href="/Docs/బ్రహ్మ విద్య.pdf" download class="download-btn">
-                    <span class="material-icons">file_download</span>  
-                </a>
-            </div>
-        </div>
-
-        <div class="table-row">
-        
-            <div class="table-cell">శ్రీ యాజ్ఞవల్క్య చరిత్రము </div>
-            <div class="table-cell"> శ్రీహరిమన్నారు గారి వివరణ  </div>
-            <div class="table-cell">
-                <a href="/Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" download class="download-btn">
-                    <span class="material-icons">file_download</span>  
-                </a>
-            </div>
-        </div>
-
-        <div class="table-row">
-      
-            <div class="table-cell">శ్రీ యాజ్ఞవల్క్య</div>
-            <div class="table-cell">శ్రీహరిమన్నారు గారి వివరణ</div>
-            <div class="table-cell">
-                <a href="/Docs/మహర్షి.pdf" download class="download-btn">
-                    <span class="material-icons">file_download</span>  
-                </a>
-            </div>
-        </div>
-
-         <div class="table-row">
-        
-            <div class="table-cell">శుక్ల యజుర్వేద సంధ్యావందనం</div>
-            <div class="table-cell">శుక్ల యజుర్వేద సంధ్యావందనం </div>
-            <div class="table-cell">
-                <a href="/Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" download class="download-btn">
-                    <span class="material-icons">file_download</span>  
-                </a>
-            </div>
-        </div>
-
-        <div class="table-row">
-     
-            <div class="table-cell">శ్రీ యాజ్ఞవల్క్య శతకము</div>
-            <div class="table-cell"> రచన చింతా రామకృష్ణారావు గారు రచించారు.</div>
-            <div class="table-cell">
-                <a href="/Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" download class="download-btn">
-                    <span class="material-icons">file_download</span>  
-                </a>
-            </div>
+<!-- ================= Upadesam – poem from pages 11–12 of the 2026 invitation ================= -->
+<section id="upadesam" class="card" tabindex="-1" aria-labelledby="upTitle">
+    <h2 class="card-title" id="upTitle"><span class="material-icons" aria-hidden="true">self_improvement</span> యాజ్ఞవల్క్యుడు – ప్రపంచం ప్రయత్నపూర్వకంగా తెలుసుకోవాల్సిన మహర్షి</h2>
+    <p class="lead">(2026 ఆహ్వాన పత్రిక నుండి)</p>
+    <div class="speak-row">
+        <button type="button" class="btn btn-soft" data-speak="#upText"><span class="material-icons" aria-hidden="true">volume_up</span> ఈ ఉపదేశం వినండి</button>
+    </div>
+    <div class="poem" id="upText">
+        <p>అయితే యాజ్ఞవల్క్యుడు మంత్రాలను కేవలం కంఠస్థం చేయలేదు. వాటిని దర్శించాడు. ఆయన గురించి ప్రధానంగా "బృహదారణ్యక ఉపనిషత్"లో వివరించబడింది. అక్కడ ఆయన ఉపదేశాలు మాత్రమే చేయలేదు; రాజులతో, పండితులతో, ఋషులతో, తన సొంత భార్యతో కూడా తాత్త్విక చర్చలు చేశాడు.</p>
+        <p>ఉపనిషత్తులలో ఆయన ఒక సాధారణ గురువుగా కాదు; పదునైన మేధస్సుతో, నిర్భయంగా సమాధానం చెప్పే తత్త్వవేత్తగా కనిపిస్తాడు.</p>
+        <p>ఆయన ప్రార్థనలు చేయలేదు. విరుద్ధ భావాల ద్వారా సత్యాన్ని వెలికితీయడానికి ప్రయత్నించాడు. దేవతలకు తలవంచలేదు; 'సత్యం' ముందు మాత్రమే నమస్కరించాడు. అది కూడా తన నిరంతర విచారణను తట్టుకుని నిలబడినప్పుడు మాత్రమే.</p>
+        <p>యాజ్ఞవల్క్యుడు మనిషిని ఐదు పొరలుగా వివరించాడు.</p>
+        <ol class="kosha">
+            <li>అన్నమయ కోశం (శరీరం)</li>
+            <li>ప్రాణమయ కోశం (ప్రాణం)</li>
+            <li>మనోమయ కోశం (మనస్సు)</li>
+            <li>విజ్ఞానమయ కోశం (బుద్ధి)</li>
+            <li>ఆనందమయ కోశం (ఆనంద స్థితి)</li>
+        </ol>
+        <p>ఈ పొరలన్నింటినీ దాటినప్పుడు మిగిలేది ఒకటే –</p>
+        <div class="sakshi"><strong>"సాక్షి చైతన్యం"</strong><span>అది వ్యక్తిగతం కాదు</span><span>అది అందరిలో ఒకటే</span></div>
+        <div class="conclusion">
+            <h3>ముగింపు</h3>
+            <p>యాజ్ఞవల్క్యుడు మనకు ఓదార్పు ఇవ్వడానికి ప్రయత్నించలేదు, అంధ విశ్వాసాన్ని పెంచలేదు. ఆయన మన ముందుకు ఒక అద్దం పెట్టి ఒకే ప్రశ్న అడిగాడు :</p>
+            <span class="ask">"చూస్తున్నది ఎవరు?"</span>
+            <p style="margin:0">ప్రశ్నించమన్నాడు. ప్రతి భ్రమను తొలగించమన్నాడు.</p>
         </div>
     </div>
-    <div class="acknowledgment-section" style="margin-top: 20px; text-align: center; font-style: italic; color: #666;">
-    <p>శ్రీ కూచి శ్రీహరిమన్నారు గారు అందించిన విలువైన సమాచారానికి ధన్యవాదాలు</p>
-</div>
 </section>
 
-
-<!-- 🪔 Virtual Deepam Section -->
-<!-- 🪔 Virtual Deepam Section -->
-<section id="deepam" class="main-section">
-
-  <h2 class="section-title">🪔 వర్చువల్ దీపం వెలిగించు 🪔</h2>
-
-  <!-- 🔔 Temple Bell -->
-  <div class="temple-bell" id="templeBell" title="ఘంటా మోగించు 🔔">🔔</div>
-
-  <!-- 🕉️ Maharshi Image -->
-  <div class="maharshi-center">
-    <img src="Image 1.jpg" id="maharshiImage" class="maharshi-image">
-  </div>
- <!-- 🪔 Twin Deepams & Sparkles (Generated via JS) -->
-  <div id="deepamContainer" class="deepam-container"></div>
-
-  <!-- 🪔 Light Deepam Button -->
-  <div class="deepam-actions">
-    <button id="lightBtn" class="deepam-btn">🪔 దీపం వెలిగించు</button>
-  </div>
-  <!-- 📿 Count -->
-  <p id="deepamCount" class="deepam-count">మొత్తం వెలిగించిన దీపాలు: 0</p>
-
-  
-
-  <!-- 🕉️ Scripts -->
-  <script>
-    (() => {
-      document.addEventListener("DOMContentLoaded", () => {
-        const bell = document.getElementById("templeBell");
-        if (!bell) return;
-
-        // ✅ Working bell sound (hosted CDN)
-        const bellSound = new Audio("/sounds/temple_bell.mp3");
-
-        bell.addEventListener("click", () => {
-          bell.classList.add("bell-ring");
-          bellSound.currentTime = 0;
-          bellSound.play().catch(() => {});
-          setTimeout(() => bell.classList.remove("bell-ring"), 700);
-        });
-      });
-    })();
-
-    (() => {
-      const API_URL = "https://api.npoint.io/bf85e164f3b5719309ae";
-      document.addEventListener("DOMContentLoaded", async () => {
-        const countEl = document.getElementById("deepamCount");
-        const lightBtn = document.getElementById("lightBtn");
-        const deepamContainer = document.getElementById("deepamContainer");
-        const bell = document.getElementById("templeBell");
-
-        // Add twin deepams dynamically
-        deepamContainer.innerHTML = `
-          <div class="deepam-pair">
-            <div id="diyaLeft" class="diya">🪔</div>
-            <div id="sparkle" class="sparkle">✨</div>
-            <div id="diyaRight" class="diya">🪔</div>
-          </div>
-        `;
-
-        const diyaLeft = document.getElementById("diyaLeft");
-        const diyaRight = document.getElementById("diyaRight");
-        const sparkle = document.getElementById("sparkle");
-
-        const style = document.createElement("style");
-        style.innerHTML = `
-          /* ✨ General Layout */
-          #deepam {
-            text-align: center;
-            padding: 1rem;
-          }
-          h2 {
-            font-family: 'Noto Serif Telugu', serif;
-            color: #c27b00;
-          }
-
-          /* 🔔 Temple Bell */
-          .temple-bell {
-            font-size: 3rem;
-            cursor: pointer;
-            transition: transform 0.3s ease, text-shadow 0.3s ease;
-            display: inline-block;
-            margin: 0.5rem 0;
-          }
-          .temple-bell:hover {
-            transform: scale(1.1);
-            text-shadow: 0 0 12px gold, 0 0 25px orange;
-          }
-          @keyframes bellShake {
-            0%,100%{transform:rotate(0deg);}
-            25%{transform:rotate(10deg);}
-            75%{transform:rotate(-10deg);}
-          }
-          .bell-ring{animation:bellShake 0.6s ease;}
-
-          /* 🕉️ Maharshi Image */
-          .maharshi-image {
-            width: 180px;
-            border-radius: 12px;
-            margin: 0.5rem auto;
-            display: block;
-            box-shadow: 0 0 30px rgba(255, 179, 0, 0.6);
-            transition: transform 0.6s ease;
-          }
-          .maharshi-image:hover { transform: scale(1.05); }
-
-          /* 🌼 Divya Links */
-          .divya-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 0.5rem 0 1rem 0;
-            flex-wrap: wrap;
-          }
-          .divya-link {
-            text-decoration: none;
-            color: #c27b00;
-            font-weight: 600;
-            font-family: 'Noto Serif Telugu', serif;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-          }
-          .divya-link:hover {
-            color: #ffcc00;
-            text-shadow: 0 0 10px gold;
-          }
-
-          /* 🪔 Button */
-          .deepam-btn {
-            background-color: #ff9800;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 10px;
-            color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-          }
-          .deepam-btn:hover { background-color: #f57c00; }
-
-          /* 📿 Count */
-          .deepam-count {
-            margin-top: 1rem;
-            font-weight: 600;
-            color: #6a1b9a;
-            font-family: 'Noto Serif Telugu', serif;
-          }
-
-          /* 🪔 Twin Deepams */
-          .deepam-pair {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-top: 20px;
-          }
-          .diya {
-            font-size: 4rem;
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 0 10px gold);
-          }
-          @keyframes flameFlicker {
-            0%,100%{text-shadow:0 0 10px #ffcc33,0 0 20px #ff9933,0 0 30px #ff6600;}
-            50%{text-shadow:0 0 25px #ffd966,0 0 40px #ffb84d,0 0 60px #ff8000;}
-          }
-          .real-flame{animation:flameFlicker 1.2s infinite alternate;}
-          .sparkle {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            font-size: 1.8rem;
-            color: gold;
-          }
-          @keyframes sparkleTrail {
-            0% { opacity:1; transform:translate(-50%,10px) scale(1); }
-            100% { opacity:0; transform:translate(-50%,-60px) scale(1.4); }
-          }
-
-          /* 📱 Responsive */
-          @media (max-width:600px){
-            .maharshi-image{width:130px;}
-            .diya{font-size:3rem;}
-            .divya-row{gap:10px;}
-          }
-        `;
-        document.head.appendChild(style);
-
-        // JS Logic
-        const bellSound = new Audio("/Sounds/bell.mp3");
-        async function loadCount() {
-          try {
-            const res = await fetch(API_URL);
-            const data = await res.json();
-            countEl.textContent = `మొత్తం వెలిగించిన దీపాలు: ${data.deepamCount}`;
-            return data.deepamCount;
-          } catch { return 0; }
-        }
-
-        async function saveCount(newCount) {
-          try {
-            await fetch(API_URL, { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ deepamCount: newCount }) });
-          } catch {}
-        }
-
-        function animateDeepams() {
-          diyaLeft.classList.add("real-flame");
-          diyaRight.classList.add("real-flame");
-          sparkle.style.opacity = "1";
-          sparkle.style.animation = "sparkleTrail 1s ease-out";
-          setTimeout(() => {
-            diyaLeft.classList.remove("real-flame");
-            diyaRight.classList.remove("real-flame");
-            sparkle.style.opacity = "0";
-          }, 2000);
-        }
-
-        let count = await loadCount();
-
-        lightBtn.addEventListener("click", async () => {
-          bell.click();
-          animateDeepams();
-          bellSound.play().catch(()=>{});
-          count++;
-          countEl.textContent = `మొత్తం వెలిగించిన దీపాలు: ${count}`;
-          await saveCount(count);
-          lightBtn.textContent = "🪔 వెలిగించబడింది!";
-          lightBtn.style.backgroundColor = "#9c27b0";
-          setTimeout(() => {
-            lightBtn.textContent = "🪔 దీపం వెలిగించు";
-            lightBtn.style.backgroundColor = "#ff9800";
-          }, 2000);
-        });
-      });
-    })();
-  </script>
+<!-- ================= Books ================= -->
+<section id="invitations" class="card warm" tabindex="-1" aria-labelledby="booksTitle">
+    <h2 class="card-title" id="booksTitle"><span class="material-icons" aria-hidden="true">menu_book</span> పుస్తకాలు</h2>
+    <p class="lead">ప్రతి పుస్తకాన్ని <b>వాట్సాప్</b>లో పంపవచ్చు లేదా <b>డౌన్‌లోడ్</b> చేసుకోవచ్చు.</p>
+    <ul class="book-list">
+        <li class="book-item">
+            <span class="book-info"><span class="book-title">ఆహ్వానం</span><span class="book-desc">జయంతి ఆహ్వానం (2026)</span></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – ఆహ్వానం</span></button><a href="శ్రీ యాజ్ఞవల్క్య జయంతుత్సవ సంఘం, పిఠాపురం.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – ఆహ్వానం</span></a></span>
+        </li>
+        <li class="book-item">
+            <span class="book-info"><span class="book-title">బ్రహ్మ విద్య</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/బ్రహ్మ విద్య.pdf" data-share-title="బ్రహ్మ విద్య"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – బ్రహ్మ విద్య</span></button><a href="Docs/బ్రహ్మ విద్య.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – బ్రహ్మ విద్య</span></a></span>
+        </li>
+        <li class="book-item">
+            <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య చరిత్రము</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య చరిత్రము"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></a></span>
+        </li>
+        <li class="book-item">
+            <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/మహర్షి.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య</span></button><a href="Docs/మహర్షి.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య</span></a></span>
+        </li>
+        <li class="book-item">
+            <span class="book-info"><span class="book-title">శుక్ల యజుర్వేద సంధ్యావందనం</span><span class="book-desc">శుక్ల యజుర్వేద సంధ్యావందనం</span></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" data-share-title="సంధ్యావందనం"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – సంధ్యావందనం</span></button><a href="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – సంధ్యావందనం</span></a></span>
+        </li>
+        <li class="book-item">
+            <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య శతకము</span><span class="book-desc">రచన చింతా రామకృష్ణారావు గారు రచించారు.</span></span>
+            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య శతకము"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య శతకము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" download class="btn btn-accent"><span class="material-icons" aria-hidden="true">file_download</span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య శతకము</span></a></span>
+        </li>
+    </ul>
+    <p class="share-status" data-share-status aria-live="polite" style="color:var(--text)"></p>
+    <p class="thanks">శ్రీ కూచి శ్రీహరిమన్నారు గారు అందించిన విలువైన సమాచారానికి ధన్యవాదాలు</p>
 </section>
 
-
-<section id="gallery" tabindex="0" class="media-section">
-    
-    <h4 class="media-header">
-        <span class="material-icons media-header-icon">collections</span> వీడియో & చిత్రాలు
-    </h4>
-    
-    <p class="media-description">
-        మన పవిత్ర ఉత్సవాల దివ్య క్షణాలు మరియు జ్ఞాపకాలను ఈ గ్యాలరీలో వీక్షించండి.
-    </p>
- <h3 class="media-subheader">
-  <span class="material-icons subheader-icon">audiotrack</span> సుప్రభాత స్తోత్రం:
-  <audio id="ttdaudio" controls>
-    <source src="శ్రీ యాజ్ఞవల్క్యు సుప్రభాత స్తోత్రం.mp3" type="audio/mpeg">
-  </audio>
-</h3>
-    <h3 class="media-subheader">
-        <span class="material-icons subheader-icon">videocam</span> వీడియో:
-    </h3>  
-  <div id="video-container" class="video-responsive">
-    <video id ="ttdvideo"
-        src="TTD Video.mp4" 
-        title="ఈవెంట్ ముఖ్యాంశాలు" 
-        controls 
-        preload="metadata" 
-        poster="path/to/your/poster/image.jpg"
-        class="video-player-element">
-        Your browser does not support the video tag.
-    </video>
-</div>
-    <h3 class="media-subheader">
-        <span class="material-icons subheader-icon">image</span> చిత్రాలు:
-    </h3>
-<div class="image-gallery" aria-label="ఆధ్యాత్మిక కార్యక్రమం ఫోటో గ్యాలరీ"> 
-  <div class="image-gallery" aria-label="ఆధ్యాత్మిక కార్యక్రమం ఫోటో గ్యాలరీ" id="dynamic-gallery">
-  </div>
-</div>
-</section>
-
-
-
-
-<section id="Members" tabindex="0" class="members-section"> 
-    <h3 class="committee-header">
-        <i class="fas fa-users committee-header-icon"></i>
-        <b>సంఘ కార్యవర్గం</b> 
-    </h3>
-    <div class="committee-grid">
-        
-        <div class="member-card">
-            <p class="member-title">
-                <i class="fas fa-user-tie member-icon"></i> అధ్యక్షులు:
-            </p>
-            <p class="member-name">మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</p>
-        </div>
-        
-        <div class="member-card">
-            <p class="member-title">
-                <i class="fas fa-handshake member-icon"></i> ఉపాధ్యక్షులు:
-            </p>
-            <p class="member-name">నేలకంటి లక్ష్మీపతి</p>
-           <p class="member-name">మిరియాల రామశాస్త్రి</p>
-        </div>
-        
-        <div class="member-card">
-            <p class="member-title">
-                <i class="fas fa-pen-fancy member-icon"></i> సెక్రటరీ:
-            </p>
-            <p class="member-name">మిరియాల నారాయణ మురళీ మోహన్</p>
-        </div>
-        
-        <div class="member-card">
-            <p class="member-title">
-                <i class="fas fa-users-cog member-icon"></i> జాయింట్ సెక్రటరీ:
-            </p>
-            <p class="member-name">మిరియాల రామకృష్ణ</p>
-        </div>
-        
-        <div class="member-card">
-            <p class="member-title">
-                <i class="fas fa-money-check-alt member-icon"></i> ట్రెజరర్:
-            </p>
-            <p class="member-name">మల్లెమడుగుల వెంకటలక్ష్మీ నరసింహారావు</p>
-        </div>
+<!-- ================= Virtual Deepam ================= -->
+<section id="deepam" class="card" tabindex="-1" aria-labelledby="deepamTitle">
+    <h2 class="card-title" id="deepamTitle">🪔 వర్చువల్ దీపం వెలిగించు 🪔</h2>
+    <button type="button" class="temple-bell" id="templeBell" aria-label="గంట మోగించు">🔔</button>
+    <div class="deepam-stage" id="deepamStage">
+        <span class="diya" id="diyaLeft" aria-hidden="true">🪔</span>
+        <img src="Image 1.jpg" alt="శ్రీ యాజ్ఞవల్క్య మహర్షి" />
+        <span class="diya" id="diyaRight" aria-hidden="true">🪔</span>
     </div>
-    <hr class="contact-hr">
-    <h4 class="contact-subheader">
-        <i class="fas fa-map-marked-alt contact-subheader-icon"></i>
-        సంప్రదించవలసిన చిరునామా:
-    </h4>
-    <div class="contact-info-block">     
-        <p class="person-name">
-            <i class="fas fa-user-circle" style="margin-right: 8px; color: #333;"></i> మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు
-        </p>   
-        <p class="address-details">
-            <i class="fas fa-map-marker-alt address-icon"></i> చిరునామా: 5-1-66, సీతయ్యగారి తోట, 
-            సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.
-        </p>
-    </div>
-    <div class="marquee-container">
-  <marquee behavior="scroll" direction="left" scrollamount="5">
-    ఓం పూర్ణమద: పూర్ణమిద:! పూర్ణాత్ పూర్ణా ముదచ్యతే పూర్ణాస్యపూర్ణమాదాయ ! పూర్ణ మే వావశిష్యతే
-  </marquee>
-  <marquee behavior="scroll" direction="left" scrollamount="5" 
-  onmouseover="this.stop();">
-     <span class="material-icons program-icon">next_plan</span>
-     వచ్చే సంవత్సరం జయంతి తేదీ: ది.19-11-2026 గురువారం నాడు నిర్వహించబడును.
-  </marquee>
-</div>
-</div>
-  <footer style="text-align: center; padding: 20px 10px; background-color: #f3e5f5; color: #6a1b9a; border-top: 1px solid #d1c4e9; font-family: 'Noto Sans Telugu', sans-serif; font-size: 0.9rem;">
- © <span id="currentYear"></span>: భక్తితో సందీప్ మిరియాల
-
-</footer>
+    <button id="lightBtn" type="button" class="btn btn-accent">🪔 దీపం వెలిగించు</button>
+    <p id="deepamCount" class="deepam-count" aria-live="polite">మొత్తం వెలిగించిన దీపాలు: …</p>
 </section>
-  </main>
 
-<button id="back-to-top" class="nav-btn" aria-label="పైకి వెళ్లండి" onclick="scrollToTop()"><span class="material-icons">keyboard_arrow_up</span></button>
-<script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+<!-- ================= Media ================= -->
+<section id="gallery" class="card warm" tabindex="-1" aria-labelledby="mediaTitle">
+    <h2 class="card-title" id="mediaTitle"><span class="material-icons" aria-hidden="true">collections</span> వీడియో & చిత్రాలు</h2>
+    <p class="lead">మన పవిత్ర ఉత్సవాల దివ్య క్షణాలు మరియు జ్ఞాపకాలను ఈ గ్యాలరీలో వీక్షించండి.</p>
+    <div class="audio-row">
+        <span class="material-icons" aria-hidden="true">audiotrack</span> సుప్రభాత స్తోత్రం:
+        <audio id="suprabhataudio" controls preload="none" aria-label="సుప్రభాత స్తోత్రం">
+            <source src="శ్రీ యాజ్ఞవల్క్యు సుప్రభాత స్తోత్రం.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <h3 class="sub-title">వీడియో:</h3>
+    <div class="video-wrap">
+        <video id="ttdvideo" src="TTD Video.mp4" controls preload="metadata" title="ఉత్సవ ముఖ్యాంశాలు">మీ ఫోన్‌లో ఈ వీడియో ప్లే కావడం లేదు.</video>
+    </div>
+    <h3 class="sub-title">చిత్రాలు:</h3>
+    <div class="gallery" id="dynamic-gallery" aria-label="ఉత్సవ ఫోటోలు"></div>
+</section>
 
-<script type="text/javascript">
- 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+<!-- ================= Members ================= -->
+<section id="Members" class="card warm" tabindex="-1" aria-labelledby="memTitle">
+    <h2 class="card-title" id="memTitle"><i class="fas fa-users" aria-hidden="true"></i> సంఘ కార్యవర్గం</h2>
+    <div class="member-grid">
+        <div class="member"><h3><i class="fas fa-user-tie" aria-hidden="true"></i> అధ్యక్షులు:</h3><p>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</p></div>
+        <div class="member"><h3><i class="fas fa-handshake" aria-hidden="true"></i> ఉపాధ్యక్షులు:</h3><p>నేలకంటి లక్ష్మీపతి</p><p>మిరియాల రామశాస్త్రి</p></div>
+        <div class="member"><h3><i class="fas fa-pen-fancy" aria-hidden="true"></i> సెక్రటరీ:</h3><p>మిరియాల నారాయణ మురళీ మోహన్</p></div>
+        <div class="member"><h3><i class="fas fa-users-cog" aria-hidden="true"></i> జాయింట్ సెక్రటరీ:</h3><p>మిరియాల రామకృష్ణ</p></div>
+        <div class="member"><h3><i class="fas fa-money-check-alt" aria-hidden="true"></i> ట్రెజరర్:</h3><p>మల్లెమడుగుల వెంకటలక్ష్మీ నరసింహారావు</p></div>
+    </div>
+    <div class="address">
+        <h3><i class="fas fa-map-marked-alt" aria-hidden="true"></i> సంప్రదించవలసిన చిరునామా:</h3>
+        <p><b>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</b></p>
+        <p>5-1-66, సీతయ్యగారి తోట, సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.</p>
+    </div>
+    <div class="note-box teal" style="margin-top:16px">
+        <h3><span class="material-icons" aria-hidden="true">info</span> గమనిక:</h3>
+        <p style="font-weight:400">ఈ పత్రికను మీ బంధువులకు, శ్రేయోభిలాషులకు చూపించి సంఘ అభివృద్ధికి సహకరించవలసినదిగా కోరుచున్నాము. మీ సలహాలు, సూచనలు సంఘంవారికి ఆఖరి పేజీలో అధ్యక్షుల వారి అడ్రసుకు పంపవలసినదిగా కోరడమైనది.</p>
+    </div>
+    <p class="next-year"><span class="material-icons" aria-hidden="true">next_plan</span> వచ్చే సంవత్సరం జయంతి: ది.08-11-2027 సోమవారం</p>
+</section>
 
-/**
- * Smoothly scrolls the viewport to the bottom of the page.
- */
-function scrollToBottom() {
-    window.scrollTo({
-        top: document.body.scrollHeight, // Scrolls to the maximum height of the page
-        behavior: 'smooth'
-    });
-}
+</main>
 
-// --- Scroll Visibility Logic (for "Back to Top") ---
+<footer class="site-footer">© <span id="currentYear">2026</span>: భక్తితో సందీప్ మిరియాల</footer>
 
-// Get the 'Back to Top' button element
-const backToTopButton = document.getElementById('back-to-top');
+<!-- ================= Bottom navigation (always visible) ================= -->
+<nav class="bottom-nav" aria-label="త్వరిత మెనూ">
+    <ul>
+        <li><a href="#home"><span class="material-icons" aria-hidden="true">home</span>ఆహ్వానం</a></li>
+        <li><a href="#PravarGenerator"><span class="material-icons" aria-hidden="true">person</span>ప్రవర</a></li>
+        <li><a href="#deepam"><span class="material-icons" aria-hidden="true">local_fire_department</span>దీపం</a></li>
+        <li><a href="#invitations"><span class="material-icons" aria-hidden="true">menu_book</span>పుస్తకాలు</a></li>
+        <li><button type="button" class="help js-bot-open" aria-haspopup="dialog"><span class="material-icons" aria-hidden="true">support_agent</span>సహాయం</button></li>
+    </ul>
+</nav>
+<button type="button" id="botFab" class="js-bot-open" aria-haspopup="dialog">
+    <span class="material-icons" aria-hidden="true">support_agent</span>
+    <span class="fab-text"><b>24×7 సహాయ మిత్ర</b><small>ఏదైనా అడగండి</small></span>
+</button>
+<div id="botTip" role="status" hidden>
+    <p>🙏 నమస్కారం! జయంతి తేదీ, దారి, ప్రవర – ఏదైనా అడగండి.</p>
+    <div class="tip-actions">
+        <button type="button" class="btn btn-accent js-bot-open">సహాయ మిత్ర తెరవండి</button>
+        <button type="button" class="btn btn-soft" id="botTipClose">వద్దు</button>
+    </div>
+</div>
+<button id="toTop" type="button" aria-label="పైకి వెళ్ళండి"><span class="material-icons" aria-hidden="true">keyboard_arrow_up</span></button>
 
-// Function to handle showing/hiding the button
-function toggleBackToTopButton() {
-    // Show the button only if the user has scrolled down more than 300 pixels
-    if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
-        backToTopButton.style.display = 'flex'; // Use 'flex' for centered icon
-    } else {
-        backToTopButton.style.display = 'none';
-    }
-}
+<!-- ================= Install help ================= -->
+<dialog id="installDialog" aria-labelledby="installTitle">
+    <div class="dlg-head">
+        <span class="material-icons" aria-hidden="true">install_mobile</span>
+        <h2 id="installTitle">యాప్‌గా ఇన్‌స్టాల్ చేయడం</h2>
+        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="material-icons" aria-hidden="true">close</span></button>
+    </div>
+    <div class="dlg-body">
+        <div id="installAndroid" hidden>
+            <p><b>ఆండ్రాయిడ్ ఫోన్ (క్రోమ్):</b></p>
+            <ol>
+                <li>పైన కుడివైపు ఉన్న <b>మూడు చుక్కలు ⋮</b> నొక్కండి.</li>
+                <li><b>"యాప్‌ను ఇన్‌స్టాల్ చేయి"</b> లేదా <b>"హోమ్ స్క్రీన్‌కు జోడించు"</b> నొక్కండి.</li>
+                <li>మళ్ళీ <b>"ఇన్‌స్టాల్"</b> నొక్కండి. ఫోన్ హోమ్ స్క్రీన్‌పై గుర్తు వస్తుంది.</li>
+            </ol>
+        </div>
+        <div id="installIos" hidden>
+            <p><b>ఐఫోన్ (సఫారి):</b></p>
+            <ol>
+                <li>క్రింద ఉన్న <b>షేర్ గుర్తు</b> <span class="material-icons" aria-hidden="true">ios_share</span> నొక్కండి.</li>
+                <li><b>"హోమ్ స్క్రీన్‌కు జోడించు"</b> నొక్కండి.</li>
+                <li>పైన <b>"జోడించు"</b> నొక్కండి.</li>
+            </ol>
+        </div>
+        <div id="installDesktop" hidden>
+            <p><b>కంప్యూటర్:</b></p>
+            <ol>
+                <li>చిరునామా పట్టీ కుడివైపు ఉన్న <b>ఇన్‌స్టాల్ గుర్తు</b> <span class="material-icons" aria-hidden="true">install_desktop</span> నొక్కండి.</li>
+                <li><b>"ఇన్‌స్టాల్"</b> నొక్కండి.</li>
+            </ol>
+        </div>
+        <p id="installDone" hidden>✅ ఈ యాప్ ఇప్పటికే మీ ఫోన్‌లో ఇన్‌స్టాల్ అయింది.</p>
+        <button type="button" class="btn btn-green btn-block" data-close>సరే</button>
+    </div>
+</dialog>
 
-// Attach the toggle function to the scroll event
-window.onscroll = function() {
-    toggleBackToTopButton();
-};
+<!-- ================= 24×7 సహాయ మిత్ర (newest answer on top) ================= -->
+<dialog id="botDialog" aria-labelledby="botTitle">
+    <div class="bot-wrap">
+        <div class="bot-head">
+            <div class="bot-avatar" aria-hidden="true">🙏</div>
+            <div>
+                <h2 id="botTitle">సహాయ మిత్ర</h2>
+                <small>24 గంటలూ అందుబాటులో · కొత్త సమాధానం పైన</small>
+            </div>
+            <button type="button" class="dlg-x" id="botClose" aria-label="సహాయ మిత్ర మూసివేయండి"><span class="material-icons" aria-hidden="true">close</span></button>
+        </div>
+        <div class="bot-ask">
+            <form class="bot-input" id="botForm" autocomplete="off">
+                <label for="botText" class="sr-only">మీ ప్రశ్న</label>
+                <input type="text" id="botText" placeholder="ప్రశ్న టైప్ చేయండి…" enterkeyhint="send" />
+                <button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><span class="material-icons" aria-hidden="true">mic</span></button>
+                <button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><span class="material-icons" aria-hidden="true">send</span></button>
+            </form>
+            <p class="bot-hint" id="botHint">క్రింది బటన్ నొక్కండి, లేదా ప్రశ్న టైప్ చేయండి.</p>
+        </div>
+        <div class="bot-chips" id="botChips" role="group" aria-label="త్వరిత ప్రశ్నలు"></div>
+        <div id="botLog" role="log" aria-live="polite" aria-label="సమాధానాలు – కొత్తది పైన"></div>
+    </div>
+</dialog>
 
-// Initial check when the page loads (in case the page is already long)
-document.addEventListener('DOMContentLoaded', toggleBackToTopButton);
-    
-    /**
- * Toggles the visibility and appearance of the mobile navigation menu.
- */
-function setupMobileMenuToggle() {
-    // Get the key elements
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    const fullMenuContainer = document.getElementById('full-menu-container');
-
-    if (!hamburger || !navMenu || !fullMenuContainer) {
-        console.error("Missing required menu elements (hamburger, nav-menu, or full-menu-container).");
-        return;
-    }
-
-    // Function to toggle the menu state
-    const toggleMenu = () => {
-        // Toggle the 'active' class on the container (for overall header changes)
-        fullMenuContainer.classList.toggle('active');
-        
-        // Toggle the 'active' class on the menu (for visibility)
-        navMenu.classList.toggle('active');
-        
-        // Toggle the 'active' class on the hamburger icon (for animation/cross shape)
-        hamburger.classList.toggle('active');
-
-        // Update ARIA attributes for accessibility
-        const isExpanded = hamburger.classList.contains('active');
-        hamburger.setAttribute('aria-expanded', isExpanded);
-    };
-
-    // 1. Add click listener to the hamburger icon
-    hamburger.addEventListener('click', toggleMenu);
-    
-    // 2. Add click listeners to all nav links inside the menu
-    // This ensures the menu closes automatically when a link is clicked on mobile
-    const navLinks = navMenu.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Only close if the menu is currently open (and we are likely on mobile)
-            if (fullMenuContainer.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    });
-}
-
-// Run the setup function once the document is fully loaded
-    function generateSimpleGallery() {
-        // Descriptive names for the download links and alt text (can be customized)
-        const descriptions = [
-            "1", 
-            "2", 
-            "3", 
-            "4", 
-            "5", 
-            "6", 
-            "7", 
-            "8",
-            "9"
-            ,"10",
-            "11",
-            "12",
-            "13",
-            "14"
-
-        ];
-        
-        const galleryContainer = document.getElementById('dynamic-gallery');
-        let galleryHTML = '';
-        
-        // Loop from 1 up to (and including) 8
-        for (let i = 1; i <= 14; i++) {
-            const fileName = `Image ${i}.jpg`;
-            // Get the appropriate description (adjusting for 0-based array index)
-            const descriptionText = descriptions[i - 1] || `చిత్రం ${i}`; 
-            
-            galleryHTML += `
-                <div class="gallery-item-wrapper">
-                    <img src="${fileName}" alt="${descriptionText}" tabindex="0" class="gallery-image" />
-                    <a href="${fileName}" download="${descriptionText}.jpg" class="image-download-btn">
-                        <i class="fas fa-download download-icon-sm"></i> డౌన్‌లోడ్
-                    </a>
-                </div>
-            `;
-        }   
-        galleryContainer.innerHTML = galleryHTML;
-    }
-document.addEventListener('DOMContentLoaded', setupMobileMenuToggle);
-document.addEventListener('DOMContentLoaded', generateSimpleGallery);
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
-
- document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('ttdvideo');
-    if (video) {
-      video.pause();
-      // Optionally reset current time to 0
-      video.currentTime = 0;
-    }
-  });
-function setupMobileMenuToggle() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    const fullMenuContainer = document.getElementById('full-menu-container');
-
-    if (!hamburger || !navMenu || !fullMenuContainer) return;
-
-    // Toggle menu open/close
-    const toggleMenu = () => {
-        fullMenuContainer.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
-    };
-
-    // Hamburger click
-    hamburger.addEventListener('click', toggleMenu);
-
-    // Close menu when a nav link is clicked (on mobile)
-    const navLinks = navMenu.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 780 && navMenu.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    });
-
-    // Optional: Close menu on resize to desktop
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 780) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            fullMenuContainer.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', setupMobileMenuToggle);
-
-</script>
-  <script src="pwa.js"></script>
-  <script src="quiz.js"></script> 
-  <script src="gotra.js"></script>
-
+<script src="vendor/fuse.basic.min.js" defer></script>
+<script src="vendor/html2canvas.min.js" defer></script>
+<script src="app.js" defer></script>
+<script src="pwa.js" defer></script>
+<script src="quiz.js" defer></script>
+<script src="gotra.js" defer></script>
 </body>
 </html>
