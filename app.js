@@ -30,7 +30,19 @@
     'శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము, పిఠాపురం';
 
   /* ---------------- Menu ---------------- */
+  function addQuizToMenus() {
+    const d = document.querySelector('.desk-nav a[href="#about"]');
+    if (d && !document.querySelector('.desk-nav a[href="#Quiz"]')) {
+      const li = document.createElement('li'); li.innerHTML = '<a href="#Quiz">క్విజ్</a>'; d.parentElement.after(li);
+    }
+    const m = document.querySelector('.menu-list a[href="#about"]');
+    if (m && !document.querySelector('.menu-list a[href="#Quiz"]')) {
+      const li = document.createElement('li'); li.innerHTML = '<a href="#Quiz"><span class="material-icons" aria-hidden="true">quiz</span>క్విజ్</a>'; m.parentElement.after(li);
+    }
+  }
+
   function setupMenu() {
+    addQuizToMenus();
     const btn = $('#menuBtn'), panel = $('#menuPanel'), icon = $('#menuIcon');
     const open = (yes) => {
       panel.hidden = !yes;
@@ -57,7 +69,8 @@
     { id: 'home',            parts: ['home', 'main', 'Members'], title: 'ఆహ్వానం' },
     { id: 'program-details', parts: ['program-details'],         title: 'కార్యక్రమం' },
     { id: 'upadesam',        parts: ['upadesam'],                title: 'మహర్షి ఉపదేశం' },
-    { id: 'about',           parts: ['about', 'Quiz'],           title: 'మహర్షి చరిత్ర' },
+    { id: 'about',           parts: ['about'],                   title: 'మహర్షి చరిత్ర' },
+    { id: 'Quiz',            parts: ['Quiz'],                    title: 'క్విజ్' },
     { id: 'PravarGenerator', parts: ['PravarGenerator'],         title: 'మీ ప్రవర' },
     { id: 'deepam',          parts: ['deepam'],                  title: 'దీపం' },
     { id: 'invitations',     parts: ['invitations'],             title: 'పుస్తకాలు' },
@@ -72,6 +85,77 @@
   function setupBottomBar() {
     const a = document.querySelector('.bottom-nav a[href="#deepam"]');
     if (a) { a.setAttribute('href', '#paintings'); a.innerHTML = '<span class="material-icons" aria-hidden="true">calendar_month</span>క్యాలెండర్'; }
+  }
+
+  /* 🔊 / 🎤 bar shown at the top of EVERY page */
+  const VOICE_PAGES = [
+    ['home', ['ఆహ్వానం', 'ముఖ్య', 'హోమ్', 'మొదటి']],
+    ['program-details', ['కార్యక్రమ', 'ప్రోగ్రాం']],
+    ['upadesam', ['ఉపదేశ', 'కోశ', 'సాక్షి']],
+    ['about', ['చరిత్ర', 'కథ', 'శ్లోక', 'స్తోత్ర']],
+    ['Quiz', ['క్విజ్', 'ప్రశ్నలు', 'పరీక్ష', 'సర్టిఫికెట్']],
+    ['PravarGenerator', ['ప్రవర', 'గోత్ర', 'గొత్ర']],
+    ['deepam', ['దీప', 'గంట']],
+    ['invitations', ['పుస్తక', 'బుక్']],
+    ['paintings', ['క్యాలెండర్', 'బాపిరాజు', 'చిత్రాలు', 'పెయింటింగ్', 'నెల']],
+    ['gallery', ['ఫోటో', 'వీడియో', 'సుప్రభాత']],
+    ['related', ['సైట్', 'సంధ్యావందన', 'వాజసనేయ']],
+    ['tech', ['సాంకేతిక', 'గిట్']]
+  ];
+  let botAskExternal = null;
+  function readablePageText() {
+    const skip = 'button, .btn, nav, .material-icons, .sr-only, [aria-hidden="true"], audio, video, select, input, script, style, .month-grid, .slide-hint, .page-back, .share-status, [lang="en"], .voice-bar, .slide-count-badge, #quizApp .options-list, .bot-chips, [hidden]';
+    const picked = [];
+    $$('main > section:not([hidden])').forEach(sec => {
+      sec.querySelectorAll('h2, h3, p, li, .bhava, .date-line, .hero-date').forEach(el => {
+        if (el.closest(skip)) return;
+        if (picked.some(p => p.contains(el))) return;
+        const t = el.textContent.trim(); if (t) picked.push(el);
+      });
+    });
+    return picked.map(el => el.textContent.trim().replace(/\s+/g, ' ')).join('. ');
+  }
+  function setupVoiceBar() {
+    const main = $('#content'); if (!main) return;
+    const bar = document.createElement('div');
+    bar.className = 'voice-bar'; bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'వినండి, మాట్లాడండి');
+    bar.innerHTML = `<button type="button" class="btn btn-soft vb-listen"><span class="material-icons" aria-hidden="true">volume_up</span> ఈ పేజీ వినండి</button>
+      <button type="button" class="btn btn-accent vb-speak" hidden><span class="material-icons" aria-hidden="true">mic</span> మాట్లాడి అడగండి</button>
+      <p class="vb-status" aria-live="polite"></p>`;
+    main.prepend(bar);
+    const listen = $('.vb-listen', bar), speakBtn = $('.vb-speak', bar), status = $('.vb-status', bar);
+    listen.addEventListener('click', () => speech.say(readablePageText(), listen));
+
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) return;                                        // browser has no voice input → button stays hidden
+    speakBtn.hidden = false;
+    let rec = null;
+    speakBtn.addEventListener('click', () => {
+      if (rec) { rec.stop(); return; }
+      speech.stop();
+      rec = new SR(); rec.lang = 'te-IN'; rec.interimResults = false; rec.maxAlternatives = 3;
+      speakBtn.classList.add('listening');
+      speakBtn.innerHTML = '<span class="material-icons" aria-hidden="true">hearing</span> వింటున్నాను… మాట్లాడండి';
+      status.textContent = 'ఉదా: "పుస్తకాలు", "క్యాలెండర్", "జయంతి ఎప్పుడు?"';
+      rec.onresult = ev => {
+        const alts = [...ev.results[0]].map(r => r.transcript.trim());
+        const said = alts[0];
+        status.textContent = `మీరు అన్నది: "${said}"`;
+        const hit = VOICE_PAGES.find(([, keys]) => alts.some(a => keys.some(k => a.includes(k))));
+        if (hit) { location.hash = '#' + hit[0]; return; }
+        if (botAskExternal) botAskExternal(said);
+      };
+      rec.onerror = (e) => {
+        status.textContent = e.error === 'not-allowed'
+          ? 'మైక్ అనుమతి ఇవ్వలేదు. బ్రౌజర్ పైన 🔒 నొక్కి "మైక్రోఫోన్" అనుమతించండి.'
+          : 'వినలేకపోయాను. మళ్ళీ 🎤 నొక్కి నెమ్మదిగా మాట్లాడండి.';
+      };
+      rec.onend = () => {
+        speakBtn.classList.remove('listening'); rec = null;
+        speakBtn.innerHTML = '<span class="material-icons" aria-hidden="true">mic</span> మాట్లాడి అడగండి';
+      };
+      try { rec.start(); } catch (e) { rec = null; speakBtn.classList.remove('listening'); }
+    });
   }
 
   function setupRouter() {
@@ -99,7 +183,8 @@
       if (changed) {
         // stop sound/video on the page we are leaving
         $$('audio, video').forEach(m => { try { if (!m.paused) m.pause(); } catch (e) {} });
-        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        speech.stop();
+        const vs = $('.voice-bar .vb-status'); if (vs) vs.textContent = '';
         all.forEach(el => { el.hidden = !page.parts.includes(el.id); });
         PAGES.forEach(p => { if (p.back) p.back.hidden = p.id !== page.id; });
         const sw = $('.settings-wrap'); if (sw) sw.hidden = page.id !== 'home';   // settings stay in the menu on other pages
@@ -275,31 +360,89 @@
   }
 
   /* ---------------- Read aloud (Telugu) ---------------- */
+  /* Read aloud – TELUGU VOICE ONLY. Never falls back to an English voice. */
   const speech = {
     ok: 'speechSynthesis' in window,
     speaking: null,
-    clean(t) { return t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/\s+/g, ' ').trim(); },
-    stop() { if (this.ok) window.speechSynthesis.cancel(); if (this.speaking) { this.speaking.dispatchEvent(new Event('speech-end')); this.speaking = null; } },
+    queue: [],
+    teVoice() {
+      const vs = this.ok ? window.speechSynthesis.getVoices() : [];
+      return { list: vs, te: vs.find(v => /^te([-_]|$)/i.test(v.lang)) || null };
+    },
+    clean(t) {
+      return t
+        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}\uFE0F]/gu, ' ')  // emoji / arrows
+        .replace(/[A-Za-z][A-Za-z0-9.\-_/:]*/g, ' ')        // English words are skipped (Telugu only)
+        .replace(/[•·|_*"“”]+/g, ' ')
+        .replace(/\s+/g, ' ').trim();
+    },
+    chunks(text) {                                           // short pieces: phones stop long speech
+      const parts = this.clean(text).split(/(?<=[।॥.!?:])\s+/);
+      const out = [];
+      parts.forEach(p => {
+        while (p.length > 220) { let cut = p.lastIndexOf(',', 220); if (cut < 60) cut = p.lastIndexOf(' ', 220); if (cut < 60) cut = 220; out.push(p.slice(0, cut + 1)); p = p.slice(cut + 1).trim(); }
+        if (p.replace(/[\s.,।॥!?:;\-–()0-9]/g, '').length) out.push(p);
+      });
+      return out;
+    },
+    stop() {
+      this.queue = [];
+      if (this.ok) window.speechSynthesis.cancel();
+      if (this.speaking) { const b = this.speaking; this.speaking = null; b.dispatchEvent(new Event('speech-end')); }
+    },
     say(text, btn) {
-      if (!this.ok) { alert('క్షమించండి, మీ ఫోన్‌లో చదివి వినిపించే సౌకర్యం లేదు.'); return; }
-      const wasSame = this.speaking === btn;
+      if (!this.ok) { toast('క్షమించండి, మీ ఫోన్‌లో చదివి వినిపించే సౌకర్యం లేదు.'); return; }
+      const wasSame = btn && this.speaking === btn;
       this.stop();
       if (wasSame) return;
-      const u = new SpeechSynthesisUtterance(this.clean(text));
-      u.lang = 'te-IN'; u.rate = 0.85;
-      const te = window.speechSynthesis.getVoices().find(v => /^te/i.test(v.lang));
-      if (te) u.voice = te;
+      const { list, te } = this.teVoice();
+      if (list.length && !te) { showNoTeluguVoice(); return; }   // phone has voices but no Telugu → do NOT read in English
+      this.queue = this.chunks(text);
+      if (!this.queue.length) return;
       if (btn) {
         this.speaking = btn;
         btn.dataset.label = btn.dataset.label || btn.innerHTML;
         btn.innerHTML = '<span class="material-icons" aria-hidden="true">stop_circle</span> ఆపు';
-        const reset = () => { btn.innerHTML = btn.dataset.label; };
-        btn.addEventListener('speech-end', reset, { once: true });
-        u.onend = u.onerror = () => { if (this.speaking === btn) { this.speaking = null; reset(); } };
+        btn.setAttribute('aria-pressed', 'true');
+        btn.addEventListener('speech-end', () => { btn.innerHTML = btn.dataset.label; btn.setAttribute('aria-pressed', 'false'); }, { once: true });
       }
-      window.speechSynthesis.speak(u);
+      const next = () => {
+        if (!this.queue.length) { if (this.speaking === btn) this.stop(); return; }
+        const u = new SpeechSynthesisUtterance(this.queue.shift());
+        u.lang = 'te-IN'; u.rate = 0.85;
+        if (te) { try { u.voice = te; } catch (e) {} }
+        u.onend = () => { if (this.speaking === btn || !btn) next(); };
+        u.onerror = (e) => { if (e.error !== 'interrupted' && e.error !== 'canceled') { this.stop(); showNoTeluguVoice(); } };
+        window.speechSynthesis.speak(u);
+      };
+      next();
     }
   };
+
+  function toast(msg) {
+    let t = document.getElementById('appToast');
+    if (!t) { t = document.createElement('div'); t.id = 'appToast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 6000);
+  }
+  function showNoTeluguVoice() {
+    let d = document.getElementById('teVoiceDialog');
+    if (!d) {
+      d = document.createElement('dialog'); d.id = 'teVoiceDialog'; d.setAttribute('aria-labelledby', 'teVoiceTitle');
+      d.innerHTML = `<div class="dlg-head"><span class="material-icons" aria-hidden="true">record_voice_over</span><h2 id="teVoiceTitle">తెలుగు గొంతు కావాలి</h2>
+        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="material-icons" aria-hidden="true">close</span></button></div>
+        <div class="dlg-body"><p>మీ ఫోన్‌లో తెలుగులో చదివే గొంతు లేదు. ఇంగ్లీష్ గొంతుతో తెలుగు సరిగా రాదు, అందుకే చదవలేదు.</p>
+        <p><b>ఒక్కసారి ఇలా చేయండి (ఆండ్రాయిడ్):</b></p>
+        <ol><li>ఫోన్ <b>సెట్టింగ్స్</b> తెరవండి.</li><li><b>భాష</b> లేదా <b>సిస్టమ్ → భాషలు & ఇన్‌పుట్</b> నొక్కండి.</li>
+        <li><b>టెక్స్ట్-టు-స్పీచ్</b> నొక్కండి → <b>గూగుల్</b> పక్కన ⚙️ నొక్కండి.</li><li><b>వాయిస్ డేటా ఇన్‌స్టాల్ చేయి</b> → <b>తెలుగు</b> డౌన్‌లోడ్ చేయండి.</li></ol>
+        <p>తర్వాత ఈ వెబ్‌సైట్ మళ్ళీ తెరవండి.</p>
+        <button type="button" class="btn btn-green btn-block" data-close>సరే</button></div>`;
+      document.body.appendChild(d);
+      $$('[data-close]', d).forEach(b => b.addEventListener('click', () => d.close()));
+    }
+    if (typeof d.showModal === 'function' && !d.open) d.showModal();
+  }
+
   function setupSpeak() {
     if (speech.ok) window.speechSynthesis.getVoices();
     $$('[data-speak]').forEach(b => b.addEventListener('click', () => {
@@ -663,6 +806,7 @@
       addCard(t, null, 'క్షమించండి, ఆ ప్రశ్నకు సమాధానం నా దగ్గర లేదు.\nక్రింద ఉన్న బటన్లలో ఒకటి నొక్కండి. ఉదా: "జయంతి ఎప్పుడు?", "ఎక్కడ? దారి".');
     }
 
+    botAskExternal = (t) => { opener = null; openBot(); ask(t); };
     INTENTS.forEach(it => {
       const b = document.createElement('button'); b.type = 'button';
       const m = it.chip.match(/^(\S+)\s+(.*)$/);
@@ -712,7 +856,7 @@
 
   /* ---------------- Start ---------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    setupMenu(); setupComfort(); setupToTop(); setupBottomBar(); setupRouter();
+    setupMenu(); setupComfort(); setupToTop(); setupBottomBar(); setupVoiceBar(); setupRouter();
     setupCountdown(); setupCalendar(); setupShare(); setupSpeak();
     setupGallery(); setupPaintings(); setupDeepam(); setupBot();
     const y = $('#currentYear'); if (y) y.textContent = String(new Date().getFullYear());

@@ -667,3 +667,22 @@ html.spa main > section { scroll-margin-top: 90px; }
 .slide-progress.run i { animation: slideBar var(--slide-ms, 5000ms) linear forwards; }
 @keyframes slideBar { to { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .slide-progress { display: none; } }
+
+/* ---------- 🔊 / 🎤 voice bar on every page ---------- */
+.voice-bar {
+  max-width: 860px; margin: 12px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;
+}
+.voice-bar .btn { min-height: 56px; font-size: .95rem; padding: 6px 10px; }
+.voice-bar .vb-speak[hidden] + .vb-status, .voice-bar:has(.vb-speak[hidden]) .vb-listen { grid-column: 1 / -1; }
+.voice-bar .vb-status { grid-column: 1 / -1; margin: 0; min-height: 0; text-align: center; font-weight: 700; color: var(--text-2); font-size: .9rem; }
+.voice-bar .vb-status:empty { display: none; }
+.vb-speak.listening { animation: pulseMic 1s infinite; }
+.vb-listen[aria-pressed="true"] { background: var(--btn); color: var(--btn-fg); border-color: var(--btn); }
+#teVoiceDialog { border: 3px solid var(--btn); border-radius: 18px; padding: 0; width: min(520px, calc(100vw - 24px)); }
+#teVoiceDialog ol { padding-left: 1.4em; }
+#appToast {
+  position: fixed; left: 50%; bottom: calc(var(--nav-h) + 20px); transform: translateX(-50%) translateY(20px); z-index: 3000;
+  max-width: min(92vw, 520px); padding: 12px 18px; border-radius: 14px; background: #2b1d14; color: #ffffff;
+  font-weight: 700; text-align: center; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+}
+#appToast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
