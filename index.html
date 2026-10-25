@@ -23,6 +23,36 @@
     <link rel="preload" href="fonts/noto-sans-telugu-telugu-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="fonts/telugu-fonts.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+      /* YuktAI integration: keeps the existing site styles intact */
+      #yuktaiLaunch {
+        position: fixed; right: 16px; bottom: 88px; z-index: 9998;
+        border: 2px solid #fff; border-radius: 999px; padding: 12px 16px;
+        background: #174f46; color: #fff; font: inherit; font-weight: 700;
+        box-shadow: 0 3px 14px rgba(0,0,0,.25); cursor: pointer;
+      }
+      #yuktaiLaunch:focus-visible, #yuktaiClose:focus-visible {
+        outline: 3px solid #ffbf47; outline-offset: 3px;
+      }
+      #yuktaiPanelWrap {
+        position: fixed; right: 12px; bottom: 145px; z-index: 9997;
+        width: min(440px, calc(100vw - 24px)); max-height: min(70vh, 680px);
+        overflow: auto; background: var(--card, #fff); color: var(--text, #222);
+        border: 2px solid #174f46; border-radius: 14px; padding: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      }
+      #yuktaiPanelWrap[hidden] { display: none !important; }
+      #yuktaiPanelHead { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+      #yuktaiPanelHead h2 { margin:0; font-size:1.1rem; }
+      #yuktaiClose { border:1px solid currentColor; border-radius:8px; padding:6px 10px; background:transparent; color:inherit; font:inherit; cursor:pointer; }
+      #yuktaiPanelNote { margin: 0 0 10px; font-size:.9rem; }
+      @media (max-width: 520px) {
+        #yuktaiLaunch { right: 10px; bottom: 76px; }
+        #yuktaiPanelWrap { right: 8px; bottom: 132px; width: calc(100vw - 16px); max-height: 68vh; }
+      }
+    </style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">ఆహ్వానానికి నేరుగా వెళ్ళండి</a>
@@ -559,5 +589,106 @@
 <script src="pwa.js" defer></script>
 <script src="quiz.js" defer></script>
 <script src="gotra.js" defer></script>
+
+<!-- ================= YuktAI: Ask This Page only ================= -->
+<button type="button" id="yuktaiLaunch" aria-expanded="false" aria-controls="yuktaiPanelWrap">
+  💬 ఈ పేజీని అడగండి
+</button>
+<section id="yuktaiPanelWrap" hidden aria-label="ఈ పేజీని అడగండి">
+  <div id="yuktaiPanelHead">
+    <h2>YuktAI · ఈ పేజీని అడగండి</h2>
+    <button type="button" id="yuktaiClose">మూసివేయి</button>
+  </div>
+  <p id="yuktaiPanelNote">ఈ పేజీలోని సమాచారంపై మాత్రమే ప్రశ్నలు అడగండి.</p>
+  <div id="yuktaiTools"></div>
+  <p id="yuktaiStatus" role="status" aria-live="polite"></p>
+</section>
+
+<!-- YuktAI Ask page only; no accessibility launcher, agent or Vibe Coder buttons -->
+<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/yuktai@5.3.9/vanilla/index.min.js"></script>
+<script>
+(function () {
+  const launch = document.getElementById("yuktaiLaunch");
+  const panel = document.getElementById("yuktaiPanelWrap");
+  const close = document.getElementById("yuktaiClose");
+  const status = document.getElementById("yuktaiStatus");
+  let mounted = false;
+
+  function openPanel() {
+    panel.hidden = false;
+    launch.setAttribute("aria-expanded", "true");
+    close.focus();
+
+    if (!mounted) {
+      if (window.yuktai && typeof window.yuktai.mountAgenticPanel === "function") {
+        try {
+          window.yuktai.mountAgenticPanel("#yuktaiTools", {
+            defaultTab: "ask",
+            engine: "rust"
+          });
+          mounted = true;
+
+          // Show only the Ask tab (id: yv-tabs-1-ask); hide every other tab and its panel.
+          const toolsRoot = document.getElementById("yuktaiTools");
+          const keepAskOnly = () => {
+            if (!toolsRoot) return;
+            const askTab = toolsRoot.querySelector("#yv-tabs-1-ask");
+            const tabLists = toolsRoot.querySelectorAll('[role="tablist"]');
+            tabLists.forEach((list) => {
+              Array.from(list.children).forEach((tab) => {
+                if (tab.id !== "yv-tabs-1-ask") {
+                  tab.hidden = true;
+                  tab.setAttribute("aria-hidden", "true");
+                  tab.setAttribute("tabindex", "-1");
+                } else {
+                  tab.hidden = false;
+                  tab.removeAttribute("aria-hidden");
+                }
+              });
+            });
+            // Hide panels belonging to other tabs where the tab/panel relationship is explicit.
+            toolsRoot.querySelectorAll('[role="tabpanel"]').forEach((panelEl) => {
+              const labelledBy = panelEl.getAttribute("aria-labelledby") || "";
+              if (labelledBy && labelledBy !== "yv-tabs-1-ask") panelEl.hidden = true;
+            });
+            if (askTab) {
+              askTab.hidden = false;
+              askTab.removeAttribute("aria-hidden");
+              askTab.setAttribute("aria-selected", "true");
+              askTab.setAttribute("tabindex", "0");
+            }
+          };
+          keepAskOnly();
+          const askTabObserver = new MutationObserver(keepAskOnly);
+          if (toolsRoot) askTabObserver.observe(toolsRoot, { childList: true, subtree: true, attributes: true, attributeFilter: ["id", "role", "aria-labelledby"] });
+
+          status.textContent = "YuktAI Ask ప్యానెల్ సిద్ధంగా ఉంది.";
+        } catch (error) {
+          status.textContent = "YuktAI Ask ప్యానెల్ ప్రారంభం కాలేదు. పేజీని మళ్లీ లోడ్ చేసి ప్రయత్నించండి.";
+          console.error("YuktAI Ask page initialization failed:", error);
+        }
+      } else {
+        status.textContent = "YuktAI లైబ్రరీ లోడ్ కాలేదు. ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేయండి.";
+      }
+    }
+  }
+
+  function closePanel() {
+    panel.hidden = true;
+    launch.setAttribute("aria-expanded", "false");
+    launch.focus();
+  }
+
+  launch.addEventListener("click", function () {
+    if (panel.hidden) openPanel();
+    else closePanel();
+  });
+  close.addEventListener("click", closePanel);
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !panel.hidden) closePanel();
+  });
+})();
+</script>
+
 </body>
 </html>

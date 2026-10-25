@@ -436,13 +436,31 @@
       const v = b.getAttribute('data-share-pdf'); if (v) b.setAttribute('data-share-pdf', decodeURI(v));
     });
   }
-  function setupShare() {
-    setupBookNames();
-    $$('[data-share-pdf]').forEach(b => b.addEventListener('click', () => {
-      const scope = b.closest('section');
-      sharePdf(scope ? $('[data-share-status]', scope) : null, b.getAttribute('data-share-pdf') || '', b.getAttribute('data-share-title') || '');
-    }));
-  }
+ function setupShare() {
+  setupBookNames();
+
+  $$('[data-share-pdf]').forEach((button) => {
+    button.addEventListener('click', () => {
+      // Main-page invitation button: share text only, no PDF
+      if (button.matches('.hero .btn.wa')) {
+        const whatsappUrl =
+          'https://wa.me/?text=' + encodeURIComponent(SHARE_TEXT);
+
+        window.open(whatsappUrl, '_blank', 'noopener');
+        return;
+      }
+
+      // Keep existing PDF-sharing behavior for book buttons
+      const scope = button.closest('section');
+
+      sharePdf(
+        scope ? $('[data-share-status]', scope) : null,
+        button.getAttribute('data-share-pdf') || '',
+        button.getAttribute('data-share-title') || ''
+      );
+    });
+  });
+}
 
   /* ---------------- Read aloud (Telugu) ---------------- */
   /* Read aloud – TELUGU VOICE ONLY. Never falls back to an English voice. */
