@@ -604,88 +604,33 @@
   <p id="yuktaiStatus" role="status" aria-live="polite"></p>
 </section>
 
-<!-- YuktAI Ask page only; no accessibility launcher, agent or Vibe Coder buttons -->
-<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/yuktai@5.3.9/vanilla/index.min.js"></script>
+<!-- YuktAI Ask page (new package): answers from this page, sources highlighted, runs on the device -->
+<script>
+  window.YuktaiAskConfig = {
+    launcher: false,              // we use our own #yuktaiLaunch button
+    side: "right",
+    modes: ["fast", "balanced"],
+    exclude: []                   // parts never to read, e.g. ["#chat"]
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/ask-page@0.1.2/dist/ask-page.global.js" defer></script>
 <script>
 (function () {
   const launch = document.getElementById("yuktaiLaunch");
-  const panel = document.getElementById("yuktaiPanelWrap");
-  const close = document.getElementById("yuktaiClose");
   const status = document.getElementById("yuktaiStatus");
-  let mounted = false;
 
-  function openPanel() {
-    panel.hidden = false;
-    launch.setAttribute("aria-expanded", "true");
-    close.focus();
-
-    if (!mounted) {
-      if (window.yuktai && typeof window.yuktai.mountAgenticPanel === "function") {
-        try {
-          window.yuktai.mountAgenticPanel("#yuktaiTools", {
-            defaultTab: "ask",
-            engine: "rust"
-          });
-          mounted = true;
-
-          // Show only the Ask tab (id: yv-tabs-1-ask); hide every other tab and its panel.
-          const toolsRoot = document.getElementById("yuktaiTools");
-          const keepAskOnly = () => {
-            if (!toolsRoot) return;
-            const askTab = toolsRoot.querySelector("#yv-tabs-1-ask");
-            const tabLists = toolsRoot.querySelectorAll('[role="tablist"]');
-            tabLists.forEach((list) => {
-              Array.from(list.children).forEach((tab) => {
-                if (tab.id !== "yv-tabs-1-ask") {
-                  tab.hidden = true;
-                  tab.setAttribute("aria-hidden", "true");
-                  tab.setAttribute("tabindex", "-1");
-                } else {
-                  tab.hidden = false;
-                  tab.removeAttribute("aria-hidden");
-                }
-              });
-            });
-            // Hide panels belonging to other tabs where the tab/panel relationship is explicit.
-            toolsRoot.querySelectorAll('[role="tabpanel"]').forEach((panelEl) => {
-              const labelledBy = panelEl.getAttribute("aria-labelledby") || "";
-              if (labelledBy && labelledBy !== "yv-tabs-1-ask") panelEl.hidden = true;
-            });
-            if (askTab) {
-              askTab.hidden = false;
-              askTab.removeAttribute("aria-hidden");
-              askTab.setAttribute("aria-selected", "true");
-              askTab.setAttribute("tabindex", "0");
-            }
-          };
-          keepAskOnly();
-          const askTabObserver = new MutationObserver(keepAskOnly);
-          if (toolsRoot) askTabObserver.observe(toolsRoot, { childList: true, subtree: true, attributes: true, attributeFilter: ["id", "role", "aria-labelledby"] });
-
-          status.textContent = "YuktAI Ask ప్యానెల్ సిద్ధంగా ఉంది.";
-        } catch (error) {
-          status.textContent = "YuktAI Ask ప్యానెల్ ప్రారంభం కాలేదు. పేజీని మళ్లీ లోడ్ చేసి ప్రయత్నించండి.";
-          console.error("YuktAI Ask page initialization failed:", error);
-        }
-      } else {
-        status.textContent = "YuktAI లైబ్రరీ లోడ్ కాలేదు. ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేయండి.";
-      }
-    }
-  }
-
-  function closePanel() {
-    panel.hidden = true;
-    launch.setAttribute("aria-expanded", "false");
-    launch.focus();
+  function askEl() {
+    return document.querySelector("yuktai-ask");
   }
 
   launch.addEventListener("click", function () {
-    if (panel.hidden) openPanel();
-    else closePanel();
-  });
-  close.addEventListener("click", closePanel);
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && !panel.hidden) closePanel();
+    const el = askEl();
+    if (!el || typeof el.toggle !== "function") {
+      if (status) status.textContent = "YuktAI లైబ్రరీ లోడ్ కాలేదు. ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేయండి.";
+      return;
+    }
+    el.toggle();
+    if (status) status.textContent = "YuktAI Ask ప్యానెల్ సిద్ధంగా ఉంది.";
   });
 })();
 </script>
