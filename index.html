@@ -590,50 +590,15 @@
 <script src="quiz.js" defer></script>
 <script src="gotra.js" defer></script>
 
-<!-- ================= YuktAI: Ask This Page only ================= -->
-<button type="button" id="yuktaiLaunch" aria-expanded="false" aria-controls="yuktaiPanelWrap">
-  💬 ఈ పేజీని అడగండి
-</button>
-<section id="yuktaiPanelWrap" hidden aria-label="ఈ పేజీని అడగండి">
-  <div id="yuktaiPanelHead">
-    <h2>YuktAI · ఈ పేజీని అడగండి</h2>
-    <button type="button" id="yuktaiClose">మూసివేయి</button>
-  </div>
-  <p id="yuktaiPanelNote">ఈ పేజీలోని సమాచారంపై మాత్రమే ప్రశ్నలు అడగండి.</p>
-  <div id="yuktaiTools"></div>
-  <p id="yuktaiStatus" role="status" aria-live="polite"></p>
-</section>
-
-<!-- YuktAI Ask page (new package): answers from this page, sources highlighted, runs on the device -->
+<!-- ================= YuktAI Assistant 6.0: one button ================= -->
 <script>
-  window.YuktaiAskConfig = {
-    launcher: false,              // we use our own #yuktaiLaunch button
-    side: "right",
-    modes: ["fast", "balanced"],
-    exclude: []                   // parts never to read, e.g. ["#chat"]
+  window.YuktaiAssistantConfig = {
+    features: ["ask", "a11y"],
+    level: "AA",
+    side: "left"
   };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/ask-page@0.1.2/dist/ask-page.global.js" defer></script>
-<script>
-(function () {
-  const launch = document.getElementById("yuktaiLaunch");
-  const status = document.getElementById("yuktaiStatus");
-
-  function askEl() {
-    return document.querySelector("yuktai-ask");
-  }
-
-  launch.addEventListener("click", function () {
-    const el = askEl();
-    if (!el || typeof el.toggle !== "function") {
-      if (status) status.textContent = "YuktAI లైబ్రరీ లోడ్ కాలేదు. ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేయండి.";
-      return;
-    }
-    el.toggle();
-    if (status) status.textContent = "YuktAI Ask ప్యానెల్ సిద్ధంగా ఉంది.";
-  });
-})();
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/assistant@6.0.0/dist/assistant.global.js" defer></script>
 
 </body>
 </html>
