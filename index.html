@@ -591,14 +591,23 @@
 <script src="gotra.js" defer></script>
 
 <!-- ================= YuktAI Assistant 6.0: one button ================= -->
+<!-- before </body> -->
 <script>
   window.YuktaiAssistantConfig = {
-    features: ["ask", "a11y"],
-    level: "AA",
-    side: "left"
+    features: ["ask", "a11y"],   // Ask this page + accessibility
+    level: "AA",                 // "AA" | "AAA" | "off"
+    contrast: "check",           // "check" | "fix" (darken faint text)
+    mode: "auto",                // "auto" (safe fixes) | "check" (report only)
+    title: "శ్రీ యాజ్ఞవల్క్య మహర్షి",   // panel name: your site's name
+    color: "#2F43C4",            // button colour: your brand colour
+    side: "right",               // "right" | "left"
+    offset: 20,                  // px from the corner, or { x: 20, y: 90 } above a chat button
+    panelLang: "auto",           // "auto" | "en" | "te" | "hi" (visitors can change it)
+    shortcut: true,              // Alt+Shift+Y opens and closes the panel
+    launcher: true,              // false: no ♿ button (open it from your own button)
+    ask: { modes: ["fast", "balanced"] }  // Ask this page options
   };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/assistant@6.0.0/dist/assistant.global.js" defer></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@yuktishaalaa/assistant@6.0.3/dist/assistant.global.js" defer></script>
 </body>
 </html>
