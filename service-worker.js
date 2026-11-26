@@ -1,5 +1,5 @@
 // Change this version whenever the site is updated.
-const CACHE_NAME = 'yagnavalkya-v21-2026';
+const CACHE_NAME = 'yagnavalkya-v22-2026';
 
 // Small core files needed to open the app offline.
 // (Big video/audio/PDF files are cached only after someone opens them.)
@@ -23,8 +23,9 @@ const CORE = [
   '/32px-Om_symbol.svg.png',
   '/Image 1.jpg',
   '/Image 9.jpg',
-  '/fonts/noto-sans-telugu-telugu-400-normal.woff2',
-  '/fonts/noto-sans-telugu-telugu-700-normal.woff2',
+  '/vendor/mira.js',
+  '/fonts/mira/@fontsource/noto-sans-telugu@5.3.0/files/noto-sans-telugu-telugu-400-normal.woff2',
+  '/fonts/mira/@fontsource/noto-sans-telugu@5.3.0/files/noto-sans-telugu-telugu-700-normal.woff2',
   '/fonts/noto-sans-telugu-latin-400-normal.woff2',
   '/fonts/noto-sans-telugu-latin-700-normal.woff2',
   '/fonts/noto-serif-telugu-telugu-400-normal.woff2',

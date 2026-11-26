@@ -20,7 +20,9 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/png" sizes="192x192" href="192.png">
     <link rel="apple-touch-icon" href="192.png">
-    <link rel="preload" href="fonts/noto-sans-telugu-telugu-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/mira/@fontsource/noto-sans-telugu@5.3.0/files/noto-sans-telugu-telugu-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- MiRa (మిరా): turns every <mira TAG> below into the real tag. Self-hosted, works offline. -->
+    <script src="vendor/mira.js" data-mira-fonts="fonts/mira/" defer></script>
     <link rel="stylesheet" href="fonts/telugu-fonts.css">
     <link rel="stylesheet" href="style.css">
 
@@ -54,531 +56,531 @@
     </style>
 
 </head>
-<body>
-<a class="skip-link" href="#home">ఆహ్వానానికి నేరుగా వెళ్ళండి</a>
+<body mira="telugu">
+<mira a class="skip-link" href="#home">ఆహ్వానానికి నేరుగా వెళ్ళండి</mira a>
 
 <!-- ================= Header: menu (left) · title · install (right) ================= -->
-<header class="site-header">
-    <div class="header-row">
-        <button id="menuBtn" class="hdr-btn" type="button" aria-expanded="false" aria-controls="menuPanel">
-            <span class="yi" data-icon="menu" aria-hidden="true" id="menuIcon"></span>
-            <span>మెనూ</span>
-        </button>
-        <h1 class="site-title">శ్రీ యాజ్ఞవల్క్య మహర్షి<small>95వ జయంతి · పిఠాపురం</small></h1>
-        <nav class="desk-nav" aria-label="ముఖ్య మెనూ"><ul><li><a href="#home">ఆహ్వానం</a></li><li><a href="#program-details">కార్యక్రమం</a></li><li><a href="#upadesam">ఉపదేశం</a></li><li><a href="#about">చరిత్ర</a></li><li><a href="#PravarGenerator">ప్రవర</a></li><li><a href="#deepam">దీపం</a></li><li><a href="#invitations">పుస్తకాలు</a></li><li><a href="#paintings">శ్రీ చంద్రుపట్ల బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery">ఫోటోలు</a></li><li><a href="#related">మరిన్ని సైట్లు</a></li></ul></nav>
-        <button id="installBtn" class="hdr-btn" type="button">
-            <span class="yi" data-icon="install" aria-hidden="true"></span>
-            <span>యాప్</span>
-            <span class="sr-only">ఇన్‌స్టాల్ చేయండి</span>
-        </button>
-    </div>
+<mira header class="site-header">
+    <mira div class="header-row">
+        <mira button id="menuBtn" class="hdr-btn" type="button" aria-expanded="false" aria-controls="menuPanel">
+            <mira span class="yi" data-icon="menu" aria-hidden="true" id="menuIcon"></mira span>
+            <mira span>మెనూ</mira span>
+        </mira button>
+        <mira h1 class="site-title">శ్రీ యాజ్ఞవల్క్య మహర్షి<mira small>95వ జయంతి · పిఠాపురం</mira small></mira h1>
+        <mira nav class="desk-nav" aria-label="ముఖ్య మెనూ"><mira ul><mira li><mira a href="#home">ఆహ్వానం</mira a></mira li><mira li><mira a href="#program-details">కార్యక్రమం</mira a></mira li><mira li><mira a href="#upadesam">ఉపదేశం</mira a></mira li><mira li><mira a href="#about">చరిత్ర</mira a></mira li><mira li><mira a href="#PravarGenerator">ప్రవర</mira a></mira li><mira li><mira a href="#deepam">దీపం</mira a></mira li><mira li><mira a href="#invitations">పుస్తకాలు</mira a></mira li><mira li><mira a href="#paintings">శ్రీ చంద్రుపట్ల బాపిరాజు చిత్రాలు</mira a></mira li><mira li><mira a href="#gallery">ఫోటోలు</mira a></mira li><mira li><mira a href="#related">మరిన్ని సైట్లు</mira a></mira li></mira ul></mira nav>
+        <mira button id="installBtn" class="hdr-btn" type="button">
+            <mira span class="yi" data-icon="install" aria-hidden="true"></mira span>
+            <mira span>యాప్</mira span>
+            <mira span class="sr-only">ఇన్‌స్టాల్ చేయండి</mira span>
+        </mira button>
+    </mira div>
 
-    <nav id="menuPanel" aria-label="మెనూ" hidden>
-        <div class="menu-inner">
-            <ul class="menu-list"><li><a href="#home"><span class="yi" data-icon="spark" aria-hidden="true"></span>ఆహ్వానం</a></li><li><a href="#program-details"><span class="yi" data-icon="calendar" aria-hidden="true"></span>కార్యక్రమం</a></li><li><a href="#upadesam"><span class="yi" data-icon="meditate" aria-hidden="true"></span>ఉపదేశం</a></li><li><a href="#about"><span class="yi" data-icon="book" aria-hidden="true"></span>చరిత్ర</a></li><li><a href="#PravarGenerator"><span class="yi" data-icon="person" aria-hidden="true"></span>ప్రవర</a></li><li><a href="#deepam"><span class="yi" data-icon="lamp" aria-hidden="true"></span>దీపం</a></li><li><a href="#invitations"><span class="yi" data-icon="book" aria-hidden="true"></span>పుస్తకాలు</a></li><li><a href="#paintings"><span class="yi" data-icon="palette" aria-hidden="true"></span>బాపిరాజు చిత్రాలు</a></li><li><a href="#gallery"><span class="yi" data-icon="image" aria-hidden="true"></span>ఫోటోలు</a></li><li><a href="#related"><span class="yi" data-icon="globe" aria-hidden="true"></span>మరిన్ని సైట్లు</a></li></ul>
-            <div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
-        <div class="set-item">
-            <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
-            <div class="size-ctl">
-                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="yi" data-icon="minus" aria-hidden="true"></span><span aria-hidden="true">అ</span></button>
-                <span class="size-dots js-size-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="yi" data-icon="plus" aria-hidden="true"></span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
-            </div>
-        </div>
-        <div class="set-item">
-            <label class="set-label" for="fontSelectMenu">అక్షర శైలి</label>
-            <select class="font-select js-font-select" id="fontSelectMenu"><option value="">నోటో (సాధారణ)</option><option value="Mandali">మండలి</option><option value="Ramabhadra">రామభద్ర</option><option value="NTR">ఎన్టీఆర్</option><option value="Hind Guntur">హింద్ గుంటూరు</option><option value="Anek Telugu">అనేక్</option><option value="Baloo Tammudu 2">బాలూ తమ్ముడు</option><option value="Tiro Telugu">టిరో</option><option value="Gurajada">గురజాడ</option><option value="Suranna">సూరన్న</option><option value="Mallanna">మల్లన్న</option><option value="Tenali Ramakrishna">తెనాలి రామకృష్ణ</option><option value="Timmana">తిమ్మన</option><option value="Ramaraja">రామరాజ</option><option value="Peddana">పెద్దన</option><option value="Gidugu">గిడుగు</option><option value="Dhurjati">ధూర్జటి</option><option value="Suravaram">సురవరం</option><option value="Ponnala">పొన్నాల</option><option value="Sree Krushnadevaraya">శ్రీకృష్ణదేవరాయ</option><option value="Lakki Reddy">లక్కిరెడ్డి</option><option value="Sirivennela">సిరివెన్నెల</option><option value="Ravi Prakash">రవి ప్రకాష్</option><option value="Akaya Telivigala">అకాయ తెలివిగల</option></select>
-        </div>
-        <div class="set-item">
-            <span class="set-label" aria-hidden="true">రంగులు</span>
-            <button type="button" class="tool-btn js-theme"><span class="yi js-theme-icon" data-icon="moon" aria-hidden="true"></span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
-        </div>
-    </div>
-            <button id="menuClose" type="button" class="btn btn-soft btn-block menu-close">
-                <span class="yi" data-icon="close" aria-hidden="true"></span> మెనూ మూసివేయి
-            </button>
-        </div>
-    </nav>
-</header>
-<aside class="settings-wrap" aria-label="అక్షరాలు మరియు రంగులు">
-    <div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
-        <div class="set-item">
-            <span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</span>
-            <div class="size-ctl">
-                <button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><span class="yi" data-icon="minus" aria-hidden="true"></span><span aria-hidden="true">అ</span></button>
-                <span class="size-dots js-size-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-                <button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><span class="yi" data-icon="plus" aria-hidden="true"></span><span aria-hidden="true" style="font-size:1.25em">అ</span></button>
-            </div>
-        </div>
-        <div class="set-item">
-            <label class="set-label" for="fontSelectTop">అక్షర శైలి</label>
-            <select class="font-select js-font-select" id="fontSelectTop"><option value="">నోటో (సాధారణ)</option><option value="Mandali">మండలి</option><option value="Ramabhadra">రామభద్ర</option><option value="NTR">ఎన్టీఆర్</option><option value="Hind Guntur">హింద్ గుంటూరు</option><option value="Anek Telugu">అనేక్</option><option value="Baloo Tammudu 2">బాలూ తమ్ముడు</option><option value="Tiro Telugu">టిరో</option><option value="Gurajada">గురజాడ</option><option value="Suranna">సూరన్న</option><option value="Mallanna">మల్లన్న</option><option value="Tenali Ramakrishna">తెనాలి రామకృష్ణ</option><option value="Timmana">తిమ్మన</option><option value="Ramaraja">రామరాజ</option><option value="Peddana">పెద్దన</option><option value="Gidugu">గిడుగు</option><option value="Dhurjati">ధూర్జటి</option><option value="Suravaram">సురవరం</option><option value="Ponnala">పొన్నాల</option><option value="Sree Krushnadevaraya">శ్రీకృష్ణదేవరాయ</option><option value="Lakki Reddy">లక్కిరెడ్డి</option><option value="Sirivennela">సిరివెన్నెల</option><option value="Ravi Prakash">రవి ప్రకాష్</option><option value="Akaya Telivigala">అకాయ తెలివిగల</option></select>
-        </div>
-        <div class="set-item">
-            <span class="set-label" aria-hidden="true">రంగులు</span>
-            <button type="button" class="tool-btn js-theme"><span class="yi js-theme-icon" data-icon="moon" aria-hidden="true"></span><span class="js-theme-text">రాత్రి</span><span class="sr-only"> రంగులు</span></button>
-        </div>
-    </div>
-</aside>
+    <mira nav id="menuPanel" aria-label="మెనూ" hidden>
+        <mira div class="menu-inner">
+            <mira ul class="menu-list"><mira li><mira a href="#home"><mira span class="yi" data-icon="spark" aria-hidden="true"></mira span>ఆహ్వానం</mira a></mira li><mira li><mira a href="#program-details"><mira span class="yi" data-icon="calendar" aria-hidden="true"></mira span>కార్యక్రమం</mira a></mira li><mira li><mira a href="#upadesam"><mira span class="yi" data-icon="meditate" aria-hidden="true"></mira span>ఉపదేశం</mira a></mira li><mira li><mira a href="#about"><mira span class="yi" data-icon="book" aria-hidden="true"></mira span>చరిత్ర</mira a></mira li><mira li><mira a href="#PravarGenerator"><mira span class="yi" data-icon="person" aria-hidden="true"></mira span>ప్రవర</mira a></mira li><mira li><mira a href="#deepam"><mira span class="yi" data-icon="lamp" aria-hidden="true"></mira span>దీపం</mira a></mira li><mira li><mira a href="#invitations"><mira span class="yi" data-icon="book" aria-hidden="true"></mira span>పుస్తకాలు</mira a></mira li><mira li><mira a href="#paintings"><mira span class="yi" data-icon="palette" aria-hidden="true"></mira span>బాపిరాజు చిత్రాలు</mira a></mira li><mira li><mira a href="#gallery"><mira span class="yi" data-icon="image" aria-hidden="true"></mira span>ఫోటోలు</mira a></mira li><mira li><mira a href="#related"><mira span class="yi" data-icon="globe" aria-hidden="true"></mira span>మరిన్ని సైట్లు</mira a></mira li></mira ul>
+            <mira div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
+        <mira div class="set-item">
+            <mira span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</mira span>
+            <mira div class="size-ctl">
+                <mira button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><mira span class="yi" data-icon="minus" aria-hidden="true"></mira span><mira span aria-hidden="true">అ</mira span></mira button>
+                <mira span class="size-dots js-size-dots" aria-hidden="true"><mira i></mira i><mira i></mira i><mira i></mira i><mira i></mira i><mira i></mira i></mira span>
+                <mira button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><mira span class="yi" data-icon="plus" aria-hidden="true"></mira span><mira span aria-hidden="true" style="font-size:1.25em">అ</mira span></mira button>
+            </mira div>
+        </mira div>
+        <mira div class="set-item">
+            <mira label class="set-label" for="fontSelectMenu">అక్షర శైలి</mira label>
+            <mira select class="font-select js-font-select" id="fontSelectMenu"><option value="">నోటో (సాధారణ)</option><option value="Mandali">మండలి</option><option value="Ramabhadra">రామభద్ర</option><option value="NTR">ఎన్టీఆర్</option><option value="Hind Guntur">హింద్ గుంటూరు</option><option value="Anek Telugu">అనేక్</option><option value="Baloo Tammudu 2">బాలూ తమ్ముడు</option><option value="Tiro Telugu">టిరో</option><option value="Gurajada">గురజాడ</option><option value="Suranna">సూరన్న</option><option value="Mallanna">మల్లన్న</option><option value="Tenali Ramakrishna">తెనాలి రామకృష్ణ</option><option value="Timmana">తిమ్మన</option><option value="Ramaraja">రామరాజ</option><option value="Peddana">పెద్దన</option><option value="Gidugu">గిడుగు</option><option value="Dhurjati">ధూర్జటి</option><option value="Suravaram">సురవరం</option><option value="Ponnala">పొన్నాల</option><option value="Sree Krushnadevaraya">శ్రీకృష్ణదేవరాయ</option><option value="Lakki Reddy">లక్కిరెడ్డి</option><option value="Sirivennela">సిరివెన్నెల</option><option value="Ravi Prakash">రవి ప్రకాష్</option><option value="Akaya Telivigala">అకాయ తెలివిగల</option></mira select>
+        </mira div>
+        <mira div class="set-item">
+            <mira span class="set-label" aria-hidden="true">రంగులు</mira span>
+            <mira button type="button" class="tool-btn js-theme"><mira span class="yi js-theme-icon" data-icon="moon" aria-hidden="true"></mira span><mira span class="js-theme-text">రాత్రి</mira span><mira span class="sr-only"> రంగులు</mira span></mira button>
+        </mira div>
+    </mira div>
+            <mira button id="menuClose" type="button" class="btn btn-soft btn-block menu-close">
+                <mira span class="yi" data-icon="close" aria-hidden="true"></mira span> మెనూ మూసివేయి
+            </mira button>
+        </mira div>
+    </mira nav>
+</mira header>
+<mira aside class="settings-wrap" aria-label="అక్షరాలు మరియు రంగులు">
+    <mira div class="settings" role="group" aria-label="చూపు సౌకర్యాలు">
+        <mira div class="set-item">
+            <mira span class="set-label" aria-hidden="true">అక్షరాల పరిమాణం</mira span>
+            <mira div class="size-ctl">
+                <mira button type="button" class="tool-btn js-font-down" aria-label="అక్షరాలు చిన్నవి చేయండి"><mira span class="yi" data-icon="minus" aria-hidden="true"></mira span><mira span aria-hidden="true">అ</mira span></mira button>
+                <mira span class="size-dots js-size-dots" aria-hidden="true"><mira i></mira i><mira i></mira i><mira i></mira i><mira i></mira i><mira i></mira i></mira span>
+                <mira button type="button" class="tool-btn js-font-up" aria-label="అక్షరాలు పెద్దవి చేయండి"><mira span class="yi" data-icon="plus" aria-hidden="true"></mira span><mira span aria-hidden="true" style="font-size:1.25em">అ</mira span></mira button>
+            </mira div>
+        </mira div>
+        <mira div class="set-item">
+            <mira label class="set-label" for="fontSelectTop">అక్షర శైలి</mira label>
+            <mira select class="font-select js-font-select" id="fontSelectTop"><option value="">నోటో (సాధారణ)</option><option value="Mandali">మండలి</option><option value="Ramabhadra">రామభద్ర</option><option value="NTR">ఎన్టీఆర్</option><option value="Hind Guntur">హింద్ గుంటూరు</option><option value="Anek Telugu">అనేక్</option><option value="Baloo Tammudu 2">బాలూ తమ్ముడు</option><option value="Tiro Telugu">టిరో</option><option value="Gurajada">గురజాడ</option><option value="Suranna">సూరన్న</option><option value="Mallanna">మల్లన్న</option><option value="Tenali Ramakrishna">తెనాలి రామకృష్ణ</option><option value="Timmana">తిమ్మన</option><option value="Ramaraja">రామరాజ</option><option value="Peddana">పెద్దన</option><option value="Gidugu">గిడుగు</option><option value="Dhurjati">ధూర్జటి</option><option value="Suravaram">సురవరం</option><option value="Ponnala">పొన్నాల</option><option value="Sree Krushnadevaraya">శ్రీకృష్ణదేవరాయ</option><option value="Lakki Reddy">లక్కిరెడ్డి</option><option value="Sirivennela">సిరివెన్నెల</option><option value="Ravi Prakash">రవి ప్రకాష్</option><option value="Akaya Telivigala">అకాయ తెలివిగల</option></mira select>
+        </mira div>
+        <mira div class="set-item">
+            <mira span class="set-label" aria-hidden="true">రంగులు</mira span>
+            <mira button type="button" class="tool-btn js-theme"><mira span class="yi js-theme-icon" data-icon="moon" aria-hidden="true"></mira span><mira span class="js-theme-text">రాత్రి</mira span><mira span class="sr-only"> రంగులు</mira span></mira button>
+        </mira div>
+    </mira div>
+</mira aside>
 
-<main id="content">
+<mira main id="content">
 
 <!-- ================= Hero: the most important facts first ================= -->
-<section id="home" class="hero" tabindex="-1" aria-labelledby="heroTitle">
-    <p class="hero-om" aria-hidden="true">🪔</p>
-    <p class="hero-kicker">శ్రీరస్తు · శుభమస్తు · అవిఘ్నమస్తు</p>
-    <h2 id="heroTitle">శ్రీ యాజ్ఞవల్క్య మహర్షి<br>95వ జయంతి</h2>
-    <p class="hero-date">19 నవంబర్ 2026<br>గురువారం<small>కార్తీక శుద్ధ దశమి</small></p>
-    <p class="countdown" id="countdown" aria-live="polite"></p>
-    <div class="hero-actions">
-        <button type="button" class="btn wa" data-share-pdf>
-            <span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> ఆహ్వాన పత్రిక వాట్సాప్‌లో పంపండి
-        </button>
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener">
-            <span class="yi" data-icon="map" aria-hidden="true"></span> దారి చూపించు
-        </a>
-        <button type="button" class="btn" data-speak="#heroSpeech">
-            <span class="yi" data-icon="speaker" aria-hidden="true"></span> చదివి వినిపించు
-        </button>
-        <a class="btn" href="invitation-2026.pdf" target="_blank" rel="noopener">
-            <span class="yi" data-icon="file" aria-hidden="true"></span> పత్రిక చూడండి
-        </a>
-        <button type="button" class="btn" id="calendarBtn">
-            <span class="yi" data-icon="calendar" aria-hidden="true"></span> క్యాలెండర్‌లో గుర్తు
-        </button>
-        <button type="button" class="btn help-wide js-bot-open">
-            <span class="yi" data-icon="chat" aria-hidden="true"></span> 24×7 సహాయ మిత్రను అడగండి
-        </button>
-    </div>
-    <p class="share-status" data-share-status aria-live="polite"></p>
-    <ul class="hero-facts">
-        <li><span class="yi" data-icon="clock" aria-hidden="true"></span><span>ఉదయం 9 గంటల నుండి</span></li>
-        <li><span class="yi" data-icon="temple" aria-hidden="true"></span><span>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం</span></li>
-        <li><span class="yi" data-icon="gift" aria-hidden="true"></span><span>ప్రతి కుటుంబానికి శ్రీ సూర్యకవచం, తామ్ర డాలరు కానుక</span></li>
-    </ul>
-    <p id="heroSpeech" hidden>శ్రీ యాజ్ఞవల్క్య మహర్షి తొంభై ఐదవ జయంతి. నవంబర్ పందొమ్మిది, రెండు వేల ఇరవై ఆరు, గురువారం. ఉదయం తొమ్మిది గంటల నుండి. పిఠాపురం, శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన. అందరూ ఆహ్వానితులే.</p>
-</section>
+<mira section id="home" class="hero" tabindex="-1" aria-labelledby="heroTitle">
+    <mira p class="hero-om" aria-hidden="true">🪔</mira p>
+    <mira p class="hero-kicker">శ్రీరస్తు · శుభమస్తు · అవిఘ్నమస్తు</mira p>
+    <mira h2 id="heroTitle">శ్రీ యాజ్ఞవల్క్య మహర్షి<br>95వ జయంతి</mira h2>
+    <mira p class="hero-date">19 నవంబర్ 2026<br>గురువారం<mira small>కార్తీక శుద్ధ దశమి</mira small></mira p>
+    <mira p class="countdown" id="countdown" aria-live="polite"></mira p>
+    <mira div class="hero-actions">
+        <mira button type="button" class="btn wa" data-share-pdf>
+            <mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> ఆహ్వాన పత్రిక వాట్సాప్‌లో పంపండి
+        </mira button>
+        <mira a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener">
+            <mira span class="yi" data-icon="map" aria-hidden="true"></mira span> దారి చూపించు
+        </mira a>
+        <mira button type="button" class="btn" data-speak="#heroSpeech">
+            <mira span class="yi" data-icon="speaker" aria-hidden="true"></mira span> చదివి వినిపించు
+        </mira button>
+        <mira a class="btn" href="invitation-2026.pdf" target="_blank" rel="noopener">
+            <mira span class="yi" data-icon="file" aria-hidden="true"></mira span> పత్రిక చూడండి
+        </mira a>
+        <mira button type="button" class="btn" id="calendarBtn">
+            <mira span class="yi" data-icon="calendar" aria-hidden="true"></mira span> క్యాలెండర్‌లో గుర్తు
+        </mira button>
+        <mira button type="button" class="btn help-wide js-bot-open">
+            <mira span class="yi" data-icon="chat" aria-hidden="true"></mira span> 24×7 సహాయ మిత్రను అడగండి
+        </mira button>
+    </mira div>
+    <mira p class="share-status" data-share-status aria-live="polite"></mira p>
+    <mira ul class="hero-facts">
+        <mira li><mira span class="yi" data-icon="clock" aria-hidden="true"></mira span><mira span>ఉదయం 9 గంటల నుండి</mira span></mira li>
+        <mira li><mira span class="yi" data-icon="temple" aria-hidden="true"></mira span><mira span>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన, పిఠాపురం</mira span></mira li>
+        <mira li><mira span class="yi" data-icon="gift" aria-hidden="true"></mira span><mira span>ప్రతి కుటుంబానికి శ్రీ సూర్యకవచం, తామ్ర డాలరు కానుక</mira span></mira li>
+    </mira ul>
+    <mira p id="heroSpeech" hidden>శ్రీ యాజ్ఞవల్క్య మహర్షి తొంభై ఐదవ జయంతి. నవంబర్ పందొమ్మిది, రెండు వేల ఇరవై ఆరు, గురువారం. ఉదయం తొమ్మిది గంటల నుండి. పిఠాపురం, శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం, టి.టి.డి. కళ్యాణ మండపం ప్రక్కన. అందరూ ఆహ్వానితులే.</mira p>
+</mira section>
 
 <!-- ================= About ================= -->
-<section id="about" class="card" tabindex="-1" aria-labelledby="aboutTitle">
-    <h2 class="card-title" id="aboutTitle"><span class="yi" data-icon="book" aria-hidden="true"></span> శ్రీ యాజ్ఞవల్క్య మహర్షి</h2>
+<mira section id="about" class="card" tabindex="-1" aria-labelledby="aboutTitle">
+    <mira h2 class="card-title" id="aboutTitle"><mira span class="yi" data-icon="book" aria-hidden="true"></mira span> శ్రీ యాజ్ఞవల్క్య మహర్షి</mira h2>
 
-    <div class="audio-row">
-        <span class="yi" data-icon="headphones" aria-hidden="true"></span> ధ్వని వివరణ – వినండి
-        <audio id="ttdaudio" controls preload="none" aria-label="మహర్షి గురించి ధ్వని వివరణ">
-            <source src="llm telugu.mp4" type="audio/mp4" />
-        </audio>
-    </div>
+    <mira div class="audio-row">
+        <mira span class="yi" data-icon="headphones" aria-hidden="true"></mira span> ధ్వని వివరణ – వినండి
+        <mira audio id="ttdaudio" controls preload="none" aria-label="మహర్షి గురించి ధ్వని వివరణ">
+            <mira source src="llm telugu.mp4" type="audio/mp4" />
+        </mira audio>
+    </mira div>
 
-    <div class="block">
-        <h3 class="sub-title">వేద ప్రవర్తకుడు & స్తుతి శ్లోకాలు</h3>
-        <p>యాజ్ఞవల్క్య మహర్షి శుక్ల యజుర్వేదానికి ప్రవర్తకుడు మరియు పురాతన వేద భారతంలో ఒక ప్రసిద్ధ మహర్షి. ఆయన్ను కీర్తిస్తూ ఉన్న శ్లోకాలు:</p>
-        <p class="verse">శ్లో॥ వందేహం మంగళాత్మానం భాస్వంతం వేద విగ్రహమ్ । యాజ్ఞవల్క్యం మునిశ్రేష్ఠం జిష్ణుం హరిహరప్రభుమ్ ॥</p>
-        <p class="verse">జితంద్రియం జితక్రోధం సదా ధ్యానపరాయణమ్ । ఆనందనిలయం వందే యోగానంద మునీశ్వరమ్ ॥</p>
-        <p class="verse saffron">ఏవం ద్వాదశ నామాని త్రికాలం యః పఠేన్నరః ।  యోగీశ్వర ప్రసాదేన విద్యావాన్ ధనవాన్ భవేత్ ॥</p>
-        <p class="verse ok">ఓం శ్రీ యాజ్ఞవల్క్య గురుభ్యో నమః | కణ్వకాత్యాయనాది మహర్షిభ్యో నమః |</p>
-        <div class="bhava">
-            <span class="bhava-title">భావం :</span>
-            యాజ్ఞవల్క్య మహర్షికి నేను నమస్కరిస్తున్నాను. ఆయన <b class="hl">మంగళకరుడు</b>, <b class="hl">ప్రకాశవంతమైనవాడు</b>, <b class="hl">వేదాల స్వరూపుడు</b>, మునులలో <b class="hl">శ్రేష్ఠుడు</b>, <b class="hl">విజయాన్ని పొందినవాడు</b> మరియు <b class="hl">హరిహరులకు ప్రభువు</b>. ఆయన <b class="hl">ఇంద్రియాలను</b>, <b class="hl">కోపాన్ని జయించినవాడు</b>, ఎల్లప్పుడూ <b class="hl">ధ్యానంలో ఉండేవాడు</b>, మరియు <b class="hl">ఆనందానికి నిలయమైనవాడు</b> (యోగనంద మునీశ్వరుడు).
+    <mira div class="block">
+        <mira h3 class="sub-title">వేద ప్రవర్తకుడు & స్తుతి శ్లోకాలు</mira h3>
+        <mira p>యాజ్ఞవల్క్య మహర్షి శుక్ల యజుర్వేదానికి ప్రవర్తకుడు మరియు పురాతన వేద భారతంలో ఒక ప్రసిద్ధ మహర్షి. ఆయన్ను కీర్తిస్తూ ఉన్న శ్లోకాలు:</mira p>
+        <mira p class="verse">శ్లో॥ వందేహం మంగళాత్మానం భాస్వంతం వేద విగ్రహమ్ । యాజ్ఞవల్క్యం మునిశ్రేష్ఠం జిష్ణుం హరిహరప్రభుమ్ ॥</mira p>
+        <mira p class="verse">జితంద్రియం జితక్రోధం సదా ధ్యానపరాయణమ్ । ఆనందనిలయం వందే యోగానంద మునీశ్వరమ్ ॥</mira p>
+        <mira p class="verse saffron">ఏవం ద్వాదశ నామాని త్రికాలం యః పఠేన్నరః ।  యోగీశ్వర ప్రసాదేన విద్యావాన్ ధనవాన్ భవేత్ ॥</mira p>
+        <mira p class="verse ok">ఓం శ్రీ యాజ్ఞవల్క్య గురుభ్యో నమః | కణ్వకాత్యాయనాది మహర్షిభ్యో నమః |</mira p>
+        <mira div class="bhava">
+            <mira span class="bhava-title">భావం :</mira span>
+            యాజ్ఞవల్క్య మహర్షికి నేను నమస్కరిస్తున్నాను. ఆయన <mira b class="hl">మంగళకరుడు</mira b>, <mira b class="hl">ప్రకాశవంతమైనవాడు</mira b>, <mira b class="hl">వేదాల స్వరూపుడు</mira b>, మునులలో <mira b class="hl">శ్రేష్ఠుడు</mira b>, <mira b class="hl">విజయాన్ని పొందినవాడు</mira b> మరియు <mira b class="hl">హరిహరులకు ప్రభువు</mira b>. ఆయన <mira b class="hl">ఇంద్రియాలను</mira b>, <mira b class="hl">కోపాన్ని జయించినవాడు</mira b>, ఎల్లప్పుడూ <mira b class="hl">ధ్యానంలో ఉండేవాడు</mira b>, మరియు <mira b class="hl">ఆనందానికి నిలయమైనవాడు</mira b> (యోగనంద మునీశ్వరుడు).
             <br><br>
-            ఈ స్తోత్రంలో ఉన్న <b class="hl">పన్నెండు నామాలను</b> రోజుకు <b class="hl">మూడుసార్లు</b> (త్రిసంధ్యా) పఠించినవారు, ఆ యోగీశ్వరుని అనుగ్రహం వలన తప్పకుండా <b class="hl">విద్యావంతులు</b> మరియు <b class="hl">ధనవంతులు</b> అవుతారు.
-        </div>
-        <p class="verse">ఈయనను అనేక పురాణాలలో, ఉపనిషత్తులలోనూ, భారతంలోనూ స్తుతించారు.<br>శ్లో॥ హరివంశేభాగవతే పురాణోపనిషత్యు చ భారతేశాస్త్రవృత్తాయ యాజ్ఞవల్క్యయ మంగళమ్</p>
-    </div>
+            ఈ స్తోత్రంలో ఉన్న <mira b class="hl">పన్నెండు నామాలను</mira b> రోజుకు <mira b class="hl">మూడుసార్లు</mira b> (త్రిసంధ్యా) పఠించినవారు, ఆ యోగీశ్వరుని అనుగ్రహం వలన తప్పకుండా <mira b class="hl">విద్యావంతులు</mira b> మరియు <mira b class="hl">ధనవంతులు</mira b> అవుతారు.
+        </mira div>
+        <mira p class="verse">ఈయనను అనేక పురాణాలలో, ఉపనిషత్తులలోనూ, భారతంలోనూ స్తుతించారు.<br>శ్లో॥ హరివంశేభాగవతే పురాణోపనిషత్యు చ భారతేశాస్త్రవృత్తాయ యాజ్ఞవల్క్యయ మంగళమ్</mira p>
+    </mira div>
 
-    <div class="block">
-        <h3 class="sub-title">జననం, విద్య మరియు శుక్ల యజుర్వేద ప్రాప్తి</h3>
-        <p>అది కురు పాంచాల దేశము. అందు గంగ ప్రవహించెడిది.ఆ నదీ తీరమున చమత్కార పురమను నగరం ఉండెడిది.ఆ నగరంన ఒక బ్రాహ్మణుడు ఉండేవాడు. యజ్ఞవల్కుడను సార్థక నామధేయుడు. అతని భార్య సునంద. ఆ దంపతులకు ధనుర్లగ్నమున ఒక కుమారుడు జన్మించాడు. అతడే యాజ్ఞవల్క్యుడు. తన కుమారునకు అయిదవ ఏట అక్షరాభ్యాసమూ, ఎనిమిదవ ఏట ఉపనయనము చేశాడు.</p>
-        <p>ప్రాతఃస్మరణీయులైన ఋషిపరంపరలో యాజ్ఞవల్క్య మహర్షి ఒకరు.ఇతను భాష్కలుని వద్ద ఋగ్వేదము, జైమిని వద్ద సామవేదము, అరుణి దగ్గర అధర్వణవేదమును అభ్యసించాడు. వైశంపాయనుని వద్ద యజుర్వేదాధ్యయనము కూడా చేసాక విద్యాహంకారము కలిగి గురుశాపానికి గురై తాను నేర్చుకున్న వేదజ్ఞానమంతా రుధిర రూపములో గక్కి శాపాన్ని బాపుకున్నారు. అతను గక్కిన పదార్థాన్ని తిత్తిరిపక్షులు తిని, అవి తిరిగి పలుకగా ఉపనిషత్తులయ్యాయి. అవే తైత్తిరీయోపనిషత్తులుగా ప్రసిద్ధికెక్కాయి. ఆతరువాత యాజ్ఞవల్క్యుడు సూర్యభగవానుని ఆరాధించి, శుక్ల యజుర్వేదాన్ని నేర్చుకొని గురువుకన్నా గొప్పవాడయ్యాడు. సరస్వతీదేవిని ఉపాసించి సమస్త విద్యలు సాధించాడు.</p>
-        <p>తరువాత కాత్యాయిని అనే ఆమెను వివాహము చేసుకున్నాదు.గార్గి శిష్యురాలైన మైత్రేయి యాజ్ఞవల్కుని తప్ప మరొకర్ని వివాహము చేసుకోనని శపథముచేసి, కాత్యాయిని స్నేహము సంపాదించి ఆమె సమ్మతితో యాజ్ఞవల్క్యుని రెండవ భార్య అయినది.</p>
-    </div>
+    <mira div class="block">
+        <mira h3 class="sub-title">జననం, విద్య మరియు శుక్ల యజుర్వేద ప్రాప్తి</mira h3>
+        <mira p>అది కురు పాంచాల దేశము. అందు గంగ ప్రవహించెడిది.ఆ నదీ తీరమున చమత్కార పురమను నగరం ఉండెడిది.ఆ నగరంన ఒక బ్రాహ్మణుడు ఉండేవాడు. యజ్ఞవల్కుడను సార్థక నామధేయుడు. అతని భార్య సునంద. ఆ దంపతులకు ధనుర్లగ్నమున ఒక కుమారుడు జన్మించాడు. అతడే యాజ్ఞవల్క్యుడు. తన కుమారునకు అయిదవ ఏట అక్షరాభ్యాసమూ, ఎనిమిదవ ఏట ఉపనయనము చేశాడు.</mira p>
+        <mira p>ప్రాతఃస్మరణీయులైన ఋషిపరంపరలో యాజ్ఞవల్క్య మహర్షి ఒకరు.ఇతను భాష్కలుని వద్ద ఋగ్వేదము, జైమిని వద్ద సామవేదము, అరుణి దగ్గర అధర్వణవేదమును అభ్యసించాడు. వైశంపాయనుని వద్ద యజుర్వేదాధ్యయనము కూడా చేసాక విద్యాహంకారము కలిగి గురుశాపానికి గురై తాను నేర్చుకున్న వేదజ్ఞానమంతా రుధిర రూపములో గక్కి శాపాన్ని బాపుకున్నారు. అతను గక్కిన పదార్థాన్ని తిత్తిరిపక్షులు తిని, అవి తిరిగి పలుకగా ఉపనిషత్తులయ్యాయి. అవే తైత్తిరీయోపనిషత్తులుగా ప్రసిద్ధికెక్కాయి. ఆతరువాత యాజ్ఞవల్క్యుడు సూర్యభగవానుని ఆరాధించి, శుక్ల యజుర్వేదాన్ని నేర్చుకొని గురువుకన్నా గొప్పవాడయ్యాడు. సరస్వతీదేవిని ఉపాసించి సమస్త విద్యలు సాధించాడు.</mira p>
+        <mira p>తరువాత కాత్యాయిని అనే ఆమెను వివాహము చేసుకున్నాదు.గార్గి శిష్యురాలైన మైత్రేయి యాజ్ఞవల్కుని తప్ప మరొకర్ని వివాహము చేసుకోనని శపథముచేసి, కాత్యాయిని స్నేహము సంపాదించి ఆమె సమ్మతితో యాజ్ఞవల్క్యుని రెండవ భార్య అయినది.</mira p>
+    </mira div>
 
-    <div class="block">
-        <h3 class="sub-title">ముఖ్యమైన రచనలు</h3>
-        <ul class="plain-list works">
-            <li>యాజ్ఞవల్క్య స్మృతి: ఇది న్యాయశాస్త్రానికి సంబంధించిన ఒక ముఖ్యమైన గ్రంథం.</li>
-            <li>శతపథ బ్రాహ్మణం: శుక్ల యజుర్వేదానికి సంబంధించిన బ్రాహ్మణ గ్రంథం.</li>
-            <li>బృహదారణ్యకోపనిషత్తు: ప్రముఖ ఉపనిషత్తులలో ఒకటి.</li>
-            <li>గాయత్రీ కవచం: గాయత్రీ మంత్రం గురించి ఈయన రచించారు.</li>
-        </ul>
-    </div>
+    <mira div class="block">
+        <mira h3 class="sub-title">ముఖ్యమైన రచనలు</mira h3>
+        <mira ul class="plain-list works">
+            <mira li>యాజ్ఞవల్క్య స్మృతి: ఇది న్యాయశాస్త్రానికి సంబంధించిన ఒక ముఖ్యమైన గ్రంథం.</mira li>
+            <mira li>శతపథ బ్రాహ్మణం: శుక్ల యజుర్వేదానికి సంబంధించిన బ్రాహ్మణ గ్రంథం.</mira li>
+            <mira li>బృహదారణ్యకోపనిషత్తు: ప్రముఖ ఉపనిషత్తులలో ఒకటి.</mira li>
+            <mira li>గాయత్రీ కవచం: గాయత్రీ మంత్రం గురించి ఈయన రచించారు.</mira li>
+        </mira ul>
+    </mira div>
 
-    <div class="block">
-        <h3 class="sub-title">సంధ్యావందనంలో ప్రస్తావన</h3>
-        <p>శుక్ల యజుర్వేదాన్ని అనుసరించే వారికి త్రికాల సంధ్యావందనంలో యాజ్ఞవల్క్య మహర్షి పేరు ప్రస్తావన ఉంది:</p>
-        <ul class="plain-list sandhya">
-            <li>ఉదయం: ఉపనిషద్యాజ్ఞవల్క్య ఋషిః అని సూర్య మంత్రంలో పఠిస్తారు.
-                <p class="verse saffron">శ్లో॥ సూర్యశ్చేతి మంత్రస్య,ఉపనిషద్యాజ్ఞవల్క్య ఋషిః, సూర్యో దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</p></li>
-            <li>సాయంకాలం: యాజ్ఞవల్క్య ఉపనిషదృషిః అని అగ్ని మంత్రంలో పఠిస్తారు.
-                <p class="verse saffron">శ్లో॥ అగ్నిశ్చేతి మంత్రస్య, యాజ్ఞవల్క్య ఉపనిషదృషిః, అగ్నిర్దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</p></li>
-        </ul>
-    </div>
+    <mira div class="block">
+        <mira h3 class="sub-title">సంధ్యావందనంలో ప్రస్తావన</mira h3>
+        <mira p>శుక్ల యజుర్వేదాన్ని అనుసరించే వారికి త్రికాల సంధ్యావందనంలో యాజ్ఞవల్క్య మహర్షి పేరు ప్రస్తావన ఉంది:</mira p>
+        <mira ul class="plain-list sandhya">
+            <mira li>ఉదయం: ఉపనిషద్యాజ్ఞవల్క్య ఋషిః అని సూర్య మంత్రంలో పఠిస్తారు.
+                <mira p class="verse saffron">శ్లో॥ సూర్యశ్చేతి మంత్రస్య,ఉపనిషద్యాజ్ఞవల్క్య ఋషిః, సూర్యో దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</mira p></mira li>
+            <mira li>సాయంకాలం: యాజ్ఞవల్క్య ఉపనిషదృషిః అని అగ్ని మంత్రంలో పఠిస్తారు.
+                <mira p class="verse saffron">శ్లో॥ అగ్నిశ్చేతి మంత్రస్య, యాజ్ఞవల్క్య ఉపనిషదృషిః, అగ్నిర్దేవతా, అనుష్టుప్ ఛందః, ఉదక ప్రాశనే వినియోగః</mira p></mira li>
+        </mira ul>
+    </mira div>
 
-    <div class="block">
-        <h3 class="sub-title">ఆంధ్రప్రదేశ్‌లోని ఆలయాలు</h3>
-        <p>ఆంధ్రప్రదేశ్‌లోని పిఠాపురం, విశాఖపట్నం, గుంటూరు, కాకినాడ వంటి అనేక ప్రాంతాలలో యాజ్ఞవల్క్య మహర్షి ఆలయాలు ఉన్నాయి. ఈయన శిష్యులలో కణ్వ మహర్షి మొదటివారు. కణ్వ మహర్షి రచించిన కణ్వ స్మృతి ధర్మశాస్త్ర గ్రంథంగా ఇప్పటికీ ఉపయోగంలో ఉంది.</p>
-    </div>
-</section>
+    <mira div class="block">
+        <mira h3 class="sub-title">ఆంధ్రప్రదేశ్‌లోని ఆలయాలు</mira h3>
+        <mira p>ఆంధ్రప్రదేశ్‌లోని పిఠాపురం, విశాఖపట్నం, గుంటూరు, కాకినాడ వంటి అనేక ప్రాంతాలలో యాజ్ఞవల్క్య మహర్షి ఆలయాలు ఉన్నాయి. ఈయన శిష్యులలో కణ్వ మహర్షి మొదటివారు. కణ్వ మహర్షి రచించిన కణ్వ స్మృతి ధర్మశాస్త్ర గ్రంథంగా ఇప్పటికీ ఉపయోగంలో ఉంది.</mira p>
+    </mira div>
+</mira section>
 
 <!-- ================= Quiz ================= -->
-<section id="Quiz" class="card" tabindex="-1" aria-label="క్విజ్">
-    <div id="quizApp"></div>
-</section>
+<mira section id="Quiz" class="card" tabindex="-1" aria-label="క్విజ్">
+    <mira div id="quizApp"></mira div>
+</mira section>
 
 <!-- ================= Pravara ================= -->
-<section id="PravarGenerator" class="card" tabindex="-1" aria-labelledby="pravar-title">
-    <h2 class="card-title" id="pravar-title"><span class="yi" data-icon="person" aria-hidden="true"></span> శుక్ల యజుర్వేద ప్రవర వివరాలు పొందండి</h2>
-    <div id="welcomeText" aria-live="polite"></div>
-    <div id="errorMessages" role="alert"></div>
+<mira section id="PravarGenerator" class="card" tabindex="-1" aria-labelledby="pravar-title">
+    <mira h2 class="card-title" id="pravar-title"><mira span class="yi" data-icon="person" aria-hidden="true"></mira span> శుక్ల యజుర్వేద ప్రవర వివరాలు పొందండి</mira h2>
+    <mira div id="welcomeText" aria-live="polite"></mira div>
+    <mira div id="errorMessages" role="alert"></mira div>
 
-    <p class="privacy-note"><strong>ముఖ్య గమనిక:</strong> మీ గోత్రం మరియు పేరు వివరాలు మా వద్ద <strong>సేవ్ చేయబడవు</strong>. మీ ప్రవర వివరాలను సులభంగా అందించడమే మా ఏకైక లక్ష్యం.</p>
-    <p>ప్రవర వివరాలను వీక్షించడానికి, ఈ సులభమైన 3 దశలను అనుసరించండి:</p>
-    <ol class="pravar-steps">
-        <li>మీ <strong>పూర్తి పేరు</strong> మరియు <strong>గోత్రం</strong> ఎంచుకోండి/నమోదు చేయండి.</li>
-        <li><strong>"ప్రవర వివరాలు చూపించు"</strong> బటన్‌ను నొక్కండి.</li>
-        <li>వివరాలు వెంటనే ప్రదర్శించబడతాయి. మీరు వాటిని <strong>ఫైల్‌గా డౌన్‌లోడ్</strong>, <strong>ఆడియో</strong>గా వినడం లేదా <strong>వాట్సాప్</strong> ద్వారా పంచుకోవచ్చు.</li>
-    </ol>
+    <mira p class="privacy-note"><mira strong>ముఖ్య గమనిక:</mira strong> మీ గోత్రం మరియు పేరు వివరాలు మా వద్ద <mira strong>సేవ్ చేయబడవు</mira strong>. మీ ప్రవర వివరాలను సులభంగా అందించడమే మా ఏకైక లక్ష్యం.</mira p>
+    <mira p>ప్రవర వివరాలను వీక్షించడానికి, ఈ సులభమైన 3 దశలను అనుసరించండి:</mira p>
+    <mira ol class="pravar-steps">
+        <mira li>మీ <mira strong>పూర్తి పేరు</mira strong> మరియు <mira strong>గోత్రం</mira strong> ఎంచుకోండి/నమోదు చేయండి.</mira li>
+        <mira li><mira strong>"ప్రవర వివరాలు చూపించు"</mira strong> బటన్‌ను నొక్కండి.</mira li>
+        <mira li>వివరాలు వెంటనే ప్రదర్శించబడతాయి. మీరు వాటిని <mira strong>ఫైల్‌గా డౌన్‌లోడ్</mira strong>, <mira strong>ఆడియో</mira strong>గా వినడం లేదా <mira strong>వాట్సాప్</mira strong> ద్వారా పంచుకోవచ్చు.</mira li>
+    </mira ol>
 
-    <div class="field">
-        <label for="nameInput">మీ పూర్తి పేరు <span class="req" aria-hidden="true">*</span></label>
-        <input type="text" id="nameInput" name="userName" placeholder="మీ పేరు (ఉదా: బాపిరాజు)" maxlength="50" required autocomplete="name" aria-describedby="name-hint" />
-        <small id="name-hint">కనీసం 3 అక్షరాలు ఉండాలి.</small>
-    </div>
-    <div class="field">
-        <label for="gotraSelect">గోత్రం <span class="req" aria-hidden="true">*</span></label>
-        <select id="gotraSelect" name="gotra" required>
+    <mira div class="field">
+        <mira label for="nameInput">మీ పూర్తి పేరు <mira span class="req" aria-hidden="true">*</mira span></mira label>
+        <mira input type="text" id="nameInput" name="userName" placeholder="మీ పేరు (ఉదా: బాపిరాజు)" maxlength="50" required autocomplete="name" aria-describedby="name-hint" />
+        <mira small id="name-hint">కనీసం 3 అక్షరాలు ఉండాలి.</mira small>
+    </mira div>
+    <mira div class="field">
+        <mira label for="gotraSelect">గోత్రం <mira span class="req" aria-hidden="true">*</mira span></mira label>
+        <mira select id="gotraSelect" name="gotra" required>
             <option value="">-- గోత్రం ఎంచుకోండి --</option>
-        </select>
-    </div>
-    <div class="field">
-        <label for="ganaInput">గణము (తనంతట అదే వస్తుంది)</label>
-        <input type="text" id="ganaInput" name="gana" value="" readonly placeholder="గోత్రం ఎంచుకున్న తర్వాత కనిపిస్తుంది" />
-    </div>
+        </mira select>
+    </mira div>
+    <mira div class="field">
+        <mira label for="ganaInput">గణము (తనంతట అదే వస్తుంది)</mira label>
+        <mira input type="text" id="ganaInput" name="gana" value="" readonly placeholder="గోత్రం ఎంచుకున్న తర్వాత కనిపిస్తుంది" />
+    </mira div>
 
-    <button id="generateBtn" type="button" class="btn btn-primary btn-block">
-        <span class="spinner" style="display:none;"></span> ప్రవర వివరాలు చూపించు
-    </button>
+    <mira button id="generateBtn" type="button" class="btn btn-primary btn-block">
+        <mira span class="spinner" style="display:none;"></mira span> ప్రవర వివరాలు చూపించు
+    </mira button>
 
-    <p class="sr-only" id="result-label">మీ ప్రవర</p>
-    <pre id="finalMessage" tabindex="0" style="display:none" aria-live="polite" aria-labelledby="result-label"></pre>
+    <mira p class="sr-only" id="result-label">మీ ప్రవర</mira p>
+    <mira pre id="finalMessage" tabindex="0" style="display:none" aria-live="polite" aria-labelledby="result-label"></mira pre>
 
-    <div id="actionButtons" style="display:none">
-        <button type="button" id="downloadBtn" class="btn btn-soft"><span aria-hidden="true">⬇️</span> ఫైల్ డౌన్‌లోడ్</button>
-        <button type="button" id="playAudioBtn" class="btn btn-soft"><span aria-hidden="true">🔊</span> వినండి</button>
-        <button type="button" id="stopAudioBtn" class="btn btn-soft" style="display:none"><span aria-hidden="true">⏹️</span> ఆపు</button>
-        <button type="button" id="whatsappShareBtn" class="btn btn-green"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్‌లో పంపండి</button>
-    </div>
+    <mira div id="actionButtons" style="display:none">
+        <mira button type="button" id="downloadBtn" class="btn btn-soft"><mira span aria-hidden="true">⬇️</mira span> ఫైల్ డౌన్‌లోడ్</mira button>
+        <mira button type="button" id="playAudioBtn" class="btn btn-soft"><mira span aria-hidden="true">🔊</mira span> వినండి</mira button>
+        <mira button type="button" id="stopAudioBtn" class="btn btn-soft" style="display:none"><mira span aria-hidden="true">⏹️</mira span> ఆపు</mira button>
+        <mira button type="button" id="whatsappShareBtn" class="btn btn-green"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్‌లో పంపండి</mira button>
+    </mira div>
 
-    <div class="reset-row">
-        <button id="resetBtn" type="button" class="btn btn-soft btn-block"><span aria-hidden="true">🗑️</span> వివరాలు తొలగించు</button>
-    </div>
-</section>
+    <mira div class="reset-row">
+        <mira button id="resetBtn" type="button" class="btn btn-soft btn-block"><mira span aria-hidden="true">🗑️</mira span> వివరాలు తొలగించు</mira button>
+    </mira div>
+</mira section>
 
 <!-- ================= Invitation (from 2026 PDF) ================= -->
-<section id="main" class="card warm" tabindex="-1" aria-labelledby="invTitle">
-    <div class="inv-top">
-        <p class="blessing">శ్రీరస్తు శుభమస్తు అవిఘ్నమస్తు</p>
-        <h2 class="inv-org" id="invTitle">శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము పిఠాపురం</h2>
-        <p class="inv-reg">తూ.గో॥జిల్లా(ఆం.ప్ర.) (రి.నెం.3/57)</p>
-        <div class="inv-images">
-            <img src="32px-Om_symbol.svg.png" alt="" class="om-logo" />
-            <img src="Image 9.jpg" alt="శ్రీ యాజ్ఞవల్క్య ఋషి చిత్రం" class="maharshi-round" />
-            <img src="32px-Om_symbol.svg.png" alt="" class="om-logo" />
-        </div>
-        <p class="mantra">ఓం కణ్వ గురువేనమ:</p>
-    </div>
-    <h3 class="event-name">శ్రీ మైత్రేయీ కాత్యాయనీ సమేత శ్రీ యాజ్ఞవల్క్య ఋషి సార్వభౌమ జయంత్యుత్సవము</h3>
-    <p class="quote">ఓం పూర్ణమద: పూర్ణమిద:! పూర్ణాత్ పూర్ణా ముదచ్యతే<br>పూర్ణాస్యపూర్ణమాదాయ ! పూర్ణ మే వావశిష్యతే</p>
+<mira section id="main" class="card warm" tabindex="-1" aria-labelledby="invTitle">
+    <mira div class="inv-top">
+        <mira p class="blessing">శ్రీరస్తు శుభమస్తు అవిఘ్నమస్తు</mira p>
+        <mira h2 class="inv-org" id="invTitle">శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము పిఠాపురం</mira h2>
+        <mira p class="inv-reg">తూ.గో॥జిల్లా(ఆం.ప్ర.) (రి.నెం.3/57)</mira p>
+        <mira div class="inv-images">
+            <mira img src="32px-Om_symbol.svg.png" alt="" class="om-logo" />
+            <mira img src="Image 9.jpg" alt="శ్రీ యాజ్ఞవల్క్య ఋషి చిత్రం" class="maharshi-round" />
+            <mira img src="32px-Om_symbol.svg.png" alt="" class="om-logo" />
+        </mira div>
+        <mira p class="mantra">ఓం కణ్వ గురువేనమ:</mira p>
+    </mira div>
+    <mira h3 class="event-name">శ్రీ మైత్రేయీ కాత్యాయనీ సమేత శ్రీ యాజ్ఞవల్క్య ఋషి సార్వభౌమ జయంత్యుత్సవము</mira h3>
+    <mira p class="quote">ఓం పూర్ణమద: పూర్ణమిద:! పూర్ణాత్ పూర్ణా ముదచ్యతే<br>పూర్ణాస్యపూర్ణమాదాయ ! పూర్ణ మే వావశిష్యతే</mira p>
 
-    <h3 class="sub-title">జయంతి ఉత్సవ వివరాలు:</h3>
-    <div class="info-box" id="invDetails">
-        <p style="margin:0 0 10px;font-weight:700">అయ్యా/అమ్మా,____________</p>
-        <span class="date-line">స్వస్తిశ్రీ చాంద్రమాన శ్రీ పరాభవ నామ సం॥ర కార్తీక శుద్ధ దశమీ గురువారం అనగా <b>ది.19-11-2026</b></span>
-        శ్రీ మానిత్యాది బిరుదాంకితులు పరవాది భయంకరభట్ట వెంకట నరశింహాచార్యులు వారిచే శ్రీ వెంకటేశ్వరస్వామి వారి దేవాలయంలో ప్రతిష్టించబడిన <b>శ్రీ యాజ్ఞవల్క్య మహర్షి</b> వారి <b>95వ</b> జయంతి పీఠికాపురమునందు శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము వారిచే జరుపబడును.
-    </div>
-    <div class="speak-row">
-        <button type="button" class="btn btn-soft" data-speak="#invDetails"><span class="yi" data-icon="speaker" aria-hidden="true"></span> ఈ వివరాలు వినండి</button>
-    </div>
+    <mira h3 class="sub-title">జయంతి ఉత్సవ వివరాలు:</mira h3>
+    <mira div class="info-box" id="invDetails">
+        <mira p style="margin:0 0 10px;font-weight:700">అయ్యా/అమ్మా,____________</mira p>
+        <mira span class="date-line">స్వస్తిశ్రీ చాంద్రమాన శ్రీ పరాభవ నామ సం॥ర కార్తీక శుద్ధ దశమీ గురువారం అనగా <mira b>ది.19-11-2026</mira b></mira span>
+        శ్రీ మానిత్యాది బిరుదాంకితులు పరవాది భయంకరభట్ట వెంకట నరశింహాచార్యులు వారిచే శ్రీ వెంకటేశ్వరస్వామి వారి దేవాలయంలో ప్రతిష్టించబడిన <mira b>శ్రీ యాజ్ఞవల్క్య మహర్షి</mira b> వారి <mira b>95వ</mira b> జయంతి పీఠికాపురమునందు శ్రీ యాజ్ఞవల్క్య జయంత్యుత్సవ సంఘము వారిచే జరుపబడును.
+    </mira div>
+    <mira div class="speak-row">
+        <mira button type="button" class="btn btn-soft" data-speak="#invDetails"><mira span class="yi" data-icon="speaker" aria-hidden="true"></mira span> ఈ వివరాలు వినండి</mira button>
+    </mira div>
 
-    <h3 class="sub-title">జయంతి జరుగు ప్రదేశము:</h3>
-    <div class="place-box">
-        <p>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం,<br>టి.టి.డి. కళ్యాణం మండపం ప్రక్కన,<br>పిఠాపురం- 533 450 ,ఆంధ్రప్రదేశ్.</p>
-        <a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener"><span class="yi" data-icon="map" aria-hidden="true"></span> దారి చూపించు (మ్యాప్)</a>
-    </div>
-</section>
+    <mira h3 class="sub-title">జయంతి జరుగు ప్రదేశము:</mira h3>
+    <mira div class="place-box">
+        <mira p>శ్రీ వేంకటేశ్వరస్వామివారి దేవాలయం,<br>టి.టి.డి. కళ్యాణం మండపం ప్రక్కన,<br>పిఠాపురం- 533 450 ,ఆంధ్రప్రదేశ్.</mira p>
+        <mira a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Venkateswara+Swamy+Temple+TTD+Kalyana+Mandapam+Pithapuram" target="_blank" rel="noopener"><mira span class="yi" data-icon="map" aria-hidden="true"></mira span> దారి చూపించు (మ్యాప్)</mira a>
+    </mira div>
+</mira section>
 
 <!-- ================= Programme ================= -->
-<section id="program-details" class="card warm" tabindex="-1" aria-labelledby="progTitle">
-    <h2 class="card-title" id="progTitle"><span class="yi" data-icon="calendar" aria-hidden="true"></span> కార్యక్రమ వివరాలు</h2>
-    <p class="prog-date">ది.19-11-2026 తేది గురువారం ఉదయం 9 గంటల నుండి</p>
-    <ul class="prog-list">
-        <li class="prog-item">
-            <h3>సహస్రనామార్చన</h3>
-            <p>స్వర్గీయ శ్రీమాన్ పెరియాల హనుమంతా చార్యులువారి కుమారులు శ్రీ రామకృష్ణమాచార్యులువారిచే స్వామివారికి సహస్రనామార్చన. తదుపరి ప్రసాద వినియోగం జరుగును.</p>
-        </li>
-        <li class="prog-item teal">
-            <h3>ముఖ్య ప్రసంగం</h3>
-            <p>కార్తీక శుద్ధ దశమి గురువారం శ్రీ యాజ్ఞవల్క్య జయంతి సందర్భంగా కాకినాడ వా॥లు శ్రీ కూచి శ్రీహరిమన్నారు గారు <b class="hl">"మాయా స్వరూప నిరూపణము - మాయను దాటు మార్గము - బ్రహ్మ, కర్మ యోగ నిరూపణ"</b> అను అంశంపై ప్రసంగించెదరు.</p>
-        </li>
-    </ul>
-    <div class="note-box teal">
-        <h3><span class="yi" data-icon="gift" aria-hidden="true"></span> ప్రతి కుటుంబానికి కానుకలు:</h3>
-        <p style="font-weight:400">ఈ సంవత్సరం జయంతికి వచ్చిన ప్రతీ కుటుంబానికి కానుకగా <b class="hl">శ్రీ సూర్యకవచం</b> మరియు <b class="hl">శ్రీ యాజ్ఞవల్క్య మహర్షి వారి తామ్ర డాలరు</b> ఇవ్వబడును.</p>
-    </div>
-    <div class="note-box">
-        <h3><span class="yi" data-icon="calendar" aria-hidden="true"></span> వచ్చే సంవత్సరం జయంతి తేదీ:</h3>
-        <p>ది.08-11-2027 సోమవారం నాడు నిర్వహించబడును.</p>
-    </div>
-</section>
+<mira section id="program-details" class="card warm" tabindex="-1" aria-labelledby="progTitle">
+    <mira h2 class="card-title" id="progTitle"><mira span class="yi" data-icon="calendar" aria-hidden="true"></mira span> కార్యక్రమ వివరాలు</mira h2>
+    <mira p class="prog-date">ది.19-11-2026 తేది గురువారం ఉదయం 9 గంటల నుండి</mira p>
+    <mira ul class="prog-list">
+        <mira li class="prog-item">
+            <mira h3>సహస్రనామార్చన</mira h3>
+            <mira p>స్వర్గీయ శ్రీమాన్ పెరియాల హనుమంతా చార్యులువారి కుమారులు శ్రీ రామకృష్ణమాచార్యులువారిచే స్వామివారికి సహస్రనామార్చన. తదుపరి ప్రసాద వినియోగం జరుగును.</mira p>
+        </mira li>
+        <mira li class="prog-item teal">
+            <mira h3>ముఖ్య ప్రసంగం</mira h3>
+            <mira p>కార్తీక శుద్ధ దశమి గురువారం శ్రీ యాజ్ఞవల్క్య జయంతి సందర్భంగా కాకినాడ వా॥లు శ్రీ కూచి శ్రీహరిమన్నారు గారు <mira b class="hl">"మాయా స్వరూప నిరూపణము - మాయను దాటు మార్గము - బ్రహ్మ, కర్మ యోగ నిరూపణ"</mira b> అను అంశంపై ప్రసంగించెదరు.</mira p>
+        </mira li>
+    </mira ul>
+    <mira div class="note-box teal">
+        <mira h3><mira span class="yi" data-icon="gift" aria-hidden="true"></mira span> ప్రతి కుటుంబానికి కానుకలు:</mira h3>
+        <mira p style="font-weight:400">ఈ సంవత్సరం జయంతికి వచ్చిన ప్రతీ కుటుంబానికి కానుకగా <mira b class="hl">శ్రీ సూర్యకవచం</mira b> మరియు <mira b class="hl">శ్రీ యాజ్ఞవల్క్య మహర్షి వారి తామ్ర డాలరు</mira b> ఇవ్వబడును.</mira p>
+    </mira div>
+    <mira div class="note-box">
+        <mira h3><mira span class="yi" data-icon="calendar" aria-hidden="true"></mira span> వచ్చే సంవత్సరం జయంతి తేదీ:</mira h3>
+        <mira p>ది.08-11-2027 సోమవారం నాడు నిర్వహించబడును.</mira p>
+    </mira div>
+</mira section>
 
 <!-- ================= Upadesam – poem from pages 11–12 of the 2026 invitation ================= -->
-<section id="upadesam" class="card" tabindex="-1" aria-labelledby="upTitle">
-    <h2 class="card-title" id="upTitle"><span class="yi" data-icon="meditate" aria-hidden="true"></span> యాజ్ఞవల్క్యుడు – ప్రపంచం ప్రయత్నపూర్వకంగా తెలుసుకోవాల్సిన మహర్షి</h2>
-    <p class="lead">(2026 ఆహ్వాన పత్రిక నుండి)</p>
-    <div class="speak-row">
-        <button type="button" class="btn btn-soft" data-speak="#upText"><span class="yi" data-icon="speaker" aria-hidden="true"></span> ఈ ఉపదేశం వినండి</button>
-    </div>
-    <div class="poem" id="upText">
-        <p>అయితే యాజ్ఞవల్క్యుడు మంత్రాలను కేవలం కంఠస్థం చేయలేదు. వాటిని దర్శించాడు. ఆయన గురించి ప్రధానంగా "బృహదారణ్యక ఉపనిషత్"లో వివరించబడింది. అక్కడ ఆయన ఉపదేశాలు మాత్రమే చేయలేదు; రాజులతో, పండితులతో, ఋషులతో, తన సొంత భార్యతో కూడా తాత్త్విక చర్చలు చేశాడు.</p>
-        <p>ఉపనిషత్తులలో ఆయన ఒక సాధారణ గురువుగా కాదు; పదునైన మేధస్సుతో, నిర్భయంగా సమాధానం చెప్పే తత్త్వవేత్తగా కనిపిస్తాడు.</p>
-        <p>ఆయన ప్రార్థనలు చేయలేదు. విరుద్ధ భావాల ద్వారా సత్యాన్ని వెలికితీయడానికి ప్రయత్నించాడు. దేవతలకు తలవంచలేదు; 'సత్యం' ముందు మాత్రమే నమస్కరించాడు. అది కూడా తన నిరంతర విచారణను తట్టుకుని నిలబడినప్పుడు మాత్రమే.</p>
-        <p>యాజ్ఞవల్క్యుడు మనిషిని ఐదు పొరలుగా వివరించాడు.</p>
-        <ol class="kosha">
-            <li>అన్నమయ కోశం (శరీరం)</li>
-            <li>ప్రాణమయ కోశం (ప్రాణం)</li>
-            <li>మనోమయ కోశం (మనస్సు)</li>
-            <li>విజ్ఞానమయ కోశం (బుద్ధి)</li>
-            <li>ఆనందమయ కోశం (ఆనంద స్థితి)</li>
-        </ol>
-        <p>ఈ పొరలన్నింటినీ దాటినప్పుడు మిగిలేది ఒకటే –</p>
-        <div class="sakshi"><strong>"సాక్షి చైతన్యం"</strong><span>అది వ్యక్తిగతం కాదు</span><span>అది అందరిలో ఒకటే</span></div>
-        <div class="conclusion">
-            <h3>ముగింపు</h3>
-            <p>యాజ్ఞవల్క్యుడు మనకు ఓదార్పు ఇవ్వడానికి ప్రయత్నించలేదు, అంధ విశ్వాసాన్ని పెంచలేదు. ఆయన మన ముందుకు ఒక అద్దం పెట్టి ఒకే ప్రశ్న అడిగాడు :</p>
-            <span class="ask">"చూస్తున్నది ఎవరు?"</span>
-            <p style="margin:0">ప్రశ్నించమన్నాడు. ప్రతి భ్రమను తొలగించమన్నాడు.</p>
-        </div>
-    </div>
-</section>
+<mira section id="upadesam" class="card" tabindex="-1" aria-labelledby="upTitle">
+    <mira h2 class="card-title" id="upTitle"><mira span class="yi" data-icon="meditate" aria-hidden="true"></mira span> యాజ్ఞవల్క్యుడు – ప్రపంచం ప్రయత్నపూర్వకంగా తెలుసుకోవాల్సిన మహర్షి</mira h2>
+    <mira p class="lead">(2026 ఆహ్వాన పత్రిక నుండి)</mira p>
+    <mira div class="speak-row">
+        <mira button type="button" class="btn btn-soft" data-speak="#upText"><mira span class="yi" data-icon="speaker" aria-hidden="true"></mira span> ఈ ఉపదేశం వినండి</mira button>
+    </mira div>
+    <mira div class="poem" id="upText">
+        <mira p>అయితే యాజ్ఞవల్క్యుడు మంత్రాలను కేవలం కంఠస్థం చేయలేదు. వాటిని దర్శించాడు. ఆయన గురించి ప్రధానంగా "బృహదారణ్యక ఉపనిషత్"లో వివరించబడింది. అక్కడ ఆయన ఉపదేశాలు మాత్రమే చేయలేదు; రాజులతో, పండితులతో, ఋషులతో, తన సొంత భార్యతో కూడా తాత్త్విక చర్చలు చేశాడు.</mira p>
+        <mira p>ఉపనిషత్తులలో ఆయన ఒక సాధారణ గురువుగా కాదు; పదునైన మేధస్సుతో, నిర్భయంగా సమాధానం చెప్పే తత్త్వవేత్తగా కనిపిస్తాడు.</mira p>
+        <mira p>ఆయన ప్రార్థనలు చేయలేదు. విరుద్ధ భావాల ద్వారా సత్యాన్ని వెలికితీయడానికి ప్రయత్నించాడు. దేవతలకు తలవంచలేదు; 'సత్యం' ముందు మాత్రమే నమస్కరించాడు. అది కూడా తన నిరంతర విచారణను తట్టుకుని నిలబడినప్పుడు మాత్రమే.</mira p>
+        <mira p>యాజ్ఞవల్క్యుడు మనిషిని ఐదు పొరలుగా వివరించాడు.</mira p>
+        <mira ol class="kosha">
+            <mira li>అన్నమయ కోశం (శరీరం)</mira li>
+            <mira li>ప్రాణమయ కోశం (ప్రాణం)</mira li>
+            <mira li>మనోమయ కోశం (మనస్సు)</mira li>
+            <mira li>విజ్ఞానమయ కోశం (బుద్ధి)</mira li>
+            <mira li>ఆనందమయ కోశం (ఆనంద స్థితి)</mira li>
+        </mira ol>
+        <mira p>ఈ పొరలన్నింటినీ దాటినప్పుడు మిగిలేది ఒకటే –</mira p>
+        <mira div class="sakshi"><mira strong>"సాక్షి చైతన్యం"</mira strong><mira span>అది వ్యక్తిగతం కాదు</mira span><mira span>అది అందరిలో ఒకటే</mira span></mira div>
+        <mira div class="conclusion">
+            <mira h3>ముగింపు</mira h3>
+            <mira p>యాజ్ఞవల్క్యుడు మనకు ఓదార్పు ఇవ్వడానికి ప్రయత్నించలేదు, అంధ విశ్వాసాన్ని పెంచలేదు. ఆయన మన ముందుకు ఒక అద్దం పెట్టి ఒకే ప్రశ్న అడిగాడు :</mira p>
+            <mira span class="ask">"చూస్తున్నది ఎవరు?"</mira span>
+            <mira p style="margin:0">ప్రశ్నించమన్నాడు. ప్రతి భ్రమను తొలగించమన్నాడు.</mira p>
+        </mira div>
+    </mira div>
+</mira section>
 
 <!-- ================= Books ================= -->
-<section id="invitations" class="card warm" tabindex="-1" aria-labelledby="booksTitle">
-    <h2 class="card-title" id="booksTitle"><span class="yi" data-icon="book" aria-hidden="true"></span> పుస్తకాలు</h2>
-    <p class="lead">ప్రతి పుస్తకాన్ని <b>వాట్సాప్</b>లో పంపవచ్చు లేదా <b>డౌన్‌లోడ్</b> చేసుకోవచ్చు.</p>
-    <ul class="book-list">
-        <li class="book-item">
-            <span class="book-info"><span class="book-title">ఆహ్వానం</span><span class="book-desc">జయంతి ఆహ్వానం (2026)</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – ఆహ్వానం</span></button><a href="invitation-2026.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – ఆహ్వానం</span></a></span>
-        </li>
-        <li class="book-item">
-            <span class="book-info"><span class="book-title">బ్రహ్మ విద్య</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/బ్రహ్మ విద్య.pdf" data-share-title="బ్రహ్మ విద్య"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – బ్రహ్మ విద్య</span></button><a href="Docs/బ్రహ్మ విద్య.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – బ్రహ్మ విద్య</span></a></span>
-        </li>
-        <li class="book-item">
-            <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య చరిత్రము</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య చరిత్రము"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య చరిత్రము</span></a></span>
-        </li>
-        <li class="book-item">
-            <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య</span><span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/మహర్షి.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య</span></button><a href="Docs/మహర్షి.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య</span></a></span>
-        </li>
-        <li class="book-item">
-            <span class="book-info"><span class="book-title">శుక్ల యజుర్వేద సంధ్యావందనం</span><span class="book-desc">శుక్ల యజుర్వేద సంధ్యావందనం</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" data-share-title="సంధ్యావందనం"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – సంధ్యావందనం</span></button><a href="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – సంధ్యావందనం</span></a></span>
-        </li>
-        <li class="book-item">
-            <span class="book-info"><span class="book-title">శ్రీ యాజ్ఞవల్క్య శతకము</span><span class="book-desc">రచన చింతా రామకృష్ణారావు గారు రచించారు.</span></span>
-            <span class="book-actions"><button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య శతకము"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> వాట్సాప్<span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య శతకము</span></button><a href="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" download class="btn btn-accent"><span class="yi" data-icon="download" aria-hidden="true"></span> డౌన్‌లోడ్<span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య శతకము</span></a></span>
-        </li>
-    </ul>
-    <p class="share-status" data-share-status aria-live="polite" style="color:var(--text)"></p>
-    <p class="thanks">శ్రీ కూచి శ్రీహరిమన్నారు గారు అందించిన విలువైన సమాచారానికి ధన్యవాదాలు</p>
-</section>
+<mira section id="invitations" class="card warm" tabindex="-1" aria-labelledby="booksTitle">
+    <mira h2 class="card-title" id="booksTitle"><mira span class="yi" data-icon="book" aria-hidden="true"></mira span> పుస్తకాలు</mira h2>
+    <mira p class="lead">ప్రతి పుస్తకాన్ని <mira b>వాట్సాప్</mira b>లో పంపవచ్చు లేదా <mira b>డౌన్‌లోడ్</mira b> చేసుకోవచ్చు.</mira p>
+    <mira ul class="book-list">
+        <mira li class="book-item">
+            <mira span class="book-info"><mira span class="book-title">ఆహ్వానం</mira span><mira span class="book-desc">జయంతి ఆహ్వానం (2026)</mira span></mira span>
+            <mira span class="book-actions"><mira button type="button" class="btn btn-green" data-share-pdf><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్<mira span class="sr-only">లో పంపండి – ఆహ్వానం</mira span></mira button><mira a href="invitation-2026.pdf" download class="btn btn-accent"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> డౌన్‌లోడ్<mira span class="sr-only"> – ఆహ్వానం</mira span></mira a></mira span>
+        </mira li>
+        <mira li class="book-item">
+            <mira span class="book-info"><mira span class="book-title">బ్రహ్మ విద్య</mira span><mira span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</mira span></mira span>
+            <mira span class="book-actions"><mira button type="button" class="btn btn-green" data-share-pdf="Docs/బ్రహ్మ విద్య.pdf" data-share-title="బ్రహ్మ విద్య"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్<mira span class="sr-only">లో పంపండి – బ్రహ్మ విద్య</mira span></mira button><mira a href="Docs/బ్రహ్మ విద్య.pdf" download class="btn btn-accent"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> డౌన్‌లోడ్<mira span class="sr-only"> – బ్రహ్మ విద్య</mira span></mira a></mira span>
+        </mira li>
+        <mira li class="book-item">
+            <mira span class="book-info"><mira span class="book-title">శ్రీ యాజ్ఞవల్క్య చరిత్రము</mira span><mira span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</mira span></mira span>
+            <mira span class="book-actions"><mira button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య చరిత్రము"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్<mira span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య చరిత్రము</mira span></mira button><mira a href="Docs/శ్రీ యాజ్ఞవల్క్య చరిత్రము.pdf" download class="btn btn-accent"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> డౌన్‌లోడ్<mira span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య చరిత్రము</mira span></mira a></mira span>
+        </mira li>
+        <mira li class="book-item">
+            <mira span class="book-info"><mira span class="book-title">శ్రీ యాజ్ఞవల్క్య</mira span><mira span class="book-desc">శ్రీహరిమన్నారు గారి వివరణ</mira span></mira span>
+            <mira span class="book-actions"><mira button type="button" class="btn btn-green" data-share-pdf="Docs/మహర్షి.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్<mira span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య</mira span></mira button><mira a href="Docs/మహర్షి.pdf" download class="btn btn-accent"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> డౌన్‌లోడ్<mira span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య</mira span></mira a></mira span>
+        </mira li>
+        <mira li class="book-item">
+            <mira span class="book-info"><mira span class="book-title">శుక్ల యజుర్వేద సంధ్యావందనం</mira span><mira span class="book-desc">శుక్ల యజుర్వేద సంధ్యావందనం</mira span></mira span>
+            <mira span class="book-actions"><mira button type="button" class="btn btn-green" data-share-pdf="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" data-share-title="సంధ్యావందనం"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్<mira span class="sr-only">లో పంపండి – సంధ్యావందనం</mira span></mira button><mira a href="Docs/శుక్ల_యజుర్వేద_సంధ్యావందనం.pdf" download class="btn btn-accent"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> డౌన్‌లోడ్<mira span class="sr-only"> – సంధ్యావందనం</mira span></mira a></mira span>
+        </mira li>
+        <mira li class="book-item">
+            <mira span class="book-info"><mira span class="book-title">శ్రీ యాజ్ఞవల్క్య శతకము</mira span><mira span class="book-desc">రచన చింతా రామకృష్ణారావు గారు రచించారు.</mira span></mira span>
+            <mira span class="book-actions"><mira button type="button" class="btn btn-green" data-share-pdf="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" data-share-title="శ్రీ యాజ్ఞవల్క్య శతకము"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> వాట్సాప్<mira span class="sr-only">లో పంపండి – శ్రీ యాజ్ఞవల్క్య శతకము</mira span></mira button><mira a href="Docs/శ్రీ యాజ్ఞవల్క్య శతకము.pdf" download class="btn btn-accent"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> డౌన్‌లోడ్<mira span class="sr-only"> – శ్రీ యాజ్ఞవల్క్య శతకము</mira span></mira a></mira span>
+        </mira li>
+    </mira ul>
+    <mira p class="share-status" data-share-status aria-live="polite" style="color:var(--text)"></mira p>
+    <mira p class="thanks">శ్రీ కూచి శ్రీహరిమన్నారు గారు అందించిన విలువైన సమాచారానికి ధన్యవాదాలు</mira p>
+</mira section>
 
 <!-- ================= Bapiraju paintings – 12 month calendar ================= -->
-<section id="paintings" class="card" tabindex="-1" aria-labelledby="paintTitle">
-    <h2 class="card-title" id="paintTitle"><span class="yi" data-icon="palette" aria-hidden="true"></span> శ్రీ చంద్రుపట్ల బాపిరాజు గారి చిత్రాలు – 12 నెలల క్యాలెండర్</h2>
-    <p class="lead">చిత్రకారులు: <b id="paintArtist">శ్రీ చంద్రుపట్ల బాపిరాజు గారు</b></p>
+<mira section id="paintings" class="card" tabindex="-1" aria-labelledby="paintTitle">
+    <mira h2 class="card-title" id="paintTitle"><mira span class="yi" data-icon="palette" aria-hidden="true"></mira span> శ్రీ చంద్రుపట్ల బాపిరాజు గారి చిత్రాలు – 12 నెలల క్యాలెండర్</mira h2>
+    <mira p class="lead">చిత్రకారులు: <mira b id="paintArtist">శ్రీ చంద్రుపట్ల బాపిరాజు గారు</mira b></mira p>
 
-    <div class="slider" id="slider" aria-roledescription="చిత్రాల ప్రదర్శన">
-        <div class="slide-frame" id="slideFrame">
-            <img id="slideImg" alt="" hidden />
-            <div class="slide-soon" id="slideSoon" hidden>
-                <span aria-hidden="true">🎨</span>
-                <p>ఈ నెల చిత్రం త్వరలో వస్తుంది</p>
-            </div>
-        </div>
-        <p class="slide-caption" id="slideCaption" aria-live="polite"></p>
-        <div class="slide-nav">
-            <button type="button" class="btn btn-soft" id="slidePrev"><span class="yi" data-icon="arrowLeft" aria-hidden="true"></span> ముందు నెల</button>
-            <span class="slide-count" id="slideCount" aria-hidden="true"></span>
-            <button type="button" class="btn btn-soft" id="slideNext">తరువాతి నెల <span class="yi" data-icon="arrowRight" aria-hidden="true"></span></button>
-        </div>
-    </div>
+    <mira div class="slider" id="slider" aria-roledescription="చిత్రాల ప్రదర్శన">
+        <mira div class="slide-frame" id="slideFrame">
+            <mira img id="slideImg" alt="" hidden />
+            <mira div class="slide-soon" id="slideSoon" hidden>
+                <mira span aria-hidden="true">🎨</mira span>
+                <mira p>ఈ నెల చిత్రం త్వరలో వస్తుంది</mira p>
+            </mira div>
+        </mira div>
+        <mira p class="slide-caption" id="slideCaption" aria-live="polite"></mira p>
+        <mira div class="slide-nav">
+            <mira button type="button" class="btn btn-soft" id="slidePrev"><mira span class="yi" data-icon="arrowLeft" aria-hidden="true"></mira span> ముందు నెల</mira button>
+            <mira span class="slide-count" id="slideCount" aria-hidden="true"></mira span>
+            <mira button type="button" class="btn btn-soft" id="slideNext">తరువాతి నెల <mira span class="yi" data-icon="arrowRight" aria-hidden="true"></mira span></mira button>
+        </mira div>
+    </mira div>
 
-    <h3 class="sub-title">నెల ఎంచుకోండి</h3>
-    <div class="month-grid" id="monthGrid" role="group" aria-label="నెలలు"></div>
+    <mira h3 class="sub-title">నెల ఎంచుకోండి</mira h3>
+    <mira div class="month-grid" id="monthGrid" role="group" aria-label="నెలలు"></mira div>
 
-    <div class="paint-actions">
-        <a class="btn btn-accent" id="paintDownload" href="#" download><span class="yi" data-icon="download" aria-hidden="true"></span> ఈ చిత్రం డౌన్‌లోడ్</a>
-        <button type="button" class="btn btn-green" id="paintShare"><span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></span> ఈ చిత్రం వాట్సాప్‌లో పంపండి</button>
-        <button type="button" class="btn btn-primary" id="paintAll"><span class="yi" data-icon="download" aria-hidden="true"></span> అన్ని చిత్రాలు ఒకేసారి డౌన్‌లోడ్</button>
-    </div>
-    <p class="share-status" id="paintStatus" aria-live="polite" style="color:var(--text)"></p>
-</section>
+    <mira div class="paint-actions">
+        <mira a class="btn btn-accent" id="paintDownload" href="#" download><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> ఈ చిత్రం డౌన్‌లోడ్</mira a>
+        <mira button type="button" class="btn btn-green" id="paintShare"><mira span class="yi yi-whatsapp" data-icon="share" aria-hidden="true"></mira span> ఈ చిత్రం వాట్సాప్‌లో పంపండి</mira button>
+        <mira button type="button" class="btn btn-primary" id="paintAll"><mira span class="yi" data-icon="download" aria-hidden="true"></mira span> అన్ని చిత్రాలు ఒకేసారి డౌన్‌లోడ్</mira button>
+    </mira div>
+    <mira p class="share-status" id="paintStatus" aria-live="polite" style="color:var(--text)"></mira p>
+</mira section>
 
 <!-- ================= Virtual Deepam ================= -->
-<section id="deepam" class="card" tabindex="-1" aria-labelledby="deepamTitle">
-    <h2 class="card-title" id="deepamTitle">🪔 వర్చువల్ దీపం వెలిగించు 🪔</h2>
-    <button type="button" class="temple-bell" id="templeBell" aria-label="గంట మోగించు">🔔</button>
-    <div class="deepam-stage" id="deepamStage">
-        <span class="diya" id="diyaLeft" aria-hidden="true">🪔</span>
-        <img src="Image 1.jpg" alt="శ్రీ యాజ్ఞవల్క్య మహర్షి" />
-        <span class="diya" id="diyaRight" aria-hidden="true">🪔</span>
-    </div>
-    <button id="lightBtn" type="button" class="btn btn-accent">🪔 దీపం వెలిగించు</button>
-    <p id="deepamCount" class="deepam-count" aria-live="polite">మొత్తం వెలిగించిన దీపాలు: …</p>
-</section>
+<mira section id="deepam" class="card" tabindex="-1" aria-labelledby="deepamTitle">
+    <mira h2 class="card-title" id="deepamTitle">🪔 వర్చువల్ దీపం వెలిగించు 🪔</mira h2>
+    <mira button type="button" class="temple-bell" id="templeBell" aria-label="గంట మోగించు">🔔</mira button>
+    <mira div class="deepam-stage" id="deepamStage">
+        <mira span class="diya" id="diyaLeft" aria-hidden="true">🪔</mira span>
+        <mira img src="Image 1.jpg" alt="శ్రీ యాజ్ఞవల్క్య మహర్షి" />
+        <mira span class="diya" id="diyaRight" aria-hidden="true">🪔</mira span>
+    </mira div>
+    <mira button id="lightBtn" type="button" class="btn btn-accent">🪔 దీపం వెలిగించు</mira button>
+    <mira p id="deepamCount" class="deepam-count" aria-live="polite">మొత్తం వెలిగించిన దీపాలు: …</mira p>
+</mira section>
 
 <!-- ================= Media ================= -->
-<section id="gallery" class="card warm" tabindex="-1" aria-labelledby="mediaTitle">
-    <h2 class="card-title" id="mediaTitle"><span class="yi" data-icon="image" aria-hidden="true"></span> వీడియో & చిత్రాలు</h2>
-    <p class="lead">మన పవిత్ర ఉత్సవాల దివ్య క్షణాలు మరియు జ్ఞాపకాలను ఈ గ్యాలరీలో వీక్షించండి.</p>
-    <div class="audio-row">
-        <span class="yi" data-icon="music" aria-hidden="true"></span> సుప్రభాత స్తోత్రం:
-        <audio id="suprabhataudio" controls preload="none" aria-label="సుప్రభాత స్తోత్రం">
-            <source src="శ్రీ యాజ్ఞవల్క్యు సుప్రభాత స్తోత్రం.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-    <h3 class="sub-title">వీడియో:</h3>
-    <div class="video-wrap">
-        <video id="ttdvideo" src="TTD Video.mp4" controls preload="metadata" title="ఉత్సవ ముఖ్యాంశాలు">మీ ఫోన్‌లో ఈ వీడియో ప్లే కావడం లేదు.</video>
-    </div>
-    <h3 class="sub-title">చిత్రాలు:</h3>
-    <div class="gallery" id="dynamic-gallery" aria-label="ఉత్సవ ఫోటోలు"></div>
-</section>
+<mira section id="gallery" class="card warm" tabindex="-1" aria-labelledby="mediaTitle">
+    <mira h2 class="card-title" id="mediaTitle"><mira span class="yi" data-icon="image" aria-hidden="true"></mira span> వీడియో & చిత్రాలు</mira h2>
+    <mira p class="lead">మన పవిత్ర ఉత్సవాల దివ్య క్షణాలు మరియు జ్ఞాపకాలను ఈ గ్యాలరీలో వీక్షించండి.</mira p>
+    <mira div class="audio-row">
+        <mira span class="yi" data-icon="music" aria-hidden="true"></mira span> సుప్రభాత స్తోత్రం:
+        <mira audio id="suprabhataudio" controls preload="none" aria-label="సుప్రభాత స్తోత్రం">
+            <mira source src="శ్రీ యాజ్ఞవల్క్యు సుప్రభాత స్తోత్రం.mp3" type="audio/mpeg">
+        </mira audio>
+    </mira div>
+    <mira h3 class="sub-title">వీడియో:</mira h3>
+    <mira div class="video-wrap">
+        <mira video id="ttdvideo" src="TTD Video.mp4" controls preload="metadata" title="ఉత్సవ ముఖ్యాంశాలు">మీ ఫోన్‌లో ఈ వీడియో ప్లే కావడం లేదు.</mira video>
+    </mira div>
+    <mira h3 class="sub-title">చిత్రాలు:</mira h3>
+    <mira div class="gallery" id="dynamic-gallery" aria-label="ఉత్సవ ఫోటోలు"></mira div>
+</mira section>
 
 <!-- ================= Members ================= -->
-<section id="Members" class="card warm" tabindex="-1" aria-labelledby="memTitle">
-    <h2 class="card-title" id="memTitle"><span class="yi yi-users" data-icon="users" aria-hidden="true"></span> సంఘ కార్యవర్గం</h2>
-    <div class="member-grid">
-        <div class="member"><h3><span class="yi yi-user-tie" data-icon="person" aria-hidden="true"></span> అధ్యక్షులు:</h3><p>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</p></div>
-        <div class="member"><h3><span class="yi yi-handshake" data-icon="users" aria-hidden="true"></span> ఉపాధ్యక్షులు:</h3><p>నేలకంటి లక్ష్మీపతి</p><p>మిరియాల రామశాస్త్రి</p></div>
-        <div class="member"><h3><span class="yi yi-pen-fancy" data-icon="pen" aria-hidden="true"></span> సెక్రటరీ:</h3><p>మిరియాల నారాయణ మురళీ మోహన్</p></div>
-        <div class="member"><h3><span class="yi yi-users-cog" data-icon="users" aria-hidden="true"></span> జాయింట్ సెక్రటరీ:</h3><p>మిరియాల రామకృష్ణ</p></div>
-        <div class="member"><h3><span class="yi yi-money-check-alt" data-icon="wallet" aria-hidden="true"></span> ట్రెజరర్:</h3><p>మల్లెమడుగుల వెంకటలక్ష్మీ నరసింహారావు</p></div>
-    </div>
-    <div class="address">
-        <h3><span class="yi yi-map-marked-alt" data-icon="pin" aria-hidden="true"></span> సంప్రదించవలసిన చిరునామా:</h3>
-        <p><b>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</b></p>
-        <p>5-1-66, సీతయ్యగారి తోట, సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.</p>
-    </div>
-    <div class="note-box teal" style="margin-top:16px">
-        <h3><span class="yi" data-icon="info" aria-hidden="true"></span> గమనిక:</h3>
-        <p style="font-weight:400">ఈ పత్రికను మీ బంధువులకు, శ్రేయోభిలాషులకు చూపించి సంఘ అభివృద్ధికి సహకరించవలసినదిగా కోరుచున్నాము. మీ సలహాలు, సూచనలు సంఘంవారికి ఆఖరి పేజీలో అధ్యక్షుల వారి అడ్రసుకు పంపవలసినదిగా కోరడమైనది.</p>
-    </div>
-    <p class="next-year"><span class="yi" data-icon="calendar" aria-hidden="true"></span> వచ్చే సంవత్సరం జయంతి: ది.08-11-2027 సోమవారం</p>
-</section>
+<mira section id="Members" class="card warm" tabindex="-1" aria-labelledby="memTitle">
+    <mira h2 class="card-title" id="memTitle"><mira span class="yi yi-users" data-icon="users" aria-hidden="true"></mira span> సంఘ కార్యవర్గం</mira h2>
+    <mira div class="member-grid">
+        <mira div class="member"><mira h3><mira span class="yi yi-user-tie" data-icon="person" aria-hidden="true"></mira span> అధ్యక్షులు:</mira h3><mira p>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</mira p></mira div>
+        <mira div class="member"><mira h3><mira span class="yi yi-handshake" data-icon="users" aria-hidden="true"></mira span> ఉపాధ్యక్షులు:</mira h3><mira p>నేలకంటి లక్ష్మీపతి</mira p><mira p>మిరియాల రామశాస్త్రి</mira p></mira div>
+        <mira div class="member"><mira h3><mira span class="yi yi-pen-fancy" data-icon="pen" aria-hidden="true"></mira span> సెక్రటరీ:</mira h3><mira p>మిరియాల నారాయణ మురళీ మోహన్</mira p></mira div>
+        <mira div class="member"><mira h3><mira span class="yi yi-users-cog" data-icon="users" aria-hidden="true"></mira span> జాయింట్ సెక్రటరీ:</mira h3><mira p>మిరియాల రామకృష్ణ</mira p></mira div>
+        <mira div class="member"><mira h3><mira span class="yi yi-money-check-alt" data-icon="wallet" aria-hidden="true"></mira span> ట్రెజరర్:</mira h3><mira p>మల్లెమడుగుల వెంకటలక్ష్మీ నరసింహారావు</mira p></mira div>
+    </mira div>
+    <mira div class="address">
+        <mira h3><mira span class="yi yi-map-marked-alt" data-icon="pin" aria-hidden="true"></mira span> సంప్రదించవలసిన చిరునామా:</mira h3>
+        <mira p><mira b>మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు</mira b></mira p>
+        <mira p>5-1-66, సీతయ్యగారి తోట, సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.</mira p>
+    </mira div>
+    <mira div class="note-box teal" style="margin-top:16px">
+        <mira h3><mira span class="yi" data-icon="info" aria-hidden="true"></mira span> గమనిక:</mira h3>
+        <mira p style="font-weight:400">ఈ పత్రికను మీ బంధువులకు, శ్రేయోభిలాషులకు చూపించి సంఘ అభివృద్ధికి సహకరించవలసినదిగా కోరుచున్నాము. మీ సలహాలు, సూచనలు సంఘంవారికి ఆఖరి పేజీలో అధ్యక్షుల వారి అడ్రసుకు పంపవలసినదిగా కోరడమైనది.</mira p>
+    </mira div>
+    <mira p class="next-year"><mira span class="yi" data-icon="calendar" aria-hidden="true"></mira span> వచ్చే సంవత్సరం జయంతి: ది.08-11-2027 సోమవారం</mira p>
+</mira section>
 
 <!-- ================= Related websites ================= -->
-<section id="related" class="card" tabindex="-1" aria-labelledby="relTitle">
-    <h2 class="card-title" id="relTitle"><span class="yi" data-icon="globe" aria-hidden="true"></span> మరిన్ని సంబంధిత వెబ్‌సైట్లు</h2>
-    <p class="lead">శుక్ల యజుర్వేదం, సంధ్యావందనం గురించి మరింత నేర్చుకోండి.</p>
-    <ul class="related-list">
-        <li class="related-item">
-            <span class="related-icon" aria-hidden="true">🕉️</span>
-            <div class="related-body">
-                <h3>వాజసనేయీ సంధ్యావందనం నేర్చుకోండి</h3>
-                <p>శుక్ల యజుర్వేద వాజసనేయ సంప్రదాయంలో సంధ్యావందనం – తెలుగులో దశల వారీగా, ఆడియోతో వినవచ్చు. స్తోత్రాలు, రోజువారీ పంచాంగం, సంధ్యా సమయ గుర్తులు, పండుగల క్యాలెండర్ కూడా ఉన్నాయి. ఇంటర్నెట్ లేకున్నా పనిచేస్తుంది.</p>
-                <a class="btn btn-accent" href="https://vajasaneyasandhya.vercel.app/" target="_blank" rel="noopener"><span class="yi" data-icon="external" aria-hidden="true"></span> వెబ్‌సైట్ తెరవండి<span class="sr-only"> – వాజసనేయీ సంధ్యావందనం (కొత్త ట్యాబ్‌లో)</span></a>
-            </div>
-        </li>
+<mira section id="related" class="card" tabindex="-1" aria-labelledby="relTitle">
+    <mira h2 class="card-title" id="relTitle"><mira span class="yi" data-icon="globe" aria-hidden="true"></mira span> మరిన్ని సంబంధిత వెబ్‌సైట్లు</mira h2>
+    <mira p class="lead">శుక్ల యజుర్వేదం, సంధ్యావందనం గురించి మరింత నేర్చుకోండి.</mira p>
+    <mira ul class="related-list">
+        <mira li class="related-item">
+            <mira span class="related-icon" aria-hidden="true">🕉️</mira span>
+            <mira div class="related-body">
+                <mira h3>వాజసనేయీ సంధ్యావందనం నేర్చుకోండి</mira h3>
+                <mira p>శుక్ల యజుర్వేద వాజసనేయ సంప్రదాయంలో సంధ్యావందనం – తెలుగులో దశల వారీగా, ఆడియోతో వినవచ్చు. స్తోత్రాలు, రోజువారీ పంచాంగం, సంధ్యా సమయ గుర్తులు, పండుగల క్యాలెండర్ కూడా ఉన్నాయి. ఇంటర్నెట్ లేకున్నా పనిచేస్తుంది.</mira p>
+                <mira a class="btn btn-accent" href="https://vajasaneyasandhya.vercel.app/" target="_blank" rel="noopener"><mira span class="yi" data-icon="external" aria-hidden="true"></mira span> వెబ్‌సైట్ తెరవండి<mira span class="sr-only"> – వాజసనేయీ సంధ్యావందనం (కొత్త ట్యాబ్‌లో)</mira span></mira a>
+            </mira div>
+        </mira li>
         <!-- మరో వెబ్‌సైట్ జోడించాలంటే పై <li> … </li> ను కాపీ చేసి పేరు, వివరణ, లింక్ మార్చండి -->
-    </ul>
-</section>
+    </mira ul>
+</mira section>
 
-</main>
+</mira main>
 
-<footer class="site-footer">© <span id="currentYear">2026</span>: భక్తితో సందీప్ మిరియాల</footer>
+<mira footer class="site-footer">© <mira span id="currentYear">2026</mira span>: భక్తితో సందీప్ మిరియాల</mira footer>
 
 <!-- ================= Bottom navigation (always visible) ================= -->
-<nav class="bottom-nav" aria-label="త్వరిత మెనూ">
-    <ul>
-        <li><a href="#home"><span class="yi" data-icon="home" aria-hidden="true"></span>ఆహ్వానం</a></li>
-        <li><a href="#PravarGenerator"><span class="yi" data-icon="person" aria-hidden="true"></span>ప్రవర</a></li>
-        <li><a href="#deepam"><span class="yi" data-icon="lamp" aria-hidden="true"></span>దీపం</a></li>
-        <li><a href="#invitations"><span class="yi" data-icon="book" aria-hidden="true"></span>పుస్తకాలు</a></li>
-        <li><button type="button" class="help js-bot-open" aria-haspopup="dialog"><span class="yi" data-icon="chat" aria-hidden="true"></span>సహాయం</button></li>
-    </ul>
-</nav>
-<button type="button" id="botFab" class="js-bot-open" aria-haspopup="dialog">
-    <span class="yi" data-icon="chat" aria-hidden="true"></span>
-    <span class="fab-text"><b>24×7 సహాయ మిత్ర</b><small>ఏదైనా అడగండి</small></span>
-</button>
-<button id="toTop" type="button" aria-label="పైకి వెళ్ళండి"><span class="yi" data-icon="arrowUp" aria-hidden="true"></span></button>
+<mira nav class="bottom-nav" aria-label="త్వరిత మెనూ">
+    <mira ul>
+        <mira li><mira a href="#home"><mira span class="yi" data-icon="home" aria-hidden="true"></mira span>ఆహ్వానం</mira a></mira li>
+        <mira li><mira a href="#PravarGenerator"><mira span class="yi" data-icon="person" aria-hidden="true"></mira span>ప్రవర</mira a></mira li>
+        <mira li><mira a href="#deepam"><mira span class="yi" data-icon="lamp" aria-hidden="true"></mira span>దీపం</mira a></mira li>
+        <mira li><mira a href="#invitations"><mira span class="yi" data-icon="book" aria-hidden="true"></mira span>పుస్తకాలు</mira a></mira li>
+        <mira li><mira button type="button" class="help js-bot-open" aria-haspopup="dialog"><mira span class="yi" data-icon="chat" aria-hidden="true"></mira span>సహాయం</mira button></mira li>
+    </mira ul>
+</mira nav>
+<mira button type="button" id="botFab" class="js-bot-open" aria-haspopup="dialog">
+    <mira span class="yi" data-icon="chat" aria-hidden="true"></mira span>
+    <mira span class="fab-text"><mira b>24×7 సహాయ మిత్ర</mira b><mira small>ఏదైనా అడగండి</mira small></mira span>
+</mira button>
+<mira button id="toTop" type="button" aria-label="పైకి వెళ్ళండి"><mira span class="yi" data-icon="arrowUp" aria-hidden="true"></mira span></mira button>
 
 <!-- ================= Install help ================= -->
-<dialog id="installDialog" aria-labelledby="installTitle">
-    <div class="dlg-head">
-        <span class="yi" data-icon="install" aria-hidden="true"></span>
-        <h2 id="installTitle">యాప్‌గా ఇన్‌స్టాల్ చేయడం</h2>
-        <button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><span class="yi" data-icon="close" aria-hidden="true"></span></button>
-    </div>
-    <div class="dlg-body">
-        <div id="installAndroid" hidden>
-            <p><b>ఆండ్రాయిడ్ ఫోన్ (క్రోమ్):</b></p>
-            <ol>
-                <li>పైన కుడివైపు ఉన్న <b>మూడు చుక్కలు ⋮</b> నొక్కండి.</li>
-                <li><b>"యాప్‌ను ఇన్‌స్టాల్ చేయి"</b> లేదా <b>"హోమ్ స్క్రీన్‌కు జోడించు"</b> నొక్కండి.</li>
-                <li>మళ్ళీ <b>"ఇన్‌స్టాల్"</b> నొక్కండి. ఫోన్ హోమ్ స్క్రీన్‌పై గుర్తు వస్తుంది.</li>
-            </ol>
-        </div>
-        <div id="installIos" hidden>
-            <p><b>ఐఫోన్ (సఫారి):</b></p>
-            <ol>
-                <li>క్రింద ఉన్న <b>షేర్ గుర్తు</b> <span class="yi" data-icon="share" aria-hidden="true"></span> నొక్కండి.</li>
-                <li><b>"హోమ్ స్క్రీన్‌కు జోడించు"</b> నొక్కండి.</li>
-                <li>పైన <b>"జోడించు"</b> నొక్కండి.</li>
-            </ol>
-        </div>
-        <div id="installDesktop" hidden>
-            <p><b>కంప్యూటర్:</b></p>
-            <ol>
-                <li>చిరునామా పట్టీ కుడివైపు ఉన్న <b>ఇన్‌స్టాల్ గుర్తు</b> <span class="yi" data-icon="install" aria-hidden="true"></span> నొక్కండి.</li>
-                <li><b>"ఇన్‌స్టాల్"</b> నొక్కండి.</li>
-            </ol>
-        </div>
-        <p id="installDone" hidden>✅ ఈ యాప్ ఇప్పటికే మీ ఫోన్‌లో ఇన్‌స్టాల్ అయింది.</p>
-        <button type="button" class="btn btn-green btn-block" data-close>సరే</button>
-    </div>
-</dialog>
+<mira dialog id="installDialog" aria-labelledby="installTitle">
+    <mira div class="dlg-head">
+        <mira span class="yi" data-icon="install" aria-hidden="true"></mira span>
+        <mira h2 id="installTitle">యాప్‌గా ఇన్‌స్టాల్ చేయడం</mira h2>
+        <mira button type="button" class="dlg-x" data-close aria-label="మూసివేయండి"><mira span class="yi" data-icon="close" aria-hidden="true"></mira span></mira button>
+    </mira div>
+    <mira div class="dlg-body">
+        <mira div id="installAndroid" hidden>
+            <mira p><mira b>ఆండ్రాయిడ్ ఫోన్ (క్రోమ్):</mira b></mira p>
+            <mira ol>
+                <mira li>పైన కుడివైపు ఉన్న <mira b>మూడు చుక్కలు ⋮</mira b> నొక్కండి.</mira li>
+                <mira li><mira b>"యాప్‌ను ఇన్‌స్టాల్ చేయి"</mira b> లేదా <mira b>"హోమ్ స్క్రీన్‌కు జోడించు"</mira b> నొక్కండి.</mira li>
+                <mira li>మళ్ళీ <mira b>"ఇన్‌స్టాల్"</mira b> నొక్కండి. ఫోన్ హోమ్ స్క్రీన్‌పై గుర్తు వస్తుంది.</mira li>
+            </mira ol>
+        </mira div>
+        <mira div id="installIos" hidden>
+            <mira p><mira b>ఐఫోన్ (సఫారి):</mira b></mira p>
+            <mira ol>
+                <mira li>క్రింద ఉన్న <mira b>షేర్ గుర్తు</mira b> <mira span class="yi" data-icon="share" aria-hidden="true"></mira span> నొక్కండి.</mira li>
+                <mira li><mira b>"హోమ్ స్క్రీన్‌కు జోడించు"</mira b> నొక్కండి.</mira li>
+                <mira li>పైన <mira b>"జోడించు"</mira b> నొక్కండి.</mira li>
+            </mira ol>
+        </mira div>
+        <mira div id="installDesktop" hidden>
+            <mira p><mira b>కంప్యూటర్:</mira b></mira p>
+            <mira ol>
+                <mira li>చిరునామా పట్టీ కుడివైపు ఉన్న <mira b>ఇన్‌స్టాల్ గుర్తు</mira b> <mira span class="yi" data-icon="install" aria-hidden="true"></mira span> నొక్కండి.</mira li>
+                <mira li><mira b>"ఇన్‌స్టాల్"</mira b> నొక్కండి.</mira li>
+            </mira ol>
+        </mira div>
+        <mira p id="installDone" hidden>✅ ఈ యాప్ ఇప్పటికే మీ ఫోన్‌లో ఇన్‌స్టాల్ అయింది.</mira p>
+        <mira button type="button" class="btn btn-green btn-block" data-close>సరే</mira button>
+    </mira div>
+</mira dialog>
 
 <!-- ================= 24×7 సహాయ మిత్ర (newest answer on top) ================= -->
-<dialog id="botDialog" aria-labelledby="botTitle">
-    <div class="bot-wrap">
-        <div class="bot-head">
-            <div class="bot-avatar" aria-hidden="true">🙏</div>
-            <div class="bot-titles">
-                <h2 id="botTitle">సహాయ మిత్ర</h2>
-                <small>24×7 · ఉచితం</small>
-            </div>
-            <button type="button" class="bot-close" id="botClose"><span class="yi" data-icon="close" aria-hidden="true"></span> మూసివేయి</button>
-        </div>
-        <div class="bot-body" id="botBody">
-            <div id="botLog" aria-live="polite" aria-label="కొత్త సమాధానం"></div>
-            <h3 class="bot-ask-title" id="botAskTitle">ఏమి తెలుసుకోవాలి? ఒకటి నొక్కండి 👇</h3>
-            <div class="bot-chips" id="botChips" role="group" aria-labelledby="botAskTitle"></div>
-            <h3 class="bot-ask-title" id="botOldTitle" hidden>ముందటి సమాధానాలు</h3>
-            <div id="botOld" aria-labelledby="botOldTitle"></div>
-        </div>
-        <form class="bot-input" id="botForm" autocomplete="off">
-            <label for="botText" class="sr-only">లేదా మీ ప్రశ్న టైప్ చేయండి</label>
-            <input type="text" id="botText" placeholder="లేదా ప్రశ్న టైప్ చేయండి…" enterkeyhint="send" />
-            <button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><span class="yi" data-icon="mic" aria-hidden="true"></span></button>
-            <button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><span class="yi" data-icon="send" aria-hidden="true"></span></button>
-        </form>
-    </div>
-</dialog>
+<mira dialog id="botDialog" aria-labelledby="botTitle">
+    <mira div class="bot-wrap">
+        <mira div class="bot-head">
+            <mira div class="bot-avatar" aria-hidden="true">🙏</mira div>
+            <mira div class="bot-titles">
+                <mira h2 id="botTitle">సహాయ మిత్ర</mira h2>
+                <mira small>24×7 · ఉచితం</mira small>
+            </mira div>
+            <mira button type="button" class="bot-close" id="botClose"><mira span class="yi" data-icon="close" aria-hidden="true"></mira span> మూసివేయి</mira button>
+        </mira div>
+        <mira div class="bot-body" id="botBody">
+            <mira div id="botLog" aria-live="polite" aria-label="కొత్త సమాధానం"></mira div>
+            <mira h3 class="bot-ask-title" id="botAskTitle">ఏమి తెలుసుకోవాలి? ఒకటి నొక్కండి 👇</mira h3>
+            <mira div class="bot-chips" id="botChips" role="group" aria-labelledby="botAskTitle"></mira div>
+            <mira h3 class="bot-ask-title" id="botOldTitle" hidden>ముందటి సమాధానాలు</mira h3>
+            <mira div id="botOld" aria-labelledby="botOldTitle"></mira div>
+        </mira div>
+        <mira form class="bot-input" id="botForm" autocomplete="off">
+            <mira label for="botText" class="sr-only">లేదా మీ ప్రశ్న టైప్ చేయండి</mira label>
+            <mira input type="text" id="botText" placeholder="లేదా ప్రశ్న టైప్ చేయండి…" enterkeyhint="send" />
+            <mira button type="button" class="icon-btn" id="botMic" aria-label="మాట్లాడి అడగండి" hidden><mira span class="yi" data-icon="mic" aria-hidden="true"></mira span></mira button>
+            <mira button type="submit" class="icon-btn" id="botSend" aria-label="పంపు"><mira span class="yi" data-icon="send" aria-hidden="true"></mira span></mira button>
+        </mira form>
+    </mira div>
+</mira dialog>
 
 <script src="icons.js" defer></script>
 <script src="vendor/fuse.basic.min.js" defer></script>

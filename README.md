@@ -100,6 +100,7 @@ python -m http.server 8000
 ## 📜 ఉచిత ఓపెన్-సోర్స్ వనరులు
 
 - తెలుగు ఫాంట్లు – [Fontsource](https://fontsource.org) / Google Fonts (SIL Open Font License 1.1)
+- [MiRa (మిరా)](https://www.npmjs.com/package/@yuktishaalaa/mira) – ప్రతి HTML భాగానికి తెలుగు (GPL-3.0)
 - [Fuse.js](https://fusejs.io) – సహాయ మిత్రలో తప్పు అక్షరాలు ఉన్నా సరైన సమాధానం (Apache 2.0)
 - [html2canvas](https://html2canvas.hertzen.com) – క్విజ్ సర్టిఫికెట్ డౌన్‌లోడ్ (MIT)
 - [JSZip](https://stuk.github.io/jszip/) – అన్ని చిత్రాలు ఒకే ఫైల్‌గా డౌన్‌లోడ్ (MIT)
@@ -113,3 +114,12 @@ python -m http.server 8000
 **సంప్రదించవలసిన చిరునామా:** మానుగర్ర సుబ్రహ్మణ్యేశ్వరరావు (అధ్యక్షులు), 5-1-66, సీతయ్యగారి తోట, సూర్యచంద్రా రైస్ మిల్లు వెనుక, పిఠాపురం పోస్ట్ (మండలం), కాకినాడ జిల్లా.
 
 భక్తితో – **సందీప్ మిరియాల** 🙏
+
+## MiRa (మిరా)
+
+`index.html`, `deep.html` లలో ప్రతి భాగం MiRa tag గా రాసి ఉంది, ఉదా: `<mira h2>…</mira h2>`.
+Page తెరవగానే [MiRa](https://www.npmjs.com/package/@yuktishaalaa/mira) (`vendor/mira.js`, సైట్‌లోనే ఉంది, offline లోనూ పని చేస్తుంది) వాటిని అసలు tags గా మారుస్తుంది. కాబట్టి page ఇంతకుముందు లాగే కనిపిస్తుంది, పని చేస్తుంది.
+
+- `<body mira="telugu">`: తెలుగు అక్షరాలకు నోటో సాన్స్ తెలుగు. "అక్షర శైలి" లో చదివేవారు font మార్చుకోవచ్చు, అది ఇంతకుముందు లాగే పని చేస్తుంది.
+- పట్టిక భాగాలు, `option`, `br`, `hr` మామూలు HTML గానే ఉన్నాయి: script రాకముందే browser అక్కడి తెలియని tags ని బయటకు జరుపుతుంది.
+- MiRa వాడే fonts `fonts/mira/` లో ఉన్నాయి (ఇంతకుముందు ఉన్న నోటో సాన్స్ తెలుగు files నే).

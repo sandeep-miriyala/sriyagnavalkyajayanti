@@ -76,83 +76,85 @@
     .poster-preview{margin-top:12px;border-radius:8px;padding:12px;background:#fff;display:flex;align-items:center;justify-content:center;min-height:140px;border:1px solid rgba(0,0,0,0.03)}
     .footer{margin-top:14px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
   </style>
+  <!-- MiRa (మిరా): turns every <mira TAG> below into the real tag. Self-hosted, works offline. -->
+  <script src="vendor/mira.js" data-mira-fonts="fonts/mira/" defer></script>
 </head>
-<body>
-  <div class="app" role="application" aria-labelledby="appTitle">
-    <header>
-      <div>
-        <div class="title" id="appTitle">🪔 Virtual Deepam — Light a Lamp of Knowledge</div>
-        <div class="sub">Sri Yajnavalkya Jayanti • Pithapuram • Oct 31, 2025</div>
-      </div>
-      <div class="sub">Created by Sandeep Miriyala</div>
-    </header>
+<body mira="telugu">
+  <mira div class="app" role="application" aria-labelledby="appTitle">
+    <mira header>
+      <mira div>
+        <mira div class="title" id="appTitle">🪔 Virtual Deepam — Light a Lamp of Knowledge</mira div>
+        <mira div class="sub">Sri Yajnavalkya Jayanti • Pithapuram • Oct 31, 2025</mira div>
+      </mira div>
+      <mira div class="sub">Created by Sandeep Miriyala</mira div>
+    </mira header>
 
-    <div class="layout">
+    <mira div class="layout">
       <!-- LEFT: Stage -->
-      <section class="stage" aria-label="Virtual Lamping Stage">
-        <div class="intro">Light a virtual lamp, dedicate it to someone, and join devotees worldwide. Your offering will appear in the Wall of Light.</div>
+      <mira section class="stage" aria-label="Virtual Lamping Stage">
+        <mira div class="intro">Light a virtual lamp, dedicate it to someone, and join devotees worldwide. Your offering will appear in the Wall of Light.</mira div>
 
-        <div class="lamp-wrap">
-          <div class="lamp" id="lampVisual" aria-hidden="false">
-            <div class="flame" id="flameEl" aria-hidden="true">
-              <div class="outer"></div>
-              <div class="inner"></div>
-            </div>
-            <div class="bowl" aria-hidden="true"></div>
-          </div>
+        <mira div class="lamp-wrap">
+          <mira div class="lamp" id="lampVisual" aria-hidden="false">
+            <mira div class="flame" id="flameEl" aria-hidden="true">
+              <mira div class="outer"></mira div>
+              <mira div class="inner"></mira div>
+            </mira div>
+            <mira div class="bowl" aria-hidden="true"></mira div>
+          </mira div>
 
-          <div class="controls" role="group" aria-label="Lamp controls">
-            <button class="btn" id="lightBtn">🪔 Light Your Deepam</button>
-            <button class="btn alt" id="dedicateBtn">📝 Add Dedication</button>
-            <button class="btn alt" id="shareBtn">📸 Generate Poster</button>
-          </div>
+          <mira div class="controls" role="group" aria-label="Lamp controls">
+            <mira button class="btn" id="lightBtn">🪔 Light Your Deepam</mira button>
+            <mira button class="btn alt" id="dedicateBtn">📝 Add Dedication</mira button>
+            <mira button class="btn alt" id="shareBtn">📸 Generate Poster</mira button>
+          </mira div>
 
-          <div class="msg" id="statusMsg">Click "Light Your Deepam" to begin — a short mantra will play.</div>
-          <div class="stat" id="totalCount">Total Deepams Lit: —</div>
-        </div>
-      </section>
+          <mira div class="msg" id="statusMsg">Click "Light Your Deepam" to begin — a short mantra will play.</mira div>
+          <mira div class="stat" id="totalCount">Total Deepams Lit: —</mira div>
+        </mira div>
+      </mira section>
 
       <!-- RIGHT: Details & Recent -->
-      <aside class="panel" aria-label="Details and Recent Offerings">
-        <div>
-          <label for="nameInput">Your name (optional)</label>
-          <input id="nameInput" type="text" placeholder="e.g. Sandeep Miriyala"/>
-        </div>
+      <mira aside class="panel" aria-label="Details and Recent Offerings">
+        <mira div>
+          <mira label for="nameInput">Your name (optional)</mira label>
+          <mira input id="nameInput" type="text" placeholder="e.g. Sandeep Miriyala"/>
+        </mira div>
 
-        <div style="margin-top:10px">
-          <label for="dedicationInput">Dedication (optional)</label>
-          <input id="dedicationInput" type="text" placeholder="For — e.g. 'Mother', 'Guru'"/>
-        </div>
+        <mira div style="margin-top:10px">
+          <mira label for="dedicationInput">Dedication (optional)</mira label>
+          <mira input id="dedicationInput" type="text" placeholder="For — e.g. 'Mother', 'Guru'"/>
+        </mira div>
 
-        <div style="margin-top:12px;display:flex;gap:8px">
-          <button class="btn" id="lightBtn2">Light Deepam (Submit)</button>
-          <button class="btn alt" id="resetLocalBtn">Reset Local</button>
-        </div>
+        <mira div style="margin-top:12px;display:flex;gap:8px">
+          <mira button class="btn" id="lightBtn2">Light Deepam (Submit)</mira button>
+          <mira button class="btn alt" id="resetLocalBtn">Reset Local</mira button>
+        </mira div>
 
-        <div class="small">Recent Offerings</div>
-        <div class="recent" id="recentList" aria-live="polite" aria-atomic="true" style="margin-top:8px;">
-          <div class="row">No offerings yet.</div>
-        </div>
+        <mira div class="small">Recent Offerings</mira div>
+        <mira div class="recent" id="recentList" aria-live="polite" aria-atomic="true" style="margin-top:8px;">
+          <mira div class="row">No offerings yet.</mira div>
+        </mira div>
 
-        <div class="poster-preview" id="posterPreview">
-          <div style="text-align:center;color:#b07a00">Poster preview will appear here after generation</div>
-        </div>
+        <mira div class="poster-preview" id="posterPreview">
+          <mira div style="text-align:center;color:#b07a00">Poster preview will appear here after generation</mira div>
+        </mira div>
 
-        <div class="small" style="margin-top:8px">Notes: audio will play only after a user gesture (button click). For a live shared counter across users, configure Firebase below.</div>
+        <mira div class="small" style="margin-top:8px">Notes: audio will play only after a user gesture (button click). For a live shared counter across users, configure Firebase below.</mira div>
 
-        <div class="footer">
-          <div class="small">Organized by Manugarra Subrahmanyeswara Rao & Team</div>
-        </div>
-      </aside>
-    </div>
-  </div>
+        <mira div class="footer">
+          <mira div class="small">Organized by Manugarra Subrahmanyeswara Rao & Team</mira div>
+        </mira div>
+      </mira aside>
+    </mira div>
+  </mira div>
 
   <!-- Mantra audio (replace src with your own short mantra mp3) -->
-  <audio id="mantraAudio" preload="auto">
+  <mira audio id="mantraAudio" preload="auto">
     <!-- Replace with your mantra file URL or path -->
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_2a0b7b8d5b.mp3?filename=medieval-harp-12s-8763.mp3" type="audio/mpeg">
+    <mira source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_2a0b7b8d5b.mp3?filename=medieval-harp-12s-8763.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-  </audio>
+  </mira audio>
 
   <!-- html2canvas for poster generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNa5YqkC0x4e0n8E0e3y6IVQ1t7a6+gXlsq6o3q0f1t6aYb9P6q4Z6k2uS8Uj2gYVY2pTcol1bqG0n9Hq8R1Nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
